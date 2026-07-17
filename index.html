@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>НМ | ПЛАТФОРМА ТРЕНАЖЕРОВ ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background-color: #FFFFFF; color: #000000; padding: 20px; line-height: 1.5; }
+        .container { max-width: 600px; margin: 40px auto; }
+        
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 35px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .menu-title { font-size: 16px; font-weight: 700; text-transform: uppercase; color: #000; margin-bottom: 15px; padding-left: 5px; }
+        
+        .grid { display: flex; flex-direction: column; gap: 15px; }
+        
+        .menu-card { 
+            display: flex; 
+            flex-direction: column; 
+            padding: 20px; 
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            text-decoration: none; 
+            color: inherit; 
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .menu-card:hover { 
+            border-color: #2368EE; 
+            background-color: #F4F7FE; 
+            transform: translateY(-2px);
+        }
+        
+        .card-tag { 
+            align-self: flex-start;
+            background-color: #F4F7FE; 
+            border-left: 3px solid #2368EE; 
+            padding: 4px 8px; 
+            font-size: 11px; 
+            font-weight: 700; 
+            color: #EE6023; 
+            text-transform: uppercase; 
+            margin-bottom: 10px; 
+        }
+        .card-name { font-size: 18px; font-weight: 700; color: #000; margin-bottom: 5px; }
+        .card-desc { font-size: 14px; color: #666; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Шапка -->
+        <div class="header">
+            <h1>ОНЛАЙН-ПЛАТФОРМА</h1>
+            <p>Подготовка к ЕГЭ по русскому языку</p>
+        </div>
+
+        <h2 class="menu-title">Доступные материалы:</h2>
+
+        <!-- Список папок-тренажеров -->
+        <div class="grid">
+            
+            <!-- Орфоэпия -->
+            <a href="udareniya/" class="menu-card">
+                <div class="card-tag">Задание 4</div>
+                <div class="card-name">Тренажёр ударений</div>
+                <div class="card-desc">Интерактивная отработка орфоэпического словника ФИПИ.</div>
+            </a>
+
+            <!-- Словарь паронимов -->
+            <a href="paronyms-dict/" class="menu-card">
+                <div class="card-tag">Задание 5</div>
+                <div class="card-name">Словарь паронимов</div>
+                <div class="card-desc">Удобный разбор всех лексических пар, их значений и примеров.</div>
+            </a>
+
+            <!-- Тренажер паронимов -->
+            <a href="paronyms-test/" class="menu-card">
+                <div class="card-tag">Задание 5</div>
+                <div class="card-name">Тренажёр паронимов</div>
+                <div class="card-desc">Практические задания на выбор правильного слова из пар паронимов.</div>
+            </a>
+
+            <!-- Домашка по 6 заданию -->
+            <a href="task_6/" class="menu-card">
+                <div class="card-tag">Задание 6</div>
+                <div class="card-name">Домашняя работа: Лексические нормы</div>
+                <div class="card-desc">Тест из 10 задач на исключение и замену слов с отправкой результатов.</div>
+            </a>
+
+        </div>
+
+        <!-- Подвал -->
+        <div class="footer">
+            <span>НМ | Никита Мельников</span>
+        </div>
+    </div>
+
+</body>
+</html>
