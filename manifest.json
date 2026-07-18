@@ -1,0 +1,16 @@
+{
+  "name": "Онлайн-платформа НМ",
+  "short_name": "Платформа НМ",
+  "description": "Онлайн-платформа тренажеров ЕГЭ по русскому языку",
+  "start_url": "/ege/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2368EE",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
