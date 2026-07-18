@@ -1,1 +1,194 @@
-1
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>НМ | Словарь ударений ЕГЭ</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background-color: #FFFFFF; color: #000000; padding: 20px; line-height: 1.5; }
+        .container { max-width: 600px; margin: 20px auto; }
+        
+        /* Кнопка Назад */
+        .back-btn { display: inline-flex; align-items: center; text-decoration: none; color: #2368EE; font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; gap: 5px; }
+        .back-btn:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 26px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Поиск и Алфавит */
+        .search-box { width: 100%; padding: 12px 16px; border: 1px solid #AFAFAF; border-radius: 6px; font-family: inherit; font-size: 16px; margin-bottom: 15px; outline: none; }
+        .search-box:focus { border-color: #2368EE; background-color: #F4F7FE; }
+        
+        .alphabet-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 25px; justify-content: center; }
+        .letter-btn { background: #F4F7FE; border: none; color: #2368EE; font-size: 14px; font-weight: 700; width: 32px; height: 32px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.1s ease; }
+        .letter-btn:hover { background: #2368EE; color: #FFFFFF; }
+
+        /* Стили для групп слов */
+        .letter-group { margin-bottom: 25px; border: 1px solid #E0E0E0; border-radius: 6px; padding: 15px; background: #F8F9FA; }
+        .letter-title { font-size: 20px; font-weight: 900; color: #EE6023; margin-bottom: 10px; border-bottom: 1px solid #E0E0E0; padding-bottom: 4px; }
+        
+        .words-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .word-item { background: #FFFFFF; padding: 6px 12px; border-radius: 4px; border: 1px solid #D1D1D1; font-size: 15px; font-weight: 600; color: #333; }
+        
+        /* Выделение ударной гласной */
+        .word-item em { font-style: normal; color: #2368EE; font-weight: 900; text-decoration: underline; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Кнопка возврата в меню-хаб -->
+        <a href="../" class="back-btn">← Меню платформы</a>
+
+        <!-- Шапка -->
+        <div class="header">
+            <h1>СЛОВАРЬ УДАРЕНИЙ</h1>
+            <p>ОРФОЭПИЧЕСКИЙ СЛОВНИК ЕГЭ</p>
+        </div>
+
+        <!-- Инструменты фильтрации -->
+        <input type="text" id="searchInput" class="search-box" placeholder="Поиск слова или правила...">
+        
+        <div class="alphabet-nav" id="alphabetNav">
+            <!-- Скрипт сам заполнит буквы для быстрого скролла -->
+        </div>
+
+        <!-- Контент словаря -->
+        <div id="dictionaryContent">
+            <!-- Сюда JS сгенерирует все карточки -->
+        </div>
+
+        <!-- Подвал -->
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+    </div>
+
+    <script>
+        // Исходные данные словаря (ударные гласные выделены тегом <em>)
+        const dictData = {
+            "А": ["аэропОрты", "аэропОрт"],
+            "Б": ["бАнты", "бАнт", "бОроду", "бородА", "бухгАлтеров", "бухгАлтер", "бралА", "бралАсь"],
+            "В": ["вероисповЕдание", "водопровОд", "вернА", "взялА", "взялАсь", "влилАсь", "ворвалАсь", "воспринЯть", "воспринялА", "воссоздалА", "вручИт", "вОвремя"],
+            "Г": ["газопровОд", "граждАнство", "гналА", "гналАсь"],
+            "Д": ["дефИс", "дешевИзна", "диспансЕр", "договорЁнность", "докумЕнт", "досУг", "добралА", "добралАсь", "дождалАсь", "дозвонИтся", "дозировать", "довезЁнный", "дОверху", "донЕльзя", "дОнизу", "дОсуха"],
+            "Е": ["еретИк"],
+            "Ж": ["жалюзИ", "ждалА", "жилОсь"],
+            "З": ["знАчимость", "знАчимый", "закУпорить", "занЯть", "зАнял", "занялА", "зАняли", "заперлА", "запломбировАть", "защемИт", "звалА", "звонИт", "зАгнутый", "зАнятый", "занятА", "зАпертый", "заселЁнный", "заселенА", "закУпорив", "зАсветло", "зАтемно"],
+            "И": ["Иксы", "Икс"],
+            "К": ["каталОг", "квартАл", "киломЕтр", "кОнусов", "кОнус", "корЫсть", "крАны", "крАн", "кремЕнь", "кремнЯ (род. п. ед. ч.)", "красИвее", "красИвейший", "кУхонный", "кАшлянуть", "клАла", "клЕить", "крАлась", "кровоточИть", "кормЯщий", "кровоточАщий"],
+            "Л": ["лЕкторов", "лЕктор", "лОктя", "лОкоть", "локтЕй", "лыжнЯ", "ловкА", "лгалА", "лилА", "лилАсь"],
+            "М": ["мЕстностей", "мЕстность", "мозаИчный"],
+            "Н": ["намЕрение", "нарОст", "нЕдруг", "недУг", "некролОг", "нЕнависть", "нефтепровОд", "новостЕй", "нОвость", "нОгтя", "нОготь", "ногтЕй", "навралА", "наделИт", "надорвалАсь", "назвалАсь", "накренИтся", "налилА", "нарвалА", "начАть", "нАчал", "началА", "нАчали", "нажИвший", "налИвший", "нанЯвшийся", "начАвший", "начАтый", "низведЁнный", "начАв", "начАвшись", "надОлго", "ненадОлго"],
+            "О": ["Отзыв (о книге)", "отзыв (посла из страны)", "Отрочество", "оптОвый", "обзвонИт", "облегчИть", "облегчИт", "облилАсь", "обнялАсь", "обогналА", "ободралА", "ободрИть", "ободрИт", "ободрИться", "ободрИтся", "обострИть", "одолжИть", "одолжИт", "озлОбить", "оклЕить", "окружИт", "опОшлить", "освЕдомиться", "освЕдомится", "отбылА", "отдалА", "откУпорить", "отозвалА", "отозвалАсь", "облегчЁнный", "ободрЁнный", "обострЁнный", "отключЁнный", "отдАв"],
+            "П": ["партЕр", "портфЕль", "пОручни", "придАное", "призЫв", "прозорлИвый", "прозорлИва", "перезвонИт", "перелилА", "плодоносИть", "пломбировАть", "повторИт", "позвалА", "позвонИт", "полилА", "положИть", "положИл", "понЯть", "понялА", "послАла", "прибЫть", "прИбыл", "прибылА", "прИбыли", "принЯть", "прИнял", "принялА", "прИняли", "повторЁнный", "поделЁнный", "понЯвший", "принЯтый", "принятА", "приручЁнный", "прожИвший", "поднЯв", "понЯв", "прибЫв"],
+            "Р": ["рвалА"],
+            "С": ["свЁкла", "сирОты", "сиротА", "созЫв", "сосредотОчение", "срЕдства", "срЕдство", "стАтуя", "столЯр", "слИвовый", "сверлИт", "снялА", "совралА", "создалА", "сорвалА", "сорИт", "снятА", "согнУтый", "создАв"],
+            "Т": ["тамОжня", "тОрты", "тОрт", "тУфля"],
+            "У": ["убралА", "углубИть", "укрепИт", "углублЁнный"],
+            "Ц": ["цемЕнт", "цЕнтнер", "цепОчка"],
+            "Ч": ["чЕрпать"],
+            "Ш": ["шАрфы", "шАрф", "шофЁр"],
+            "Щ": ["щемИт", "щёлкать"],
+            "Э": ["экспЕрт"]
+        };
+
+        // Вспомогательная функция для автоматической разметки ударений (больших букв) тегом em
+        function highlightVowel(word) {
+            return word.replace(/([АОУЫЭЯЕЁИЮШа-яа-я\s\(\).,ёй\-\–]+)/g, (match) => {
+                // Если внутри фрагмента есть БОЛЬШАЯ русская гласная, делаем её ударной
+                if (/[АОУЫЭЯЕЁИЮ]/.test(match) && match.length === 1) {
+                    return `<em>${match}</em>`;
+                }
+                return match;
+            });
+        }
+
+        const dictContent = document.getElementById('dictionaryContent');
+        const alphabetNav = document.getElementById('alphabetNav');
+
+        // Генерация контента
+        function buildDictionary() {
+            dictContent.innerHTML = '';
+            alphabetNav.innerHTML = '';
+
+            for (let letter in dictData) {
+                // Создаем кнопку алфавита
+                const btn = document.createElement('button');
+                btn.className = 'letter-btn';
+                btn.innerText = letter;
+                btn.onclick = () => {
+                    document.getElementById(`group_${letter}`).scrollIntoView({ behavior: 'smooth' });
+                };
+                alphabetNav.appendChild(btn);
+
+                // Создаем блок группы
+                const group = document.createElement('div');
+                group.className = 'letter-group';
+                group.id = `group_${letter}`;
+
+                const title = document.createElement('div');
+                title.className = 'letter-title';
+                title.innerText = letter;
+                group.appendChild(title);
+
+                const list = document.createElement('div');
+                list.className = 'words-list';
+
+                dictData[letter].forEach(word => {
+                    const item = document.createElement('div');
+                    item.className = 'word-item';
+                    item.innerHTML = highlightVowel(word);
+                    list.appendChild(item);
+                });
+
+                group.appendChild(list);
+                dictContent.appendChild(group);
+            }
+        }
+
+        // Логика живого поиска
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            const groups = document.querySelectorAll('.letter-group');
+
+            groups.forEach(group => {
+                const items = group.querySelectorAll('.word-item');
+                let hasVisibleWords = false;
+
+                items.forEach(item => {
+                    if (item.innerText.toLowerCase().includes(query)) {
+                        item.style.display = 'block';
+                        hasVisibleWords = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                // Если в группе нет подходящих слов, скрываем всю букву
+                if (hasVisibleWords) {
+                    group.style.display = 'block';
+                } else {
+                    group.style.display = 'none';
+                }
+            });
+        });
+
+        // Инициализация
+        buildDictionary();
+
+        // ФИКСАЦИЯ ПРОГРЕССА: отмечаем в localStorage, что ученик открыл словарь
+        localStorage.setItem('udareniya_dict_completed', new Date().toLocaleDateString('ru-RU'));
+    </script>
+</body>
+</html>
