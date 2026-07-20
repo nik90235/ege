@@ -12,32 +12,51 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Inter', -apple-system, sans-serif; background-color: #FFFFFF; color: #000000; padding: 20px; line-height: 1.5; }
-        .container { max-width: 600px; margin: 20px auto; }
         
-        /* Кнопка Назад */
-        .back-btn { display: inline-flex; align-items: center; text-decoration: none; color: #2368EE; font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; gap: 5px; }
-        .back-btn:hover { color: #EE6023; }
+        /* Единый контейнер с отступом 40px сверху */
+        .container { max-width: 600px; margin: 40px auto; }
+        
+        /* Фирменная шапка */
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
 
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        /* Кнопка Назад — приведена к единому стилю */
+        .back-link { display: inline-flex; align-items: center; text-decoration: none; color: #2368EE; font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; transition: color 0.2s; }
+        .back-link:hover { color: #EE6023; }
+
+        /* Шапка словаря */
         .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
-        .header h1 { font-size: 26px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
         .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Поиск и Алфавит */
-        .search-box { width: 100%; padding: 12px 16px; border: 1px solid #AFAFAF; border-radius: 6px; font-family: inherit; font-size: 16px; margin-bottom: 15px; outline: none; }
-        .search-box:focus { border-color: #2368EE; background-color: #F4F7FE; }
+        /* Поиск — единый стиль */
+        .search-container { margin-bottom: 25px; }
+        .search-input { width: 100%; padding: 14px 20px; border: 1px solid #AFAFAF; border-radius: 6px; font-family: inherit; font-size: 16px; font-weight: 600; outline: none; color: #000000; transition: border-color 0.2s; }
+        .search-input:focus { border-color: #2368EE; }
+        .search-input::placeholder { color: #929292; }
         
-        .alphabet-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 25px; justify-content: center; }
-        .letter-btn { background: #F4F7FE; border: none; color: #2368EE; font-size: 14px; font-weight: 700; width: 32px; height: 32px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.1s ease; }
-        .letter-btn:hover { background: #2368EE; color: #FFFFFF; }
+        /* Алфавитная навигация — единый стиль */
+        .alphabet-container { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 30px; justify-content: center; }
+        .letter-btn { background-color: #F4F7FE; border: none; color: #2368EE; font-size: 13px; font-weight: 700; width: 34px; height: 34px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; text-transform: uppercase; transition: all 0.2s ease; }
+        .letter-btn:hover { background-color: #2368EE; color: #FFFFFF; }
 
-        /* Стили для групп слов */
-        .letter-group { margin-bottom: 25px; border: 1px solid #E0E0E0; border-radius: 6px; padding: 15px; background: #F8F9FA; }
-        .letter-title { font-size: 20px; font-weight: 900; color: #EE6023; margin-bottom: 10px; border-bottom: 1px solid #E0E0E0; padding-bottom: 4px; }
+        /* Группы слов и карточки */
+        .letter-section { margin-bottom: 25px; }
+        .section-letter { font-size: 16px; font-weight: 700; text-transform: uppercase; color: #EE6023; margin-bottom: 15px; padding-left: 5px; }
         
-        .words-list { display: flex; flex-wrap: wrap; gap: 10px; }
-        .word-item { background: #FFFFFF; padding: 6px 12px; border-radius: 4px; border: 1px solid #D1D1D1; font-size: 15px; font-weight: 600; color: #333; }
-        
-        /* Выделение ударной гласной */
+        .words-list { display: flex; flex-wrap: wrap; gap: 10px; padding: 20px; border: 1px solid #AFAFAF; border-radius: 6px; background-color: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .word-item { background: #F4F7FE; padding: 6px 12px; border-radius: 4px; border: 1px solid #D1D1D1; font-size: 15px; font-weight: 600; color: #333; }
         .word-item em { font-style: normal; color: #2368EE; font-weight: 900; text-decoration: underline; }
 
         .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
@@ -46,8 +65,14 @@
 <body>
 
     <div class="container">
-        <!-- Кнопка возврата в меню-хаб -->
-        <a href="../" class="back-btn">← Меню платформы</a>
+        <!-- Фирменная шапка -->
+        <div class="brand-header">
+            <span class="brand-name">НМ | Никита Мельников</span>
+            <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+        </div>
+
+        <!-- Ссылка назад -->
+        <a href="../" class="back-link">← Меню платформы</a>
 
         <!-- Шапка -->
         <div class="header">
@@ -55,17 +80,16 @@
             <p>ОРФОЭПИЧЕСКИЙ СЛОВНИК ЕГЭ</p>
         </div>
 
-        <!-- Инструменты фильтрации -->
-        <input type="text" id="searchInput" class="search-box" placeholder="Поиск слова или правила...">
-        
-        <div class="alphabet-nav" id="alphabetNav">
-            <!-- Скрипт сам заполнит буквы для быстрого скролла -->
+        <!-- Поиск -->
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Поиск слова или правила...">
         </div>
+        
+        <!-- Алфавитная навигация -->
+        <div class="alphabet-container" id="alphabetNav"></div>
 
         <!-- Контент словаря -->
-        <div id="dictionaryContent">
-            <!-- Сюда JS сгенерирует все карточки -->
-        </div>
+        <div id="dictionaryContent"></div>
 
         <!-- Подвал -->
         <div class="footer">
@@ -75,7 +99,6 @@
     </div>
 
     <script>
-        // Исходные данные словаря (ударные гласные выделены тегом <em>)
         const dictData = {
             "А": ["аэропОрты", "аэропОрт"],
             "Б": ["бАнты", "бАнт", "бОроду", "бородА", "бухгАлтеров", "бухгАлтер", "бралА", "бралАсь"],
@@ -90,7 +113,7 @@
             "Л": ["лЕкторов", "лЕктор", "лОктя", "лОкоть", "локтЕй", "лыжнЯ", "ловкА", "лгалА", "лилА", "лилАсь"],
             "М": ["мЕстностей", "мЕстность", "мозаИчный"],
             "Н": ["намЕрение", "нарОст", "нЕдруг", "недУг", "некролОг", "нЕнависть", "нефтепровОд", "новостЕй", "нОвость", "нОгтя", "нОготь", "ногтЕй", "навралА", "наделИт", "надорвалАсь", "назвалАсь", "накренИтся", "налилА", "нарвалА", "начАть", "нАчал", "началА", "нАчали", "нажИвший", "налИвший", "нанЯвшийся", "начАвший", "начАтый", "низведЁнный", "начАв", "начАвшись", "надОлго", "ненадОлго"],
-            "О": ["Отзыв (о книге)", "отзыв (посла из страны)", "Отрочество", "оптОвый", "обзвонИт", "облегчИть", "облегчИт", "облилАсь", "обнялАсь", "обогналА", "ободралА", "ободрИть", "ободрИт", "ободрИться", "ободрИтся", "обострИть", "одолжИть", "одолжИт", "озлОбить", "оклЕить", "окружИт", "опОшлить", "освЕдомиться", "освЕдомится", "отбылА", "отдалА", "откУпорить", "отозвалА", "отозвалАсь", "облегчЁнный", "ободрЁнный", "обострЁнный", "отключЁнный", "отдАв"],
+            "О": ["Отзыв (о книге)", "отзыв (посла из страны)", "Отрочество", "оптОвый", "обзвонИт", "облегчИть", "облегчИт", "облилАсь", "обнялАсь", "обогналА", "ободралА", "ободрИть", "ободрИть", "ободрИться", "ободрИться", "обострИть", "одолжИть", "одолжИт", "озлОбить", "оклЕить", "окружИт", "опОшлить", "освЕдомиться", "освЕдомится", "отбылА", "отдалА", "откУпорить", "отозвалА", "отозвалАсь", "облегчЁнный", "ободрЁнный", "обострЁнный", "отключЁнный", "отдАв"],
             "П": ["партЕр", "портфЕль", "пОручни", "придАное", "призЫв", "прозорлИвый", "прозорлИва", "перезвонИт", "перелилА", "плодоносИть", "пломбировАть", "повторИт", "позвалА", "позвонИт", "полилА", "положИть", "положИл", "понЯть", "понялА", "послАла", "прибЫть", "прИбыл", "прибылА", "прИбыли", "принЯть", "прИнял", "принялА", "прИняли", "повторЁнный", "поделЁнный", "понЯвший", "принЯтый", "принятА", "приручЁнный", "прожИвший", "поднЯв", "понЯв", "прибЫв"],
             "Р": ["рвалА"],
             "С": ["свЁкла", "сирОты", "сиротА", "созЫв", "сосредотОчение", "срЕдства", "срЕдство", "стАтуя", "столЯр", "слИвовый", "сверлИт", "снялА", "совралА", "создалА", "сорвалА", "сорИт", "снятА", "согнУтый", "создАв"],
@@ -103,10 +126,8 @@
             "Э": ["экспЕрт"]
         };
 
-        // Вспомогательная функция для автоматической разметки ударений (больших букв) тегом em
         function highlightVowel(word) {
             return word.replace(/([АОУЫЭЯЕЁИЮШа-яа-я\s\(\).,ёй\-\–]+)/g, (match) => {
-                // Если внутри фрагмента есть БОЛЬШАЯ русская гласная, делаем её ударной
                 if (/[АОУЫЭЯЕЁИЮ]/.test(match) && match.length === 1) {
                     return `<em>${match}</em>`;
                 }
@@ -117,30 +138,28 @@
         const dictContent = document.getElementById('dictionaryContent');
         const alphabetNav = document.getElementById('alphabetNav');
 
-        // Генерация контента
         function buildDictionary() {
             dictContent.innerHTML = '';
             alphabetNav.innerHTML = '';
 
             for (let letter in dictData) {
-                // Создаем кнопку алфавита
                 const btn = document.createElement('button');
                 btn.className = 'letter-btn';
                 btn.innerText = letter;
                 btn.onclick = () => {
-                    document.getElementById(`group_${letter}`).scrollIntoView({ behavior: 'smooth' });
+                    const el = document.getElementById(`letter-${letter}`);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 };
                 alphabetNav.appendChild(btn);
 
-                // Создаем блок группы
-                const group = document.createElement('div');
-                group.className = 'letter-group';
-                group.id = `group_${letter}`;
+                const sec = document.createElement('div');
+                sec.className = 'letter-section';
+                sec.id = `letter-${letter}`;
 
-                const title = document.createElement('div');
-                title.className = 'letter-title';
-                title.innerText = letter;
-                group.appendChild(title);
+                const h2 = document.createElement('h2');
+                h2.className = 'section-letter';
+                h2.textContent = letter;
+                sec.appendChild(h2);
 
                 const list = document.createElement('div');
                 list.className = 'words-list';
@@ -152,18 +171,17 @@
                     list.appendChild(item);
                 });
 
-                group.appendChild(list);
-                dictContent.appendChild(group);
+                sec.appendChild(list);
+                dictContent.appendChild(sec);
             }
         }
 
-        // Логика живого поиска
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase().trim();
-            const groups = document.querySelectorAll('.letter-group');
+            const sections = document.querySelectorAll('.letter-section');
 
-            groups.forEach(group => {
-                const items = group.querySelectorAll('.word-item');
+            sections.forEach(section => {
+                const items = section.querySelectorAll('.word-item');
                 let hasVisibleWords = false;
 
                 items.forEach(item => {
@@ -175,19 +193,11 @@
                     }
                 });
 
-                // Если в группе нет подходящих слов, скрываем всю букву
-                if (hasVisibleWords) {
-                    group.style.display = 'block';
-                } else {
-                    group.style.display = 'none';
-                }
+                section.style.display = hasVisibleWords ? 'block' : 'none';
             });
         });
 
-        // Инициализация
         buildDictionary();
-
-        // ФИКСАЦИЯ ПРОГРЕССА: отмечаем в localStorage, что ученик открыл словарь
         localStorage.setItem('udareniya_dict_completed', new Date().toLocaleDateString('ru-RU'));
     </script>
 </body>
