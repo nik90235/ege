@@ -20,6 +20,27 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background-color: #FFFFFF; color: #000000; padding: 20px; line-height: 1.5; }
         .container { max-width: 600px; margin: 40px auto; }
         
+        /* Стили для фирменной шапки */
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .brand-name {
+            color: #2368EE;
+        }
+
+        .brand-phone {
+            color: #929292;
+            text-decoration: none;
+        }
+        
         .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
         .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
         .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
@@ -92,6 +113,12 @@
 <body>
 
     <div class="container">
+        <!-- Фирменная шапка платформы -->
+        <div class="brand-header">
+            <span class="brand-name">НМ | Никита Мельников</span>
+            <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+        </div>
+
         <!-- Шапка -->
         <div class="header">
             <h1>ОНЛАЙН-ПЛАТФОРМА</h1>
