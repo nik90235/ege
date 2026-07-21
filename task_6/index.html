@@ -19,7 +19,6 @@
         }
         .container { max-width: 600px; margin: 40px auto; }
         
-        /* Новая фирменная шапка как в index.html */
         .brand-header {
             display: flex;
             justify-content: space-between;
@@ -50,7 +49,6 @@
         .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
         .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Ввод имени */
         .student-info { 
             background: #FFFFFF; 
             padding: 20px; 
@@ -75,7 +73,6 @@
             background-color: #FFFFFF;
         }
 
-        /* Карточки заданий */
         .task-card { 
             background: #FFFFFF;
             border: 1px solid #AFAFAF; 
@@ -127,7 +124,6 @@
             border-color: #2368EE; 
         }
 
-        /* Кнопка */
         .submit-btn { 
             background-color: #2368EE; 
             color: white; 
@@ -154,22 +150,19 @@
     <div class="container" id="mainContainer">
         <div id="homeworkForm">
             
-            <!-- Фирменная верхняя панель -->
             <div class="brand-header">
                 <span class="brand-name">НМ | Никита Мельников</span>
                 <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
             </div>
 
-            <!-- Ссылка возврата в меню платформы -->
-            <a href="./" class="back-link">← Меню платформы</a>
+            <!-- ИЗМЕНЕНО: Возврат на уровень выше в корень к index.html -->
+            <a href="../" class="back-link">← Меню платформы</a>
 
-            <!-- Центральный заголовок страницы -->
             <div class="header">
                 <h1>Домашняя работа: Задание 6</h1>
                 <p>Контроль знаний по лексическим нормам</p>
             </div>
 
-            <!-- Данные ученика -->
             <div class="student-info">
                 <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
             </div>
@@ -348,7 +341,8 @@
                         <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
                         <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
                         <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
-                        <a href="./" class="back-link" style="margin-top: 20px;">← В меню</a>
+                        <!-- ИЗМЕНЕНО: Возврат в меню из окна успеха -->
+                        <a href="../" class="back-link" style="margin-top: 20px;">← В меню</a>
                     </div>
                 `;
             })
