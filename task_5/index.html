@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМАШНЯЯ РАБОТА: ЗАДАНИЕ 5 ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.5; 
+        }
+        .container { max-width: 600px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link { 
+            display: inline-flex; 
+            align-items: center; 
+            text-decoration: none; 
+            color: #2368EE; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            transition: color 0.2s; 
+            cursor: pointer;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .student-info { 
+            background: #FFFFFF; 
+            padding: 20px; 
+            border-radius: 6px; 
+            margin-bottom: 24px; 
+            border: 1px solid #AFAFAF;
+        }
+        .student-info input { 
+            width: 100%; 
+            padding: 14px 16px; 
+            border: 1px solid #CBD5E1; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none;
+            transition: all 0.2s ease;
+            background-color: #F8FAFC;
+        }
+        .student-info input:focus {
+            border-color: #2368EE;
+            background-color: #FFFFFF;
+        }
+
+        .task-card { 
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            padding: 24px; 
+            margin-bottom: 20px; 
+        }
+        .task-title { 
+            display: inline-block;
+            background-color: #F4F7FE; 
+            padding: 6px 12px; 
+            border-radius: 6px;
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #2368EE; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            margin-bottom: 16px; 
+        }
+        .instruction { font-weight: 700; margin-bottom: 14px; font-size: 15px; color: #000000; }
+        .instruction strong { color: #EE6023; font-weight: 800; }
+        
+        .sentence-box { 
+            font-size: 15px; 
+            font-weight: 500;
+            margin-bottom: 20px; 
+            line-height: 1.6; 
+            padding: 12px 16px; 
+            background: #F4F7FE;
+            border-left: 4px solid #EE6023; 
+            border-radius: 0 6px 6px 0;
+            color: #000000;
+        }
+        .sentence-box p { margin-bottom: 6px; }
+        .sentence-box p:last-child { margin-bottom: 0; }
+        
+        .input-block { display: flex; flex-direction: column; gap: 8px; }
+        .input-label { font-size: 14px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 0.5px; }
+        .answer-input { 
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none; 
+            transition: all 0.2s ease;
+        }
+        .answer-input:focus { 
+            border-color: #2368EE; 
+        }
+
+        .submit-btn { 
+            background-color: #2368EE; 
+            color: white; 
+            border: none; 
+            padding: 16px 30px; 
+            font-size: 16px; 
+            font-weight: 700; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            width: 100%; 
+            margin-top: 12px; 
+            transition: all 0.2s ease; 
+        }
+        .submit-btn:hover { background-color: #1d56c9; }
+        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <div id="homeworkForm">
+            
+            <div class="brand-header">
+                <span class="brand-name">НМ | Никита Мельников</span>
+                <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+            </div>
+
+            <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link">← Меню платформы</a>
+
+            <div class="header">
+                <h1>Домашняя работа: Задание 5</h1>
+                <p>Паронимы и лексические нормы</p>
+            </div>
+
+            <div class="student-info">
+                <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
+            </div>
+
+            <!-- Задача 1 -->
+            <div class="task-card">
+                <div class="task-title">Задача 1</div>
+                <div class="instruction">В одном из приведённых ниже предложений <strong>НЕВЕРНО</strong> употреблено выделенное слово. Исправьте лексическую ошибку, подобрав к выделенному слову пароним.</div>
+                <div class="sentence-box">
+                    <p>Педагог пришёл к выводу, что игра юного пианиста пока недостаточно ТЕХНИЧНА.</p>
+                    <p>В 1840 году была опубликована РОМАНТИЧНАЯ поэма М.Ю. Лермонтова «Мцыри».</p>
+                    <p>ПРАЗДНЫМ можно назвать человека, у которого отдых не чередуется с трудом.</p>
+                    <p>Гость ПОЧТИТЕЛЬНО поклонился и попросил разрешения откланяться.</p>
+                    <p>ОРГАНИЧЕСКИМИ называются удобрения, содержащие питательные вещества растительного или животного происхождения.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_1" class="answer-input" placeholder="Введите исправленное слово...">
+                </div>
+            </div>
+
+            <!-- Задача 2 -->
+            <div class="task-card">
+                <div class="task-title">Задача 2</div>
+                <div class="instruction">В одном из приведённых ниже предложений <strong>НЕВЕРНО</strong> употреблено выделенное слово. Исправьте лексическую ошибку, подобрав к выделенному слову пароним.</div>
+                <div class="sentence-box">
+                    <p>Картины художников-передвижников являются ГОРДОСТЬЮ Русского музея.</p>
+                    <p>ЛИРИЧЕСКИЙ герой в поэзии В.В. Маяковского — человек смелый, оригинальный.</p>
+                    <p>На последний звонок я планирую ОДЕТЬ длинное платье исключительно чёрного цвета.</p>
+                    <p>В семье его всегда старались ОГРАДИТЬ от трудностей и создавали все условия.</p>
+                    <p>НЕВЕЖДОЙ называют необразованного или некомпетентного человека.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_2" class="answer-input" placeholder="Введите исправленное слово...">
+                </div>
+            </div>
+
+            <!-- Задача 3 -->
+            <div class="task-card">
+                <div class="task-title">Задача 3</div>
+                <div class="instruction">В одном из приведённых ниже предложений <strong>НЕВЕРНО</strong> употреблено выделенное слово. Исправьте лексическую ошибку, подобрав к выделенному слову пароним.</div>
+                <div class="sentence-box">
+                    <p>Принцип ЭКОНОМИЧЕСКОЙ передачи информации гласит, что невыгодно всё время передавать образ целиком.</p>
+                    <p>В музее деревянного зодчества сложилась обширная красочная экспозиция, подобная раскрытой книге, на прочтение которой не хватит и ЦЕЛОГО дня.</p>
+                    <p>В кроссовом спринте Попов безраздельно царствовал, несмотря на СОПРОТИВЛЕНИЕ достойных соперников.</p>
+                    <p>Для получения налоговых вычетов вам необходимо ПРЕДОСТАВИТЬ в инспекцию полный комплект документов.</p>
+                    <p>Индейцы учат будущих охотников распознаванию следов на земле, траве и деревьях, бесшумному и СКРЫТНОМУ передвижению.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_3" class="answer-input" placeholder="Введите исправленное слово...">
+                </div>
+            </div>
+
+            <!-- Задача 4 -->
+            <div class="task-card">
+                <div class="task-title">Задача 4</div>
+                <div class="instruction">В одном из приведённых ниже предложений <strong>НЕВЕРНО</strong> употреблено выделенное слово. Исправьте лексическую ошибку, подобрав к выделенному слову пароним.</div>
+                <div class="sentence-box">
+                    <p>ДОЖДЛИВАЯ погода летом, во время отпуска, расстраивает многих людей.</p>
+                    <p>АВТОРИТЕТНЫЙ стиль руководства, при котором не учитывается мнение сотрудников, часто приводит к утечке кадров.</p>
+                    <p>Иногда необходимо СНИЗИТЬ пафос и призвать на помощь чувство юмора.</p>
+                    <p>Юная актриса долго думала над своим СЦЕНИЧЕСКИМ псевдонимом.</p>
+                    <p>Для развития творческого мышления школьников необходимо использовать ЭФФЕКТИВНЫЕ методы обучения.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_4" class="answer-input" placeholder="Введите исправленное слово...">
+                </div>
+            </div>
+
+            <!-- Задача 5 -->
+            <div class="task-card">
+                <div class="task-title">Задача 5</div>
+                <div class="instruction">В одном из приведённых ниже предложений <strong>НЕВЕРНО</strong> употреблено выделенное слово. Исправьте лексическую ошибку, подобрав к выделенному слову пароним.</div>
+                <div class="sentence-box">
+                    <p>Редко кто берёт с собой зимой на рыбалку СКЛАДНОЙ стульчик, большинство пользуется рыболовным ящиком.</p>
+                    <p>На севере, в условиях ВЕЧНОЙ мерзлоты, строительство жилых домов ведётся по специальным проектам.</p>
+                    <p>Кафедральный собор обретает сегодня БЫЛОЕ величие и красоту.</p>
+                    <p>По КАМЕНИСТЫМ ущельям грохотали бурные горные речки.</p>
+                    <p>Купленный мной проездной билет на все виды транспорта является ДЕЙСТВЕННЫМ только в течение одного месяца.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_5" class="answer-input" placeholder="Введите исправленное слово...">
+                </div>
+            </div>
+
+            <!-- Задача 6 -->
+            <div class="task-card">
+                <div class="task-title">Задача 6</div>
+                <div class="instruction">В одном из приведённых ниже предложений <strong>НЕВЕРНО</strong> употреблено выделенное слово. Исправьте лексическую ошибку, подобрав к выделенному слову пароним.</div>
+                <div class="sentence-box">
+                    <p>Коллекция редких монет — предмет ГОРДОСТИ её владельца.</p>
+                    <p>В городе была НЕТЕРПИМАЯ жара, поэтому было решено детей с няней отправить в деревню.</p>
+                    <p>Согласно теории ЧЕЛОВЕЧЕСКОГО капитала, поток мигрантов зависит от получения информации о возможностях трудоустройства.</p>
+                    <p>По КАМЕНИСТЫМ ущельям грохотали бурные горные речки.</p>
+                    <p>Устав от ЖИТЕЙСКИХ бурь, он уединился в своём загородном доме.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_6" class="answer-input" placeholder="Введите исправленное слово...">
+                </div>
+            </div>
+
+            <!-- Задача 7 -->
+            <div class="task-card">
+                <div class="task-title">Задача 7</div>
+                <div class="instruction">В одном из приведённых ниже предложений <strong>НЕВЕРНО</strong> употреблено выделенное слово. Исправьте лексическую ошибку, подобрав к выделенному слову пароним.</div>
+                <div class="sentence-box">
+                    <p>Отправленная телеграмма не получена АДРЕСАТОМ.</p>
+                    <p>Как только ПРЕДСТАВИТСЯ возможность поехать к морю, возьму отпуск.</p>
+                    <p>Граждане, просьба ОПЛАЧИВАТЬ проезд своевременно.</p>
+                    <p>Дед Гликерий ПУГЛИВЫМ отрадусь не был: на медведя зимой ходил с одной рогатиной.</p>
+                    <p>Самый обычный обед можно превратить в ПРАЗДНЫЙ, если правильно украсить стол.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_7" class="answer-input" placeholder="Введите исправленное слово...">
+                </div>
+            </div>
+
+            <!-- Задача 8 -->
+            <div class="task-card">
+                <div class="task-title">Задача 8</div>
+                <div class="instruction">В одном из приведённых ниже предложений <strong>НЕВЕРНО</strong> употреблено выделенное слово. Исправьте лексическую ошибку, подобрав к выделенному слову пароним.</div>
+                <div class="sentence-box">
+                    <p>1) Алексею удалось приобрести совершенно эксклюзивный концертный АБОНЕМЕНТ.</p>
+                    <p>2) В деле постройки морских судов я был НЕВЕЖДА и науч, но и хорошо понимал всю пользу такого приспособления.</p>
+                    <p>3) Полный текст приложения, к сожалению, страдает ОПИСКАМИ.</p>
+                    <p>4) Право распределять роли ПРЕДСТАВЛЯЛОСЬ режиссёру, поскольку именно он автор концепции спектакля.</p>
+                    <p>5) Одноногий, забытый свой ПОЧТЕННЫЙ возраст и умудрёнось опытом, тоже превратился в щенка.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_8" class="answer-input" placeholder="Введите исправленное слово...">
+                </div>
+            </div>
+
+            <!-- Задача 9 -->
+            <div class="task-card">
+                <div class="task-title">Задача 9</div>
+                <div class="instruction">В одном из приведённых ниже предложений <strong>НЕВЕРНО</strong> употреблено выделенное слово. Исправьте лексическую ошибку, подобрав к выделенному слову пароним.</div>
+                <div class="sentence-box">
+                    <p>1) Храм создаёт впечатление не архитектурного, а скульптурного произведения, как будто зодчий делал его из ЦЕЛОНОГО куска камня.</p>
+                    <p>2) Только спустя несколько лет учёному удалось ПРЕДСТАВИТЬ научной общественности убедительные факты.</p>
+                    <p>3) В обычных условиях оцинкованные заземлители служат около 30 лет, что не всегда подходит для объектов с длительным РАСЧЁТНЫМ сроком.</p>
+                    <p>4) Первое НАПОМИНАНИЕ о Смоленске в письменных источниках относится к 863 г.</p>
+                    <p>5) Высший Арбитражный Суд Российской Федерации является высшим судебным органом для принятия решения по ЭКОНОМИЧЕСКИМ спорам.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_9" class="answer-input" placeholder="Введите исправленное слово...">
+                </div>
+            </div>
+
+            <!-- Задача 10 -->
+            <div class="task-card">
+                <div class="task-title">Задача 10</div>
+                <div class="instruction">В одном из приведённых ниже предложений <strong>НЕВЕРНО</strong> употреблено выделенное слово. Исправьте лексическую ошибку, подобрав к выделенному слову пароним.</div>
+                <div class="sentence-box">
+                    <p>АДРЕСАТ был неизвестен, поэтому письмо не дошло.</p>
+                    <p>Он избегал ответственности и всячески УКЛОНЯЛСЯ от разговоров о будущем.</p>
+                    <p>В регионе не было ни одного спортивного объекта олимпийского уровня: ЛЕДЯНЫХ дворцов, горнолыжных трасс и т.д.</p>
+                    <p>Первые УПОМИНАНИЯ о славянах в европейских письменных источниках приходятся только на VI век н.э.</p>
+                    <p>Человек ДИПЛОМАТИЧНЫЙ — это искусный психолог, знаток людских душ.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_10" class="answer-input" placeholder="Введите исправленное слово...">
+                </div>
+            </div>
+
+            <button type="button" id="submitBtn" class="submit-btn">Отправить работу на проверку</button>
+        </div>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+    </div>
+
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyu6eRVzyNTmpxLx1_QN2Mc3wa4A78bNCDku64h1Ytcl4m0dGesSeWIfKGPqYt4WN58/exec';
+
+        function processSending() {
+            const submitBtn = document.getElementById('submitBtn');
+            if (submitBtn.disabled) return;
+
+            const nameInput = document.getElementById('studentName');
+            const studentName = nameInput.value.trim();
+
+            if (!studentName) {
+                alert('Пожалуйста, введите ваше Имя и Фамилию.');
+                nameInput.focus();
+                return;
+            }
+
+            const inputs = document.querySelectorAll('.answer-input');
+            let allFilled = true;
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    allFilled = false;
+                }
+            });
+
+            if (!allFilled) {
+                if (!confirm('Вы заполнили не все ответы. Всё равно отправить работу?')) {
+                    return;
+                }
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Отправка данных...';
+
+            const searchParams = new URLSearchParams();
+            searchParams.append('taskType', 'dz5'); // Маркер ДЗ 5
+            searchParams.append('Имя Ученика', studentName);
+            
+            inputs.forEach(input => {
+                const taskName = input.getAttribute('data-task');
+                searchParams.append(taskName, input.value.trim());
+            });
+
+            fetch(WEB_APP_URL, {
+                method: 'POST',
+                body: searchParams,
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(() => {
+                document.getElementById('mainContainer').innerHTML = `
+                    <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+                        <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+                        <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+                        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                alert('Произошла ошибка при отправке. Попробуйте еще раз.');
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Отправить работу на проверку';
+                console.error('Ошибка:', error);
+            });
+        }
+
+        const btn = document.getElementById('submitBtn');
+        btn.addEventListener('click', function(e) {
+            processSending();
+        });
+    </script>
+</body>
+</html>
