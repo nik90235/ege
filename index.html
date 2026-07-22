@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>НМ | ПЛАТФОРМА ТРЕНАЖЕРОВ ЕГЭ</title>
     
-    <!-- Подключение манифеста и иконок -->
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="icon.png" sizes="512x512">
     <link rel="apple-touch-icon" href="icon.png">
@@ -20,7 +19,6 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background-color: #FFFFFF; color: #000000; padding: 20px; line-height: 1.5; }
         .container { max-width: 600px; margin: 40px auto; }
         
-        /* Стили для фирменной шапки */
         .brand-header {
             display: flex;
             justify-content: space-between;
@@ -31,21 +29,34 @@
             margin-bottom: 25px;
             text-transform: uppercase;
         }
-
-        .brand-name {
-            color: #2368EE;
-        }
-
-        .brand-phone {
-            color: #929292;
-            text-decoration: none;
-        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
         
+        /* Блок профиля ученика */
+        .user-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #F4F7FE;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .logout-btn {
+            background: none;
+            border: none;
+            color: #EE6023;
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
         .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
         .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
         .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Минималистичный и неброский стиль для Слово Дня */
         .word-of-the-day {
             background-color: #F8F9FA;
             border: 1px solid #E0E0E0;
@@ -53,30 +64,15 @@
             padding: 12px 16px;
             margin-bottom: 25px;
         }
-        .word-title {
-            font-size: 11px;
-            font-weight: 700;
-            color: #929292;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-        .word-content {
-            font-size: 16px;
-            font-weight: 700;
-            color: #000000;
-            margin-bottom: 2px;
-        }
-        .word-desc {
-            font-size: 13px;
-            color: #666666;
-        }
+        .word-title { font-size: 11px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .word-content { font-size: 16px; font-weight: 700; color: #000000; margin-bottom: 2px; }
+        .word-desc { font-size: 13px; color: #666666; }
 
         .menu-title { font-size: 16px; font-weight: 700; text-transform: uppercase; color: #000; margin-bottom: 15px; padding-left: 5px; }
-        
         .grid { display: flex; flex-direction: column; gap: 15px; }
         
         .menu-card { 
+            position: relative;
             display: flex; 
             flex-direction: column; 
             padding: 20px; 
@@ -91,6 +87,26 @@
             border-color: #2368EE; 
             background-color: #F4F7FE; 
             transform: translateY(-2px);
+        }
+
+        /* Стили для заблокированных карточек */
+        .menu-card.locked {
+            background-color: #F5F5F5;
+            border-color: #E0E0E0;
+            opacity: 0.7;
+            cursor: not-allowed;
+            pointer-events: none; /* Запрет клика */
+        }
+        .menu-card.locked:hover {
+            transform: none;
+            border-color: #E0E0E0;
+            background-color: #F5F5F5;
+        }
+        .lock-badge {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            font-size: 18px;
         }
         
         .card-tag { 
@@ -108,24 +124,81 @@
         .card-desc { font-size: 14px; color: #666; }
 
         .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; }
+
+        /* Окно авторизации */
+        .auth-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+        .auth-box {
+            background: #FFF;
+            padding: 30px 25px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .auth-box h2 { font-size: 20px; color: #2368EE; margin-bottom: 15px; font-weight: 900; }
+        .auth-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #CCC;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
+        .auth-box button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2368EE;
+            color: #FFF;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .auth-error { color: #EE6023; font-size: 12px; margin-top: 10px; font-weight: 600; display: none; }
     </style>
 </head>
 <body>
 
+    <!-- Окно логина -->
+    <div id="authOverlay" class="auth-overlay" style="display: none;">
+        <div class="auth-box">
+            <h2>ВХОД В ПЛАТФОРМУ</h2>
+            <input type="text" id="loginInput" placeholder="Логин">
+            <input type="password" id="passInput" placeholder="Пароль">
+            <button onclick="handleLogin()" id="loginBtn">Войти</button>
+            <div id="authError" class="auth-error"></div>
+        </div>
+    </div>
+
     <div class="container">
-        <!-- Фирменная шапка платформы -->
         <div class="brand-header">
             <span class="brand-name">НМ | Никита Мельников</span>
             <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
         </div>
 
-        <!-- Шапка -->
+        <!-- Панель со статусом ученика -->
+        <div id="userPanel" class="user-panel" style="display: none;">
+            <span>Ученик: <b id="studentNameDisplay">...</b></span>
+            <button class="logout-btn" onclick="logout()">Выйти</button>
+        </div>
+
         <div class="header">
             <h1>ОНЛАЙН-ПЛАТФОРМА</h1>
             <p>Подготовка к ЕГЭ по русскому языку</p>
         </div>
 
-        <!-- Виджет: Слово дня (аккуратный фоновый вариант) -->
         <div class="word-of-the-day">
             <div class="word-title">Слово дня</div>
             <div class="word-content" id="dailyWord">Загрузка...</div>
@@ -134,46 +207,45 @@
 
         <h2 class="menu-title">Доступные материалы:</h2>
 
-        <!-- Список папок-тренажеров -->
         <div class="grid">
             
-            <!-- Словарь ударений -->
-            <a href="udareniya-dict/" class="menu-card">
+            <a href="udareniya-dict/" data-folder="udareniya-dict" class="menu-card">
+                <span class="lock-badge"></span>
                 <div class="card-tag">Задание 4</div>
                 <div class="card-name">Словарь ударений</div>
                 <div class="card-desc">Интерактивный орфоэпический словник со всеми нормами ударений ФИПИ.</div>
             </a>
 
-            <!-- Тренажёр ударений -->
-            <a href="udareniya/" class="menu-card">
+            <a href="udareniya/" data-folder="udareniya" class="menu-card">
+                <span class="lock-badge"></span>
                 <div class="card-tag">Задание 4</div>
                 <div class="card-name">Тренажёр ударений</div>
                 <div class="card-desc">Практическая отработка правильного произношения слов для экзамена.</div>
             </a>
 
-            <!-- Словарь паронимов -->
-            <a href="paronyms-dict/" class="menu-card">
+            <a href="paronyms-dict/" data-folder="paronyms-dict" class="menu-card">
+                <span class="lock-badge"></span>
                 <div class="card-tag">Задание 5</div>
                 <div class="card-name">Словарь паронимов</div>
                 <div class="card-desc">Удобный разбор всех лексических пар, их значений и примеров.</div>
             </a>
 
-            <!-- Тренажер паронимов -->
-            <a href="paronyms-test/" class="menu-card">
+            <a href="paronyms-test/" data-folder="paronyms-test" class="menu-card">
+                <span class="lock-badge"></span>
                 <div class="card-tag">Задание 5</div>
                 <div class="card-name">Тренажёр паронимов</div>
                 <div class="card-desc">Практические задания на выбор правильного слова из пар паронимов.</div>
             </a>
 
-            <!-- Домашка по 5 заданию (Паронимы) -->
-            <a href="task_5/" class="menu-card">
+            <a href="task_5/" data-folder="task_5" class="menu-card">
+                <span class="lock-badge"></span>
                 <div class="card-tag">Задание 5</div>
                 <div class="card-name">Домашняя работа: Паронимы</div>
                 <div class="card-desc">Тест из 10 задач на выбор паронимов с отправкой результатов.</div>
             </a>
             
-            <!-- Домашка по 6 заданию -->
-            <a href="task_6/" class="menu-card">
+            <a href="task_6/" data-folder="task_6" class="menu-card">
+                <span class="lock-badge"></span>
                 <div class="card-tag">Задание 6</div>
                 <div class="card-name">Домашняя работа: Лексические нормы</div>
                 <div class="card-desc">Тест из 10 задач на исключение и замену слов с отправкой результатов.</div>
@@ -181,7 +253,6 @@
 
         </div>
 
-        <!-- Подвал -->
         <div class="footer">
             <span>НМ | Никита Мельников</span><br>
             <span>+7 927 422 35 59</span>
@@ -189,7 +260,9 @@
     </div>
 
     <script>
-        // БАЗА ДАННЫХ ДЛЯ СЛОВА ДНЯ
+        // ВСТАВЬ СЮДА ССЫЛКУ НА СВОЙ APPS SCRIPT ВЕБ-СЛУЖБУ
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
         const database = [
             { word: "баловАть", desc: "Ударение падает на последний слог. Запомни: не бАловать, баловАть детей." },
             { word: "АДРЕСАТ — АДРЕСАНТ", desc: "Адресат — тот, КТО получает (ему). Адресант — тот, КТО отправляет (от него)." },
@@ -214,7 +287,92 @@
             document.getElementById('dailyWordDesc').innerText = currentItem.desc;
         }
 
-        displayDailyWord();
+        // ПРОВЕРКА И ПРИМЕНЕНИЕ ДОСТУПОВ
+        function applyPermissions(permissions) {
+            const cards = document.querySelectorAll('.menu-card');
+            
+            cards.forEach(card => {
+                const folder = card.getAttribute('data-folder');
+                const badge = card.querySelector('.lock-badge');
+                
+                // Если доступ явным образом запрещен (false)
+                if (permissions && permissions[folder] === false) {
+                    card.classList.add('locked');
+                    if (badge) badge.innerText = '🔒';
+                } else {
+                    card.classList.remove('locked');
+                    if (badge) badge.innerText = '';
+                }
+            });
+        }
+
+        // АВТОРИЗАЦИЯ
+        async function handleLogin() {
+            const login = document.getElementById('loginInput').value;
+            const pass = document.getElementById('passInput').value;
+            const errorDiv = document.getElementById('authError');
+            const btn = document.getElementById('loginBtn');
+
+            if (!login || !pass) {
+                errorDiv.innerText = 'Заполните все поля';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            btn.innerText = 'Проверка...';
+            btn.disabled = true;
+            errorDiv.style.display = 'none';
+
+            try {
+                const response = await fetch(`${SCRIPT_URL}?action=login&login=${encodeURIComponent(login)}&password=${encodeURIComponent(pass)}`);
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    // Сохраняем сессию
+                    localStorage.setItem('student_session', JSON.stringify(data));
+                    initSession(data);
+                } else {
+                    errorDiv.innerText = data.message || 'Ошибка входа';
+                    errorDiv.style.display = 'block';
+                }
+            } catch (e) {
+                errorDiv.innerText = 'Ошибка соединения с сервером';
+                errorDiv.style.display = 'block';
+            } finally {
+                btn.innerText = 'Войти';
+                btn.disabled = false;
+            }
+        }
+
+        function initSession(data) {
+            document.getElementById('authOverlay').style.display = 'none';
+            document.getElementById('userPanel').style.display = 'flex';
+            document.getElementById('studentNameDisplay').innerText = data.name;
+            
+            applyPermissions(data.permissions);
+        }
+
+        function logout() {
+            localStorage.removeItem('student_session');
+            location.reload();
+        }
+
+        // Проверка при загрузке страницы
+        window.addEventListener('DOMContentLoaded', () => {
+            displayDailyWord();
+            
+            const savedSession = localStorage.getItem('student_session');
+            if (savedSession) {
+                try {
+                    const data = JSON.parse(savedSession);
+                    initSession(data);
+                } catch (e) {
+                    document.getElementById('authOverlay').style.display = 'flex';
+                }
+            } else {
+                document.getElementById('authOverlay').style.display = 'flex';
+            }
+        });
     </script>
 </body>
 </html>
