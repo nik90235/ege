@@ -609,8 +609,8 @@
             const wordIndex = dayId % database.length;
             
             const currentItem = database[wordIndex];
-            document.getElementById('dailyWord').innerText = currentItem.word;
-            document.getElementById('dailyWordDesc').innerText = currentItem.desc;
+            document.getElementById('dailyWord').innerHTML = currentItem.word;
+            document.getElementById('dailyWordDesc').innerHTML = currentItem.desc;
         }
 
         // ПРОВЕРКА И ПРИМЕНЕНИЕ ДОСТУПОВ
