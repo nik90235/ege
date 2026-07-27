@@ -269,6 +269,13 @@
                 <div class="card-name">Зачет: Культура речи</div>
                 <div class="card-desc">Итоговая домашняя работа по заданиям 4 - 7 с отправкой результатов.</div>
             </a>
+            <!-- Новая карточка: Словарь словарных слов (Задание 9) -->
+            <a href="task_9-dict/" data-folder="task_9-dict" class="menu-card">
+                <span class="lock-badge"></span>
+                <div class="card-tag">Задание 9</div>
+                <div class="card-name">Словарь словарных слов</div>
+                <div class="card-desc">Справочник непроверяемых гласных в корнях для Задания 9.</div>
+            </a>
         </div>
 
         <div class="footer">
@@ -282,6 +289,24 @@
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
 
       const database = [
+          
+    // === СЛОВАРНЫЕ СЛОВА И ОРФОГРАММЫ (Задание 9) ===
+    { word: "винегр<span class=\"stress\">Е</span>т", desc: "Непроверяемые гласные в корне: запоминаем 'И' и 'Е' (вИнЕгрЕт)." },
+    { word: "акомпанем<span class=\"stress\">Е</span>нт", desc: "Запомни: пишутся две 'К', одна 'М' и гласная 'Е' в суффиксе." },
+    { word: "апелл<span class=\"stress\">Я</span>ция", desc: "Запомни: одна 'П', но удвоенная 'Л' (аПеЛЛяция)." },
+    { word: "привил<span class=\"stress\">Е</span>гия", desc: "Непроверяемые гласные в корне: запоминаем 'И', 'И', 'Е' (прИвИлЕгия)." },
+    { word: "приорит<span class=\"stress\">Е</span>т", desc: "Непроверяемая гласная в корне: пишется буква 'И' (прИоритет)." },
+    { word: "панисл<span class=\"stress\">Я</span>дник", desc: "Палисадник: пишется через 'А' и 'И' (пАлИсАдник). Не от 'поле'!" },
+    { word: "эскперим<span class=\"stress\">Е</span>нт", desc: "Непроверяемые гласные: экспЕрИмЕнт." },
+    { word: "интеллиг<span class=\"stress\">Е</span>нт", desc: "Запомни: одна 'Н', но удвоенная 'Л' (интеЛЛигент)." },
+    { word: "пессим<span class=\"stress\">И</span>зм", desc: "Запомни: удвоенная 'С' и буква 'И' в корне (пеССИмизм)." },
+    { word: "оптим<span class=\"stress\">И</span>зм", desc: "Запомни: словарное слово, гласная 'И' в корне (оптИмизм)." },
+    { word: "делек<span class=\"stress\">А</span>тес", desc: "Словарное слово: деликАтес (гласные 'Е', 'И', 'А')." },
+    { word: "веран<span class=\"stress\">Д</span>а", desc: "Словарное слово: пишется через 'Е' и с одной 'Н'." },
+    { word: "галер<span class=\"stress\">Е</span>я", desc: "Запомни: пишется с одной 'Л' (гаЛерея)." },
+    { word: "атриб<span class=\"stress\">У</span>т", desc: "Словарное слово: пишется через 'А' и 'И' (атрИбУт)." },
+    { word: "ваканс<span class=\"stress\">И</span>я", desc: "Словарное слово: первая гласная 'А' (вАкансия)." },
+          
     // === ОРФОЭПИЧЕСКИЙ СЛОВНИК ФИПИ (Задание 4) ===
     
     // Существительные
