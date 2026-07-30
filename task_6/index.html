@@ -160,7 +160,7 @@
 
             <div class="header">
                 <h1>Домашняя работа: Задание 6</h1>
-                <p>Лексические нормы</p>
+                <p>Контроль знаний по лексическим нормам</p>
             </div>
 
             <div class="student-info">
@@ -320,6 +320,7 @@
             submitBtn.innerText = 'Отправка данных...';
 
             const searchParams = new URLSearchParams();
+            searchParams.append('taskType', 'dz6'); // Маркер ДЗ 5
             searchParams.append('Имя Ученика', studentName);
             
             inputs.forEach(input => {
