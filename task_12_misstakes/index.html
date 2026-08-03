@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ловушки 12 задания: Глагольные формы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.5; 
+        }
+        .container { max-width: 800px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link { 
+            display: inline-flex; 
+            align-items: center; 
+            text-decoration: none; 
+            color: #2368EE; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            transition: color 0.2s; 
+            cursor: pointer;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .traps-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #AFAFAF;
+            margin-bottom: 20px;
+            background: #FFFFFF;
+        }
+
+        .traps-table th, .traps-table td {
+            border: 1px solid #AFAFAF;
+            padding: 14px 16px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 14px;
+        }
+
+        .traps-table th {
+            background-color: #F4F7FE;
+            color: #2368EE;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .col-error {
+            width: 28%;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .col-example {
+            width: 32%;
+            font-weight: 500;
+            color: #EE6023;
+            background-color: #F8FAFC;
+        }
+
+        .col-analysis {
+            width: 40%;
+            color: #334155;
+            font-weight: 400;
+        }
+
+        .col-analysis p + p {
+            margin-top: 6px;
+        }
+
+        .highlight-blue {
+            color: #2368EE;
+            font-weight: 700;
+        }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="brand-header">
+            <span class="brand-name">НМ | Никита Мельников</span>
+            <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+        </div>
+
+        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link">← Меню платформы</a>
+
+        <div class="header">
+            <h1>Ловушки 12 задания</h1>
+            <p>Глагольные формы и причастия</p>
+        </div>
+
+        <table class="traps-table">
+            <thead>
+                <tr>
+                    <th>Суть ошибки</th>
+                    <th>Проблемные примеры</th>
+                    <th>Разбор</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-error">Путаница времени</td>
+                    <td class="col-example">Стро..щий (наст.) / выстро..вший (прош.)</td>
+                    <td class="col-analysis">
+                        Сначала определяем время. Для настоящего времени и личных окончаний ищем спряжение. Для прошедшего времени (суффиксы -ВШ-, -НН-) спряжение не нужно — смотрим гласную инфинитива (<span class="highlight-blue">выстроить ➔ выстроивший</span>), за исключением страдательных причастий прошедшего времени.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Игнорирование приставок у глаголов-исключений</td>
+                    <td class="col-example">Потерп..м, задыш..т, выдерж..нный</td>
+                    <td class="col-analysis">
+                        Приставки и частицы (не-, вы-, за-) не меняют спряжение глаголов-исключений и образованных от них слов. Если корень относится к исключениям (<em>гнать, держать, дышать...</em>), оно сохраняет <span class="highlight-blue">II спряжение</span>.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Смена вида при подборе проверочного глагола</td>
+                    <td class="col-example">Урон..м (ошибка: проверка через несовершенный вид <em>ронять</em>)</td>
+                    <td class="col-analysis">
+                        Все формы и проверяемый глагол должны быть строго одного вида! Глагол совершенного вида проверяется только инфинитивом совершенного вида (<span class="highlight-blue">уронить [сов. в., II спр.]</span>, а не <em>ронять [несов. в., I спр.]</em>).
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Ловушка с ударной приставкой «ВЫ-»</td>
+                    <td class="col-example">Высп..тся, выгор..т, вылет..т</td>
+                    <td class="col-analysis">
+                        Приставка ВЫ- перетягивает ударение на себя. Можно отбросить приставку вы- (<span class="highlight-blue">ВЫспится ➔ он спит</span>), чтобы вернуть ударение на окончание и безошибочно услышать букву.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Забытые архаичные и книжные инфинитивы</td>
+                    <td class="col-example">Внемл..щий, алч..щий, брызж..щий</td>
+                    <td class="col-analysis">
+                        Слова, образованные от устаревших или редких глаголов, не поддаются привычной логике. Их нужно заучить в связке с исходной формой: <span class="highlight-blue">внемлющий (внимать), алчущий (алкать), зижжущий (зиждиться)</span>.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Смешение созвучных глаголов-омонимов</td>
+                    <td class="col-example">Мел..щий (зерно) / мел..щий (кий)</td>
+                    <td class="col-analysis">
+                        Звучание одинаковое, но корни разные. Всегда нужно вникать в лексическое значение: <em>молоть</em> (зерно, кофе — I спр.) ➔ молющий/молот; <em>мелить</em> (натирать мелом — II спр.); <em>таять</em> (на солнце) — исчезать, <em>таить</em> (злобу на кого-то) — скрывать.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Разница у глаголов с приставкой «обез-/обес-»</td>
+                    <td class="col-example">Обессил..вший врага / обессил..вший от жары</td>
+                    <td class="col-analysis">
+                        Переходные глаголы (требуют винительного падежа без предлога: <span class="highlight-blue">обессилить врага [кого?]</span>) спрягаются по <span class="highlight-blue">II спряжению</span>. Непереходные (возвратные или обозначающие состояние самого предмета: <span class="highlight-blue">обессилеть [сам]</span>) — по <span class="highlight-blue">I спряжению</span>.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Ошибки от разговорных форм инфинитива</td>
+                    <td class="col-example">Меряющий, мучающий, лазающий</td>
+                    <td class="col-analysis">
+                        В тестах ЕГЭ нельзя опираться на разговорные варианты (<em>мерять, мучать</em>). Литературной нормой являются только глаголы на <strong>-ить</strong>: <span class="highlight-blue">мерить</span> и <span class="highlight-blue">мучить</span> (отсюда правильные причастия: <span class="highlight-blue">измученный, измеренный</span>).
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Смешение наклонений (изъявительное и повелительное)</td>
+                    <td class="col-example">Вы напиш..те мне / Напиш..те мне письмо</td>
+                    <td class="col-analysis">
+                        В изъявительном наклонении (будущее время, I спр.) пишется окончание <span class="highlight-blue">-ете</span> (<span class="highlight-blue">вы напишете</span>). В повелительном наклонении (побуждение к действию) всегда пишется суффикс/окончание <span class="highlight-blue">-ите</span> (<span class="highlight-blue">напишите</span>).
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Путаница парных глаголов на -АТЬ / -ИТЬ</td>
+                    <td class="col-example">Замеш..нный в преступлении / замеш..нное тесто</td>
+                    <td class="col-analysis">
+                        Окончание причастия зависит от того, от какого именно глагола оно образовано:
+                        <p>• <strong>Замешать</strong> (впутать в дело) ➔ <span class="highlight-blue">-енн-</span> (<span class="highlight-blue">замешенный</span>);</p>
+                        <p>• <strong>Замесить</strong> (тесто, глину) ➔ <span class="highlight-blue">-анн-</span> (<span class="highlight-blue">замешанная глина</span>).</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+    </div>
+
+</body>
+</html>
