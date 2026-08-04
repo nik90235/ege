@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМАШНЯЯ РАБОТА: ЗАДАНИЕ 13 ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.5; 
+        }
+        .container { max-width: 600px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link { 
+            display: inline-flex; 
+            align-items: center; 
+            text-decoration: none; 
+            color: #2368EE; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            transition: color 0.2s; 
+            cursor: pointer;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .student-info { 
+            background: #FFFFFF; 
+            padding: 20px; 
+            border-radius: 6px; 
+            margin-bottom: 24px; 
+            border: 1px solid #AFAFAF;
+        }
+        .student-info input { 
+            width: 100%; 
+            padding: 14px 16px; 
+            border: 1px solid #CBD5E1; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none;
+            transition: all 0.2s ease;
+            background-color: #F8FAFC;
+        }
+        .student-info input:focus {
+            border-color: #2368EE;
+            background-color: #FFFFFF;
+        }
+
+        .task-card { 
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            padding: 24px; 
+            margin-bottom: 20px; 
+        }
+        .task-title { 
+            display: inline-block;
+            background-color: #F4F7FE; 
+            padding: 6px 12px; 
+            border-radius: 6px;
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #2368EE; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            margin-bottom: 16px; 
+        }
+        .instruction { font-weight: 700; margin-bottom: 14px; font-size: 15px; color: #000000; }
+        
+        .sentence-box { 
+            font-size: 15px; 
+            font-weight: 500;
+            margin-bottom: 20px; 
+            line-height: 1.6; 
+            padding: 12px 16px; 
+            background: #F4F7FE;
+            border-left: 4px solid #EE6023; 
+            border-radius: 0 6px 6px 0;
+            color: #000000;
+        }
+        .sentence-box p { margin-bottom: 6px; }
+        .sentence-box p:last-child { margin-bottom: 0; }
+        
+        .input-block { display: flex; flex-direction: column; gap: 8px; }
+        .input-label { font-size: 14px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 0.5px; }
+        .answer-input { 
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none; 
+            transition: all 0.2s ease;
+        }
+        .answer-input:focus { 
+            border-color: #2368EE; 
+        }
+
+        .submit-btn { 
+            background-color: #2368EE; 
+            color: white; 
+            border: none; 
+            padding: 16px 30px; 
+            font-size: 16px; 
+            font-weight: 700; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            width: 100%; 
+            margin-top: 12px; 
+            transition: all 0.2s ease; 
+        }
+        .submit-btn:hover { background-color: #1d56c9; }
+        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <div id="homeworkForm">
+            
+            <div class="brand-header">
+                <span class="brand-name">НМ | Никита Мельников</span>
+                <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+            </div>
+
+            <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link">← Меню платформы</a>
+
+            <div class="header">
+                <h1>Домашняя работа: Задание 13</h1>
+                <p>Слитное и раздельное написание НЕ (НИ) с различными частями речи</p>
+            </div>
+
+            <div class="student-info">
+                <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
+            </div>
+
+            <!-- Задача 1 -->
+            <div class="task-card">
+                <div class="task-title">Задача 1</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Детские колыбельные песни просты и отнюдь (НЕ)ЗАТЕЙЛИВЫ, но есть в них особое очарование.</p>
+                    <p>2) Творчество каждого народа уникально, его (НЕ)ПОВТОРИМОЕ своеобразие отражает и детский фольклор.</p>
+                    <p>3) Пароход (НЕ)СПЕША приближался к пристани.</p>
+                    <p>4) В (НЕ)ПРОЧИТАННОМ сообщении содержалась важная информация.</p>
+                    <p>5) Играть в шахматы нужно вдумчиво, (НЕ)РИСКУЯ напрасно фигурами.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_1" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 2 -->
+            <div class="task-card">
+                <div class="task-title">Задача 2</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Будущий чемпион был отнюдь (НЕ)МАЛЕНЬКИМ мальчиком, когда его заметил и пригласил в спортивную школу известный тренер.</p>
+                    <p>2) Далеко (НЕ)ПРОСТАЯ ситуация сложилась в третьем периоде матча для команды хозяев.</p>
+                    <p>3) Заявки, (НЕ)ОФОРМЛЕННЫЕ должным образом, будут возвращены в отдел сбыта.</p>
+                    <p>4) (НЕ)СЛЕДУЕТ давать советы другим людям без их просьбы.</p>
+                    <p>5) Директор покинул кабинет своего заместителя, (НЕ)ГОДУЯ и возмущаясь.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_2" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 3 -->
+            <div class="task-card">
+                <div class="task-title">Задача 3</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Начинающий драматург был уверен, что человек, (НЕ)ЗНАЮЩИЙ устройства театра, не сможет написать хорошую пьесу.</p>
+                    <p>2) Задача перед строителями была поставлена отнюдь (НЕ)ПРОСТАЯ: за три месяца нужно проложить дорогу к посёлку метеорологов.</p>
+                    <p>3) Профессор говорил медленно, (НЕ)СПЕША, лишь иногда оживляясь, когда речь заходила о школе, в которой он учился.</p>
+                    <p>4) (НЕ)ВЫНОСИМАЯ жара стояла уже несколько дней.</p>
+                    <p>5) Командир воздушного судна принял решение посадить самолёт, (НЕ)СМОТРЯ на сильный боковой ветер.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_3" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 4 -->
+            <div class="task-card">
+                <div class="task-title">Задача 4</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется СЛИТНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) (НЕ)СМОТРЯ на морозы, река ещё бурлит в своём течении.</p>
+                    <p>2) Разыгравшаяся (НЕ)ПОГОДА вынудила отложить выход в море.</p>
+                    <p>3) Контрольные работы, (НЕ)СДАННЫЕ вовремя, будут проверены на две недели позже.</p>
+                    <p>4) Он оказался (НЕ)ТЕМ человеком, кто нам нужен.</p>
+                    <p>5) Жених выглядел отнюдь (НЕ)БЕЗУПРЕЧНО, однако невеста сияла от счастья.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_4" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 5 -->
+            <div class="task-card">
+                <div class="task-title">Задача 5</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Магистерскую диссертацию лучше посвящать проблеме, (НЕ)ИССЛЕДОВАННОЙ до конца.</p>
+                    <p>2) Редактор пришёл к выводу, что тема статьи (НЕ)РАСКРЫТА.</p>
+                    <p>3) (НЕ)СМОТРЯ на непогоду, мы не стали отменять запланированную прогулку.</p>
+                    <p>4) Сегодня нужно завершить (НЕ)ЗАКОНЧЕННУЮ накануне работу.</p>
+                    <p>5) Передача оказалась ничуть (НЕ)ИНТЕРЕСНОЙ, и мы выключили телевизор.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_5" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 6 -->
+            <div class="task-card">
+                <div class="task-title">Задача 6</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ (НИ) с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Как выяснилось, некоторые старшеклассники (НИ)РАЗУ не были в Большом театре.</p>
+                    <p>2) Руководитель обратил внимание подчинённых на то, что его задание (НЕ)ВЫПОЛНЕНО.</p>
+                    <p>3) (НЕ)СМОТРЯ на важность собрания, некоторые члены профсоюза опоздали.</p>
+                    <p>4) (НИ)КТО не сомневался в успехе совместного предприятия.</p>
+                    <p>5) Экзаменационной комиссии пришлось принять далеко (НЕ)ПРОСТОЕ решение.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_6" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 7 -->
+            <div class="task-card">
+                <div class="task-title">Задача 7</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется СЛИТНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) В ничуть (НЕ)ПРОСОХШЕМ доме было сыро и холодно.</p>
+                    <p>2) Я выглянул в окно узнать, какая погода, и (НЕ)ПОНЯЛ, что там на улице: снег или дождь.</p>
+                    <p>3) (НЕ)ПОБЕДИМАЯ советская армия защищала страну.</p>
+                    <p>4) (НЕ)ОТКЛАДЫВАЯ дела в долгий ящик, король тут же вернулся к дочери, чтобы сообщить ей о своём решении.</p>
+                    <p>5) Рядом с моей тумбочкой валялся чей-то (НЕ)ДОЕДЕННЫЙ бутерброд со шпротным паштетом.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_7" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 8 -->
+            <div class="task-card">
+                <div class="task-title">Задача 8</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Река была далеко (НЕ)ШИРОКОЙ, всего около десяти метров.</p>
+                    <p>2) Всё мне (НЕ)МОЖЕТСЯ: то там болит, то здесь; с лица осунулась, пожелтела.</p>
+                    <p>3) Анна, (НЕ)ОБРАЩАЯ внимания на время, пыталась доказать свою правоту.</p>
+                    <p>4) Эту отнюдь (НЕ)ПРИЯТНУЮ историю следовало немедленно забыть.</p>
+                    <p>5) Был (НЕ)ВЫНОСИМО жаркий июльский день, когда я, медленно передвигая ногами, вместе со своей собакой поднимался вдоль оврага.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_8" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 9 -->
+            <div class="task-card">
+                <div class="task-title">Задача 9</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Из (НЕ)ПРОСНУВШИХСЯ долин веяло душистой свежестью, разливавшейся по всем ажурным беседкам, разбросанным вдоль реки.</p>
+                    <p>2) С противоположного, (НЕ)КРУТОГО, а пологого берега реки можно было увидеть только крыши расположенной вдали деревушки.</p>
+                    <p>3) Человек, смеющийся от души, испытывает (НЕ)ВЕРОЯТНО приятные чувства.</p>
+                    <p>4) Приходилось только удивляться, предполагая, как можно было создать этот архитектурный ансамбль, (НЕ)МЕНЕЕ трёх столетий украшающий город.</p>
+                    <p>5) По крыше дачного домика мерно ударяли капли дождя, (НЕ)ПРЕКРАЩАЮЩЕГОСЯ с самого утра.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_9" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 10 -->
+            <div class="task-card">
+                <div class="task-title">Задача 10</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется СЛИТНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) После высказывания конферансье в зале (НЕ)СРАЗУ раздались аплодисменты: зрители обдумывали сказанное артистом.</p>
+                    <p>2) Увидев вздорную собачонку, конь широко расставил передние ноги, наклонил голову и замер в (НЕ)ДОУМЕНИИ.</p>
+                    <p>3) Дорогу отважным путникам теперь преграждала (НЕ)ГЛУБОКАЯ, но довольно широкая речка.</p>
+                    <p>4) (НЕ)ПРОЧИТАНО ещё много интересных и нужных каждому человеку книг.</p>
+                    <p>5) Зрители с замиранием сердца наблюдали яркое зрелище, а (НЕ)ПРЕКРАЩАЮЩИЙСЯ поток делегаций из разных стран всё тянулся по спортивной арене.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_10" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 11 -->
+            <div class="task-card">
+                <div class="task-title">Задача 11</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Лошадь Муромского, никогда раньше (НЕ)БЫВАВШАЯ на охоте, испугалась и понесла.</p>
+                    <p>2) Павловские мастера сумели изготовить (НЕ)ОБЫКНОВЕННЫЙ царь-замок весом более 400 кг.</p>
+                    <p>3) Любовь к людям – это наше (НЕ)ИСЧЕРПАЕМОЕ богатство.</p>
+                    <p>4) С каким чувством смотрел я на свои руки, когда у меня (НЕ)ПОЛУЧАЛОСЬ играть на гитаре!</p>
+                    <p>5) Если какой-то человек в общественном транспорте ведёт себя (НЕ)ОЧЕНЬ вежливо, нужно просто постараться от него отойти.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_11" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 12 -->
+            <div class="task-card">
+                <div class="task-title">Задача 12</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Плотники в Архангельске (НЕ)ТОЛЬКО выделывали резную или расписную домашнюю утварь, занимались они и строительством кораблей, рубили дома, украшая их рельефной резьбой.</p>
+                    <p>2) В конце XI века это был (НЕ)БОЛЬШОЙ город, расположившийся возле устья реки Неглинной, с укреплённой крепостью на Боровицком холме.</p>
+                    <p>3) Взаимоотношения природы и человека в окрестностях городов, особенно крупных, складываются далеко (НЕ)ИДИЛЛИЧЕСКИ.</p>
+                    <p>4) День выдался (НЕ)НАСТНЫЙ, серенький и дождливый, какие бывают в конце августа.</p>
+                    <p>5) Костик отодвинулся от стены и, даже (НЕ)ГЛЯДЯ на брата, точно так же, как и он, лениво засунул руки в карманы.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_12" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 13 -->
+            <div class="task-card">
+                <div class="task-title">Задача 13</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется СЛИТНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Поэт (НЕ)СОГЛАСЕН с утверждением, что каждый образованный человек способен приобщиться к писательскому ремеслу.</p>
+                    <p>2) Открыв утром глаза, сын понял, что вечером заснул, даже (НЕ)ЗАМЕТИВ, как мать ушла, закончив свои расспросы и выключив свет.</p>
+                    <p>3) В этот момент шумно распахнулась дверь, в прихожей прозвучали уверенные шаги, и в комнату вошёл (НЕ)ВЫСОКИЙ мужчина.</p>
+                    <p>4) Профессор рекомендовал своего студента как трудолюбивого молодого человека с (НЕ)ВЕРОЯТНЫМ талантом и предрёк ему большое будущее.</p>
+                    <p>5) Подъезжая к дому, Сивцев увидел, что ворота (НЕ)ЗАПЕРТЫ, а около них стоит грузовая машина.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_13" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 14 -->
+            <div class="task-card">
+                <div class="task-title">Задача 14</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) В великолепном полотне, над созданием которого художник трудился в течение долгих лет, воплотился весь его (НЕ)РАСТРАЧЕННЫЙ талант.</p>
+                    <p>2) Вопрос о происхождении названия городской реки до сих пор (НЕ)ВЫЯСНЕН.</p>
+                    <p>3) Дело, которое было поручено молодому специалисту, оказалось далеко (НЕ)ПРОСТЫМ.</p>
+                    <p>4) За поступок, который в глубине души Ефим всегда считал (НЕ)ЧЕСТНЫМ, ему было стыдно всю жизнь.</p>
+                    <p>5) Игорь Константинович (НЕ)ПОНАСЛЫШКЕ знал, что такое тяжёлый физический труд.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_14" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 15 -->
+            <div class="task-card">
+                <div class="task-title">Задача 15</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Появление часов в четырёхсотлетней гробнице китайского вельможи признано одной из (НЕ)РАЗГАДАННЫХ тайн истории.</p>
+                    <p>2) Кто-то начинает восхищаться уверенным и одарённым человеком, а кто-то (НЕ)ОДОБРИТЕЛЬНО отзывается о нём как о человеке с явно завышенной самооценкой.</p>
+                    <p>3) Богатое воображение (НЕ)БЫЛО сильной стороной брата даже в детстве, когда все дети в семье что-то сочиняли.</p>
+                    <p>4) Катя громко окликнула вечно ничего (НЕ)ЗАМЕЧАЮЩЕГО вокруг во время прослушивания музыки одноклассника.</p>
+                    <p>5) Михаська сорвался с места, от страха даже (НЕ)ПОНИМАЯ, куда бежит, и понемногу начал приходить в себя, только когда очутился на улице с оживлённым движением.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_15" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 16 -->
+            <div class="task-card">
+                <div class="task-title">Задача 16</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется СЛИТНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Войдя в комнату и даже (НЕ)ПРИКРЫВ за собой дверь, Николай Ильич сразу обратился к сыну с вопросом.</p>
+                    <p>2) Считается, что былины содержат (НЕ)ДОСТОВЕРНЫЕ с точки зрения отражения реальных исторических событий сведения, но эти произведения народного творчества, согласно исследованиям фольклористов и историков, часто отражают подтверждённые исторические факты.</p>
+                    <p>3) Чтобы крепко спать ночью, (НЕ)НУЖНО дремать днём.</p>
+                    <p>4) В эту тревожную ночь молодому врачу так и (НЕ)УДАЛОСЬ уснуть: слишком сильными оказались впечатления, чтобы после них можно было спокойно забыться.</p>
+                    <p>5) (НЕ)РАЦИОНАЛЬНОЕ использование лесов может привести к серьёзным нарушениям экосистемы.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_16" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 17 -->
+            <div class="task-card">
+                <div class="task-title">Задача 17</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется СЛИТНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) На (НЕ)ВЫСОКОМ берегу Волги примерно в пятидесяти километрах выше Нижнего Новгорода расположился древний Городец, основанный во второй половине XII века.</p>
+                    <p>2) Фаюмские портреты, привезённые из путешествий востоковедом-египтологом Владимиром Голенищевым, поражают (НЕ)ПОВТОРИМОЙ достоверностью, объёмностью, игрой светотеней.</p>
+                    <p>3) То был (НЕ)ВЕСЁЛЫЙ, смеющийся трепет весны, мягкое шушуканье, долгий говор лета, робкое и холодное лепетанье поздней осени, а едва слышная, дремотная болтовня зимы.</p>
+                    <p>4) Тонкие стволы берёз внезапно принимали нежный отблеск белого шёлка, (НЕ)ПОДВИЖНО лежащие на земле мелкие листья вдруг загорались червонным золотом, а красивые стебли высоких кудрявых папоротников, уже окрашенных в свой осенний цвет, никли к земле.</p>
+                    <p>5) Я добрался до берёзового леска, (НЕ)ОСТАНОВИВШИСЬ в осиновой роще для отдыха, расположился под деревцем, у которого сучья начинались низко над землёй и, следовательно, могли защитить меня от дождя, и заснул тем безмятежным сном, который знаком одним охотникам.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_17" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 18 -->
+            <div class="task-card">
+                <div class="task-title">Задача 18</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Аркадий чувствовал восторженность и вследствие этого позволял себе разные отступления от правил: знакомился с лицами, (НЕ)ПРИНАДЛЕЖАВШИМИ к высшему свету, и вообще держался вольно и просто; но в душе он был холоден.</p>
+                    <p>2) Колокольня Ивана Великого ведёт свою историю с 1329 года, когда в Кремле, на самом видном месте Боровицкого холма, по велению Ивана Калиты поставили (НЕ)БОЛЬШУЮ церковь в честь святого Иоанна Лествичника.</p>
+                    <p>3) Паншин был действительно очень ловок, как и его отец, но он был также даровит, всё ему далось: он мило пел, (НЕ)ПЛОХО рисовал, писал стихи.</p>
+                    <p>4) Лиза, (НЕ)СВОДЯ широко раскрытых глаз с места, где раздался слабый звук, вздохнула, повернула тихонько голову, ещё ниже наклонилась и принялась медленно перебирать цветы.</p>
+                    <p>5) Большая часть лекарственных и пряных растений (НЕ)НУЖДАЕТСЯ в питательной почве и подкормках.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_18" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 19 -->
+            <div class="task-card">
+                <div class="task-title">Задача 19</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется СЛИТНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Природа заложила в лилейник (НЕ)ИСЧЕРПАЕМЫЕ возможности: это растение имеет множество разнообразных окрасок и форм.</p>
+                    <p>2) В научной литературе можно встретить много различных оценок рассматриваемого явления, (НЕ)СМОТРЯ на небольшое количество исследований по соответствующей теме.</p>
+                    <p>3) В диктанте была допущена одна досадная ошибка, (НЕ)ЗАМЕЧЕННАЯ учеником при проверке.</p>
+                    <p>4) Нельзя ничему научиться, (НЕ)ПРИЛАГАЯ никаких усилий.</p>
+                    <p>5) Актёра, исполнявшего главную роль, (НЕ)КЕМ было заменить, и премьера спектакля была перенесена.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_19" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 20 -->
+            <div class="task-card">
+                <div class="task-title">Задача 20</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется СЛИТНО. Запишите номера ответов.</div>
+                <div class="sentence-box">
+                    <p>1) Бойцы молодые, видно, впервые взялись за такое не очень привычное дело, и работа у них явно (НЕ)СПОРИТСЯ.</p>
+                    <p>2) Вынырнув, (НЕ)ВОВРЕМЯ хватанув воздуха, Славик чуть не захлёбывается глотком солёной воды, отчаянно надрывно кашляет, теряя последние силы.</p>
+                    <p>3) Иностранец, (НЕ)ГОДУЮЩИЙ по поводу того, что кимоно носят сейчас не все японки, должен был бы вместо этого поражаться их преданности древнему наряду.</p>
+                    <p>4) Японское средневековье было средневековьем, так скажем, хорошим, длинным, степенным, (НЕ)СПЕШАЩИМ.</p>
+                    <p>5) Не приписывай самому себе того, что (НЕ)ТЕБЕ принадлежит.</p>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_20" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <button type="button" id="submitBtn" class="submit-btn">Отправить работу на проверку</button>
+        </div>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+    </div>
+
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+        function processSending() {
+            const submitBtn = document.getElementById('submitBtn');
+            if (submitBtn.disabled) return;
+
+            const nameInput = document.getElementById('studentName');
+            const studentName = nameInput.value.trim();
+
+            if (!studentName) {
+                alert('Пожалуйста, введите ваше Имя и Фамилию.');
+                nameInput.focus();
+                return;
+            }
+
+            const inputs = document.querySelectorAll('.answer-input');
+            let allFilled = true;
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    allFilled = false;
+                }
+            });
+
+            if (!allFilled) {
+                if (!confirm('Вы заполнили не все ответы. Всё равно отправить работу?')) {
+                    return;
+                }
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Отправка данных...';
+
+            const searchParams = new URLSearchParams();
+            searchParams.append('taskType', 'dz13');
+            searchParams.append('Имя Ученика', studentName);
+            
+            inputs.forEach(input => {
+                const taskName = input.getAttribute('data-task');
+                searchParams.append(taskName, input.value.trim());
+            });
+
+            fetch(WEB_APP_URL, {
+                method: 'POST',
+                body: searchParams,
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(() => {
+                document.getElementById('mainContainer').innerHTML = `
+                    <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+                        <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+                        <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+                        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                alert('Произошла ошибка при отправке. Попробуйте еще раз.');
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Отправить работу на проверку';
+                console.error('Ошибка:', error);
+            });
+        }
+
+        const btn = document.getElementById('submitBtn');
+        btn.addEventListener('click', function(e) {
+            processSending();
+        });
+    </script>
+</body>
+</html>
