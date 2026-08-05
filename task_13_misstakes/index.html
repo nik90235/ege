@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ловушки 13 задания: Правописание НЕ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.5; 
+        }
+        .container { max-width: 800px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link { 
+            display: inline-flex; 
+            align-items: center; 
+            text-decoration: none; 
+            color: #2368EE; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            transition: color 0.2s; 
+            cursor: pointer;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .traps-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #AFAFAF;
+            margin-bottom: 20px;
+            background: #FFFFFF;
+        }
+
+        .traps-table th, .traps-table td {
+            border: 1px solid #AFAFAF;
+            padding: 14px 16px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 14px;
+        }
+
+        .traps-table th {
+            background-color: #F4F7FE;
+            color: #2368EE;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .col-error {
+            width: 28%;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .col-example {
+            width: 32%;
+            font-weight: 500;
+            color: #EE6023;
+            background-color: #F8FAFC;
+        }
+
+        .col-analysis {
+            width: 40%;
+            color: #334155;
+            font-weight: 400;
+        }
+
+        .col-analysis p + p {
+            margin-top: 6px;
+        }
+
+        .highlight-blue {
+            color: #2368EE;
+            font-weight: 700;
+        }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="brand-header">
+            <span class="brand-name">НМ | Никита Мельников</span>
+            <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+        </div>
+
+        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link">← Меню платформы</a>
+
+        <div class="header">
+            <h1>Ловушки 13 задания</h1>
+            <p>Слитное и раздельное написание НЕ</p>
+        </div>
+
+        <table class="traps-table">
+            <thead>
+                <tr>
+                    <th>Суть ошибки / Правило</th>
+                    <th>Проблемные примеры</th>
+                    <th>Разбор</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-error">Отглагольные прилагательные на -МЫЙ и особые причастия</td>
+                    <td class="col-example">Звёзды, невидимые прежде, засверкали в поле телескопа</td>
+                    <td class="col-analysis">
+                        Прилагательные, образованные от причастий (<em>невиданный, невидимый, незабываемый, необитаемый, неслыханный</em>), а также прилагательные на <strong>-МЫЙ</strong> (<em>невообразимый, непоправимый, непреодолимый, нескончаемый, нестерпимый, невосполнимый, неоценимый, неуловимый, неукротимый, непоколебимый, независимый</em>) пишутся с НЕ <span class="highlight-blue">слитно даже при наличии зависимых слов</span>.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Различие причастий и отпричастных прилагательных</td>
+                    <td class="col-example">Мероприятие, не организованное администрацией / Неорганизованный человек</td>
+                    <td class="col-analysis">
+                        <p>• <strong>Не организованное</strong> — причастие; пишем с НЕ <span class="highlight-blue">раздельно</span>, т.к. есть зависимое слово (<em>администрацией</em>).</p>
+                        <p>• <strong>Неорганизованный</strong> в работе — прилагательное; пишем <span class="highlight-blue">слитно</span> (можно заменить синонимом <em>«разболтанный, недисциплинированный»</em>).</p>
+                        <p><em>Отличие:</em> прилагательные имеют «своё» значение, легко заменяются синонимами и не управляют дополнением в творительном падеже.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Ловушка с пояснительными словами СОВСЕМ / ВОВСЕ</td>
+                    <td class="col-example">Совсем неосвещённая лестница / Совсем не выдуманная история</td>
+                    <td class="col-analysis">
+                        <p>• Если <em>совсем / вовсе</em> = «абсолютно, совершенно» (усиливают признак) ➔ пишем <span class="highlight-blue">СЛИТНО</span> (<em>совсем непохожа</em> = совершенно);</p>
+                        <p>• Если <em>совсем / вовсе</em> = «отнюдь, никоим образом» (подчёркивают отрицание) ➔ пишем <span class="highlight-blue">РАЗДЕЛЬНО</span> (<em>совсем не глупа</em> = отнюдь не глупа).</p>
+                        <p><strong>Проверка:</strong> замена на <em>очень</em> (➔ слитно) или на <em>отнюдь не</em> (➔ раздельно).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Прилагательные без одиночного употребления и риторические вопросы</td>
+                    <td class="col-example">Не склонный к задумчивости, не согласный с нами / Разве это не яркое свидетельство?</td>
+                    <td class="col-analysis">
+                        Пишется <span class="highlight-blue">всегда раздельно</span> с прилагательными:
+                        <p>1) Которые не употребляются в качестве одиночных определений (требуют пояснительных слов): <em>не склонный (не склонен) к..., не согласный с..., не расположенный шутить, не похожие на других</em>;</p>
+                        <p>2) В составе риторических вопросов.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">НЕ со сравнительной степенью прилагательных</td>
+                    <td class="col-example">Не легче, не строже / Недовольнее, ещё непонятнее</td>
+                    <td class="col-analysis">
+                        Смотрим на исходное слово:
+                        <p>• От прилагательного без НЕ ➔ <span class="highlight-blue">РАЗДЕЛЬНО</span> (<em>легкий ➔ не легче, строгий ➔ не строже</em>);</p>
+                        <p>• От прилагательного с приставкой НЕ- ➔ <span class="highlight-blue">СЛИТНО</span> (<em>недовольный ➔ недовольнее, непонятный ➔ непонятнее</em>);</p>
+                        <p>• Наречия <em>ещё, гораздо</em> — сигнал к <span class="highlight-blue">слитному</span> написанию (<em>еще непонятнее</em>).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Особые группы кратких прилагательных</td>
+                    <td class="col-example">Не рад, не должен, не готов, не виновен</td>
+                    <td class="col-analysis">
+                        Пишутся с НЕ <span class="highlight-blue">всегда раздельно</span>:
+                        <p>1) Не употребляющиеся в полной форме: <em>не рад, не горазд</em>;</p>
+                        <p>2) Не соотносительные по значению с полными формами: <em>не должен, не способен, не волен, не властен, не намерен, не страшен</em>;</p>
+                        <p>3) Полные формы которых в том же значении сказуемого не употребляются: <em>не готов, не виноват, не виден, не нужен, не согласен, не расположен</em>.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-error">Различие деепричастий, предлогов и наречных сочетаний</td>
+                    <td class="col-example">Не смотря под ноги / Несмотря на трудности; Незачем торопиться / Не за чем спрятаться</td>
+                    <td class="col-analysis">
+                        <p>• <strong>Не смотря / не взирая</strong> (деепричастия) — <span class="highlight-blue">раздельно</span> (<em>шел, не смотря себе под ноги</em> = не смотрел);</p>
+                        <p>• <strong>Несмотря на / невзирая на</strong> (предлоги = вопреки) — <span class="highlight-blue">слитно</span> (<em>несмотря на трудности</em>);</p>
+                        <p>• <strong>Незачем, некогда, некуда, неоткуда</strong> (наречия) — <span class="highlight-blue">слитно</span>, но с предлогом <span class="highlight-blue">в три слова</span> (<em>не за чем спрятаться, не к кому пойти</em>).</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+    </div>
+
+</body>
+</html>
