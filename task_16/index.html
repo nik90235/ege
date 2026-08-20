@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМАШНЯЯ РАБОТА: ЗАДАНИЕ 16 ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.5; 
+        }
+        .container { max-width: 600px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link { 
+            display: inline-flex; 
+            align-items: center; 
+            text-decoration: none; 
+            color: #2368EE; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            transition: color 0.2s; 
+            cursor: pointer;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .student-info { 
+            background: #FFFFFF; 
+            padding: 20px; 
+            border-radius: 6px; 
+            margin-bottom: 24px; 
+            border: 1px solid #AFAFAF;
+        }
+        .student-info input { 
+            width: 100%; 
+            padding: 14px 16px; 
+            border: 1px solid #CBD5E1; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none;
+            transition: all 0.2s ease;
+            background-color: #F8FAFC;
+        }
+        .student-info input:focus {
+            border-color: #2368EE;
+            background-color: #FFFFFF;
+        }
+
+        .task-card { 
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            padding: 24px; 
+            margin-bottom: 20px; 
+        }
+        .task-title { 
+            display: inline-block;
+            background-color: #F4F7FE; 
+            padding: 6px 12px; 
+            border-radius: 6px;
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #2368EE; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            margin-bottom: 16px; 
+        }
+        .instruction { font-weight: 700; margin-bottom: 14px; font-size: 15px; color: #000000; }
+        
+        .sentence-box { 
+            font-size: 15px; 
+            font-weight: 500;
+            margin-bottom: 20px; 
+            line-height: 1.6; 
+            padding: 12px 16px; 
+            background: #F4F7FE;
+            border-left: 4px solid #EE6023; 
+            border-radius: 0 6px 6px 0;
+            color: #000000;
+        }
+        .sentence-box div { margin-bottom: 6px; }
+        .sentence-box div:last-child { margin-bottom: 0; }
+        
+        .input-block { display: flex; flex-direction: column; gap: 8px; }
+        .input-label { font-size: 14px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 0.5px; }
+        .answer-input { 
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none; 
+            transition: all 0.2s ease;
+        }
+        .answer-input:focus { 
+            border-color: #2368EE; 
+        }
+
+        .submit-btn { 
+            background-color: #2368EE; 
+            color: white; 
+            border: none; 
+            padding: 16px 30px; 
+            font-size: 16px; 
+            font-weight: 700; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            width: 100%; 
+            margin-top: 12px; 
+            transition: all 0.2s ease; 
+        }
+        .submit-btn:hover { background-color: #1d56c9; }
+        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <div id="homeworkForm">
+            
+            <div class="brand-header">
+                <span class="brand-name">НМ | Никита Мельников</span>
+                <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+            </div>
+
+            <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link">← Меню платформы</a>
+
+            <div class="header">
+                <h1>Домашняя работа: Задание 16</h1>
+                <p>Пунктуация в ССП и в предложениях с однородными членами</p>
+            </div>
+
+            <div class="student-info">
+                <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
+            </div>
+
+            <!-- Задача 1 -->
+            <div class="task-card">
+                <div class="task-title">Задача 1</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) Идея биогенеза исходит из древних индусских и персидских религиозных представлений об отсутствии начала и конца у природных явлений и представляет собой одну из гипотез происхождения жизни на Земле.</div>
+                    <div>2) После просмотра той или иной картины все с живейшим интересом и совершенно серьёзно расспрашивали меня о битве трёх богатырей и чудесном спасении царевны.</div>
+                    <div>3) Поддержка русскому языку нужна как в России так и за её пределами.</div>
+                    <div>4) За окном вагона виднелись бескрайние степи и белые вишнёвые сады и деревеньки на горизонте.</div>
+                    <div>5) Поднялся небольшой ветер и капля свежей утренней росы упала мне на ладонь.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_1" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 2 -->
+            <div class="task-card">
+                <div class="task-title">Задача 2</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) Высокие столетние сосны расступились перед путешественником.</div>
+                    <div>2) Мешковатость моего попутчика исчезла и он оказался очень красивым и красноречивым человеком.</div>
+                    <div>3) Росистые кусты держидерева кизила и карагача обозначились с чрезвычайной ясностью и выпуклостью.</div>
+                    <div>4) С незапамятных времён лес не только кормил и одевал человека но и делал наших предков сильными и выносливыми.</div>
+                    <div>5) После тихой лесной полутьмы по-иному воспринимались и поникшие большие колокольчики и цветы дикой гвоздики на смолистых стеблях.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_2" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 3 -->
+            <div class="task-card">
+                <div class="task-title">Задача 3</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) А.А. Фет был не только тонким знатоком и творцом русской поэзии но и поэтом-переводчиком.</div>
+                    <div>2) Темнота раннего утра скрывала и площадку на берегу и полотняный посёлок из палаток.</div>
+                    <div>3) Умение быстро и бесшумно взбираться на деревья ловко лазать по их кронам и ветвям входило в прошлом в обязательную подготовку воинов русских дружин.</div>
+                    <div>4) К ней подошёл коренастый черноволосый парень в спортивном костюме и что-то сказал.</div>
+                    <div>5) В театре времён Шекспира актёры отвечали на шутки зрителей и все женские роли исполнялись мужчинами.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_3" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 4 -->
+            <div class="task-card">
+                <div class="task-title">Задача 4</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) Солнце докатилось до края земли и растеклось по небу вишнёвым заревом.</div>
+                    <div>2) Художник писал как городские так и деревенские пейзажи.</div>
+                    <div>3) Было прохладно и берёзовые почки источали горькую сладость.</div>
+                    <div>4) Пришлось ждать своей очереди и поневоле слушать скучные и уже надоевшие разговоры.</div>
+                    <div>5) На Лиде были юбка и рубашка из яркой красной ткани в мелкий белый горох.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_4" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 5 -->
+            <div class="task-card">
+                <div class="task-title">Задача 5</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) Работа шла быстро и весело и была вовремя закончена.</div>
+                    <div>2) Причастия способны как образно описать предметы или явления так и представить их признаки в динамике.</div>
+                    <div>3) Алогичность соединения слов создаёт особый психологический эффект и приковывает внимание читателя и слушателя.</div>
+                    <div>4) Охрана была поставлена не только у чёрного хода но и у дымовых труб.</div>
+                    <div>5) Солнце скрывается за горами и от реки ощутимо тянет холодом.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_5" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 6 -->
+            <div class="task-card">
+                <div class="task-title">Задача 6</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) Но неизвестный человек уже распахнул окно и выпрыгнул в маленький привокзальный садик.</div>
+                    <div>2) В XIX веке в Европе и Америке наука и производство развивались быстрыми темпами.</div>
+                    <div>3) Сняли городской театр на всю зиму и сдавали его на короткие сроки то малороссийской труппе то приезжему фокуснику то местным любителям.</div>
+                    <div>4) Богатый не бедствует да жалуется.</div>
+                    <div>5) Картина М. Врубеля «Сирень» прямо на выставке была куплена П.М. Третьяковым и вот уже более ста лет это полотно находится в постоянной экспозиции Третьяковской галереи.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_6" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 7 -->
+            <div class="task-card">
+                <div class="task-title">Задача 7</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) И в дождь и в холодный ветер и в грозу радостно возвращаться домой с полной корзиной белых грибов.</div>
+                    <div>2) Минералоги и ювелиры гранильщики и камнерезы должны учиться улавливать цветовые оттенки и понимать разницу между ними.</div>
+                    <div>3) Этот край нехоженых троп и непуганых зверей и птиц обладает большой привлекательностью.</div>
+                    <div>4) В полной мере полководческий талант Жукова проявился в Великой Отечественной войне и имя Георгия Константиновича неразрывно связано с Победой.</div>
+                    <div>5) Вдруг налетела буря с крупным и частым градом и проливным дождём и воздух тотчас превратился в белую водяную пыль.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_7" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 8 -->
+            <div class="task-card">
+                <div class="task-title">Задача 8</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) Климатические условия региона влияют как на архитектуру зданий так и на планировку квартир.</div>
+                    <div>2) Каждый из нас приходил к больному бельчонку почти ежедневно и приносил или кусочек яблока или орешек.</div>
+                    <div>3) Продукцию многих машиностроительных комбинатов сложно транспортировать из-за большого веса или крупных размеров.</div>
+                    <div>4) На всякий случай к району аварии были подтянуты три бригады экстренной медицинской помощи и одиннадцать пожарных расчётов.</div>
+                    <div>5) В.М. Васнецов тщательно изучал древнерусскую иконописную технику и впоследствии некоторые её приёмы были им применены в работе над историческими картинами.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_8" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 9 -->
+            <div class="task-card">
+                <div class="task-title">Задача 9</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) В большинстве своём сонеты если не хромали с точки зрения требований формы то отличались высокопарностью слога и невероятной пышностью метафор.</div>
+                    <div>2) В новом музыкальном спектакле были представлены разнообразные приёмы воплощения авторского замысла.</div>
+                    <div>3) Я бы давно всё сказал отцу да не решаюсь.</div>
+                    <div>4) Белые хлопья снега загораются огненными искрами и пропадают в непроницаемом и густом мраке.</div>
+                    <div>5) В XVI веке в Венеции запретили весь колёсный транспорт и с тех пор лодки стали единственным доступным средством передвижения горожан.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_9" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 10 -->
+            <div class="task-card">
+                <div class="task-title">Задача 10</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) «Тройка» – первая у Н.А. Некрасова обобщённая картина крестьянской женской доли и первый эскиз народного женского образа.</div>
+                    <div>2) В поэзии Серебряного века использовались не только ассоциативные возможности слова но и другие способы непрямой передачи мыслей интуиции и чувств автора.</div>
+                    <div>3) Всё дно баркаса было застлано живой ещё шевелящейся рыбой.</div>
+                    <div>4) В квартире у столяра всегда стоит туман и сильно пахнет клеем лаком и стружками.</div>
+                    <div>5) В стихотворный текст поэтов-модернистов активно включались мотивы и образы разных культур явные и скрытые цитаты.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_10" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 11 -->
+            <div class="task-card">
+                <div class="task-title">Задача 11</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) Вдруг тяжёлая подъездная дверь щёлкнула запищала и ударила Каштанку по бокам.</div>
+                    <div>2) И.А. Бунин одинаково ярко проявил себя и как поэт и как художник и как переводчик.</div>
+                    <div>3) В своих шумных литературных манифестах футуристы заявляли о необходимости отказа от классического наследия и о задаче создания нового искусства будущего.</div>
+                    <div>4) Кругом стояли семь пирамидальных тополей и издали всю эту группу можно было принять за старинную сторожевую башню.</div>
+                    <div>5) Снег засыплет и предаст забвению лесные повести и загадки.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_11" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 12 -->
+            <div class="task-card">
+                <div class="task-title">Задача 12</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) У Ирины при каждом новом воспоминании о нанесённой обиде рыдания подступали к горлу и злое чувство приливало к сердцу.</div>
+                    <div>2) В эмигрантский период проза И.А. Бунина становится эмоциональной музыкальной и лиричной.</div>
+                    <div>3) Обед прошёл весело и только за компотом Остап вспомнил о цели своего посещения и заговорил.</div>
+                    <div>4) Старик всегда был весел и говорил шуточками и прибауточками.</div>
+                    <div>5) Лютик хотя и ярко-жёлтый но всё же по-своему очень выразительный цветок.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_12" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 13 -->
+            <div class="task-card">
+                <div class="task-title">Задача 13</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) Густые леса непроходимые болота и кристально чистые озёра вдохновляют путешественника и оставляют в его душе прекрасные впечатления.</div>
+                    <div>2) Вечером по обеим сторонам улицы зажглись фонари и в окнах домов показались огни.</div>
+                    <div>3) Слабо гудел за поворотом реки катер да орали за рекой во всё горло петухи.</div>
+                    <div>4) Подбородок сестры дрожит не то от смеха не то от слёз.</div>
+                    <div>5) По вечерам дедушка смотрел телевизор или читал или уходил в театр.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_13" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 14 -->
+            <div class="task-card">
+                <div class="task-title">Задача 14</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) И верного друга прощальной рукой и гладит и треплет по шее крутой.</div>
+                    <div>2) По-комариному тонко просвистит малюсенький королёк-оливка да резко крикнет сойка.</div>
+                    <div>3) Порывистый осенний ветер внезапно утих и повалил крупными хлопьями первый снег.</div>
+                    <div>4) А звёзды неожиданно в тумане блеснули и свет свой холодный под липами пролили.</div>
+                    <div>5) Я или зарыдаю или закричу или в обморок упаду.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_14" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 15 -->
+            <div class="task-card">
+                <div class="task-title">Задача 15</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) Птицелов должен не только знать повадки птиц но и быть ещё искусным декоратором.</div>
+                    <div>2) В беспечной юности я знал одни дремучие дубравы ручьи пещеры наших скал да дикой бедности забавы.</div>
+                    <div>3) В библиотечном зале слышится шелест страниц да пахнет старой бумагой и свежей типографской краской.</div>
+                    <div>4) На кольях старой ограды чернели опрокинутые горшки и кругом жёсткие листья кукурузы шелестели ворчливо и сухо.</div>
+                    <div>5) Этот уездный городок был с деревянными кривыми домишками бесконечными заборами и купеческими каменными строениями.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_15" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 16 -->
+            <div class="task-card">
+                <div class="task-title">Задача 16</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) На белой тщательно отглаженной скатерти появились варёное мясо и вяленая рыба.</div>
+                    <div>2) Колесо чугунное вертится и гудит и ветром обдаёт.</div>
+                    <div>3) Как от Белого так и от Каспийского моря можно добраться в Москву водным путём.</div>
+                    <div>4) Снежные сугробы подёрнулись тонкой ледяной коркой.</div>
+                    <div>5) Не то мысли не то воспоминания не то мечты бродили в голове Оленина.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_16" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 17 -->
+            <div class="task-card">
+                <div class="task-title">Задача 17</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) Всем просящим отец давал деньги не столько из доброты сколько из напускного джентльменства.</div>
+                    <div>2) Главными в танце считались грациозность и плавность движений рук красота и изящество складок шали.</div>
+                    <div>3) Видны были только белые стволы ближайших берёз да кусочек аллеи.</div>
+                    <div>4) То нагоняло чёрные тучи то с неба лился прохладный весенний свет то бушевала мокрая снежная буря.</div>
+                    <div>5) Строители подойдут к реке и начнётся переправа на другой берег.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_17" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 18 -->
+            <div class="task-card">
+                <div class="task-title">Задача 18</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) Яркие солнечные лучи отражались от снега и от этого день казался ещё светлее.</div>
+                    <div>2) Спуск с куполообразной горы был сначала пологий но потом сделался чрезвычайно крутым.</div>
+                    <div>3) Снег то перестаёт идти то снова сыплет серебристые в лунном свете снежинки.</div>
+                    <div>4) Представляете ли вы себе скверный южный уездный городишко?</div>
+                    <div>5) Черты лица Карла были тонки суховаты заострены.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_18" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 19 -->
+            <div class="task-card">
+                <div class="task-title">Задача 19</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) По широкой ухабистой дороге шибкою рысью ехала высокая венская коляска.</div>
+                    <div>2) Квартира Александра хотя и просторна но неуютна и сумрачна.</div>
+                    <div>3) Кирилл и Вася бродили поодаль и собирали для костра бурьян и берёсту.</div>
+                    <div>4) Заморосил мелкий дождик и весь видимый горизонт обложило тучами.</div>
+                    <div>5) Иные хозяева вырастили уже вишни или сирень или жасмин.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_19" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 20 -->
+            <div class="task-card">
+                <div class="task-title">Задача 20</div>
+                <div class="instruction">Укажите предложения, в которых нужно поставить ОДНУ запятую. Запишите номера этих предложений.</div>
+                <div class="sentence-box">
+                    <div>1) В окна с улицы лился глухой шум и летела пыль.</div>
+                    <div>2) Сколько раз мы с Яковом теряли друг друга в густом местами непроходимом кустарнике!</div>
+                    <div>3) Цветы лучше собирать утром или под вечер.</div>
+                    <div>4) Светлый месяц вышел из-за сарая и через двор легли чёрные тени и заблестело железо на крыше.</div>
+                    <div>5) Раненый открыл глаза застонал от нестерпимой боли в простреленном плече.</div>
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_20" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <button type="button" id="submitBtn" class="submit-btn">Отправить работу на проверку</button>
+        </div>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+    </div>
+
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+        function processSending() {
+            const submitBtn = document.getElementById('submitBtn');
+            if (submitBtn.disabled) return;
+
+            const nameInput = document.getElementById('studentName');
+            const studentName = nameInput.value.trim();
+
+            if (!studentName) {
+                alert('Пожалуйста, введите ваше Имя и Фамилию.');
+                nameInput.focus();
+                return;
+            }
+
+            const inputs = document.querySelectorAll('.answer-input');
+            let allFilled = true;
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    allFilled = false;
+                }
+            });
+
+            if (!allFilled) {
+                if (!confirm('Вы заполнили не все ответы. Всё равно отправить работу?')) {
+                    return;
+                }
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Отправка данных...';
+
+            const searchParams = new URLSearchParams();
+            searchParams.append('taskType', 'dz16');
+            searchParams.append('Имя Ученика', studentName);
+            
+            inputs.forEach(input => {
+                const taskName = input.getAttribute('data-task');
+                searchParams.append(taskName, input.value.trim());
+            });
+
+            fetch(WEB_APP_URL, {
+                method: 'POST',
+                body: searchParams,
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(() => {
+                document.getElementById('mainContainer').innerHTML = `
+                    <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+                        <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+                        <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+                        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                alert('Произошла ошибка при отправке. Попробуйте еще раз.');
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Отправить работу на проверку';
+                console.error('Ошибка:', error);
+            });
+        }
+
+        const btn = document.getElementById('submitBtn');
+        btn.addEventListener('click', function(e) {
+            processSending();
+        });
+    </script>
+</body>
+</html>
