@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМАШНЯЯ РАБОТА: ЗАДАНИЕ 17 ЕГЭ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.5; 
+        }
+        .container { max-width: 600px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link { 
+            display: inline-flex; 
+            align-items: center; 
+            text-decoration: none; 
+            color: #2368EE; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            transition: color 0.2s; 
+            cursor: pointer;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .student-info { 
+            background: #FFFFFF; 
+            padding: 20px; 
+            border-radius: 6px; 
+            margin-bottom: 24px; 
+            border: 1px solid #AFAFAF;
+        }
+        .student-info input { 
+            width: 100%; 
+            padding: 14px 16px; 
+            border: 1px solid #CBD5E1; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none;
+            transition: all 0.2s ease;
+            background-color: #F8FAFC;
+        }
+        .student-info input:focus {
+            border-color: #2368EE;
+            background-color: #FFFFFF;
+        }
+
+        .task-card { 
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            padding: 24px; 
+            margin-bottom: 20px; 
+        }
+        .task-title { 
+            display: inline-block;
+            background-color: #F4F7FE; 
+            padding: 6px 12px; 
+            border-radius: 6px;
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #2368EE; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            margin-bottom: 16px; 
+        }
+        .instruction { font-weight: 700; margin-bottom: 14px; font-size: 15px; color: #000000; }
+        
+        .sentence-box { 
+            font-size: 15px; 
+            font-weight: 500;
+            margin-bottom: 20px; 
+            line-height: 1.6; 
+            padding: 12px 16px; 
+            background: #F4F7FE;
+            border-left: 4px solid #EE6023; 
+            border-radius: 0 6px 6px 0;
+            color: #000000;
+        }
+        
+        .input-block { display: flex; flex-direction: column; gap: 8px; }
+        .input-label { font-size: 14px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 0.5px; }
+        .answer-input { 
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none; 
+            transition: all 0.2s ease;
+        }
+        .answer-input:focus { 
+            border-color: #2368EE; 
+        }
+
+        .submit-btn { 
+            background-color: #2368EE; 
+            color: white; 
+            border: none; 
+            padding: 16px 30px; 
+            font-size: 16px; 
+            font-weight: 700; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            width: 100%; 
+            margin-top: 12px; 
+            transition: all 0.2s ease; 
+        }
+        .submit-btn:hover { background-color: #1d56c9; }
+        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <div id="homeworkForm">
+            
+            <div class="brand-header">
+                <span class="brand-name">НМ | Никита Мельников</span>
+                <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+            </div>
+
+            <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link">← Меню платформы</a>
+
+            <div class="header">
+                <h1>Домашняя работа: Задание 17</h1>
+                <p>Знаки препинания в предложениях с обособленными членами</p>
+            </div>
+
+            <div class="student-info">
+                <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
+            </div>
+
+            <!-- Задача 1 -->
+            <div class="task-card">
+                <div class="task-title">Задача 1</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Очарованный неведомыми чарами (1) он (2) молча (3) улыбался (4) тихонько играя волосами её (5) не находя слов в ответ ей (6) и (7) чувствуя эту женщину матерью и сестрой (8) своей юности.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_1" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 2 -->
+            <div class="task-card">
+                <div class="task-title">Задача 2</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Дождь (1) начавшийся ещё в среду (2) и (3) ливший с утра до вечера (4) припустил сегодня особенно бурно (5) барабаня по густой зелени мокрого сада.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_2" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 3 -->
+            <div class="task-card">
+                <div class="task-title">Задача 3</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Событие (1) случившееся давно (2) и отложившееся в памяти (3) может стать (4) пройдя через наше переосмысление (5) достойной темой литературного творчества.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_3" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 4 -->
+            <div class="task-card">
+                <div class="task-title">Задача 4</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Каждый художник (1) вдохновившийся впечатлениями реальной жизни (2) создаёт неповторимый мир (3) слушая собственное сердце (4) и (5) подчиняясь своей фантазии.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_4" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 5 -->
+            <div class="task-card">
+                <div class="task-title">Задача 5</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Эмоциональная речь и выразительные жесты (1) привлекая внимание публики к самому оратору (2) позволяли видеть в нём личность (3) обладающую внутренней силой (4) и (5) способную на благородный поступок.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_5" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 6 -->
+            <div class="task-card">
+                <div class="task-title">Задача 6</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Готовясь к занятиям (1) будьте внимательны и старайтесь учитывать все (2) отражённые в учебнике (3) случаи из практики (4) важные для понимания темы.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_6" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 7 -->
+            <div class="task-card">
+                <div class="task-title">Задача 7</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Закончив выступление (1) и (2) поклонившись (3) актёр прошёл за кулисы, но несколько раз бисировал (4) вызванный (5) несмолкающими аплодисментами.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_7" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 8 -->
+            <div class="task-card">
+                <div class="task-title">Задача 8</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Предложив Ипполиту Матвеевичу увековечить на скале мелом свои имена (1) Остап Бендер (2) недолго думая (3) сложил на парапет (4) ограждавший шоссе от кипучей бездны Терека (5) запасы любительской колбасы и стал подниматься наверх.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_8" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 9 -->
+            <div class="task-card">
+                <div class="task-title">Задача 9</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Александр Владимирович (1) молча (2) протискивался вперёд (3) отстраняя жену (4) и (5) поднявшись на две ступени (6) оглядел свысока (7) раскинувшееся перед глазами (8) поле боя.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_9" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 10 -->
+            <div class="task-card">
+                <div class="task-title">Задача 10</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Сейчас дрогнет как в зеркало впаянный (1) поплавок и (2) морщиня блестящую гладь реки (3) и разрезая её (4) уверенно пойдёт вкось под широкий блестящий лист кувшинки.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_10" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 11 -->
+            <div class="task-card">
+                <div class="task-title">Задача 11</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Сверкающие на солнце (1) капли слепого дождя (2) сыплющегося с неба (3) похожи на драгоценные камни (4) переливающиеся всеми своими гранями.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_11" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 12 -->
+            <div class="task-card">
+                <div class="task-title">Задача 12</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Иванов столп (1) возвышающийся над Москвой (2) постепенно стал восприниматься как стоящий на защите интересов (3) всех русских земель (4) богатырь-воин.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_12" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 13 -->
+            <div class="task-card">
+                <div class="task-title">Задача 13</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    С осин (1) обвешанных гирляндами пёстрых листьев (2) и (3) выглядящих по-новогоднему празднично и нарядно (4) слетают всё новые и новые листья (5) опускаясь на землю (6) или гнездясь в развилках стволов.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_13" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 14 -->
+            <div class="task-card">
+                <div class="task-title">Задача 14</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Не умаляя достоинств (1) других классиков русской литературы (2) и (3) вполне (4) осознавая их величие (5) мы называем Пушкина (6) первым нашим поэтом.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_14" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 15 -->
+            <div class="task-card">
+                <div class="task-title">Задача 15</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Шары (1) наполненные горячим воздухом (2) или гелием (3) поддерживаются (4) окружающим их (5) воздухом.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_15" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 16 -->
+            <div class="task-card">
+                <div class="task-title">Задача 16</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Дружина делилась на старшую (1) включавшую послов и княжеских управителей (2) имевших свою землю (3) и младшую (4) жившую при князе (5) и (6) обслуживавшую его двор и хозяйство.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_16" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 17 -->
+            <div class="task-card">
+                <div class="task-title">Задача 17</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Файл – это совокупность связанных записей (1) хранящихся (2) во внешней памяти компьютера (3) и (4) рассматриваемых как единое целое.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_17" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 18 -->
+            <div class="task-card">
+                <div class="task-title">Задача 18</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Листья (1) свернувшиеся и почерневшие от мороза (2) шуршат под сапогами в берёзовой аллее (3) вырубленной уже наполовину (4) и (5) вырисовываясь на низком сумрачном небе (6) спят нахохленные галки на гребне риги.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_18" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 19 -->
+            <div class="task-card">
+                <div class="task-title">Задача 19</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Сравнивая северные избы с описаниями новгородских жилищ в исторических документах (1) с изображениями на планах и гравюрах (2) и (3) сверяясь с данными (4) полученными археологами (5) мы обнаруживаем общность архитектуры северного жилища XIX столетия и древних новгородских построек.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_19" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- Задача 20 -->
+            <div class="task-card">
+                <div class="task-title">Задача 20</div>
+                <div class="instruction">Укажите цифру(-ы), на месте которой(-ых) должна(-ы) стоять запятая(-ые).</div>
+                <div class="sentence-box">
+                    Музей изобразительных искусств имени А.С. Пушкина (1) открытый в Москве (2) в 1912 году как Музей изящных искусств (3) образовался на основе (4) созданного в середине XIX века Кабинета изящных искусств Московского университета (5) превращённого по инициативе И.В. Цветаева в Музей слепков при университете.
+                </div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="Задача_20" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <button type="button" id="submitBtn" class="submit-btn">Отправить работу на проверку</button>
+        </div>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+    </div>
+
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+        function processSending() {
+            const submitBtn = document.getElementById('submitBtn');
+            if (submitBtn.disabled) return;
+
+            const nameInput = document.getElementById('studentName');
+            const studentName = nameInput.value.trim();
+
+            if (!studentName) {
+                alert('Пожалуйста, введите ваше Имя и Фамилию.');
+                nameInput.focus();
+                return;
+            }
+
+            const inputs = document.querySelectorAll('.answer-input');
+            let allFilled = true;
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    allFilled = false;
+                }
+            });
+
+            if (!allFilled) {
+                if (!confirm('Вы заполнили не все ответы. Всё равно отправить работу?')) {
+                    return;
+                }
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Отправка данных...';
+
+            const searchParams = new URLSearchParams();
+            searchParams.append('taskType', 'dz17');
+            searchParams.append('Имя Ученика', studentName);
+            
+            inputs.forEach(input => {
+                const taskName = input.getAttribute('data-task');
+                searchParams.append(taskName, input.value.trim());
+            });
+
+            fetch(WEB_APP_URL, {
+                method: 'POST',
+                body: searchParams,
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(() => {
+                document.getElementById('mainContainer').innerHTML = `
+                    <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+                        <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+                        <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+                        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                alert('Произошла ошибка при отправке. Попробуйте еще раз.');
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Отправить работу на проверку';
+                console.error('Ошибка:', error);
+            });
+        }
+
+        const btn = document.getElementById('submitBtn');
+        btn.addEventListener('click', function(e) {
+            processSending();
+        });
+    </script>
+</body>
+</html>
