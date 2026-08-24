@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМАШНИЙ ЗАЧЕТ: ЗАДАНИЯ 9-15</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.5; 
+        }
+        .container { max-width: 600px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link { 
+            display: inline-flex; 
+            align-items: center; 
+            text-decoration: none; 
+            color: #2368EE; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            transition: color 0.2s; 
+            cursor: pointer;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .variant-header {
+            margin: 30px 0 15px 0;
+            padding: 10px 15px;
+            background-color: #2368EE;
+            color: #FFFFFF;
+            font-weight: 900;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 16px;
+        }
+
+        .student-info { 
+            background: #FFFFFF; 
+            padding: 20px; 
+            border-radius: 6px; 
+            margin-bottom: 24px; 
+            border: 1px solid #AFAFAF;
+        }
+        .student-info input { 
+            width: 100%; 
+            padding: 14px 16px; 
+            border: 1px solid #CBD5E1; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none;
+            transition: all 0.2s ease;
+            background-color: #F8FAFC;
+        }
+        .student-info input:focus {
+            border-color: #2368EE;
+            background-color: #FFFFFF;
+        }
+
+        .task-card { 
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            padding: 24px; 
+            margin-bottom: 20px; 
+        }
+        .task-title { 
+            display: inline-block;
+            background-color: #F4F7FE; 
+            padding: 6px 12px; 
+            border-radius: 6px;
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #2368EE; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            margin-bottom: 16px; 
+        }
+        .instruction { font-weight: 700; margin-bottom: 14px; font-size: 15px; color: #000000; }
+        
+        .sentence-box { 
+            font-size: 15px; 
+            font-weight: 500;
+            margin-bottom: 20px; 
+            line-height: 1.6; 
+            padding: 12px 16px; 
+            background: #F4F7FE;
+            border-left: 4px solid #EE6023; 
+            border-radius: 0 6px 6px 0;
+            color: #000000;
+            white-space: pre-line;
+        }
+        
+        .input-block { display: flex; flex-direction: column; gap: 8px; }
+        .input-label { font-size: 14px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 0.5px; }
+        .answer-input { 
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none; 
+            transition: all 0.2s ease;
+        }
+        .answer-input:focus { 
+            border-color: #2368EE; 
+        }
+        .answer-input.confirmed {
+            background-color: #E2E8F0;
+            border-color: #94A3B8;
+        }
+
+        .submit-btn { 
+            background-color: #2368EE; 
+            color: white; 
+            border: none; 
+            padding: 16px 30px; 
+            font-size: 16px; 
+            font-weight: 700; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            width: 100%; 
+            margin-top: 12px; 
+            transition: all 0.2s ease; 
+        }
+        .submit-btn:hover { background-color: #1d56c9; }
+        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <div id="homeworkForm">
+            
+            <div class="brand-header">
+                <span class="brand-name">НМ | Никита Мельников</span>
+                <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+            </div>
+
+            <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link">← Меню платформы</a>
+
+            <div class="header">
+                <h1>Домашний зачет</h1>
+                <p>Задания 9–15 (Варианты 1–5)</p>
+            </div>
+
+            <div class="student-info">
+                <input type="text" id="studentName" required placeholder="Введите ваши Имя и Фамилию">
+            </div>
+
+            <!-- ВАРИАНТ 1 -->
+            <div class="variant-header">Вариант 1</div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 9</div>
+                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) нан..мать, отп..рать, бл..стательный
+2) тв..рец, прик..сновение, предпол..жительно
+3) зап..реть (дверь), изб..ратели, (с) зам..ранием (сердца)
+4) забл..стевший, зап..раются, прот..реть (стол)
+5) (на) пл..ву, подр..сти, предл..гать</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В1_Задание_9" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 10</div>
+                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) пр..мудрый, пр..емственность, пр..творить (дверь)
+2) и..рисованный, бе..принципный, ра..калённый
+3) сверх..зысканно, трёх..мпульсный, дез..нформация
+4) о..данный, пре..писание, испо..тишка
+5) ра..чертить, и..точать (свет), бе..численный</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В1_Задание_10" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 11</div>
+                <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) меньш..нство, стрях..вать
+2) талантл..вый, разборч..вый
+3) мировоззренч..ский, опрометч..вость
+4) нищ..нский, велич..на
+5) зашпакл..вать, гор..вать</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В1_Задание_11" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 12</div>
+                <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) неотъемл..мая (часть), бор..шься
+2) ла..щая (болонка), кле..щий (аппликацию)
+3) приравн..нный, (штукатурка) осыпа..тся
+4) использу..мый, выдел..шь (главное)
+5) наве..нная (музыкой грусть), (коллеги) серд..тся</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В1_Задание_12" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 13</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется слитно. Запишите номера ответов.</div>
+                <div class="sentence-box">1) В городе этой осенью совершенно (НЕ)СПОКОЙНО, и родители боятся отпускать детей на улицу одних.
+2) Лиза (НЕ)ДОГЛЯДЕЛА за младшим братом и теперь горько плакала, потому что он порвал ее любимую мягкую игрушку.
+3) Еще (НЕ)НАПИСАННЫЙ роман волновал ее воображение: она думала о нем день и ночь и видела в собственных знакомых прототипы будущих персонажей.
+4) Молодой (НЕ) ЖЕНАТЫЙ мужчина ухаживал за мной, но, к сожалению, меня это совсем не интересовало, потому что я была влюблена в Ивана.
+5) Мы понимаем, что вы (НЕ) РАСПОЛОЖЕНЫ к беседе, но просим вас уделить нам буквально несколько минут, чтобы мы могли сказать самое главное.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В1_Задание_13" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 14</div>
+                <div class="instruction">Укажите варианты ответов, в которых все выделенные слова пишутся слитно. Запишите номера ответов.</div>
+                <div class="sentence-box">1) Когда наша кошка была еще игривым и шкодливым котёнком, она (С)РАЗБЕГУ врезалась в мамину любимую вазу, и та, конечно, разбилась (В)ДРЕБЕЗГИ.
+2) За столом начали петь (НЕ)(В)ПОПАД знакомые всем присутствующим строчки: «Мой друг говорил (ПО)ФРАНЦУЗСКИ, по крайней мере, "Pardon!" и "Merci!"»
+3) В уездном городе сохранилась традиция пить чай (В)ПРИКУСКУ, что для путешественников из столицы, привыкших класть сахар в чашку, (ЗА)ЧАСТУЮ удивительно.
+4) Я поднялся (НА)ВЕРХ, перемещаясь на цыпочках, и попытался найти свой берет, но тщетно: (В)ПОТЬМАХ ничего не было видно.
+5) (НА)СКОРО перекусив заботливо приготовленными Гутой бутербродами, Рэд переоделся и поспешил на встречу, держа (ПОД)МЫШКОЙ сверток с артефактами.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В1_Задание_14" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 15</div>
+                <div class="instruction">Укажите все цифры, на месте которых пишется НН.</div>
+                <div class="sentence-box">Решение покинуть квартиру для семьи стало вынужде(1)ой и време(2)ой мерой, которая была продиктова(3)а внеплановым ремонтом, затея(4)ым женихом по случаю внезапного раннего приезда посажё(5)ого отца, пламе(6)о им обожаемого.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В1_Задание_15" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- ВАРИАНТ 2 -->
+            <div class="variant-header">Вариант 2</div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 9</div>
+                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) (на) з..ре, разг..релся (спор), пл..вец
+2) изл..жить, возг..рание, отск..чить
+3) выт..реть (руки), выч..тание, заст..лать (пол ковром)
+4) р..вняться (на старших), пол..гаться (на чьё-то мнение), ск..чу (на коне)
+5) г..релка, м..кнуть (хлеб в соль), прир..щение</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В2_Задание_9" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 10</div>
+                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) с..знова, вз..скать, пред..юньский
+2) ра..торгнуть, бе..жалостность, не..скончаемый
+3) неот..емлемый, с..едобный, без..ядерный
+4) пр..старелый, пр..школьный, сопр..частность
+5) раз..чаровать, нед..считаться, пр..родина</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В2_Задание_10" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 11</div>
+                <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) (артист) обезголос..л, назойл..вый
+2) син..ватый, нефт..ная (платформа)
+3) сосредоточ..вать, приукраш..вать
+4) рассчит..вать, потреб..вать
+5) ноч..вка, раскрепощ..нность</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В2_Задание_11" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 12</div>
+                <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) затер..нный (мир), защекоч..нный
+2) (мужики) паш..т, (дела много) знач..т
+3) просмотр..шь, танцу..шь
+4) стел..щийся (туман), (депутаты) бор..тся (за победу)
+5) (они) гон..тся (за славой), (малыши) высп..тся</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В2_Задание_12" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 13</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ (НИ) с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">1) Он написал (НЕ)ПОВТОРИМУЮ композицию, и коллеги завидовали ему еще долгие годы, понимая, что они не настолько талантливы.
+2) Я поняла, что Паша (НЕ)РАД встрече со мной по тому, как он презрительно посмотрел на меня и как начал шептать что-то на ухо своему другу.
+3) (НИ)КТО другой не мог сравниться с тетей Элей в придумывании сказок, поэтому племянники с нетерпением ждали ее возвращения из экспедиции.
+4) Вовсе (НЕ)ЧИСТЫМИ были помыслы Миши по отношению к Вале: он мечтал отомстить ей за отчисление из университета и необходимость искать работу.
+5) (НЕ)ЗАМЕЧЕННАЯ мною ошибка в тексте чуть позже дала о себе знать, и главный редактор не разрешил печатать его, несмотря на мои уговоры.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В2_Задание_13" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 14</div>
+                <div class="instruction">Укажите варианты ответов, в которых все выделенные слова пишутся РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">1) Мулан любовалась видами, открывающимися с холма, смотрела (В)ДАЛЬ леса и думала, как хорошо было бы спуститься на то зеленое поле и бежать, бежать (БЕЗ)ОГЛЯДКИ, наслаждаясь прохладой утра.
+2) Вронский сердито развернулся и быстрым шагом направился в кабинет, а Анна бросилась (В)ДОГОНКУ и, потеряв терпение, (В)СЕРДЦАХ прокричала, что немедленно уедет.
+3) Читая вслух, Оззи постоянно краснел и смущался, поэтому он (ДО)СМЕРТИ не любил это занятие, даже рассказывать (ПО)ПАМЯТИ ему казалось проще.
+4) (В)МИГ Рэдрик четко осознал: несмотря на то что в Зону они с Арчи вошли (В)ДВОЁМ, назад вернётся только он один.
+5) Святочный Бал, по отзывам всех присутствовавших, прошел великолепно: гости танцевали (ДО)УПАДУ, знакомились, общались и, конечно, ели (ДО)СЫТА.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В2_Задание_14" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 15</div>
+                <div class="instruction">Укажите все цифры, на месте которых пишется НН.</div>
+                <div class="sentence-box">Самоотверже(1)ость ране(2)ого и истоще(3)ого Николая Плужникова, обрече(4)ого на гибель в осажде(5)ой крепости, поразила противников.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В2_Задание_15" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- ВАРИАНТ 3 -->
+            <div class="variant-header">Вариант 3</div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 9</div>
+                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) оп..раться, раст..рать (в порошок), разж..гание (костра)
+2) р..весники, прор..стают (семена), оз..рились (солнцем)
+3) выр..внять (поверхность), прекл..няться (перед мужеством), пл..вцы
+4) (молодая) пор..сль (кустов), неук..снительно, ск..чок
+5) (не дать) ум..реть (от голода), (цвета) соч..таются, соб..рётся</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В3_Задание_9" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 10</div>
+                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) бе..крайний, ни..вергать, чере..чур
+2) вз..браться, пр..махнуться, п..ложиться
+3) пр..обрёл, пр..образователь, пр..сечь (провокации)
+4) об..скать, под..грать, без..нициативный
+5) п..едестал, б..ются, обез..яний</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В3_Задание_10" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 11</div>
+                <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) повел..вать, затуш..вать
+2) заво..вать, неряшл..вый
+3) поскрип..вать, развед..вать
+4) врем..чко, вывеш..вать
+5) издавн.., изразц..вый (камин)</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В3_Задание_11" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 12</div>
+                <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) стел..щаяся (позёмка), (огни на ёлке) сия..т
+2) (это) противореч..т (моим принципам), перевяж..шь
+3) выгор..шь, знач..мый
+4) мурлыч..щие (коты), огнедыш..щий
+5) (работники) выдерж..т (нагрузку), (козы) топч..т (клубнику)</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В3_Задание_12" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 13</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется слитно. Запишите номера ответов.</div>
+                <div class="sentence-box">1) (НЕ)ПРИНИМАЯ во внимание его лень, учитель продолжал хвалить ученика, ставить ему высокие оценки и убеждать его в том, что он поступит в лучший университет города.
+2) Это была весьма (НЕ)ПРИВЛЕКАТЕЛЬНАЯ дама средних лет, но ее харизма и чувство юмора могли расположить к себе любого.
+3) Он был (НЕ)(В)МЕРУ говорлив, но часто его рассуждения казались бессмысленными, он словно тянул время без всякой надобности.
+4) Новая футболка выглядела (НЕ)ЛЕПО, когда Лена надевала ее на работу, потому что от нее требовали соблюдения официально-делового стиля.
+5) Сейчас (НЕ)ВРЕМЯ веселиться и шутить все расстроены новостью о тяжелой болезни местного аптекаря и думают, как можно ему помочь.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В3_Задание_13" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 14</div>
+                <div class="instruction">Укажите варианты ответов, в которых все выделенные слова пишутся слитно. Запишите номера ответов.</div>
+                <div class="sentence-box">1) Папа побежал (НА)ВСТРЕЧУ мне, хотя и опаздывал на работу уже на полчаса, с целью объяснить, что он на самом деле имел (В)ВИДУ.
+2) (ЗА)ТО, что ребенок плохо себя вёл, он был лишен сладкого, (ПРИ)ТОМ аж на две недели.
+3) После катастрофы, произошедшей в прошлом месяце, Олег всегда был (НА)ЧЕКУ и, идя по улице, он часто внимательно смотрел (В)ДАЛЬ.
+4) (В)СЛЕДСТВИЕ конфликта мы не могли добиться от них ответа на наш вопрос (НА)СЧЁТ летнего отпуска, сколько бы мы ни пытались.
+5) ЧТО(БЫ) тебя взяли на работу, ты ТАК(ЖЕ) должен уметь писать яркие, запоминающиеся, глубокие тексты и придумывать к ним интересные заголовки.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В3_Задание_14" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 15</div>
+                <div class="instruction">Укажите все цифры, на месте которых пишется одна буква Н.</div>
+                <div class="sentence-box">Прогуливаясь по мощё(1)ой красным булыжником площади со своим назва(2)ым братом, я заметил магазин, на витринах которого были представле(3)ы стари(4)ые серебря(5)ые столовые приборы и поисти(6)е искусные золочё(7)ые чашки и блюда.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В3_Задание_15" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- ВАРИАНТ 4 -->
+            <div class="variant-header">Вариант 4</div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 9</div>
+                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) отб..рает, зан..мательный, поч..тать (старших)
+2) к..снулся, возл..жение (венков), (волосы) выг..рели (на солнце)
+3) (горько) прич..тать, над..рёшь (в огороде лука), выт..реть (стол)
+4) выб..рите (билет), зап..реть (в темнице), раст..реть (мазь)
+5) выр..стет (фикус), неприк..саемый, р..внинный (зверь)</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В4_Задание_9" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 10</div>
+                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) пр..емлемый, пр..большой, пр..вращение
+2) и..коверкать, чере..чур, ни..провергать
+3) об..яснение, вз..ерошить, под..езжая
+4) пр..образ, д..бела, (находится) п..одаль
+5) о..бросить, на..бровный, по..пилить (стул)</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В4_Задание_10" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 11</div>
+                <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) подразум..вать, насмешл..вый
+2) жонглир..вать, попроб..вать
+3) алюмини..вый, обнаруж..вать
+4) удва..вать, разворач..вать
+5) тбилис..кий, француз..кий</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В4_Задание_11" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 12</div>
+                <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) вытерп..вший (боль), расходу..мый
+2) (дети) спряч..тся, (сотрудники) назнач..т (дату)
+3) (он) клевещ..т, зачист..вший (участок)
+4) (женщины) маж..тся (кремом), колыш..щиеся (травы)
+5) тревож..щийся (старик), защекоч..нный</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В4_Задание_12" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 13</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ (НИ) с выделенным словом пишется РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">1) В молодости мы мечтали попасть на Камчатку, но, оказавшись там, уже (НЕ)ПОНИМАЛИ, что могло так привлекать нас в этом острове.
+2) Механик (НЕ)ДОГЛЯДЕЛ за помощником, тот ошибся, и это привело к серьезной поломке автомобиля, которая случилась через несколько дней.
+3) (НЕ)ГОВОРЯ ни слова друг другу, мы поняли, что больше не можем быть вместе, что нам совсем неинтересно друг с другом, что хочется видеть иных людей рядом с собой.
+4) С утра светило солнце, но после обеда, откуда (НИ)ВОЗЬМИСЬ, на небе появились тучи, и мы поняли, что сегодня пойти гулять, следуя старой привычке, не получится.
+5) (НЕ)ХОРОШО ли мы сыграли в гольф вчера вечером?</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В4_Задание_13" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 14</div>
+                <div class="instruction">Укажите варианты ответов, в которых все выделенные слова пишутся РАЗДЕЛЬНО. Запишите номера ответов.</div>
+                <div class="sentence-box">1) (В)ЗАКЛЮЧЕНИЕ я сказал, что новый роман современного писателя привлекает внимание читателей динамичным сюжетом, (В)ОТЛИЧИЕ от предыдущего произведения, опубликованного им.
+2) (ОТ)ТОГО, что было сказано на заседании кафедры, Ксюше стало ТАК(ЖЕ) страшно и тоскливо, как и в прошлом году.
+3) Когда я поняла, что всё, что он делал, было (В)ОТМЕСТКУ, то лишь замерла (НА)МИГ, но не замолчала и продолжила общаться с друзьями.
+4) (В)СИЛУ известных всем обстоятельств я решила провести зиму на юге страны, (НЕ)СМОТРЯ на то что мне не хотелось уезжать из родительского дома.
+5) Мужички изо всех сил старались проникнуть В(ГЛУБЬ) незатейливого вопроса о необходимости оставить одного дежурного, пока остальные отправятся (НА)БОКОВУЮ.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В4_Задание_14" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 15</div>
+                <div class="instruction">Укажите все цифры, на месте которых пишется НН.</div>
+                <div class="sentence-box">В безветре(1)ый летний день я люблю прогуливаться по берегу песча(2)ого пляжа, окружё(3)ого полем, и наслаждаться ароматом свежескоше(4)ой травы, а также смотреть на то, как плавно работают ветря(5)ые мельницы.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В4_Задание_15" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <!-- ВАРИАНТ 5 -->
+            <div class="variant-header">Вариант 5</div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 9</div>
+                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) р..сток, выск..чка, разл..жение (общества)
+2) подп..рать, ст..реть, ум..рать (от жажды)
+3) (кот) разд..рает (ковёр), выст..лать, нач..нать
+4) ср..внить (цены), з..ря, заг..рать (на пляже)
+5) напом..нать, обн..мать (сестру), бл..стать (в обществе)</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В5_Задание_9" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 10</div>
+                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) беспр..страстный, пр..брежный, пр..скорбный
+2) бе..жизненный, неи..бежный, ра..грызть
+3) меж..языковой, с..естной, гидропод..ёмник
+4) по..бросить, о..биться, на..треснутый
+5) супер..гра, без..дейный, пред..дущий</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В5_Задание_10" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 11</div>
+                <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) направ.., шефств..вать
+2) посме..ваться, усидч..вый
+3) выкорч..вывать, засветл..
+4) остр..нький, размаш..стая (походка)
+5) цел..вой, расстра..ваться</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В5_Задание_11" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 12</div>
+                <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+                <div class="sentence-box">1) реж..щий (запах), маяч..щий (вдали замок)
+2) (щенок) жажд..т (развлечений), (виновный) раска..тся
+3) необстрел..нный (боец), (они) лицемер..т
+4) удосто..нный (награды), саж..ный (парк)
+5) огранич..вший (возможности), непроница..мый</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В5_Задание_12" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 13</div>
+                <div class="instruction">Укажите варианты ответов, в которых НЕ с выделенным словом пишется слитно. Запишите номера ответов.</div>
+                <div class="sentence-box">1) Машин сын никогда (НЕ)ДОЕДАЛ суп, он оставлял несколько ложек в тарелке, потому что ему очень не хотелось мыть посуду после себя.
+2) Ее приступы радости были (НЕ)РЕДКИМИ: она могла по несколько недель подряд чувствовать себя абсолютно счастливой, забывая обо всех проблемах и всех неприятных знакомых.
+3) До звонка оставалось (НЕ)МНОГО времени, но ученики не спешили в класс.
+4) Новый поклонник нашей дочери был (НЕ)ЛУЧШЕ, чем предыдущий, он все еще не вызывал у нас никакой симпатии, и мы пытались прекратить их общение.
+5) Алексей гнусно меня предал, и уже несколько месяцев назад я сказал ему: «(НЕ)ДРУГ ты мне больше, Лёха!»</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В5_Задание_13" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 14</div>
+                <div class="instruction">Укажите варианты ответов, в которых все выделенные слова пишутся слитно. Запишите номера ответов.</div>
+                <div class="sentence-box">1) (В)ТЕЧЕНИЕ переговоров с нами в комнате сидел студент лингвистического университета (В)МЕСТО профессионального переводчика.
+2) Никто из моих друзей не понимал, (ПРИ)ЧЁМ здесь Ира и (ОТ)ЧЕГО её наказали так же сурово, как и виновных.
+3) Когда я пошел (В)СЛЕД за Аней, на её лице появилось что-то (НА)ПОДОБИЕ улыбки.
+4) Тебе следует (С)НАЧАЛА подумать и лишь затем приступить к презентации, иначе все усилия пойдут (НА)СМАРКУ.
+5) (ПО)СЕРЕДИНЕ комнаты был пустой стол, на котором стояли только духи (В)ВИДЕ яблока.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В5_Задание_14" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-title">Задание 15</div>
+                <div class="instruction">Укажите все цифры, на месте которых пишется одна буква Н.</div>
+                <div class="sentence-box">На Масле(1)ицу мама подаёт к столу не только пропита(2)ые вареньем блинчики, но и жаре(3)ый картофель с грибами, маринова(4)ые огурцы и помидоры, различные копчё(5)ости, вкуснейшие слоё(6)ые пироги и многое другое.</div>
+                <div class="input-block">
+                    <span class="input-label">Ваш ответ:</span>
+                    <input type="text" data-task="В5_Задание_15" class="answer-input" placeholder="Введите номера ответов...">
+                </div>
+            </div>
+
+            <button type="button" class="submit-btn" id="submitBtn">Отправить работу на проверку</button>
+        </div>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+    </div>
+
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec";
+
+        // Логика фиксации ответа по нажатию Enter
+        document.querySelectorAll('.answer-input').forEach(input => {
+            input.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    this.classList.add('confirmed');
+                    this.blur(); // Снимаем фокус
+                }
+            });
+            
+            // Если пользователь начинает редактировать, снимаем статус фиксации
+            input.addEventListener('input', function() {
+                this.classList.remove('confirmed');
+            });
+        });
+
+        // Отправка формы
+        function processSending() {
+            const submitBtn = document.getElementById('submitBtn');
+            if (submitBtn.disabled) return;
+
+            const studentName = document.getElementById('studentName').value.trim();
+            if (!studentName) {
+                alert('Пожалуйста, введите ваше Имя и Фамилию.');
+                document.getElementById('studentName').focus();
+                return;
+            }
+
+            const inputs = document.querySelectorAll('.answer-input');
+            let allFilled = true;
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    allFilled = false;
+                }
+            });
+
+            if (!allFilled) {
+                if (!confirm('Вы заполнили не все ответы. Всё равно отправить работу?')) {
+                    return;
+                }
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Отправка...';
+
+            // Формируем данные через URLSearchParams для корректной передачи в Apps Script при no-cors
+            const formData = new URLSearchParams();
+            formData.append('taskType', 'dz_9_15');
+            formData.append('studentName', studentName);
+
+            inputs.forEach(input => {
+                const taskKey = input.getAttribute('data-task');
+                formData.append(taskKey, input.value.trim());
+            });
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            })
+            .then(() => {
+                document.getElementById('mainContainer').innerHTML = `
+                    <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+                        <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+                        <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+                        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                alert('Произошла ошибка при отправке. Попробуйте еще раз.');
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Отправить работу на проверку';
+            });
+        }
+
+        const btn = document.getElementById('submitBtn');
+        btn.addEventListener('click', function(e) {
+            processSending();
+        });
+    </script>
+</body>
+</html>
