@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ДОМАШНЯЯ РАБОТА: ПРОВЕРЯЕМЫЕ И НЕПРОВЕРЯЕМЫЕ ГЛАСНЫЕ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#fff;color:#000;padding:20px;line-height:1.5}
+.container{max-width:600px;margin:40px auto}
+.brand-header{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:#929292;margin-bottom:25px;text-transform:uppercase}
+.brand-name{color:#2368EE}.brand-phone{color:#929292;text-decoration:none}
+.back-link{display:inline-flex;align-items:center;text-decoration:none;color:#2368EE;font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:20px;cursor:pointer}
+.header{border-bottom:4px solid #EE6023;padding-bottom:15px;margin-bottom:25px;text-align:center}
+.header h1{font-size:28px;font-weight:900;color:#2368EE;text-transform:uppercase;margin-bottom:4px}
+.header p{font-size:13px;font-weight:700;color:#929292;text-transform:uppercase;letter-spacing:1px}
+.student-info{background:#fff;padding:20px;border-radius:6px;margin-bottom:24px;border:1px solid #AFAFAF}
+.student-info input{width:100%;padding:14px 16px;border:1px solid #CBD5E1;border-radius:6px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;outline:none;background:#F8FAFC}
+.student-info input:focus{border-color:#2368EE;background:#fff}
+.task-card{background:#fff;border:1px solid #AFAFAF;border-radius:6px;padding:24px;margin-bottom:20px}
+.task-title{display:inline-block;background:#F4F7FE;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:700;color:#2368EE;text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px}
+.instruction{font-weight:700;margin-bottom:14px;font-size:15px}
+.sentence-box{font-size:15px;font-weight:500;margin-bottom:20px;line-height:1.6;padding:12px 16px;background:#F4F7FE;border-left:4px solid #EE6023;border-radius:0 6px 6px 0}
+.task-item{padding:14px 0;border-bottom:1px solid #E5E7EB}
+.task-item:last-child{border-bottom:none}
+.word-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.num{font-weight:700;min-width:26px}
+.letter-input{width:30px;height:32px;border:1px solid #AFAFAF;border-radius:6px;background:#fff;text-align:center;font:600 15px 'Inter',sans-serif;outline:none}
+.letter-input:focus{border-color:#2368EE}
+.text-input{width:100%;margin-top:8px;padding:10px 12px;border:1px solid #AFAFAF;border-radius:6px;font:500 15px 'Inter',sans-serif;outline:none}
+.text-input:focus{border-color:#2368EE}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.option-btn{border:1px solid #AFAFAF;background:#fff;color:#000;padding:9px 12px;border-radius:6px;font:600 13px 'Inter',sans-serif;cursor:pointer}
+.option-btn.selected{border-color:#2368EE;background:#F4F7FE;color:#2368EE}
+.option-btn.correct{border-color:#22C55E;background:#DCFCE7;color:#15803D}
+.option-btn.incorrect{border-color:#EF4444;background:#FEE2E2;color:#B91C1C}
+.letter-input.correct{border-color:#22C55E;background:#DCFCE7;color:#15803D}
+.letter-input.incorrect{border-color:#EF4444;background:#FEE2E2;color:#B91C1C}
+.text-input.correct{border-color:#22C55E;background:#DCFCE7}
+.text-input.incorrect{border-color:#EF4444;background:#FEE2E2}
+.submit-btn{background:#2368EE;color:#fff;border:none;padding:16px 30px;font:700 16px 'Inter',sans-serif;border-radius:6px;cursor:pointer;text-transform:uppercase;width:100%;margin-top:12px}
+.footer{text-align:center;margin-top:50px;font-size:13px;color:#929292;font-weight:700;line-height:1.6;border-top:1px solid #E0E0E0;padding-top:20px}
+@media(max-width:600px){.container{margin:20px auto}.task-card{padding:18px}.header h1{font-size:23px}.brand-header{font-size:11px}.options{gap:6px}}
+</style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+<div id="homeworkForm">
+<div class="brand-header"><span class="brand-name">НМ | Никита Мельников</span><a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a></div>
+<a href="index.html" onclick="if(document.referrer){history.back();return false}" class="back-link">← Меню платформы</a>
+<div class="header"><h1>Домашняя работа: Гласные в корне</h1><p>Проверяемые и непроверяемые гласные</p></div>
+<div class="student-info"><input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию"></div>
+
+<div class="task-card">
+<div class="task-title">Задача 1</div>
+<div class="instruction">Вставьте пропущенную букву прямо в слово и подберите проверочное слово. Проверочное слово запишите в поле рядом.</div>
+<div class="sentence-box">
+<div class="task-item pair-item" data-answer="а"><div class="word-row"><span class="num">1)</span><span>упр</span><input class="letter-input" maxlength="1"><span>вляющий</span></div><input class="text-input check-input" placeholder="Проверочное слово"></div>
+<div class="task-item pair-item" data-answer="е"><div class="word-row"><span class="num">2)</span><span>экстр</span><input class="letter-input" maxlength="1"><span>мальные</span></div><input class="text-input check-input" placeholder="Проверочное слово"></div>
+<div class="task-item pair-item" data-answer="и"><div class="word-row"><span class="num">3)</span><span>прив</span><input class="letter-input" maxlength="1"><span>заться</span></div><input class="text-input check-input" placeholder="Проверочное слово"></div>
+<div class="task-item pair-item" data-answer="о"><div class="word-row"><span class="num">4)</span><span>пол</span><input class="letter-input" maxlength="1"><span>скать</span></div><input class="text-input check-input" placeholder="Проверочное слово"></div>
+<div class="task-item pair-item" data-answer="а"><div class="word-row"><span class="num">5)</span><span>раскр</span><input class="letter-input" maxlength="1"><span>снеться</span></div><input class="text-input check-input" placeholder="Проверочное слово"></div>
+<div class="task-item pair-item" data-answer="и"><div class="word-row"><span class="num">6)</span><span>разв</span><input class="letter-input" maxlength="1"><span>вающиеся (флаги)</span></div><input class="text-input check-input" placeholder="Проверочное слово"></div>
+</div>
+</div>
+
+<div class="task-card">
+<div class="task-title">Задача 2</div>
+<div class="instruction">Вставьте пропущенную букву и определите, является ли гласная в корне проверяемой или непроверяемой.</div>
+<div class="sentence-box">
+<div class="task-item classify-item" data-answer="а" data-type="проверяемая"><div class="word-row"><span class="num">1)</span><span>сер</span><input class="letter-input" maxlength="1"><span>ал был интересный</span></div><div class="options"><button class="option-btn" data-value="проверяемая" onclick="selectOption(this)">Проверяемая</button><button class="option-btn" data-value="непроверяемая" onclick="selectOption(this)">Непроверяемая</button></div></div>
+<div class="task-item classify-item" data-answer="е" data-type="проверяемая"><div class="word-row"><span class="num">2)</span><span>тр</span><input class="letter-input" maxlength="1"><span>нироваться день и ночь</span></div><div class="options"><button class="option-btn" data-value="проверяемая" onclick="selectOption(this)">Проверяемая</button><button class="option-btn" data-value="непроверяемая" onclick="selectOption(this)">Непроверяемая</button></div></div>
+<div class="task-item classify-item" data-answer="а" data-type="непроверяемая"><div class="word-row"><span class="num">3)</span><span>б</span><input class="letter-input" maxlength="1"><span>гровый</span></div><div class="options"><button class="option-btn" data-value="проверяемая" onclick="selectOption(this)">Проверяемая</button><button class="option-btn" data-value="непроверяемая" onclick="selectOption(this)">Непроверяемая</button></div></div>
+<div class="task-item classify-item" data-answer="и" data-type="непроверяемая"><div class="word-row"><span class="num">4)</span><span>д</span><input class="letter-input" maxlength="1"><span>сциплинарный</span></div><div class="options"><button class="option-btn" data-value="проверяемая" onclick="selectOption(this)">Проверяемая</button><button class="option-btn" data-value="непроверяемая" onclick="selectOption(this)">Непроверяемая</button></div></div>
+<div class="task-item classify-item" data-answer="и" data-type="непроверяемая"><div class="word-row"><span class="num">5)</span><span>интелл</span><input class="letter-input" maxlength="1"><span>генция</span></div><div class="options"><button class="option-btn" data-value="проверяемая" onclick="selectOption(this)">Проверяемая</button><button class="option-btn" data-value="непроверяемая" onclick="selectOption(this)">Непроверяемая</button></div></div>
+<div class="task-item classify-item" data-answer="а" data-type="непроверяемая"><div class="word-row"><span class="num">6)</span><span>к</span><input class="letter-input" maxlength="1"><span>рдинальный</span></div><div class="options"><button class="option-btn" data-value="проверяемая" onclick="selectOption(this)">Проверяемая</button><button class="option-btn" data-value="непроверяемая" onclick="selectOption(this)">Непроверяемая</button></div></div>
+</div>
+</div>
+
+<div class="task-card">
+<div class="task-title">Задача 3</div>
+<div class="instruction">Выберите проверочное слово. Среди вариантов есть однокоренные слова, которые выглядят правдоподобно, но не проверяют нужную гласную.</div>
+<div class="sentence-box">
+<div class="task-item choice-item" data-answer="поздно"><div class="word-row"><span class="num">1)</span><span>оп...здание</span></div><div class="options"><button class="option-btn" data-value="поздно" onclick="selectOption(this)">поздно</button><button class="option-btn" data-value="опаздывать" onclick="selectOption(this)">опаздывать</button><button class="option-btn" data-value="опоздать" onclick="selectOption(this)">опоздать</button></div></div>
+<div class="task-item choice-item" data-answer="раздельно"><div class="word-row"><span class="num">2)</span><span>разд...лить</span></div><div class="options"><button class="option-btn" data-value="разделенный" onclick="selectOption(this)">разделенный</button><button class="option-btn" data-value="раздел" onclick="selectOption(this)">раздел</button><button class="option-btn" data-value="разделиться" onclick="selectOption(this)">разделиться</button></div></div>
+<div class="task-item choice-item" data-answer="глотка"><div class="word-row"><span class="num">3)</span><span>погл...щать</span></div><div class="options"><button class="option-btn" data-value="глотать" onclick="selectOption(this)">глотать</button><button class="option-btn" data-value="поглощенный" onclick="selectOption(this)">поглощенный</button><button class="option-btn" data-value="глотка" onclick="selectOption(this)">глотка</button></div></div>
+<div class="task-item choice-item" data-answer="богатство"><div class="word-row"><span class="num">4)</span><span>обог...щать (знаниями)</span></div><div class="options"><button class="option-btn" data-value="богатство" onclick="selectOption(this)">богатство</button><button class="option-btn" data-value="обогатить" onclick="selectOption(this)">обогатить</button><button class="option-btn" data-value="обогащенный" onclick="selectOption(this)">обогащенный</button></div></div>
+</div>
+</div>
+
+<div class="task-card">
+<div class="task-title">Задача 4</div>
+<div class="instruction">Найдите ошибку в подборе проверочного слова. Выберите вариант, где проверочное слово подобрано неправильно.</div>
+<div class="sentence-box">
+<div class="task-item choice-item" data-answer="2"><div class="word-row"><span class="num">1)</span><span>чарующий → чары</span></div><div class="options"><button class="option-btn" data-value="1" onclick="selectOption(this)">Верно</button><button class="option-btn" data-value="2" onclick="selectOption(this)">Неверно</button></div></div>
+<div class="task-item choice-item" data-answer="1"><div class="word-row"><span class="num">2)</span><span>старожил → старый</span></div><div class="options"><button class="option-btn" data-value="1" onclick="selectOption(this)">Верно</button><button class="option-btn" data-value="2" onclick="selectOption(this)">Неверно</button></div></div>
+<div class="task-item choice-item" data-answer="1"><div class="word-row"><span class="num">3)</span><span>привязаться → вязкий</span></div><div class="options"><button class="option-btn" data-value="1" onclick="selectOption(this)">Верно</button><button class="option-btn" data-value="2" onclick="selectOption(this)">Неверно</button></div></div>
+<div class="task-item choice-item" data-answer="2"><div class="word-row"><span class="num">4)</span><span>полоскать → полоса</span></div><div class="options"><button class="option-btn" data-value="1" onclick="selectOption(this)">Верно</button><button class="option-btn" data-value="2" onclick="selectOption(this)">Неверно</button></div></div>
+</div>
+</div>
+
+<div class="task-card">
+<div class="task-title">Задача 5</div>
+<div class="instruction">Найдите слова с ошибками в написании. Выберите все варианты, в которых слово написано неправильно.</div>
+<div class="sentence-box">
+<div class="task-item choice-item" data-answer="1"><div class="word-row"><span class="num">1)</span><span>артеллерия</span></div><div class="options"><button class="option-btn" data-value="1" onclick="toggleMulti(this)">Ошибка</button><button class="option-btn" data-value="0" onclick="toggleMulti(this)">Нет ошибки</button></div></div>
+<div class="task-item choice-item" data-answer="1"><div class="word-row"><span class="num">2)</span><span>аукцыон</span></div><div class="options"><button class="option-btn" data-value="1" onclick="toggleMulti(this)">Ошибка</button><button class="option-btn" data-value="0" onclick="toggleMulti(this)">Нет ошибки</button></div></div>
+<div class="task-item choice-item" data-answer="1"><div class="word-row"><span class="num">3)</span><span>вариотивный</span></div><div class="options"><button class="option-btn" data-value="1" onclick="toggleMulti(this)">Ошибка</button><button class="option-btn" data-value="0" onclick="toggleMulti(this)">Нет ошибки</button></div></div>
+<div class="task-item choice-item" data-answer="2"><div class="word-row"><span class="num">4)</span><span>воображение</span></div><div class="options"><button class="option-btn" data-value="1" onclick="toggleMulti(this)">Ошибка</button><button class="option-btn" data-value="0" onclick="toggleMulti(this)">Нет ошибки</button></div></div>
+<div class="task-item choice-item" data-answer="1"><div class="word-row"><span class="num">5)</span><span>десциплинарный</span></div><div class="options"><button class="option-btn" data-value="1" onclick="toggleMulti(this)">Ошибка</button><button class="option-btn" data-value="0" onclick="toggleMulti(this)">Нет ошибки</button></div></div>
+<div class="task-item choice-item" data-answer="1"><div class="word-row"><span class="num">6)</span><span>жури</span></div><div class="options"><button class="option-btn" data-value="1" onclick="toggleMulti(this)">Ошибка</button><button class="option-btn" data-value="0" onclick="toggleMulti(this)">Нет ошибки</button></div></div>
+</div>
+</div>
+
+<div class="task-card">
+<div class="task-title">Задача 6</div>
+<div class="instruction">ЕГЭ-микс. Вставьте пропущенную букву и выберите правильный вариант.</div>
+<div class="sentence-box">
+<div class="task-item mix-item" data-answer="е"><div class="word-row"><span class="num">1)</span><span>наважд</span><input class="letter-input" maxlength="1"><span>ние</span></div><div class="options"><button class="option-btn" data-value="словарное" onclick="selectOption(this)">Словарное слово</button><button class="option-btn" data-value="проверяемое" onclick="selectOption(this)">Проверяемая гласная</button></div></div>
+<div class="task-item mix-item" data-answer="а"><div class="word-row"><span class="num">2)</span><span>вообр</span><input class="letter-input" maxlength="1"><span>жение</span></div><div class="options"><button class="option-btn" data-value="словарное" onclick="selectOption(this)">Словарное слово</button><button class="option-btn" data-value="проверяемое" onclick="selectOption(this)">Проверяемая гласная</button></div></div>
+<div class="task-item mix-item" data-answer="и"><div class="word-row"><span class="num">3)</span><span>ровесн</span><input class="letter-input" maxlength="1"><span>ки</span></div><div class="options"><button class="option-btn" data-value="словарное" onclick="selectOption(this)">Словарное слово</button><button class="option-btn" data-value="проверяемое" onclick="selectOption(this)">Проверяемая гласная</button></div></div>
+<div class="task-item mix-item" data-answer="ю"><div class="word-row"><span class="num">4)</span><span>ж</span><input class="letter-input" maxlength="1"><span>ри</span></div><div class="options"><button class="option-btn" data-value="словарное" onclick="selectOption(this)">Словарное слово</button><button class="option-btn" data-value="проверяемое" onclick="selectOption(this)">Проверяемая гласная</button></div></div>
+</div>
+</div>
+
+<button type="button" id="submitBtn" class="submit-btn" onclick="processSending()">Отправить работу на проверку</button>
+</div>
+<div class="footer"><span>НМ | Никита Мельников</span><br><span>+7 927 422 35 59</span></div>
+</div>
+
+<script>
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+function toggleMulti(btn){
+    btn.classList.toggle('selected');
+}
+
+function selectOption(btn){
+    const group = btn.parentElement;
+    group.querySelectorAll('.option-btn').forEach(b=>b.classList.remove('selected'));
+    btn.classList.add('selected');
+}
+
+function normalizeText(s){
+    return s.trim().toLowerCase().replaceAll('ё','е').replace(/\s+/g,' ');
+}
+
+function markLetter(input, ok){
+    input.classList.remove('correct','incorrect');
+    input.classList.add(ok?'correct':'incorrect');
+}
+
+function markSelected(item, correct){
+    const selected = item.querySelector('.option-btn.selected');
+    item.querySelectorAll('.option-btn').forEach(b=>b.classList.remove('correct','incorrect'));
+    if(selected) selected.classList.add(correct?'correct':'incorrect');
+}
+
+function showResult(id, score, total){
+    const el=document.getElementById(id);
+    el.className='result '+(score===total?'good':'bad');
+    el.textContent=score+' из '+total+(score===total?' — всё верно!':' — есть ошибки. Проверьте выделенные ответы.');
+}
+
+
+function processSending(){
+    const name=document.getElementById('studentName').value.trim();
+    if(!name){alert('Пожалуйста, введите ваше Имя и Фамилию.');return;}
+
+    const data=new URLSearchParams();
+    data.append('taskType','dz91');
+    data.append('Имя Ученика',name);
+
+    const t1=[...document.querySelectorAll('.pair-item')].map(x=>({
+        letter:x.querySelector('.letter-input')?.value.trim()||'',
+        check:x.querySelector('.check-input')?.value.trim()||''
+    }));
+    data.append('Задача_1',JSON.stringify(t1));
+
+    const t2=[...document.querySelectorAll('.classify-item')].map(x=>({
+        letter:x.querySelector('.letter-input')?.value.trim()||'',
+        type:x.querySelector('.option-btn.selected')?.dataset.value||''
+    }));
+    data.append('Задача_2',JSON.stringify(t2));
+
+    const t3=[...document.querySelectorAll('.choice-item')].slice(0,4)
+      .map(x=>x.querySelector('.option-btn.selected')?.dataset.value||'');
+    data.append('Задача_3',JSON.stringify(t3));
+
+    const t4=[...document.querySelectorAll('.choice-item')].slice(4,8)
+      .map(x=>x.querySelector('.option-btn.selected')?.dataset.value||'');
+    data.append('Задача_4',JSON.stringify(t4));
+
+    const t5=[...document.querySelectorAll('.choice-item')].slice(8,14)
+      .map(x=>[...x.querySelectorAll('.option-btn.selected')].map(b=>b.dataset.value));
+    data.append('Задача_5',JSON.stringify(t5));
+
+    const t6=[...document.querySelectorAll('.mix-item')].map(x=>({
+        letter:x.querySelector('.letter-input')?.value.trim()||'',
+        type:x.querySelector('.option-btn.selected')?.dataset.value||''
+    }));
+    data.append('Задача_6',JSON.stringify(t6));
+
+    const btn=document.getElementById('submitBtn');
+    btn.disabled=true;
+    btn.textContent='Отправка данных...';
+
+    fetch(WEB_APP_URL,{method:'POST',body:data,mode:'no-cors'})
+    .then(()=>{
+        document.getElementById('mainContainer').innerHTML=`<div style="text-align:center;padding:48px 24px;background:#fff;border:1px solid #AFAFAF;border-radius:6px;margin-top:20px">
+        <div style="width:56px;height:56px;background:#DCFCE7;color:#16A34A;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:24px;font-weight:bold">✓</div>
+        <h2 style="color:#000;margin-bottom:12px;font-weight:900;text-transform:uppercase;font-family:'Inter',sans-serif;font-size:20px">Работа успешно отправлена!</h2>
+        <p style="font-size:15px;color:#929292;line-height:1.6">Твои ответы успешно записаны и отправлены Никите.</p></div>`;
+    })
+    .catch(()=>{
+        alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
+        btn.disabled=false;
+        btn.textContent='Отправить работу на проверку';
+    });
+}
+</script>
+</body>
+</html>
