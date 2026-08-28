@@ -8,7 +8,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
         * {
@@ -19,14 +22,14 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-            background: #FFFFFF;
+            background-color: #FFFFFF;
             color: #000000;
             padding: 20px;
             line-height: 1.5;
         }
 
         .container {
-            max-width: 650px;
+            max-width: 600px;
             margin: 40px auto;
         }
 
@@ -38,9 +41,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             font-size: 13px;
             font-weight: 700;
             color: #929292;
+
             margin-bottom: 25px;
             text-transform: uppercase;
         }
@@ -62,10 +67,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             background: #F4F7FE;
+
             padding: 10px 15px;
             border-radius: 6px;
-            margin-bottom: 25px;
+
+            margin-bottom: 20px;
+
             font-size: 13px;
             font-weight: 600;
         }
@@ -73,7 +82,9 @@
         .logout-btn {
             background: none;
             border: none;
+
             color: #EE6023;
+
             cursor: pointer;
             font-weight: 700;
             text-decoration: underline;
@@ -85,11 +96,15 @@
 
         .back-link {
             display: inline-block;
+
             color: #929292;
             text-decoration: none;
+
             font-size: 14px;
             font-weight: 600;
-            margin-bottom: 25px;
+
+            margin-bottom: 20px;
+
             transition: color 0.2s ease;
         }
 
@@ -103,22 +118,30 @@
 
         .header {
             border-bottom: 4px solid #EE6023;
+
             padding-bottom: 15px;
             margin-bottom: 25px;
+
+            text-align: center;
         }
 
         .header h1 {
             font-size: 28px;
             font-weight: 900;
+
             color: #2368EE;
+
             text-transform: uppercase;
+
             margin-bottom: 4px;
         }
 
         .header p {
             font-size: 13px;
             font-weight: 700;
+
             color: #929292;
+
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -127,11 +150,14 @@
            ЗАГОЛОВОК МАТЕРИАЛОВ
         ========================= */
 
-        .section-title {
+        .menu-title {
             font-size: 16px;
             font-weight: 700;
+
             text-transform: uppercase;
+
             color: #000000;
+
             margin-bottom: 15px;
             padding-left: 5px;
         }
@@ -141,19 +167,21 @@
         ========================= */
 
         .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 15px;
         }
 
         .menu-card {
             position: relative;
+
             display: flex;
             flex-direction: column;
 
             padding: 20px;
 
             background: #FFFFFF;
+
             border: 1px solid #AFAFAF;
             border-radius: 6px;
 
@@ -162,26 +190,14 @@
 
             transition: all 0.2s ease;
 
-            min-height: 205px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .menu-card:hover {
             border-color: #2368EE;
             background-color: #F4F7FE;
+
             transform: translateY(-2px);
-        }
-
-        /* Синяя полоска слева */
-        .menu-card::before {
-            content: "";
-            position: absolute;
-            left: -1px;
-            top: 20px;
-            bottom: 20px;
-            width: 4px;
-
-            background: #2368EE;
-            border-radius: 0 4px 4px 0;
         }
 
         /* =========================
@@ -193,19 +209,18 @@
 
             background-color: #F4F7FE;
 
-            padding: 5px 9px;
+            border-left: 3px solid #2368EE;
 
-            border-radius: 4px;
+            padding: 4px 8px;
 
             font-size: 11px;
             font-weight: 700;
 
-            color: #2368EE;
+            color: #EE6023;
 
             text-transform: uppercase;
-            letter-spacing: 0.5px;
 
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         /* =========================
@@ -213,14 +228,12 @@
         ========================= */
 
         .card-name {
-            font-size: 19px;
-            line-height: 1.25;
-
+            font-size: 18px;
             font-weight: 700;
 
             color: #000000;
 
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
         /* =========================
@@ -228,12 +241,8 @@
         ========================= */
 
         .card-desc {
-            font-size: 13px;
-            line-height: 1.5;
-
+            font-size: 14px;
             color: #666666;
-
-            margin-bottom: 15px;
         }
 
         /* =========================
@@ -241,7 +250,7 @@
         ========================= */
 
         .card-link {
-            margin-top: auto;
+            margin-top: 15px;
 
             font-size: 13px;
             font-weight: 700;
@@ -256,21 +265,26 @@
         .menu-card.locked {
             background-color: #F5F5F5;
             border-color: #E0E0E0;
-            opacity: 0.65;
+
+            opacity: 0.7;
+
             cursor: not-allowed;
             pointer-events: none;
         }
 
-        .menu-card.locked::before {
-            background: #AFAFAF;
+        .menu-card.locked:hover {
+            transform: none;
+            border-color: #E0E0E0;
+            background-color: #F5F5F5;
         }
 
         .lock-badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
 
-            font-size: 16px;
+            top: 18px;
+            right: 18px;
+
+            font-size: 18px;
         }
 
         /* =========================
@@ -287,14 +301,10 @@
 
             font-weight: 700;
             line-height: 1.6;
-
-            border-top: 1px solid #E0E0E0;
-
-            padding-top: 20px;
         }
 
         /* =========================
-           ОКНО АВТОРИЗАЦИИ
+           АВТОРИЗАЦИЯ
         ========================= */
 
         .auth-overlay {
@@ -306,9 +316,10 @@
             width: 100%;
             height: 100%;
 
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
 
             display: flex;
+
             justify-content: center;
             align-items: center;
 
@@ -327,7 +338,7 @@
             width: 100%;
             max-width: 380px;
 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 
             text-align: center;
         }
@@ -350,9 +361,9 @@
             margin-bottom: 12px;
 
             border: 1px solid #CCCCCC;
-
             border-radius: 6px;
 
+            font-family: 'Inter', sans-serif;
             font-size: 14px;
 
             outline: none;
@@ -368,15 +379,13 @@
             padding: 12px;
 
             background-color: #2368EE;
-
             color: #FFFFFF;
 
             border: none;
-
             border-radius: 6px;
 
+            font-family: 'Inter', sans-serif;
             font-weight: 700;
-
             font-size: 15px;
 
             cursor: pointer;
@@ -417,16 +426,12 @@
                 font-size: 11px;
             }
 
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .menu-card {
-                min-height: 180px;
-            }
-
             .header h1 {
                 font-size: 25px;
+            }
+
+            .card-name {
+                font-size: 17px;
             }
         }
     </style>
@@ -439,6 +444,7 @@
     ========================= -->
 
     <div id="authOverlay" class="auth-overlay" style="display: none;">
+
         <div class="auth-box">
 
             <h2>ВХОД В ПЛАТФОРМУ</h2>
@@ -468,6 +474,7 @@
             ></div>
 
         </div>
+
     </div>
 
 
@@ -541,25 +548,26 @@
             </h1>
 
             <p>
-                Выберите домашнее задание
+                Домашние задания
             </p>
 
         </div>
 
 
         <!-- =========================
-             КАРТОЧКИ
+             МАТЕРИАЛЫ
         ========================= -->
 
-        <div class="section-title">
+        <h2 class="menu-title">
             Доступные материалы:
-        </div>
+        </h2>
 
 
         <div class="grid">
 
-
-            <!-- ДЗ 9.1 -->
+            <!-- =====================
+                 ДЗ 9.1
+            ====================== -->
 
             <a
                 href="9_1/"
@@ -589,7 +597,9 @@
             </a>
 
 
-            <!-- ОБЩЕЕ ДЗ 9 -->
+            <!-- =====================
+                 ОБЩЕЕ ДЗ 9
+            ====================== -->
 
             <a
                 href="9/"
@@ -617,7 +627,6 @@
                 </div>
 
             </a>
-
 
         </div>
 
@@ -704,10 +713,15 @@
         async function handleLogin() {
 
             const login =
-                document.getElementById('loginInput').value.trim();
+                document
+                    .getElementById('loginInput')
+                    .value
+                    .trim();
 
             const pass =
-                document.getElementById('passInput').value;
+                document
+                    .getElementById('passInput')
+                    .value;
 
             const errorDiv =
                 document.getElementById('authError');
@@ -739,9 +753,11 @@
 
             try {
 
-                const response = await fetch(
-                    `${SCRIPT_URL}?action=login&login=${encodeURIComponent(login)}&password=${encodeURIComponent(pass)}`
-                );
+                const response =
+                    await fetch(
+                        `${SCRIPT_URL}?action=login&login=${encodeURIComponent(login)}&password=${encodeURIComponent(pass)}`
+                    );
+
 
                 const data =
                     await response.json();
@@ -757,7 +773,8 @@
 
                         name: data.name,
 
-                        permissions: data.permissions
+                        permissions:
+                            data.permissions
 
                     };
 
@@ -770,11 +787,11 @@
 
                     initSession(sessionData);
 
-
                 } else {
 
                     errorDiv.innerText =
-                        data.message || 'Ошибка входа';
+                        data.message ||
+                        'Ошибка входа';
 
                     errorDiv.style.display =
                         'block';
@@ -857,16 +874,17 @@
 
             try {
 
-                const response = await fetch(
-                    `${SCRIPT_URL}?action=login&login=${encodeURIComponent(login)}&password=${encodeURIComponent(pass)}`
-                );
+                const response =
+                    await fetch(
+                        `${SCRIPT_URL}?action=login&login=${encodeURIComponent(login)}&password=${encodeURIComponent(pass)}`
+                    );
+
 
                 const data =
                     await response.json();
 
 
                 if (data.status === 'success') {
-
 
                     applyPermissions(
                         data.permissions
@@ -907,7 +925,6 @@
                     logout();
 
                 }
-
 
             } catch (e) {
 
@@ -962,7 +979,6 @@
 
                         }
 
-
                     } catch (e) {
 
                         document.getElementById(
@@ -970,7 +986,6 @@
                         ).style.display = 'flex';
 
                     }
-
 
                 } else {
 
