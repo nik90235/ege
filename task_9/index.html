@@ -1,389 +1,388 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Задание 9</title>
 
-    <title>ЗАДАНИЕ 9 | ДОМАШНЯЯ РАБОТА</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #111111;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    /* =========================
+       ОСНОВНОЙ КОНТЕЙНЕР
+    ========================= */
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    .page {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 42px 0 80px;
+    }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-            background-color: #FFFFFF;
-            color: #000000;
-            padding: 20px;
-            line-height: 1.5;
-        }
+    /* =========================
+       НАЗАД
+    ========================= */
 
-        .container {
-            max-width: 950px;
-            margin: 40px auto;
-        }
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
 
-        /* Верхняя строка */
+      margin-bottom: 34px;
 
-        .brand-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+      color: #777777;
+      text-decoration: none;
 
-            font-size: 13px;
-            font-weight: 700;
-            color: #929292;
+      font-size: 18px;
+      font-weight: 500;
 
-            margin-bottom: 25px;
-            text-transform: uppercase;
-        }
+      transition: color 0.2s ease;
+    }
 
-        .brand-name {
-            color: #2368EE;
-        }
+    .back:hover {
+      color: #2868e8;
+    }
 
-        .brand-phone {
-            color: #929292;
-            text-decoration: none;
-        }
+    .back-arrow {
+      font-size: 26px;
+      line-height: 1;
+    }
 
-        /* Назад */
+    /* =========================
+       ЗАГОЛОВОК
+    ========================= */
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
+    .header {
+      margin-bottom: 55px;
+    }
 
-            text-decoration: none;
-            color: #2368EE;
+    .header h1 {
+      margin: 0 0 12px;
 
-            font-size: 13px;
-            font-weight: 700;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+    }
 
-            text-transform: uppercase;
+    .header p {
+      margin: 0;
 
-            margin-bottom: 20px;
+      color: #777777;
 
-            transition: color 0.2s ease;
-        }
+      font-size: 25px;
+      line-height: 1.35;
+      font-weight: 500;
+    }
 
-        .back-link:hover {
-            color: #EE6023;
-        }
+    /* =========================
+       ОРАНЖЕВАЯ ЛИНИЯ
+    ========================= */
 
-        /* Заголовок */
+    .orange-line {
+      width: 100%;
+      height: 5px;
 
-        .header {
-            border-bottom: 4px solid #EE6023;
+      margin: 0 0 42px;
 
-            padding-bottom: 15px;
-            margin-bottom: 25px;
+      background: #f15a24;
+      border-radius: 4px;
+    }
 
-            text-align: center;
-        }
+    /* =========================
+       КАРТОЧКИ
+    ========================= */
 
-        .header h1 {
-            font-size: 28px;
-            font-weight: 900;
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
 
-            color: #2368EE;
+    .card {
+      position: relative;
 
-            text-transform: uppercase;
+      display: block;
 
-            margin-bottom: 4px;
-        }
+      min-height: 310px;
+      padding: 38px 40px 42px;
 
-        .header p {
-            font-size: 13px;
-            font-weight: 700;
+      background: #ffffff;
 
-            color: #929292;
+      border: 1px solid #dddddd;
+      border-radius: 22px;
 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+      text-decoration: none;
+      color: #111111;
 
-        /* Заголовок раздела */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
 
-        .menu-title {
-            font-size: 16px;
-            font-weight: 700;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
 
-            text-transform: uppercase;
+    .card:hover {
+      transform: translateY(-4px);
 
-            color: #000000;
+      border-color: #2868e8;
 
-            margin-bottom: 15px;
-            padding-left: 5px;
-        }
+      box-shadow:
+        0 10px 30px rgba(40, 104, 232, 0.10);
+    }
 
-        /* Карточки */
+    /* синяя полоска слева */
 
-        .grid {
-            display: grid;
+    .card::before {
+      content: "";
 
-            grid-template-columns: 1fr 1fr;
+      position: absolute;
 
-            gap: 20px;
-        }
+      left: 0;
+      top: 38px;
+      bottom: 38px;
 
-        .menu-card {
-            position: relative;
+      width: 5px;
 
-            display: flex;
-            flex-direction: column;
+      background: #2868e8;
 
-            min-height: 190px;
+      border-radius: 0 5px 5px 0;
+    }
 
-            padding: 24px;
+    /* =========================
+       ТЕГ
+    ========================= */
 
-            border: 1px solid #AFAFAF;
-            border-radius: 6px;
+    .card-tag {
+      display: inline-block;
 
-            background: #FFFFFF;
+      margin-bottom: 25px;
+      padding: 7px 13px;
 
-            text-decoration: none;
-            color: inherit;
+      background: #f15a24;
+      color: #ffffff;
 
-            transition:
-                border-color 0.2s ease,
-                background-color 0.2s ease,
-                transform 0.2s ease;
+      border-radius: 7px;
 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
 
-        .menu-card:hover {
-            border-color: #2368EE;
+    /* =========================
+       НАЗВАНИЕ
+    ========================= */
 
-            background-color: #F4F7FE;
+    .card-title {
+      margin: 0 0 18px;
 
-            transform: translateY(-2px);
-        }
+      font-size: clamp(28px, 3vw, 38px);
+      line-height: 1.12;
 
-        /* Маленький тег */
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
 
-        .card-tag {
-            align-self: flex-start;
+    /* =========================
+       ОПИСАНИЕ
+    ========================= */
 
-            background-color: #F4F7FE;
+    .card-description {
+      margin: 0;
 
-            border-left: 3px solid #2368EE;
+      color: #707070;
 
-            padding: 5px 9px;
+      font-size: 19px;
+      line-height: 1.5;
 
-            font-size: 11px;
-            font-weight: 700;
+      font-weight: 500;
+    }
 
-            color: #EE6023;
+    /* =========================
+       СТРЕЛКА
+    ========================= */
 
-            text-transform: uppercase;
+    .card-arrow {
+      position: absolute;
 
-            margin-bottom: 18px;
-        }
+      right: 35px;
+      bottom: 30px;
 
-        /* Название */
+      color: #2868e8;
 
-        .card-name {
-            font-size: 21px;
-            font-weight: 700;
+      font-size: 30px;
+      font-weight: 500;
 
-            color: #000000;
+      opacity: 0;
 
-            margin-bottom: 8px;
+      transform: translateX(-5px);
 
-            line-height: 1.25;
-        }
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
 
-        /* Описание */
+    .card:hover .card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
-        .card-desc {
-            font-size: 14px;
+    /* =========================
+       МОБИЛЬНАЯ ВЕРСИЯ
+    ========================= */
 
-            color: #666666;
+    @media (max-width: 800px) {
 
-            line-height: 1.6;
-        }
+      .page {
+        width: min(100% - 30px, 650px);
+        padding-top: 28px;
+      }
 
-        /* Стрелка */
+      .header {
+        margin-bottom: 38px;
+      }
 
-        .card-arrow {
-            margin-top: auto;
+      .header h1 {
+        font-size: 42px;
+      }
 
-            padding-top: 18px;
+      .header p {
+        font-size: 20px;
+      }
 
-            font-size: 13px;
-            font-weight: 700;
+      .orange-line {
+        margin-bottom: 28px;
+      }
 
-            color: #2368EE;
+      .cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
 
-            text-transform: uppercase;
-        }
+      .card {
+        min-height: 260px;
+        padding: 30px 30px 35px;
+      }
 
-        .menu-card:hover .card-arrow {
-            color: #EE6023;
-        }
+      .card::before {
+        top: 30px;
+        bottom: 30px;
+      }
 
-        /* Нижний блок */
+      .card-title {
+        font-size: 29px;
+      }
 
-        .footer {
-            text-align: center;
-
-            margin-top: 50px;
-
-            font-size: 13px;
-
-            color: #929292;
-
-            font-weight: 700;
-
-            line-height: 1.6;
-
-            border-top: 1px solid #E0E0E0;
-
-            padding-top: 20px;
-        }
-
-        /* Телефон */
-
-        @media (max-width: 700px) {
-
-            .container {
-                margin: 25px auto;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .menu-card {
-                min-height: auto;
-            }
-
-            .brand-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-            }
-
-            .header h1 {
-                font-size: 24px;
-            }
-        }
-    </style>
+      .card-description {
+        font-size: 17px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+  <main class="page">
 
-    <!-- Верхняя строка -->
-
-    <div class="brand-header">
-        <div class="brand-name">
-            НМ | НИКИТА МЕЛЬНИКОВ
-        </div>
-
-        <div class="brand-phone">
-            +7 927 422 35 59
-        </div>
-    </div>
-
-
-    <!-- Назад -->
-
-    <a href="../index.html" class="back-link">
-        ← Назад
+    <!-- НАЗАД -->
+    <a href="../index.html" class="back">
+      <span class="back-arrow">←</span>
+      <span>Назад</span>
     </a>
 
 
-    <!-- Заголовок -->
+    <!-- ЗАГОЛОВОК -->
+    <header class="header">
 
-    <div class="header">
+      <h1>Задание 9</h1>
 
-        <h1>Задание 9</h1>
+      <p>Выберите домашнее задание</p>
 
-        <p>
-            Выберите домашнее задание
+    </header>
+
+
+    <!-- ОРАНЖЕВАЯ ЛИНИЯ -->
+    <div class="orange-line"></div>
+
+
+    <!-- КАРТОЧКИ -->
+    <section class="cards">
+
+
+      <!-- =========================
+           ДЗ 9.1
+      ========================== -->
+
+      <a href="9_1/index.html" class="card">
+
+        <div class="card-tag">
+          ДЗ 9.1
+        </div>
+
+        <h2 class="card-title">
+          Проверяемые и<br>
+          непроверяемые гласные
+        </h2>
+
+        <p class="card-description">
+          Практика по проверяемым и непроверяемым
+          безударным гласным в корне слова.
         </p>
 
-    </div>
+        <div class="card-arrow">
+          →
+        </div>
+
+      </a>
 
 
-    <!-- Раздел -->
+      <!-- =========================
+           ОБЩЕЕ ДЗ 9
+      ========================== -->
 
-    <div class="menu-title">
-        ДОМАШНИЕ ЗАДАНИЯ
-    </div>
+      <a href="9/index.html" class="card">
 
+        <div class="card-tag">
+          ДЗ 9
+        </div>
 
-    <!-- Карточки -->
+        <h2 class="card-title">
+          Общее ДЗ по заданию 9
+        </h2>
 
-    <div class="grid">
+        <p class="card-description">
+          Итоговая домашняя работа по всем темам
+          задания 9.
+        </p>
 
+        <div class="card-arrow">
+          →
+        </div>
 
-        <!-- ДЗ 9.1 -->
-
-        <a href="9_1/index.html" class="menu-card">
-
-            <div class="card-tag">
-                ДЗ 9.1
-            </div>
-
-            <div class="card-name">
-                Проверяемые и непроверяемые гласные
-            </div>
-
-            <div class="card-desc">
-                Практика по проверяемым и непроверяемым безударным гласным в корне слова.
-            </div>
-
-            <div class="card-arrow">
-                Перейти к заданию →
-            </div>
-
-        </a>
+      </a>
 
 
-        <!-- Общее ДЗ 9 -->
+    </section>
 
-        <a href="9/index.html" class="menu-card">
-
-            <div class="card-tag">
-                ДЗ 9
-            </div>
-
-            <div class="card-name">
-                Общее ДЗ по заданию 9
-            </div>
-
-            <div class="card-desc">
-                Итоговая домашняя работа по всем темам задания 9.
-            </div>
-
-            <div class="card-arrow">
-                Перейти к заданию →
-            </div>
-
-        </a>
-
-
-    </div>
-
-
-    <!-- Footer -->
-
-    <div class="footer">
-        Задание 9 · Орфография
-    </div>
-
-</div>
+  </main>
 
 </body>
 </html>
