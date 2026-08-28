@@ -1,388 +1,438 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Задание 9</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: #ffffff;
-      color: #111111;
-
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
-    }
+    <title>Задание 9</title>
 
-    /* =========================
-       ОСНОВНОЙ КОНТЕЙНЕР
-    ========================= */
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    .page {
-      width: min(1200px, calc(100% - 48px));
-      margin: 0 auto;
-      padding: 42px 0 80px;
-    }
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
 
-    /* =========================
-       НАЗАД
-    ========================= */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #111111;
+        }
 
-    .back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+        /* =========================
+           ОСНОВНОЙ КОНТЕЙНЕР
+        ========================= */
 
-      margin-bottom: 34px;
+        .page {
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 48px 64px 80px;
+        }
 
-      color: #777777;
-      text-decoration: none;
+        /* =========================
+           КНОПКА НАЗАД
+        ========================= */
 
-      font-size: 18px;
-      font-weight: 500;
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
 
-      transition: color 0.2s ease;
-    }
+            text-decoration: none;
+            color: #777777;
 
-    .back:hover {
-      color: #2868e8;
-    }
+            font-size: 24px;
+            font-weight: 500;
 
-    .back-arrow {
-      font-size: 26px;
-      line-height: 1;
-    }
+            margin-bottom: 56px;
 
-    /* =========================
-       ЗАГОЛОВОК
-    ========================= */
+            transition: color 0.2s ease;
+        }
 
-    .header {
-      margin-bottom: 55px;
-    }
+        .back:hover {
+            color: #246BEB;
+        }
 
-    .header h1 {
-      margin: 0 0 12px;
+        .back-arrow {
+            font-size: 30px;
+            line-height: 1;
+        }
 
-      font-size: clamp(42px, 5vw, 64px);
-      line-height: 1.05;
-      font-weight: 800;
-      letter-spacing: -1.5px;
-    }
+        /* =========================
+           ЗАГОЛОВОК
+        ========================= */
 
-    .header p {
-      margin: 0;
+        .header {
+            margin-bottom: 64px;
+        }
 
-      color: #777777;
+        .header h1 {
+            margin: 0 0 18px;
 
-      font-size: 25px;
-      line-height: 1.35;
-      font-weight: 500;
-    }
+            font-size: 64px;
+            line-height: 1.05;
+            font-weight: 800;
 
-    /* =========================
-       ОРАНЖЕВАЯ ЛИНИЯ
-    ========================= */
+            letter-spacing: -1.5px;
+            color: #111111;
+        }
 
-    .orange-line {
-      width: 100%;
-      height: 5px;
+        .header p {
+            margin: 0;
 
-      margin: 0 0 42px;
+            font-size: 30px;
+            line-height: 1.3;
+            font-weight: 400;
 
-      background: #f15a24;
-      border-radius: 4px;
-    }
+            color: #777777;
+        }
 
-    /* =========================
-       КАРТОЧКИ
-    ========================= */
+        /* =========================
+           КАРТОЧКИ
+        ========================= */
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-    }
+        .cards {
+            display: grid;
 
-    .card {
-      position: relative;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
 
-      display: block;
+            gap: 36px;
+        }
 
-      min-height: 310px;
-      padding: 38px 40px 42px;
+        .card {
+            position: relative;
 
-      background: #ffffff;
+            display: flex;
+            flex-direction: column;
 
-      border: 1px solid #dddddd;
-      border-radius: 22px;
+            min-height: 370px;
 
-      text-decoration: none;
-      color: #111111;
+            padding: 52px;
 
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            background: #ffffff;
 
-      transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-    }
+            border: 2px solid #e3e3e3;
+            border-radius: 32px;
 
-    .card:hover {
-      transform: translateY(-4px);
+            text-decoration: none;
+            color: #111111;
 
-      border-color: #2868e8;
+            overflow: hidden;
 
-      box-shadow:
-        0 10px 30px rgba(40, 104, 232, 0.10);
-    }
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
 
-    /* синяя полоска слева */
+        .card:hover {
+            transform: translateY(-4px);
 
-    .card::before {
-      content: "";
+            border-color: #246BEB;
 
-      position: absolute;
+            box-shadow: 0 12px 30px rgba(36, 107, 235, 0.10);
+        }
 
-      left: 0;
-      top: 38px;
-      bottom: 38px;
+        /* =========================
+           СИНЯЯ ПОЛОСА
+        ========================= */
 
-      width: 5px;
+        .card::before {
+            content: "";
 
-      background: #2868e8;
+            position: absolute;
 
-      border-radius: 0 5px 5px 0;
-    }
+            left: 0;
+            top: 48px;
+            bottom: 48px;
 
-    /* =========================
-       ТЕГ
-    ========================= */
+            width: 7px;
 
-    .card-tag {
-      display: inline-block;
+            background: #246BEB;
 
-      margin-bottom: 25px;
-      padding: 7px 13px;
+            border-radius: 0 5px 5px 0;
+        }
 
-      background: #f15a24;
-      color: #ffffff;
+        /* =========================
+           НОМЕР ДЗ
+        ========================= */
 
-      border-radius: 7px;
+        .card-label {
+            display: inline-flex;
+            align-items: center;
 
-      font-size: 15px;
-      line-height: 1;
-      font-weight: 800;
-      letter-spacing: 0.2px;
-    }
+            width: fit-content;
 
-    /* =========================
-       НАЗВАНИЕ
-    ========================= */
+            margin-left: 2px;
+            margin-bottom: 28px;
 
-    .card-title {
-      margin: 0 0 18px;
+            padding: 8px 14px;
 
-      font-size: clamp(28px, 3vw, 38px);
-      line-height: 1.12;
+            background: #f1f5ff;
 
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
+            color: #246BEB;
 
-    /* =========================
-       ОПИСАНИЕ
-    ========================= */
+            font-size: 22px;
+            line-height: 1;
+            font-weight: 800;
 
-    .card-description {
-      margin: 0;
+            border-radius: 4px;
 
-      color: #707070;
+            text-transform: uppercase;
+        }
 
-      font-size: 19px;
-      line-height: 1.5;
+        /* =========================
+           ЗАГОЛОВОК КАРТОЧКИ
+        ========================= */
 
-      font-weight: 500;
-    }
+        .card-title {
+            margin: 0 0 22px;
 
-    /* =========================
-       СТРЕЛКА
-    ========================= */
+            max-width: 850px;
 
-    .card-arrow {
-      position: absolute;
+            font-size: 42px;
+            line-height: 1.12;
+            font-weight: 800;
 
-      right: 35px;
-      bottom: 30px;
+            letter-spacing: -0.8px;
 
-      color: #2868e8;
+            color: #111111;
+        }
 
-      font-size: 30px;
-      font-weight: 500;
+        /* =========================
+           ОПИСАНИЕ
+        ========================= */
 
-      opacity: 0;
+        .card-description {
+            margin: 0;
 
-      transform: translateX(-5px);
+            max-width: 850px;
 
-      transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
-    }
+            font-size: 25px;
+            line-height: 1.45;
+            font-weight: 400;
 
-    .card:hover .card-arrow {
-      opacity: 1;
-      transform: translateX(0);
-    }
+            color: #777777;
+        }
 
-    /* =========================
-       МОБИЛЬНАЯ ВЕРСИЯ
-    ========================= */
+        /* =========================
+           ОРАНЖЕВЫЙ АКЦЕНТ
+        ========================= */
 
-    @media (max-width: 800px) {
+        .card-accent {
+            margin-top: auto;
+            padding-top: 35px;
 
-      .page {
-        width: min(100% - 30px, 650px);
-        padding-top: 28px;
-      }
+            color: #F15A24;
 
-      .header {
-        margin-bottom: 38px;
-      }
+            font-size: 20px;
+            font-weight: 700;
+        }
 
-      .header h1 {
-        font-size: 42px;
-      }
+        .card-accent span {
+            display: inline-block;
 
-      .header p {
-        font-size: 20px;
-      }
+            transition: transform 0.2s ease;
+        }
 
-      .orange-line {
-        margin-bottom: 28px;
-      }
+        .card:hover .card-accent span {
+            transform: translateX(6px);
+        }
 
-      .cards {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
+        /* =========================
+           МОБИЛЬНАЯ ВЕРСИЯ
+        ========================= */
 
-      .card {
-        min-height: 260px;
-        padding: 30px 30px 35px;
-      }
+        @media (max-width: 1000px) {
 
-      .card::before {
-        top: 30px;
-        bottom: 30px;
-      }
+            .page {
+                padding: 32px 28px 60px;
+            }
 
-      .card-title {
-        font-size: 29px;
-      }
+            .back {
+                font-size: 20px;
+                margin-bottom: 42px;
+            }
 
-      .card-description {
-        font-size: 17px;
-      }
-    }
-  </style>
+            .header {
+                margin-bottom: 44px;
+            }
+
+            .header h1 {
+                font-size: 48px;
+            }
+
+            .header p {
+                font-size: 24px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .card {
+                min-height: 320px;
+                padding: 40px;
+                border-radius: 26px;
+            }
+
+            .card::before {
+                top: 36px;
+                bottom: 36px;
+            }
+
+            .card-title {
+                font-size: 34px;
+            }
+
+            .card-description {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .page {
+                padding: 24px 18px 50px;
+            }
+
+            .back {
+                font-size: 18px;
+                margin-bottom: 32px;
+            }
+
+            .back-arrow {
+                font-size: 24px;
+            }
+
+            .header h1 {
+                font-size: 38px;
+                letter-spacing: -0.8px;
+            }
+
+            .header p {
+                font-size: 20px;
+            }
+
+            .card {
+                min-height: 280px;
+                padding: 32px 28px;
+                border-radius: 22px;
+            }
+
+            .card::before {
+                top: 28px;
+                bottom: 28px;
+                width: 5px;
+            }
+
+            .card-label {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+
+            .card-title {
+                font-size: 29px;
+                margin-bottom: 16px;
+            }
+
+            .card-description {
+                font-size: 19px;
+            }
+
+            .card-accent {
+                font-size: 18px;
+                padding-top: 28px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <main class="page">
+<div class="page">
 
     <!-- НАЗАД -->
     <a href="../index.html" class="back">
-      <span class="back-arrow">←</span>
-      <span>Назад</span>
+        <span class="back-arrow">←</span>
+        <span>Назад</span>
     </a>
 
 
     <!-- ЗАГОЛОВОК -->
     <header class="header">
+        <h1>Задание 9</h1>
 
-      <h1>Задание 9</h1>
-
-      <p>Выберите домашнее задание</p>
-
+        <p>
+            Выберите домашнее задание
+        </p>
     </header>
 
 
-    <!-- ОРАНЖЕВАЯ ЛИНИЯ -->
-    <div class="orange-line"></div>
-
-
     <!-- КАРТОЧКИ -->
-    <section class="cards">
+    <main class="cards">
+
+        <!-- =========================
+             ДЗ 9.1
+        ========================== -->
+
+        <a href="9_1/index.html" class="card">
+
+            <div class="card-label">
+                ДЗ 9.1
+            </div>
+
+            <h2 class="card-title">
+                Проверяемые и непроверяемые гласные
+            </h2>
+
+            <p class="card-description">
+                Практика по проверяемым и непроверяемым
+                безударным гласным в корне слова.
+            </p>
+
+            <div class="card-accent">
+                <span>Перейти к заданию →</span>
+            </div>
+
+        </a>
 
 
-      <!-- =========================
-           ДЗ 9.1
-      ========================== -->
+        <!-- =========================
+             ОБЩЕЕ ДЗ 9
+        ========================== -->
 
-      <a href="9_1/index.html" class="card">
+        <a href="9/index.html" class="card">
 
-        <div class="card-tag">
-          ДЗ 9.1
-        </div>
+            <div class="card-label">
+                ДЗ 9
+            </div>
 
-        <h2 class="card-title">
-          Проверяемые и<br>
-          непроверяемые гласные
-        </h2>
+            <h2 class="card-title">
+                Общее ДЗ по заданию 9
+            </h2>
 
-        <p class="card-description">
-          Практика по проверяемым и непроверяемым
-          безударным гласным в корне слова.
-        </p>
+            <p class="card-description">
+                Итоговая домашняя работа
+                по всем темам задания 9.
+            </p>
 
-        <div class="card-arrow">
-          →
-        </div>
+            <div class="card-accent">
+                <span>Перейти к заданию →</span>
+            </div>
 
-      </a>
+        </a>
 
+    </main>
 
-      <!-- =========================
-           ОБЩЕЕ ДЗ 9
-      ========================== -->
-
-      <a href="9/index.html" class="card">
-
-        <div class="card-tag">
-          ДЗ 9
-        </div>
-
-        <h2 class="card-title">
-          Общее ДЗ по заданию 9
-        </h2>
-
-        <p class="card-description">
-          Итоговая домашняя работа по всем темам
-          задания 9.
-        </p>
-
-        <div class="card-arrow">
-          →
-        </div>
-
-      </a>
-
-
-    </section>
-
-  </main>
+</div>
 
 </body>
 </html>
