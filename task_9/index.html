@@ -3,592 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ДОМАШНЯЯ РАБОТА: ЗАДАНИЕ 9 ЕГЭ</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    
+
+    <title>Задание 9</title>
+
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
-            background-color: #FFFFFF; 
-            color: #000000; 
-            padding: 20px; 
-            line-height: 1.5; 
-        }
-        .container { max-width: 600px; margin: 40px auto; }
-        
-        .brand-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            font-weight: 700;
-            color: #929292;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-        }
-        .brand-name { color: #2368EE; }
-        .brand-phone { color: #929292; text-decoration: none; }
-
-        .back-link { 
-            display: inline-flex; 
-            align-items: center; 
-            text-decoration: none; 
-            color: #2368EE; 
-            font-size: 13px; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            margin-bottom: 20px; 
-            transition: color 0.2s; 
-            cursor: pointer;
-        }
-        .back-link:hover { color: #EE6023; }
-
-        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
-        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
-        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
-
-        .student-info { 
-            background: #FFFFFF; 
-            padding: 20px; 
-            border-radius: 6px; 
-            margin-bottom: 24px; 
-            border: 1px solid #AFAFAF;
-        }
-        .student-info input { 
-            width: 100%; 
-            padding: 14px 16px; 
-            border: 1px solid #CBD5E1; 
-            border-radius: 6px; 
-            font-family: 'Inter', sans-serif; 
-            font-size: 15px; 
-            font-weight: 500;
-            outline: none;
-            transition: all 0.2s ease;
-            background-color: #F8FAFC;
-        }
-        .student-info input:focus {
-            border-color: #2368EE;
-            background-color: #FFFFFF;
+        * {
+            box-sizing: border-box;
         }
 
-        .task-card { 
-            background: #FFFFFF;
-            border: 1px solid #AFAFAF; 
-            border-radius: 6px; 
-            padding: 24px; 
-            margin-bottom: 20px; 
+        body {
+            margin: 0;
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+            color: #111;
         }
-        .task-title { 
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 30px;
+        }
+
+        .back {
             display: inline-block;
-            background-color: #F4F7FE; 
-            padding: 6px 12px; 
-            border-radius: 6px;
-            font-size: 12px; 
-            font-weight: 700; 
-            color: #2368EE; 
-            text-transform: uppercase; 
-            letter-spacing: 0.5px;
-            margin-bottom: 16px; 
+            margin-bottom: 35px;
+            color: #777;
+            text-decoration: none;
+            font-size: 16px;
         }
-        .instruction { font-weight: 700; margin-bottom: 14px; font-size: 15px; color: #000000; }
-        
-        .sentence-box { 
-            font-size: 15px; 
-            font-weight: 500;
-            margin-bottom: 20px; 
-            line-height: 1.6; 
-            padding: 12px 16px; 
-            background: #F4F7FE;
-            border-left: 4px solid #EE6023; 
-            border-radius: 0 6px 6px 0;
-            color: #000000;
+
+        .back:hover {
+            color: #111;
         }
-        .sentence-box p { margin-bottom: 6px; }
-        .sentence-box p:last-child { margin-bottom: 0; }
-        
-        .input-block { display: flex; flex-direction: column; gap: 8px; }
-        .input-label { font-size: 14px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 0.5px; }
-        .answer-input { 
-            width: 100%; 
-            padding: 12px 16px; 
-            border: 1px solid #AFAFAF; 
-            border-radius: 6px; 
-            font-family: 'Inter', sans-serif; 
-            font-size: 15px; 
-            font-weight: 500;
-            outline: none; 
+
+        .title {
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0 0 10px;
+        }
+
+        .subtitle {
+            font-size: 19px;
+            color: #777;
+            margin: 0 0 40px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            display: block;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 20px;
+            padding: 30px;
+            text-decoration: none;
+            color: #111;
             transition: all 0.2s ease;
         }
-        .answer-input:focus { 
-            border-color: #2368EE; 
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
-        .submit-btn { 
-            background-color: #2368EE; 
-            color: white; 
-            border: none; 
-            padding: 16px 30px; 
-            font-size: 16px; 
-            font-weight: 700; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            text-transform: uppercase; 
-            letter-spacing: 0.5px;
-            width: 100%; 
-            margin-top: 12px; 
-            transition: all 0.2s ease; 
+        .number {
+            font-size: 15px;
+            font-weight: 700;
+            color: #777;
+            margin-bottom: 15px;
         }
-        .submit-btn:hover { background-color: #1d56c9; }
-        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
 
-        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+        .card-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card-text {
+            font-size: 17px;
+            line-height: 1.5;
+            color: #777;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .title {
+                font-size: 32px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-    <div class="container" id="mainContainer">
-        <div id="homeworkForm">
-            
-            <div class="brand-header">
-                <span class="brand-name">НМ | Никита Мельников</span>
-                <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+<div class="container">
+
+    <!-- Назад на главную страницу -->
+    <a href="../index.html" class="back">
+        ← Назад
+    </a>
+
+    <h1 class="title">
+        Задание 9
+    </h1>
+
+    <p class="subtitle">
+        Выберите домашнее задание
+    </p>
+
+    <div class="cards">
+
+        <!-- ДЗ 9.1 -->
+        <a href="9_1/index.html" class="card">
+
+            <div class="number">
+                ДЗ 9.1
             </div>
 
-            <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link">← Меню платформы</a>
-
-            <div class="header">
-                <h1>Домашняя работа: Задание 9</h1>
-                <p>Правописание корней слов</p>
+            <div class="card-title">
+                Проверяемые и непроверяемые гласные
             </div>
 
-            <div class="student-info">
-                <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
+            <div class="card-text">
+                Практика по проверяемым и непроверяемым
+                безударным гласным в корне слова.
             </div>
 
-            <!-- Задача 1 -->
-            <div class="task-card">
-                <div class="task-title">Задача 1</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) возр..ждаться, ок..менеть, насл..ждение</p>
-                    <p>2) в..новатый, зам..реть, соч..тание</p>
-                    <p>3) укр..щение, благосл..вение, к..лоссальный</p>
-                    <p>4) ск..чок, утр..мбовать, п..лисадник</p>
-                    <p>5) ш..лковый, реш..тка, ш..пот</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_1" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
+        </a>
+
+
+        <!-- ОБЩЕЕ ДЗ 9 -->
+        <a href="9/index.html" class="card">
+
+            <div class="number">
+                ДЗ 9
             </div>
 
-            <!-- Задача 2 -->
-            <div class="task-card">
-                <div class="task-title">Задача 2</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) п..лить (из пушки), ур..внение, возр..ст</p>
-                    <p>2) соб..рать, заж..гать, вин..грет</p>
-                    <p>3) м..лоде́ц, г..релый, к..снуться</p>
-                    <p>4) ш..пот, ш..рох, капюш..н</p>
-                    <p>5) м..гучий, ..рнамент, зд..ровье</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_2" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
+            <div class="card-title">
+                Общее ДЗ по заданию 9
             </div>
 
-            <!-- Задача 3 -->
-            <div class="task-card">
-                <div class="task-title">Задача 3</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) б..гровый, диап..зон, (смотреть) иск..са</p>
-                    <p>2) с..реневый, расст..лать, см..рение</p>
-                    <p>3) (сильное) исп..рение, преод..леть, вск..чить</p>
-                    <p>4) з..рница, попл..вок, ум..лять (значение чего-нибудь)</p>
-                    <p>5) ч..лка, наш..птывать, ож..г (руку)</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_3" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
+            <div class="card-text">
+                Итоговая домашняя работа по всем темам
+                задания 9.
             </div>
 
-            <!-- Задача 4 -->
-            <div class="task-card">
-                <div class="task-title">Задача 4</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) прик..снуться, м..зговой, тр..йник</p>
-                    <p>2) з..ря, п..норама, в..льнолюбивый</p>
-                    <p>3) р..стущий, м..кать, ск..калка</p>
-                    <p>4) ш..коладный, ч..порный (человек), ш..рох</p>
-                    <p>5) пл..вец, предл..гать, оз..рный (ребёнок)</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_4" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
+        </a>
 
-            <!-- Задача 5 -->
-            <div class="task-card">
-                <div class="task-title">Задача 5</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) б..скетбол, заг..реть, сотв..рить (чудо)</p>
-                    <p>2) расст..лить, выб..рать, словосоч..тание</p>
-                    <p>3) пол..гаться (на мнение отца), выр..сти, ск..чок</p>
-                    <p>4) выск..чить, пор..сль, к..снуться</p>
-                    <p>5) крыж..вник, ш..колад, ч..лка</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_5" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 6 -->
-            <div class="task-card">
-                <div class="task-title">Задача 6</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) сж..мать, заж..гать, выч..тание</p>
-                    <p>2) см..рение, (лестничные) п..рила, зап..рать</p>
-                    <p>3) ур..внение, отр..сль, к..саться</p>
-                    <p>4) обм..кнуть (перо в чернила), выр..сти, ск..чу</p>
-                    <p>5) ш..фёр, ш..лковый, ш..рстка</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_6" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 7 -->
-            <div class="task-card">
-                <div class="task-title">Задача 7</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) бракосоч..тание, соб..раться, обл..гчить</p>
-                    <p>2) з..рница, дор..сли (до определённого уровня), сп..ртакиада</p>
-                    <p>3) подр..вняться (в строю), ор..нжерея, проск..чу (на коне весь день)</p>
-                    <p>4) хв..стливый, ср..щение, возр..стной</p>
-                    <p>5) обг..реть, б..гатство, к..сательная</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_7" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 8 -->
-            <div class="task-card">
-                <div class="task-title">Задача 8</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) расч..ска, чеч..тка, подж..г (автомобиль)</p>
-                    <p>2) (на) пл..ву, к..рикатура, обл..гаться (налогом)</p>
-                    <p>3) соч..тать, изб..рательно, интелл..гент</p>
-                    <p>4) насл..ждение, прил..гательное, перек..лить (орехи в печи)</p>
-                    <p>5) проб..жать, вет..ранский, подл..нный</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_8" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 9 -->
-            <div class="task-card">
-                <div class="task-title">Задача 9</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) кв..танция, д..сциплина, ин..циативный</p>
-                    <p>2) л..биринт, м..жор, к..лыхать</p>
-                    <p>3) г..рмония, укр..шение, г..лерея</p>
-                    <p>4) к..рикатура, м..раторий, пок..ситься</p>
-                    <p>5) ист..на, ст..пендия, ори..нтироваться</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_9" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 10 -->
-            <div class="task-card">
-                <div class="task-title">Задача 10</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) ин..циатива, м..нталитет, т..рритория</p>
-                    <p>2) чел..век, эк..номика, м..ссивный</p>
-                    <p>3) косм..навтика, обл..котиться, б..гровый</p>
-                    <p>4) фр..зеология, фин..нсист, тр..мвай</p>
-                    <p>5) д..апазон, фест..валь, д..рижёр</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_10" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 11 -->
-            <div class="task-card">
-                <div class="task-title">Задача 11</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) аб..немент, отд..лённый, атм..сфера</p>
-                    <p>2) чинопоч..тание, увл..кательный, подн..мать</p>
-                    <p>3) к..лебание, к..нтинент, мер..приятие</p>
-                    <p>4) эксп..римент, вест..бюль, кор..фей</p>
-                    <p>5) ш..коладный, (ровный) ш..в, капюш..н</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_11" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 12 -->
-            <div class="task-card">
-                <div class="task-title">Задача 12</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) вым..кший, нар..щение, ут..пический</p>
-                    <p>2) отобр..жать, безотл..гательно, неукр..тимый</p>
-                    <p>3) дост..жение, подн..маться, выт..раться</p>
-                    <p>4) совм..щать, колл..кционный, г..олог</p>
-                    <p>5) п..триот, изобр..зительный, тр..диция</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_12" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 13 -->
-            <div class="task-card">
-                <div class="task-title">Задача 13</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) зап..реть, п..йзажист, прот..рать</p>
-                    <p>2) к..роль, прик..сновение, отр..сль</p>
-                    <p>3) к..сательная, р..стительность, изл..гать</p>
-                    <p>4) возр..жать, м..ксимализм, б..гаж</p>
-                    <p>5) сд..рать, проб..раться, подн..маться</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_13" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 14 -->
-            <div class="task-card">
-                <div class="task-title">Задача 14</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) гер..изм, пор..жение, (торговая) к..мпания</p>
-                    <p>2) прик..снувшись, возр..ст, разг..раться</p>
-                    <p>3) бл..стательный, доб..раться, ап..ллировать</p>
-                    <p>4) заск..чить, распол..жение, пр..воцировать</p>
-                    <p>5) к..саться, прор..стающий, пост..новление</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_14" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 15 -->
-            <div class="task-card">
-                <div class="task-title">Задача 15</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) тр..нироваться, выб..решь (одежду), пр..зидент</p>
-                    <p>2) заг..рающий, выр..стать, изл..гать</p>
-                    <p>3) п..сещать, к..мпания (друзей), вым..стить (дорогу)</p>
-                    <p>4) зам..реть, выч..тание, прогр..ссивный</p>
-                    <p>5) з..рница, предпол..жение, к..рикатура</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_15" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 16 -->
-            <div class="task-card">
-                <div class="task-title">Задача 16</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) л..генда, прод..раться, зам..рать (от восторга)</p>
-                    <p>2) к..морка, зап..стись, (предвыборная) к..мпания</p>
-                    <p>3) кр..мешный, оз..рение, обог..щать</p>
-                    <p>4) зам..сить, м..неральный, бл..стать</p>
-                    <p>5) запр..щать, осв..домлённый, просв..щение</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_16" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 17 -->
-            <div class="task-card">
-                <div class="task-title">Задача 17</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) вин..грет, зап..реть, изб..рательный</p>
-                    <p>2) прик..снуться, при..бретение, р..скошный</p>
-                    <p>3) од..рённость, предпол..жительный, при..ритет</p>
-                    <p>4) тр..вога, бл..стящий, зад..ржать</p>
-                    <p>5) т..рпение, р..жиссёр, п..рила</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_17" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 18 -->
-            <div class="task-card">
-                <div class="task-title">Задача 18</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) пр..ктический, оз..рение, распозн..вать</p>
-                    <p>2) обер..гаемый, арх..тектура, конф..ренция</p>
-                    <p>3) нар..стающий, гип..тетический, упр..щённый</p>
-                    <p>4) возн..кновение, п..ровать, расст..лается</p>
-                    <p>5) разб..раться, соч..тание, бл..стательный</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_18" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 19 -->
-            <div class="task-card">
-                <div class="task-title">Задача 19</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) л..биринт, п..литра, аб..немент</p>
-                    <p>2) эксп..нат, заг..раться, перев..зить</p>
-                    <p>3) инт..ллектуал, бл..стать, бар..льефный</p>
-                    <p>4) пост..лить, отв..твление, эксп..римент</p>
-                    <p>5) аттракц..он, ц..линдрический, традиц..я</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_19" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <!-- Задача 20 -->
-            <div class="task-card">
-                <div class="task-title">Задача 20</div>
-                <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
-                <div class="sentence-box">
-                    <p>1) вопл..щать (в жизнь), безог..ворочный, (газовая) г..релка</p>
-                    <p>2) взл..мать, благосл..венный, (дружная) к..мпания (школьников)</p>
-                    <p>3) поч..тать (книгу), б..рюзовый (цвет), вп..чатлить</p>
-                    <p>4) вакц..нировать, ц..линдр, (на) ц..почках</p>
-                    <p>5) ч..порный, безотч..тный, деш..вый</p>
-                </div>
-                <div class="input-block">
-                    <span class="input-label">Ваш ответ:</span>
-                    <input type="text" data-task="Задача_20" class="answer-input" placeholder="Введите номера ответов...">
-                </div>
-            </div>
-
-            <button type="button" id="submitBtn" class="submit-btn">Отправить работу на проверку</button>
-        </div>
-
-        <div class="footer">
-            <span>НМ | Никита Мельников</span><br>
-            <span>+7 927 422 35 59</span>
-        </div>
     </div>
 
-    <script>
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+</div>
 
-        function processSending() {
-            const submitBtn = document.getElementById('submitBtn');
-            if (submitBtn.disabled) return;
-
-            const nameInput = document.getElementById('studentName');
-            const studentName = nameInput.value.trim();
-
-            if (!studentName) {
-                alert('Пожалуйста, введите ваше Имя и Фамилию.');
-                nameInput.focus();
-                return;
-            }
-
-            const inputs = document.querySelectorAll('.answer-input');
-            let allFilled = true;
-            inputs.forEach(input => {
-                if (!input.value.trim()) {
-                    allFilled = false;
-                }
-            });
-
-            if (!allFilled) {
-                if (!confirm('Вы заполнили не все ответы. Всё равно отправить работу?')) {
-                    return;
-                }
-            }
-
-            submitBtn.disabled = true;
-            submitBtn.innerText = 'Отправка данных...';
-
-            const searchParams = new URLSearchParams();
-            searchParams.append('taskType', 'dz9');
-            searchParams.append('Имя Ученика', studentName);
-            
-            inputs.forEach(input => {
-                const taskName = input.getAttribute('data-task');
-                searchParams.append(taskName, input.value.trim());
-            });
-
-            fetch(WEB_APP_URL, {
-                method: 'POST',
-                body: searchParams,
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            })
-            .then(() => {
-                document.getElementById('mainContainer').innerHTML = `
-                    <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-                        <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
-                        <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
-                        <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
-                        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
-                    </div>
-                `;
-            })
-            .catch(error => {
-                alert('Произошла ошибка при отправке. Попробуйте еще раз.');
-                submitBtn.disabled = false;
-                submitBtn.innerText = 'Отправить работу на проверку';
-                console.error('Ошибка:', error);
-            });
-        }
-
-        const btn = document.getElementById('submitBtn');
-        btn.addEventListener('click', function(e) {
-            processSending();
-        });
-    </script>
 </body>
 </html>
