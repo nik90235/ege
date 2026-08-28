@@ -4,102 +4,276 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Задание 9</title>
+    <title>ЗАДАНИЕ 9 | ДОМАШНЯЯ РАБОТА</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 
     <style>
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            background: #f5f5f5;
-            font-family: Arial, sans-serif;
-            color: #111;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            background-color: #FFFFFF;
+            color: #000000;
+            padding: 20px;
+            line-height: 1.5;
         }
 
         .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 50px 30px;
+            max-width: 950px;
+            margin: 40px auto;
         }
 
-        .back {
-            display: inline-block;
-            margin-bottom: 35px;
-            color: #777;
+        /* Верхняя строка */
+
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .brand-name {
+            color: #2368EE;
+        }
+
+        .brand-phone {
+            color: #929292;
             text-decoration: none;
+        }
+
+        /* Назад */
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+
+            text-decoration: none;
+            color: #2368EE;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #EE6023;
+        }
+
+        /* Заголовок */
+
+        .header {
+            border-bottom: 4px solid #EE6023;
+
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 900;
+
+            color: #2368EE;
+
+            text-transform: uppercase;
+
+            margin-bottom: 4px;
+        }
+
+        .header p {
+            font-size: 13px;
+            font-weight: 700;
+
+            color: #929292;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Заголовок раздела */
+
+        .menu-title {
             font-size: 16px;
-        }
-
-        .back:hover {
-            color: #111;
-        }
-
-        .title {
-            font-size: 42px;
             font-weight: 700;
-            margin: 0 0 10px;
-        }
 
-        .subtitle {
-            font-size: 19px;
-            color: #777;
-            margin: 0 0 40px;
-        }
+            text-transform: uppercase;
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
+            color: #000000;
 
-        .card {
-            display: block;
-            background: #fff;
-            border: 1px solid #e5e5e5;
-            border-radius: 20px;
-            padding: 30px;
-            text-decoration: none;
-            color: #111;
-            transition: all 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .number {
-            font-size: 15px;
-            font-weight: 700;
-            color: #777;
             margin-bottom: 15px;
+            padding-left: 5px;
         }
 
-        .card-title {
-            font-size: 26px;
+        /* Карточки */
+
+        .grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .menu-card {
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+
+            min-height: 190px;
+
+            padding: 24px;
+
+            border: 1px solid #AFAFAF;
+            border-radius: 6px;
+
+            background: #FFFFFF;
+
+            text-decoration: none;
+            color: inherit;
+
+            transition:
+                border-color 0.2s ease,
+                background-color 0.2s ease,
+                transform 0.2s ease;
+
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .menu-card:hover {
+            border-color: #2368EE;
+
+            background-color: #F4F7FE;
+
+            transform: translateY(-2px);
+        }
+
+        /* Маленький тег */
+
+        .card-tag {
+            align-self: flex-start;
+
+            background-color: #F4F7FE;
+
+            border-left: 3px solid #2368EE;
+
+            padding: 5px 9px;
+
+            font-size: 11px;
             font-weight: 700;
-            margin-bottom: 12px;
+
+            color: #EE6023;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
         }
 
-        .card-text {
-            font-size: 17px;
-            line-height: 1.5;
-            color: #777;
+        /* Название */
+
+        .card-name {
+            font-size: 21px;
+            font-weight: 700;
+
+            color: #000000;
+
+            margin-bottom: 8px;
+
+            line-height: 1.25;
         }
+
+        /* Описание */
+
+        .card-desc {
+            font-size: 14px;
+
+            color: #666666;
+
+            line-height: 1.6;
+        }
+
+        /* Стрелка */
+
+        .card-arrow {
+            margin-top: auto;
+
+            padding-top: 18px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            color: #2368EE;
+
+            text-transform: uppercase;
+        }
+
+        .menu-card:hover .card-arrow {
+            color: #EE6023;
+        }
+
+        /* Нижний блок */
+
+        .footer {
+            text-align: center;
+
+            margin-top: 50px;
+
+            font-size: 13px;
+
+            color: #929292;
+
+            font-weight: 700;
+
+            line-height: 1.6;
+
+            border-top: 1px solid #E0E0E0;
+
+            padding-top: 20px;
+        }
+
+        /* Телефон */
 
         @media (max-width: 700px) {
+
             .container {
-                padding: 30px 20px;
+                margin: 25px auto;
             }
 
-            .title {
-                font-size: 32px;
-            }
-
-            .cards {
+            .grid {
                 grid-template-columns: 1fr;
+            }
+
+            .menu-card {
+                min-height: auto;
+            }
+
+            .brand-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .header h1 {
+                font-size: 24px;
             }
         }
     </style>
@@ -109,58 +283,104 @@
 
 <div class="container">
 
-    <!-- Назад на главную страницу -->
-    <a href="../index.html" class="back">
+    <!-- Верхняя строка -->
+
+    <div class="brand-header">
+        <div class="brand-name">
+            НМ | НИКИТА МЕЛЬНИКОВ
+        </div>
+
+        <div class="brand-phone">
+            +7 927 422 35 59
+        </div>
+    </div>
+
+
+    <!-- Назад -->
+
+    <a href="../index.html" class="back-link">
         ← Назад
     </a>
 
-    <h1 class="title">
-        Задание 9
-    </h1>
 
-    <p class="subtitle">
-        Выберите домашнее задание
-    </p>
+    <!-- Заголовок -->
 
-    <div class="cards">
+    <div class="header">
+
+        <h1>Задание 9</h1>
+
+        <p>
+            Выберите домашнее задание
+        </p>
+
+    </div>
+
+
+    <!-- Раздел -->
+
+    <div class="menu-title">
+        ДОМАШНИЕ ЗАДАНИЯ
+    </div>
+
+
+    <!-- Карточки -->
+
+    <div class="grid">
+
 
         <!-- ДЗ 9.1 -->
-        <a href="9_1/index.html" class="card">
 
-            <div class="number">
+        <a href="9_1/index.html" class="menu-card">
+
+            <div class="card-tag">
                 ДЗ 9.1
             </div>
 
-            <div class="card-title">
+            <div class="card-name">
                 Проверяемые и непроверяемые гласные
             </div>
 
-            <div class="card-text">
-                Практика по проверяемым и непроверяемым
-                безударным гласным в корне слова.
+            <div class="card-desc">
+                Практика по проверяемым и непроверяемым безударным гласным в корне слова.
+            </div>
+
+            <div class="card-arrow">
+                Перейти к заданию →
             </div>
 
         </a>
 
 
-        <!-- ОБЩЕЕ ДЗ 9 -->
-        <a href="9/index.html" class="card">
+        <!-- Общее ДЗ 9 -->
 
-            <div class="number">
+        <a href="9/index.html" class="menu-card">
+
+            <div class="card-tag">
                 ДЗ 9
             </div>
 
-            <div class="card-title">
+            <div class="card-name">
                 Общее ДЗ по заданию 9
             </div>
 
-            <div class="card-text">
-                Итоговая домашняя работа по всем темам
-                задания 9.
+            <div class="card-desc">
+                Итоговая домашняя работа по всем темам задания 9.
+            </div>
+
+            <div class="card-arrow">
+                Перейти к заданию →
             </div>
 
         </a>
 
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <div class="footer">
+        Задание 9 · Орфография
     </div>
 
 </div>
