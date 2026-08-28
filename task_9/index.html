@@ -1,536 +1,989 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Задание 9 | Домашняя работа</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #111111;
-      background: #ffffff;
-    }
-
-    /* =========================
-       ОСНОВНОЙ КОНТЕЙНЕР
-       ========================= */
-
-    .page {
-      width: min(1200px, calc(100% - 64px));
-      margin: 0 auto;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* =========================
-       ШАПКА
-       ========================= */
-
-    .header {
-      padding-top: 42px;
-    }
-
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      font-size: 21px;
-      font-weight: 800;
-      color: #246CEB;
-      letter-spacing: -0.3px;
-    }
-
-    .phone {
-      font-size: 19px;
-      font-weight: 700;
-      color: #999999;
-    }
-
-    .user-bar {
-      margin-top: 28px;
-      width: 100%;
-      min-height: 58px;
-      padding: 0 22px;
-      border-radius: 10px;
-      background: #F1F5FF;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .user-name {
-      font-size: 17px;
-      font-weight: 700;
-      color: #111111;
-    }
-
-    .logout {
-      color: #F25A24;
-      font-size: 17px;
-      font-weight: 700;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-
-    /* =========================
-       КОНТЕНТ
-       ========================= */
-
-    main {
-      flex: 1;
-    }
-
-    .back {
-      display: inline-block;
-      margin-top: 42px;
-      color: #777777;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Задание 9 | НМ | Никита Мельников</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            background: #FFFFFF;
+            color: #000000;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 40px auto;
+        }
+
+        /* =========================
+           ШАПКА
+        ========================= */
+
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .brand-name {
+            color: #2368EE;
+        }
+
+        .brand-phone {
+            color: #929292;
+            text-decoration: none;
+        }
+
+        /* =========================
+           ПАНЕЛЬ УЧЕНИКА
+        ========================= */
+
+        .user-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #F4F7FE;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            background: none;
+            border: none;
+            color: #EE6023;
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* =========================
+           НАЗАД
+        ========================= */
+
+        .back-link {
+            display: inline-block;
+            color: #929292;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #2368EE;
+        }
+
+        /* =========================
+           ЗАГОЛОВОК
+        ========================= */
+
+        .header {
+            border-bottom: 4px solid #EE6023;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 900;
+            color: #2368EE;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .header p {
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           ЗАГОЛОВОК МАТЕРИАЛОВ
+        ========================= */
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #000000;
+            margin-bottom: 15px;
+            padding-left: 5px;
+        }
+
+        /* =========================
+           КАРТОЧКИ
+        ========================= */
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
 
-    .back:hover {
-      color: #246CEB;
-    }
+        .menu-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
 
-    .page-title {
-      margin: 52px 0 8px;
-      font-size: 52px;
-      line-height: 1.05;
-      font-weight: 800;
-      letter-spacing: -1.8px;
-    }
+            padding: 20px;
 
-    .page-subtitle {
-      margin: 0;
-      color: #777777;
-      font-size: 23px;
-      line-height: 1.4;
-      font-weight: 500;
-    }
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF;
+            border-radius: 6px;
 
-    /* =========================
-       КАРТОЧКИ
-       ========================= */
+            text-decoration: none;
+            color: inherit;
+
+            transition: all 0.2s ease;
 
-    .cards {
-      margin-top: 48px;
+            min-height: 205px;
+        }
+
+        .menu-card:hover {
+            border-color: #2368EE;
+            background-color: #F4F7FE;
+            transform: translateY(-2px);
+        }
+
+        /* Синяя полоска слева */
+        .menu-card::before {
+            content: "";
+            position: absolute;
+            left: -1px;
+            top: 20px;
+            bottom: 20px;
+            width: 4px;
+
+            background: #2368EE;
+            border-radius: 0 4px 4px 0;
+        }
 
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
+        /* =========================
+           TAG
+        ========================= */
 
-    .card {
-      position: relative;
+        .card-tag {
+            align-self: flex-start;
 
-      min-height: 300px;
-      padding: 34px 34px 30px 42px;
+            background-color: #F4F7FE;
 
-      background: #ffffff;
-      border: 1px solid #E3E3E3;
-      border-radius: 16px;
+            padding: 5px 9px;
 
-      text-decoration: none;
-      color: inherit;
+            border-radius: 4px;
 
-      display: flex;
-      flex-direction: column;
+            font-size: 11px;
+            font-weight: 700;
 
-      overflow: hidden;
+            color: #2368EE;
 
-      transition:
-        transform 0.18s ease,
-        border-color 0.18s ease,
-        box-shadow 0.18s ease;
-    }
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
 
-    /* Синяя полоса */
+            margin-bottom: 12px;
+        }
 
-    .card::before {
-      content: "";
-      position: absolute;
+        /* =========================
+           НАЗВАНИЕ
+        ========================= */
 
-      left: 0;
-      top: 64px;
-      bottom: 64px;
+        .card-name {
+            font-size: 19px;
+            line-height: 1.25;
 
-      width: 6px;
+            font-weight: 700;
 
-      background: #246CEB;
-      border-radius: 0 5px 5px 0;
-    }
+            color: #000000;
 
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: #246CEB;
-      box-shadow: 0 8px 24px rgba(36, 108, 235, 0.08);
-    }
+            margin-bottom: 8px;
+        }
 
-    /* Бейдж */
+        /* =========================
+           ОПИСАНИЕ
+        ========================= */
 
-    .card-badge {
-      align-self: flex-start;
+        .card-desc {
+            font-size: 13px;
+            line-height: 1.5;
 
-      display: inline-flex;
-      align-items: center;
+            color: #666666;
 
-      padding: 7px 12px;
+            margin-bottom: 15px;
+        }
 
-      background: #F1F5FF;
-      color: #246CEB;
+        /* =========================
+           ССЫЛКА
+        ========================= */
 
-      border-radius: 4px;
+        .card-link {
+            margin-top: auto;
 
-      font-size: 16px;
-      line-height: 1;
-      font-weight: 800;
-    }
+            font-size: 13px;
+            font-weight: 700;
 
-    .card-title {
-      margin: 30px 0 0;
+            color: #EE6023;
+        }
 
-      font-size: 34px;
-      line-height: 1.12;
-      font-weight: 800;
-      letter-spacing: -0.8px;
-    }
+        /* =========================
+           ЗАБЛОКИРОВАННАЯ КАРТОЧКА
+        ========================= */
 
-    .card-description {
-      margin: 20px 0 0;
+        .menu-card.locked {
+            background-color: #F5F5F5;
+            border-color: #E0E0E0;
+            opacity: 0.65;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
 
-      max-width: 580px;
+        .menu-card.locked::before {
+            background: #AFAFAF;
+        }
 
-      color: #777777;
+        .lock-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
 
-      font-size: 20px;
-      line-height: 1.5;
-      font-weight: 500;
-    }
-
-    .card-link {
-      margin-top: auto;
-      padding-top: 28px;
+            font-size: 16px;
+        }
 
-      color: #F25A24;
+        /* =========================
+           ФУТЕР
+        ========================= */
 
-      font-size: 18px;
-      line-height: 1;
-      font-weight: 800;
-    }
+        .footer {
+            text-align: center;
 
-    /* =========================
-       FOOTER
-       ========================= */
+            margin-top: 50px;
 
-    footer {
-      margin-top: 70px;
-      padding: 30px 0 35px;
+            font-size: 13px;
+            color: #929292;
 
-      border-top: 1px solid #E3E3E3;
+            font-weight: 700;
+            line-height: 1.6;
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+            border-top: 1px solid #E0E0E0;
 
-    .footer-brand {
-      color: #246CEB;
-      font-size: 16px;
-      font-weight: 800;
-    }
-
-    .footer-text {
-      color: #999999;
-      font-size: 14px;
-      font-weight: 500;
-    }
+            padding-top: 20px;
+        }
 
-    /* =========================
-       АДАПТИВ
-       ========================= */
-
-    @media (max-width: 800px) {
-
-      .page {
-        width: min(100% - 36px, 600px);
-      }
-
-      .header {
-        padding-top: 25px;
-      }
-
-      .header-top {
-        gap: 15px;
-      }
-
-      .brand {
-        font-size: 17px;
-      }
-
-      .phone {
-        font-size: 15px;
-      }
-
-      .user-bar {
-        margin-top: 20px;
-      }
-
-      .back {
-        margin-top: 28px;
-      }
-
-      .page-title {
-        margin-top: 38px;
-        font-size: 40px;
-      }
-
-      .page-subtitle {
-        font-size: 20px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        margin-top: 34px;
-      }
-
-      .card {
-        min-height: 280px;
-      }
-
-      .card-title {
-        font-size: 29px;
-      }
-
-      .card-description {
-        font-size: 18px;
-      }
-    }
-
-    @media (max-width: 480px) {
-
-      .page {
-        width: calc(100% - 28px);
-      }
-
-      .header-top {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .phone {
-        font-size: 14px;
-      }
-
-      .user-bar {
-        padding: 0 16px;
-      }
-
-      .user-name,
-      .logout {
-        font-size: 15px;
-      }
-
-      .page-title {
-        font-size: 34px;
-      }
-
-      .card {
-        padding: 28px 24px 26px 32px;
-      }
-
-      .card-title {
-        font-size: 27px;
-      }
-
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-    }
-  </style>
+        /* =========================
+           ОКНО АВТОРИЗАЦИИ
+        ========================= */
+
+        .auth-overlay {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0,0,0,0.6);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            z-index: 1000;
+
+            padding: 20px;
+        }
+
+        .auth-box {
+            background: #FFFFFF;
+
+            padding: 30px 25px;
+
+            border-radius: 8px;
+
+            width: 100%;
+            max-width: 380px;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+            text-align: center;
+        }
+
+        .auth-box h2 {
+            font-size: 20px;
+
+            color: #2368EE;
+
+            margin-bottom: 15px;
+
+            font-weight: 900;
+        }
+
+        .auth-box input {
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 12px;
+
+            border: 1px solid #CCCCCC;
+
+            border-radius: 6px;
+
+            font-size: 14px;
+
+            outline: none;
+        }
+
+        .auth-box input:focus {
+            border-color: #2368EE;
+        }
+
+        .auth-box button {
+            width: 100%;
+
+            padding: 12px;
+
+            background-color: #2368EE;
+
+            color: #FFFFFF;
+
+            border: none;
+
+            border-radius: 6px;
+
+            font-weight: 700;
+
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+        .auth-box button:disabled {
+            opacity: 0.6;
+            cursor: wait;
+        }
+
+        .auth-error {
+            color: #EE6023;
+
+            font-size: 12px;
+
+            margin-top: 10px;
+
+            font-weight: 600;
+
+            display: none;
+        }
+
+        /* =========================
+           АДАПТИВ
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                margin: 25px auto;
+            }
+
+            .brand-header {
+                font-size: 11px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-card {
+                min-height: 180px;
+            }
+
+            .header h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="page">
-
     <!-- =========================
-         ШАПКА
-         ========================= -->
+         АВТОРИЗАЦИЯ
+    ========================= -->
 
-    <header class="header">
+    <div id="authOverlay" class="auth-overlay" style="display: none;">
+        <div class="auth-box">
 
-      <div class="header-top">
+            <h2>ВХОД В ПЛАТФОРМУ</h2>
 
-        <div class="brand">
-          НМ | НИКИТА МЕЛЬНИКОВ
+            <input
+                type="text"
+                id="loginInput"
+                placeholder="Логин"
+            >
+
+            <input
+                type="password"
+                id="passInput"
+                placeholder="Пароль"
+            >
+
+            <button
+                onclick="handleLogin()"
+                id="loginBtn"
+            >
+                Войти
+            </button>
+
+            <div
+                id="authError"
+                class="auth-error"
+            ></div>
+
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <!-- =========================
+             БРЕНД
+        ========================= -->
+
+        <div class="brand-header">
+
+            <span class="brand-name">
+                НМ | Никита Мельников
+            </span>
+
+            <a
+                href="tel:+79274223559"
+                class="brand-phone"
+            >
+                +7 927 422 35 59
+            </a>
+
         </div>
 
-        <div class="phone">
-          +7 927 422 35 59
+
+        <!-- =========================
+             УЧЕНИК
+        ========================= -->
+
+        <div
+            id="userPanel"
+            class="user-panel"
+            style="display: none;"
+        >
+
+            <span>
+                Ученик:
+                <b id="studentNameDisplay">...</b>
+            </span>
+
+            <button
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Выйти
+            </button>
+
         </div>
 
-      </div>
 
-      <div class="user-bar">
-
-        <div class="user-name">
-          Ученик: <strong id="studentName">admin</strong>
-        </div>
+        <!-- =========================
+             НАЗАД
+        ========================= -->
 
         <a
-          href="../index.html"
-          class="logout"
-          id="logoutLink"
+            href="../"
+            class="back-link"
         >
-          Выйти
-        </a>
-
-      </div>
-
-    </header>
-
-
-    <!-- =========================
-         ОСНОВНОЙ КОНТЕНТ
-         ========================= -->
-
-    <main>
-
-      <a href="../index.html" class="back">
-        ← Назад
-      </a>
-
-      <h1 class="page-title">
-        Задание 9
-      </h1>
-
-      <p class="page-subtitle">
-        Выберите домашнее задание
-      </p>
-
-
-      <!-- =========================
-           ДЗ
-           ========================= -->
-
-      <section class="cards">
-
-        <!-- ДЗ 9.1 -->
-
-        <a href="9_1/index.html" class="card">
-
-          <div class="card-badge">
-            ДЗ 9.1
-          </div>
-
-          <h2 class="card-title">
-            Проверяемые и непроверяемые гласные
-          </h2>
-
-          <p class="card-description">
-            Практика по проверяемым и непроверяемым
-            безударным гласным в корне слова.
-          </p>
-
-          <div class="card-link">
-            Перейти к заданию →
-          </div>
-
+            ← Назад
         </a>
 
 
-        <!-- ОБЩЕЕ ДЗ 9 -->
+        <!-- =========================
+             ЗАГОЛОВОК
+        ========================= -->
 
-        <a href="9/index.html" class="card">
+        <div class="header">
 
-          <div class="card-badge">
-            ДЗ 9
-          </div>
+            <h1>
+                Задание 9
+            </h1>
 
-          <h2 class="card-title">
-            Общее ДЗ по заданию 9
-          </h2>
+            <p>
+                Выберите домашнее задание
+            </p>
 
-          <p class="card-description">
-            Итоговая домашняя работа по всем темам
-            задания 9.
-          </p>
-
-          <div class="card-link">
-            Перейти к заданию →
-          </div>
-
-        </a>
-
-      </section>
-
-    </main>
+        </div>
 
 
-    <!-- =========================
-         FOOTER
-         ========================= -->
+        <!-- =========================
+             КАРТОЧКИ
+        ========================= -->
 
-    <footer>
-
-      <div class="footer-brand">
-        НМ | НИКИТА МЕЛЬНИКОВ
-      </div>
-
-      <div class="footer-text">
-        Подготовка к ЕГЭ по русскому языку
-      </div>
-
-      <div class="footer-text">
-        © 2026
-      </div>
-
-    </footer>
-
-  </div>
+        <div class="section-title">
+            Доступные материалы:
+        </div>
 
 
-  <!-- =========================
-       ПОДСТАНОВКА ИМЕНИ УЧЕНИКА
-       ========================= -->
+        <div class="grid">
 
-  <script>
-    try {
-      const savedStudentName =
-        localStorage.getItem('studentName');
 
-      if (savedStudentName) {
-        document.getElementById('studentName').textContent =
-          savedStudentName;
-      }
-    } catch (e) {
-      // Если localStorage недоступен,
-      // оставляем "admin"
-    }
-  </script>
+            <!-- ДЗ 9.1 -->
+
+            <a
+                href="9_1/"
+                data-folder="9_1"
+                class="menu-card"
+            >
+
+                <span class="lock-badge"></span>
+
+                <div class="card-tag">
+                    ДЗ 9.1
+                </div>
+
+                <div class="card-name">
+                    Проверяемые и непроверяемые гласные
+                </div>
+
+                <div class="card-desc">
+                    Практика по проверяемым и непроверяемым
+                    безударным гласным в корне слова.
+                </div>
+
+                <div class="card-link">
+                    Перейти к заданию →
+                </div>
+
+            </a>
+
+
+            <!-- ОБЩЕЕ ДЗ 9 -->
+
+            <a
+                href="9/"
+                data-folder="9"
+                class="menu-card"
+            >
+
+                <span class="lock-badge"></span>
+
+                <div class="card-tag">
+                    ДЗ 9
+                </div>
+
+                <div class="card-name">
+                    Общее ДЗ по заданию 9
+                </div>
+
+                <div class="card-desc">
+                    Итоговая домашняя работа
+                    по всем темам задания 9.
+                </div>
+
+                <div class="card-link">
+                    Перейти к заданию →
+                </div>
+
+            </a>
+
+
+        </div>
+
+
+        <!-- =========================
+             ФУТЕР
+        ========================= -->
+
+        <div class="footer">
+
+            <span>
+                НМ | Никита Мельников
+            </span>
+
+            <br>
+
+            <span>
+                +7 927 422 35 59
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* =========================================
+           APPS SCRIPT
+        ========================================= */
+
+        const SCRIPT_URL =
+            'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+
+        /* =========================================
+           ДОСТУПЫ
+        ========================================= */
+
+        function applyPermissions(permissions) {
+
+            const cards =
+                document.querySelectorAll('.menu-card');
+
+            cards.forEach(card => {
+
+                const folder =
+                    card.getAttribute('data-folder');
+
+                const badge =
+                    card.querySelector('.lock-badge');
+
+
+                if (
+                    permissions &&
+                    permissions[folder] === false
+                ) {
+
+                    card.classList.add('locked');
+
+                    if (badge) {
+                        badge.innerText = '🔒';
+                    }
+
+                } else {
+
+                    card.classList.remove('locked');
+
+                    if (badge) {
+                        badge.innerText = '';
+                    }
+
+                }
+
+            });
+
+        }
+
+
+        /* =========================================
+           LOGIN
+        ========================================= */
+
+        async function handleLogin() {
+
+            const login =
+                document.getElementById('loginInput').value.trim();
+
+            const pass =
+                document.getElementById('passInput').value;
+
+            const errorDiv =
+                document.getElementById('authError');
+
+            const btn =
+                document.getElementById('loginBtn');
+
+
+            if (!login || !pass) {
+
+                errorDiv.innerText =
+                    'Заполните все поля';
+
+                errorDiv.style.display =
+                    'block';
+
+                return;
+            }
+
+
+            btn.innerText =
+                'Проверка...';
+
+            btn.disabled = true;
+
+            errorDiv.style.display =
+                'none';
+
+
+            try {
+
+                const response = await fetch(
+                    `${SCRIPT_URL}?action=login&login=${encodeURIComponent(login)}&password=${encodeURIComponent(pass)}`
+                );
+
+                const data =
+                    await response.json();
+
+
+                if (data.status === 'success') {
+
+                    const sessionData = {
+
+                        login: login,
+
+                        password: pass,
+
+                        name: data.name,
+
+                        permissions: data.permissions
+
+                    };
+
+
+                    localStorage.setItem(
+                        'student_session',
+                        JSON.stringify(sessionData)
+                    );
+
+
+                    initSession(sessionData);
+
+
+                } else {
+
+                    errorDiv.innerText =
+                        data.message || 'Ошибка входа';
+
+                    errorDiv.style.display =
+                        'block';
+
+                }
+
+
+            } catch (e) {
+
+                errorDiv.innerText =
+                    'Ошибка соединения с сервером';
+
+                errorDiv.style.display =
+                    'block';
+
+            } finally {
+
+                btn.innerText =
+                    'Войти';
+
+                btn.disabled =
+                    false;
+
+            }
+
+        }
+
+
+        /* =========================================
+           ИНИЦИАЛИЗАЦИЯ СЕССИИ
+        ========================================= */
+
+        function initSession(data) {
+
+            document.getElementById(
+                'authOverlay'
+            ).style.display = 'none';
+
+
+            document.getElementById(
+                'userPanel'
+            ).style.display = 'flex';
+
+
+            document.getElementById(
+                'studentNameDisplay'
+            ).innerText = data.name;
+
+
+            applyPermissions(
+                data.permissions
+            );
+
+        }
+
+
+        /* =========================================
+           ВЫХОД
+        ========================================= */
+
+        function logout() {
+
+            localStorage.removeItem(
+                'student_session'
+            );
+
+            location.reload();
+
+        }
+
+
+        /* =========================================
+           ОБНОВЛЕНИЕ ДОСТУПОВ
+        ========================================= */
+
+        async function refreshPermissions(
+            login,
+            pass
+        ) {
+
+            try {
+
+                const response = await fetch(
+                    `${SCRIPT_URL}?action=login&login=${encodeURIComponent(login)}&password=${encodeURIComponent(pass)}`
+                );
+
+                const data =
+                    await response.json();
+
+
+                if (data.status === 'success') {
+
+
+                    applyPermissions(
+                        data.permissions
+                    );
+
+
+                    document.getElementById(
+                        'studentNameDisplay'
+                    ).innerText =
+                        data.name;
+
+
+                    const updatedSession = {
+
+                        login: login,
+
+                        password: pass,
+
+                        name: data.name,
+
+                        permissions:
+                            data.permissions
+
+                    };
+
+
+                    localStorage.setItem(
+                        'student_session',
+                        JSON.stringify(updatedSession)
+                    );
+
+
+                } else if (
+                    data.message ===
+                    'Неверный логин или пароль'
+                ) {
+
+                    logout();
+
+                }
+
+
+            } catch (e) {
+
+                console.warn(
+                    'Не удалось обновить права:',
+                    e
+                );
+
+            }
+
+        }
+
+
+        /* =========================================
+           ЗАГРУЗКА
+        ========================================= */
+
+        window.addEventListener(
+            'DOMContentLoaded',
+            () => {
+
+                const savedSession =
+                    localStorage.getItem(
+                        'student_session'
+                    );
+
+
+                if (savedSession) {
+
+                    try {
+
+                        const session =
+                            JSON.parse(
+                                savedSession
+                            );
+
+
+                        initSession(
+                            session
+                        );
+
+
+                        if (
+                            session.login &&
+                            session.password
+                        ) {
+
+                            refreshPermissions(
+                                session.login,
+                                session.password
+                            );
+
+                        }
+
+
+                    } catch (e) {
+
+                        document.getElementById(
+                            'authOverlay'
+                        ).style.display = 'flex';
+
+                    }
+
+
+                } else {
+
+                    document.getElementById(
+                        'authOverlay'
+                    ).style.display = 'flex';
+
+                }
+
+            }
+        );
+
+    </script>
 
 </body>
 </html>
