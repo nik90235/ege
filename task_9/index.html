@@ -1,438 +1,536 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Задание 9 | Домашняя работа</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111111;
+      background: #ffffff;
+    }
+
+    /* =========================
+       ОСНОВНОЙ КОНТЕЙНЕР
+       ========================= */
+
+    .page {
+      width: min(1200px, calc(100% - 64px));
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* =========================
+       ШАПКА
+       ========================= */
+
+    .header {
+      padding-top: 42px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 21px;
+      font-weight: 800;
+      color: #246CEB;
+      letter-spacing: -0.3px;
+    }
+
+    .phone {
+      font-size: 19px;
+      font-weight: 700;
+      color: #999999;
+    }
+
+    .user-bar {
+      margin-top: 28px;
+      width: 100%;
+      min-height: 58px;
+      padding: 0 22px;
+      border-radius: 10px;
+      background: #F1F5FF;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .user-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .logout {
+      color: #F25A24;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* =========================
+       КОНТЕНТ
+       ========================= */
+
+    main {
+      flex: 1;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 42px;
+      color: #777777;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
 
-    <title>Задание 9</title>
+    .back:hover {
+      color: #246CEB;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    .page-title {
+      margin: 52px 0 8px;
+      font-size: 52px;
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -1.8px;
+    }
 
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            min-height: 100%;
-        }
+    .page-subtitle {
+      margin: 0;
+      color: #777777;
+      font-size: 23px;
+      line-height: 1.4;
+      font-weight: 500;
+    }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #ffffff;
-            color: #111111;
-        }
+    /* =========================
+       КАРТОЧКИ
+       ========================= */
 
-        /* =========================
-           ОСНОВНОЙ КОНТЕЙНЕР
-        ========================= */
+    .cards {
+      margin-top: 48px;
 
-        .page {
-            max-width: 1920px;
-            margin: 0 auto;
-            padding: 48px 64px 80px;
-        }
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
 
-        /* =========================
-           КНОПКА НАЗАД
-        ========================= */
+    .card {
+      position: relative;
 
-        .back {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+      min-height: 300px;
+      padding: 34px 34px 30px 42px;
 
-            text-decoration: none;
-            color: #777777;
+      background: #ffffff;
+      border: 1px solid #E3E3E3;
+      border-radius: 16px;
 
-            font-size: 24px;
-            font-weight: 500;
+      text-decoration: none;
+      color: inherit;
 
-            margin-bottom: 56px;
+      display: flex;
+      flex-direction: column;
 
-            transition: color 0.2s ease;
-        }
+      overflow: hidden;
 
-        .back:hover {
-            color: #246BEB;
-        }
+      transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+    }
 
-        .back-arrow {
-            font-size: 30px;
-            line-height: 1;
-        }
+    /* Синяя полоса */
 
-        /* =========================
-           ЗАГОЛОВОК
-        ========================= */
+    .card::before {
+      content: "";
+      position: absolute;
 
-        .header {
-            margin-bottom: 64px;
-        }
+      left: 0;
+      top: 64px;
+      bottom: 64px;
 
-        .header h1 {
-            margin: 0 0 18px;
+      width: 6px;
 
-            font-size: 64px;
-            line-height: 1.05;
-            font-weight: 800;
+      background: #246CEB;
+      border-radius: 0 5px 5px 0;
+    }
 
-            letter-spacing: -1.5px;
-            color: #111111;
-        }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #246CEB;
+      box-shadow: 0 8px 24px rgba(36, 108, 235, 0.08);
+    }
 
-        .header p {
-            margin: 0;
+    /* Бейдж */
 
-            font-size: 30px;
-            line-height: 1.3;
-            font-weight: 400;
+    .card-badge {
+      align-self: flex-start;
 
-            color: #777777;
-        }
+      display: inline-flex;
+      align-items: center;
 
-        /* =========================
-           КАРТОЧКИ
-        ========================= */
+      padding: 7px 12px;
 
-        .cards {
-            display: grid;
+      background: #F1F5FF;
+      color: #246CEB;
 
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-radius: 4px;
 
-            gap: 36px;
-        }
+      font-size: 16px;
+      line-height: 1;
+      font-weight: 800;
+    }
 
-        .card {
-            position: relative;
+    .card-title {
+      margin: 30px 0 0;
 
-            display: flex;
-            flex-direction: column;
+      font-size: 34px;
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+    }
 
-            min-height: 370px;
+    .card-description {
+      margin: 20px 0 0;
 
-            padding: 52px;
+      max-width: 580px;
 
-            background: #ffffff;
+      color: #777777;
 
-            border: 2px solid #e3e3e3;
-            border-radius: 32px;
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .card-link {
+      margin-top: auto;
+      padding-top: 28px;
 
-            text-decoration: none;
-            color: #111111;
+      color: #F25A24;
 
-            overflow: hidden;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 800;
+    }
 
-            transition:
-                transform 0.2s ease,
-                border-color 0.2s ease,
-                box-shadow 0.2s ease;
-        }
+    /* =========================
+       FOOTER
+       ========================= */
 
-        .card:hover {
-            transform: translateY(-4px);
+    footer {
+      margin-top: 70px;
+      padding: 30px 0 35px;
 
-            border-color: #246BEB;
+      border-top: 1px solid #E3E3E3;
 
-            box-shadow: 0 12px 30px rgba(36, 107, 235, 0.10);
-        }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        /* =========================
-           СИНЯЯ ПОЛОСА
-        ========================= */
+    .footer-brand {
+      color: #246CEB;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .footer-text {
+      color: #999999;
+      font-size: 14px;
+      font-weight: 500;
+    }
 
-        .card::before {
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-            top: 48px;
-            bottom: 48px;
-
-            width: 7px;
-
-            background: #246BEB;
-
-            border-radius: 0 5px 5px 0;
-        }
-
-        /* =========================
-           НОМЕР ДЗ
-        ========================= */
-
-        .card-label {
-            display: inline-flex;
-            align-items: center;
-
-            width: fit-content;
-
-            margin-left: 2px;
-            margin-bottom: 28px;
-
-            padding: 8px 14px;
-
-            background: #f1f5ff;
-
-            color: #246BEB;
-
-            font-size: 22px;
-            line-height: 1;
-            font-weight: 800;
-
-            border-radius: 4px;
-
-            text-transform: uppercase;
-        }
-
-        /* =========================
-           ЗАГОЛОВОК КАРТОЧКИ
-        ========================= */
-
-        .card-title {
-            margin: 0 0 22px;
-
-            max-width: 850px;
-
-            font-size: 42px;
-            line-height: 1.12;
-            font-weight: 800;
-
-            letter-spacing: -0.8px;
-
-            color: #111111;
-        }
-
-        /* =========================
-           ОПИСАНИЕ
-        ========================= */
-
-        .card-description {
-            margin: 0;
-
-            max-width: 850px;
-
-            font-size: 25px;
-            line-height: 1.45;
-            font-weight: 400;
-
-            color: #777777;
-        }
-
-        /* =========================
-           ОРАНЖЕВЫЙ АКЦЕНТ
-        ========================= */
-
-        .card-accent {
-            margin-top: auto;
-            padding-top: 35px;
-
-            color: #F15A24;
-
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .card-accent span {
-            display: inline-block;
-
-            transition: transform 0.2s ease;
-        }
-
-        .card:hover .card-accent span {
-            transform: translateX(6px);
-        }
-
-        /* =========================
-           МОБИЛЬНАЯ ВЕРСИЯ
-        ========================= */
-
-        @media (max-width: 1000px) {
-
-            .page {
-                padding: 32px 28px 60px;
-            }
-
-            .back {
-                font-size: 20px;
-                margin-bottom: 42px;
-            }
-
-            .header {
-                margin-bottom: 44px;
-            }
-
-            .header h1 {
-                font-size: 48px;
-            }
-
-            .header p {
-                font-size: 24px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .card {
-                min-height: 320px;
-                padding: 40px;
-                border-radius: 26px;
-            }
-
-            .card::before {
-                top: 36px;
-                bottom: 36px;
-            }
-
-            .card-title {
-                font-size: 34px;
-            }
-
-            .card-description {
-                font-size: 22px;
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            .page {
-                padding: 24px 18px 50px;
-            }
-
-            .back {
-                font-size: 18px;
-                margin-bottom: 32px;
-            }
-
-            .back-arrow {
-                font-size: 24px;
-            }
-
-            .header h1 {
-                font-size: 38px;
-                letter-spacing: -0.8px;
-            }
-
-            .header p {
-                font-size: 20px;
-            }
-
-            .card {
-                min-height: 280px;
-                padding: 32px 28px;
-                border-radius: 22px;
-            }
-
-            .card::before {
-                top: 28px;
-                bottom: 28px;
-                width: 5px;
-            }
-
-            .card-label {
-                font-size: 18px;
-                margin-bottom: 20px;
-            }
-
-            .card-title {
-                font-size: 29px;
-                margin-bottom: 16px;
-            }
-
-            .card-description {
-                font-size: 19px;
-            }
-
-            .card-accent {
-                font-size: 18px;
-                padding-top: 28px;
-            }
-        }
-    </style>
+    /* =========================
+       АДАПТИВ
+       ========================= */
+
+    @media (max-width: 800px) {
+
+      .page {
+        width: min(100% - 36px, 600px);
+      }
+
+      .header {
+        padding-top: 25px;
+      }
+
+      .header-top {
+        gap: 15px;
+      }
+
+      .brand {
+        font-size: 17px;
+      }
+
+      .phone {
+        font-size: 15px;
+      }
+
+      .user-bar {
+        margin-top: 20px;
+      }
+
+      .back {
+        margin-top: 28px;
+      }
+
+      .page-title {
+        margin-top: 38px;
+        font-size: 40px;
+      }
+
+      .page-subtitle {
+        font-size: 20px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 34px;
+      }
+
+      .card {
+        min-height: 280px;
+      }
+
+      .card-title {
+        font-size: 29px;
+      }
+
+      .card-description {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .page {
+        width: calc(100% - 28px);
+      }
+
+      .header-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .phone {
+        font-size: 14px;
+      }
+
+      .user-bar {
+        padding: 0 16px;
+      }
+
+      .user-name,
+      .logout {
+        font-size: 15px;
+      }
+
+      .page-title {
+        font-size: 34px;
+      }
+
+      .card {
+        padding: 28px 24px 26px 32px;
+      }
+
+      .card-title {
+        font-size: 27px;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="page">
+  <div class="page">
 
-    <!-- НАЗАД -->
-    <a href="../index.html" class="back">
-        <span class="back-arrow">←</span>
-        <span>Назад</span>
-    </a>
+    <!-- =========================
+         ШАПКА
+         ========================= -->
 
-
-    <!-- ЗАГОЛОВОК -->
     <header class="header">
-        <h1>Задание 9</h1>
 
-        <p>
-            Выберите домашнее задание
-        </p>
+      <div class="header-top">
+
+        <div class="brand">
+          НМ | НИКИТА МЕЛЬНИКОВ
+        </div>
+
+        <div class="phone">
+          +7 927 422 35 59
+        </div>
+
+      </div>
+
+      <div class="user-bar">
+
+        <div class="user-name">
+          Ученик: <strong id="studentName">admin</strong>
+        </div>
+
+        <a
+          href="../index.html"
+          class="logout"
+          id="logoutLink"
+        >
+          Выйти
+        </a>
+
+      </div>
+
     </header>
 
 
-    <!-- КАРТОЧКИ -->
-    <main class="cards">
+    <!-- =========================
+         ОСНОВНОЙ КОНТЕНТ
+         ========================= -->
 
-        <!-- =========================
-             ДЗ 9.1
-        ========================== -->
+    <main>
+
+      <a href="../index.html" class="back">
+        ← Назад
+      </a>
+
+      <h1 class="page-title">
+        Задание 9
+      </h1>
+
+      <p class="page-subtitle">
+        Выберите домашнее задание
+      </p>
+
+
+      <!-- =========================
+           ДЗ
+           ========================= -->
+
+      <section class="cards">
+
+        <!-- ДЗ 9.1 -->
 
         <a href="9_1/index.html" class="card">
 
-            <div class="card-label">
-                ДЗ 9.1
-            </div>
+          <div class="card-badge">
+            ДЗ 9.1
+          </div>
 
-            <h2 class="card-title">
-                Проверяемые и непроверяемые гласные
-            </h2>
+          <h2 class="card-title">
+            Проверяемые и непроверяемые гласные
+          </h2>
 
-            <p class="card-description">
-                Практика по проверяемым и непроверяемым
-                безударным гласным в корне слова.
-            </p>
+          <p class="card-description">
+            Практика по проверяемым и непроверяемым
+            безударным гласным в корне слова.
+          </p>
 
-            <div class="card-accent">
-                <span>Перейти к заданию →</span>
-            </div>
+          <div class="card-link">
+            Перейти к заданию →
+          </div>
 
         </a>
 
 
-        <!-- =========================
-             ОБЩЕЕ ДЗ 9
-        ========================== -->
+        <!-- ОБЩЕЕ ДЗ 9 -->
 
         <a href="9/index.html" class="card">
 
-            <div class="card-label">
-                ДЗ 9
-            </div>
+          <div class="card-badge">
+            ДЗ 9
+          </div>
 
-            <h2 class="card-title">
-                Общее ДЗ по заданию 9
-            </h2>
+          <h2 class="card-title">
+            Общее ДЗ по заданию 9
+          </h2>
 
-            <p class="card-description">
-                Итоговая домашняя работа
-                по всем темам задания 9.
-            </p>
+          <p class="card-description">
+            Итоговая домашняя работа по всем темам
+            задания 9.
+          </p>
 
-            <div class="card-accent">
-                <span>Перейти к заданию →</span>
-            </div>
+          <div class="card-link">
+            Перейти к заданию →
+          </div>
 
         </a>
 
+      </section>
+
     </main>
 
-</div>
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+
+    <footer>
+
+      <div class="footer-brand">
+        НМ | НИКИТА МЕЛЬНИКОВ
+      </div>
+
+      <div class="footer-text">
+        Подготовка к ЕГЭ по русскому языку
+      </div>
+
+      <div class="footer-text">
+        © 2026
+      </div>
+
+    </footer>
+
+  </div>
+
+
+  <!-- =========================
+       ПОДСТАНОВКА ИМЕНИ УЧЕНИКА
+       ========================= -->
+
+  <script>
+    try {
+      const savedStudentName =
+        localStorage.getItem('studentName');
+
+      if (savedStudentName) {
+        document.getElementById('studentName').textContent =
+          savedStudentName;
+      }
+    } catch (e) {
+      // Если localStorage недоступен,
+      // оставляем "admin"
+    }
+  </script>
 
 </body>
 </html>
