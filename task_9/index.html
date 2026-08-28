@@ -95,22 +95,19 @@
         ========================= */
 
         .back-link {
-            display: inline-block;
+    display: inline-block;
+    color: #2368EE;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    transition: all 0.2s ease;
+}
 
-            color: #929292;
-            text-decoration: none;
-
-            font-size: 14px;
-            font-weight: 600;
-
-            margin-bottom: 20px;
-
-            transition: color 0.2s ease;
-        }
-
-        .back-link:hover {
-            color: #2368EE;
-        }
+.back-link:hover {
+    color: #EE6023;
+    transform: translateX(-2px);
+}
 
         /* =========================
            ЗАГОЛОВОК
@@ -530,11 +527,12 @@
         ========================= -->
 
         <a
-            href="../"
-            class="back-link"
-        >
-            ← Назад
-        </a>
+    href="../"
+    class="back-link"
+    onclick="if (document.referrer) { history.back(); return false; }"
+>
+    ← Меню платформы
+</a>
 
 
         <!-- =========================
