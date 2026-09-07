@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ДОМАШНЯЯ РАБОТА: ЧЕРЕДУЮЩИЕСЯ ГЛАСНЫЕ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#fff;color:#000;padding:20px;line-height:1.5}
+.container{max-width:600px;margin:40px auto}
+.brand-header{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:#929292;margin-bottom:25px;text-transform:uppercase}
+.brand-name{color:#2368EE}.brand-phone{color:#929292;text-decoration:none}
+.back-link{display:inline-flex;align-items:center;text-decoration:none;color:#2368EE;font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:20px;cursor:pointer}
+.header{border-bottom:4px solid #EE6023;padding-bottom:15px;margin-bottom:25px;text-align:center}
+.header h1{font-size:28px;font-weight:900;color:#2368EE;text-transform:uppercase;margin-bottom:4px}
+.header p{font-size:13px;font-weight:700;color:#929292;text-transform:uppercase;letter-spacing:1px}
+.student-info{background:#fff;padding:20px;border-radius:6px;margin-bottom:24px;border:1px solid #AFAFAF}
+.student-info input{width:100%;padding:14px 16px;border:1px solid #CBD5E1;border-radius:6px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;outline:none;background:#F8FAFC}
+.student-info input:focus{border-color:#2368EE;background:#fff}
+.task-card{background:#fff;border:1px solid #AFAFAF;border-radius:6px;padding:24px;margin-bottom:20px}
+.task-title{display:inline-block;background:#F4F7FE;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:700;color:#2368EE;text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px}
+.instruction{font-weight:700;margin-bottom:14px;font-size:15px}
+.sentence-box{font-size:15px;font-weight:500;margin-bottom:20px;line-height:1.6;padding:12px 16px;background:#F4F7FE;border-left:4px solid #EE6023;border-radius:0 6px 6px 0}
+.task-item{padding:14px 0;border-bottom:1px solid #E5E7EB}
+.task-item:last-child{border-bottom:none}
+.word-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.num{font-weight:700;min-width:26px}
+.letter-input{width:30px;height:32px;border:1px solid #AFAFAF;border-radius:6px;background:#fff;text-align:center;font:600 15px 'Inter',sans-serif;outline:none}
+.letter-input:focus{border-color:#2368EE}
+.text-input{width:100%;margin-top:8px;padding:12px 14px;border:1.5px solid #2368EE;border-radius:8px;font:500 15px 'Inter',sans-serif;outline:none;background:#fff}
+.text-input:focus{border-color:#1B51BA}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.option-btn{border:1px solid #AFAFAF;background:#fff;color:#000;padding:9px 12px;border-radius:6px;font:600 13px 'Inter',sans-serif;cursor:pointer;user-select:none}
+.option-btn.selected{border-color:#2368EE;background:#F4F7FE;color:#2368EE}
+.submit-btn{background:#2368EE;color:#fff;border:none;padding:16px 30px;font:700 16px 'Inter',sans-serif;border-radius:6px;cursor:pointer;text-transform:uppercase;width:100%;margin-top:12px}
+.footer{text-align:center;margin-top:50px;font-size:13px;color:#929292;font-weight:700;line-height:1.6;border-top:1px solid #E0E0E0;padding-top:20px}
+@media(max-width:600px){.container{margin:20px auto}.task-card{padding:18px}.header h1{font-size:23px}.brand-header{font-size:11px}.options{gap:6px}}
+.back-link:hover {
+  color: #EE6023;
+}
+</style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+<div id="homeworkForm">
+<div class="brand-header"><span class="brand-name">НМ | Никита Мельников</span><a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a></div>
+<a href="index.html" onclick="if(document.referrer){history.back();return false}" class="back-link">← Меню платформы</a>
+<div class="header"><h1>Домашняя работа: Задание 9</h1><p>Чередующиеся гласные в корне</p></div>
+<div class="student-info"><input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию"></div>
+
+<!-- ЗАДАЧА 1 -->
+<div class="task-card">
+<div class="task-title">Задача 1</div>
+<div class="instruction">Вставьте пропущенную гласную букву в чередующийся корень.</div>
+<div class="sentence-box">
+<div class="task-item pair-item" data-id="1_1"><div class="word-row"><span class="num">1)</span><span>расст</span><input class="letter-input" maxlength="1"><span>лать скатерть</span></div></div>
+<div class="task-item pair-item" data-id="1_2"><div class="word-row"><span class="num">2)</span><span>прекл</span><input class="letter-input" maxlength="1"><span>нять колени</span></div></div>
+<div class="task-item pair-item" data-id="1_3"><div class="word-row"><span class="num">3)</span><span>ск</span><input class="letter-input" maxlength="1"><span>кать на коне</span></div></div>
+<div class="task-item pair-item" data-id="1_4"><div class="word-row"><span class="num">4)</span><span>уг</span><input class="letter-input" maxlength="1"><span>рный газ</span></div></div>
+<div class="task-item pair-item" data-id="1_5"><div class="word-row"><span class="num">5)</span><span>прир</span><input class="letter-input" maxlength="1"><span>стать знаниями</span></div></div>
+<div class="task-item pair-item" data-id="1_6"><div class="word-row"><span class="num">6)</span><span>пл</span><input class="letter-input" maxlength="1"><span>вучий остров</span></div></div>
+</div>
+</div>
+
+<!-- ЗАДАЧА 2 -->
+<div class="task-card">
+<div class="task-title">Задача 2</div>
+<div class="instruction">Вставьте пропущенную букву и определите, является ли корень чередующимся или проверяемым (ловушки на омонимичные корни!).</div>
+<div class="sentence-box">
+<div class="task-item classify-item" data-id="2_1"><div class="word-row"><span class="num">1)</span><span>зам</span><input class="letter-input" maxlength="1"><span>рать от страха</span></div><div class="options"><button type="button" class="option-btn" data-value="чередующаяся" onclick="selectOption(this)">Чередующаяся</button><button type="button" class="option-btn" data-value="проверяемая" onclick="selectOption(this)">Проверяемая</button></div></div>
+<div class="task-item classify-item" data-id="2_2"><div class="word-row"><span class="num">2)</span><span>прим</span><input class="letter-input" maxlength="1"><span>рять костюм</span></div><div class="options"><button type="button" class="option-btn" data-value="чередующаяся" onclick="selectOption(this)">Чередующаяся</button><button type="button" class="option-btn" data-value="проверяемая" onclick="selectOption(this)">Проверяемая</button></div></div>
+<div class="task-item classify-item" data-id="2_3"><div class="word-row"><span class="num">3)</span><span>ск</span><input class="letter-input" maxlength="1"><span>сить траву</span></div><div class="options"><button type="button" class="option-btn" data-value="чередующаяся" onclick="selectOption(this)">Чередующаяся</button><button type="button" class="option-btn" data-value="проверяемая" onclick="selectOption(this)">Проверяемая</button></div></div>
+<div class="task-item classify-item" data-id="2_4"><div class="word-row"><span class="num">4)</span><span>прик</span><input class="letter-input" maxlength="1"><span>снуться к тайне</span></div><div class="options"><button type="button" class="option-btn" data-value="чередующаяся" onclick="selectOption(this)">Чередующаяся</button><button type="button" class="option-btn" data-value="проверяемая" onclick="selectOption(this)">Проверяемая</button></div></div>
+<div class="task-item classify-item" data-id="2_5"><div class="word-row"><span class="num">5)</span><span>г</span><input class="letter-input" maxlength="1"><span>рчица на столе</span></div><div class="options"><button type="button" class="option-btn" data-value="чередующаяся" onclick="selectOption(this)">Чередующаяся</button><button type="button" class="option-btn" data-value="проверяемая" onclick="selectOption(this)">Проверяемая</button></div></div>
+<div class="task-item classify-item" data-id="2_6"><div class="word-row"><span class="num">6)</span><span>пог</span><input class="letter-input" maxlength="1"><span>релец без крова</span></div><div class="options"><button type="button" class="option-btn" data-value="чередующаяся" onclick="selectOption(this)">Чередующаяся</button><button type="button" class="option-btn" data-value="проверяемая" onclick="selectOption(this)">Проверяемая</button></div></div>
+</div>
+</div>
+
+<!-- ЗАДАЧА 3 -->
+<div class="task-card">
+<div class="task-title">Задача 3</div>
+<div class="instruction">Выберите верно сформулированное правило для объяснения написания гласной в корне.</div>
+<div class="sentence-box">
+<div class="task-item rule-item" data-id="3_1"><div class="word-row"><span class="num">1)</span><span>выг...рки</span></div><div class="options"><button type="button" class="option-btn" data-value="1" onclick="selectOption(this)">В безударном положении в корне ГАР/ГОР пишется О</button><button type="button" class="option-btn" data-value="2" onclick="selectOption(this)">Это слово-исключение, пишется А</button></div></div>
+<div class="task-item rule-item" data-id="3_2"><div class="word-row"><span class="num">2)</span><span>подр...внять кусты</span></div><div class="options"><button type="button" class="option-btn" data-value="1" onclick="selectOption(this)">Корень РОВН — в значении «сделать гладким, ровным»</button><button type="button" class="option-btn" data-value="2" onclick="selectOption(this)">Корень РАВН — в значении «одинаковый»</button></div></div>
+<div class="task-item rule-item" data-id="3_3"><div class="word-row"><span class="num">3)</span><span>пром...кательная бумага</span></div><div class="options"><button type="button" class="option-btn" data-value="1" onclick="selectOption(this)">Корень МОК — значение «пропускать, впитывать жидкость»</button><button type="button" class="option-btn" data-value="2" onclick="selectOption(this)">Корень МАК — значение «погружать в жидкость»</button></div></div>
+<div class="task-item rule-item" data-id="3_4"><div class="word-row"><span class="num">4)</span><span>бл...стеть</span></div><div class="options"><button type="button" class="option-btn" data-value="1" onclick="selectOption(this)">Корень БЛЕСТ, так как нет суффикса -А-</button><button type="button" class="option-btn" data-value="2" onclick="selectOption(this)">Проверочное слово: отблеск</button></div></div>
+</div>
+</div>
+
+<!-- ЗАДАЧА 4 -->
+<div class="task-card">
+<div class="task-title">Задача 4</div>
+<div class="instruction">Определите, содержит ли строка ошибочное объяснение (ложную проверку) чередующегося корня.</div>
+<div class="sentence-box">
+<div class="task-item error-item" data-id="4_1"><div class="word-row"><span class="num">1)</span><span>наклониться → проверочное слово «кла́няться»</span></div><div class="options"><button type="button" class="option-btn" data-value="ошибка" onclick="selectOption(this)">Есть ошибка</button><button type="button" class="option-btn" data-value="верно" onclick="selectOption(this)">Ошибки нет</button></div></div>
+<div class="task-item error-item" data-id="4_2"><div class="word-row"><span class="num">2)</span><span>забирать → пишем И, так как есть суффикс -А-</span></div><div class="options"><button type="button" class="option-btn" data-value="ошибка" onclick="selectOption(this)">Есть ошибка</button><button type="button" class="option-btn" data-value="верно" onclick="selectOption(this)">Ошибки нет</button></div></div>
+<div class="task-item error-item" data-id="4_3"><div class="word-row"><span class="num">3)</span><span>выскочка → пишем О перед Ч в корне СКАК/СКОЧ</span></div><div class="options"><button type="button" class="option-btn" data-value="ошибка" onclick="selectOption(this)">Есть ошибка</button><button type="button" class="option-btn" data-value="верно" onclick="selectOption(this)">Ошибки нет</button></div></div>
+<div class="task-item error-item" data-id="4_4"><div class="word-row"><span class="num">4)</span><span>косить глазами → чередующийся корень КАС/КОС</span></div><div class="options"><button type="button" class="option-btn" data-value="ошибка" onclick="selectOption(this)">Есть ошибка</button><button type="button" class="option-btn" data-value="верно" onclick="selectOption(this)">Ошибки нет</button></div></div>
+</div>
+</div>
+
+<!-- ЗАДАЧА 5 -->
+<div class="task-card">
+<div class="task-title">Задача 5</div>
+<div class="instruction">Найдите слова с НАРУШЕНИЕМ орфографической нормы в чередующихся корнях. Отметьте варианты с ошибкой.</div>
+<div class="sentence-box">
+<div class="task-item spell-item" data-id="5_1"><div class="word-row"><span class="num">1)</span><span>зоревать</span></div><div class="options"><button type="button" class="option-btn" data-value="1" onclick="toggleMulti(this)">Ошибка</button><button type="button" class="option-btn" data-value="0" onclick="toggleMulti(this)">Нет ошибки</button></div></div>
+<div class="task-item spell-item" data-id="5_2"><div class="word-row"><span class="num">2)</span><span>выращенный</span></div><div class="options"><button type="button" class="option-btn" data-value="1" onclick="toggleMulti(this)">Ошибка</button><button type="button" class="option-btn" data-value="0" onclick="toggleMulti(this)">Нет ошибки</button></div></div>
+<div class="task-item spell-item" data-id="5_3"><div class="word-row"><span class="num">3)</span><span>прогарина</span></div><div class="options"><button type="button" class="option-btn" data-value="1" onclick="toggleMulti(this)">Ошибка</button><button type="button" class="option-btn" data-value="0" onclick="toggleMulti(this)">Нет ошибки</button></div></div>
+<div class="task-item spell-item" data-id="5_4"><div class="word-row"><span class="num">4)</span><span>пробираться</span></div><div class="options"><button type="button" class="option-btn" data-value="1" onclick="toggleMulti(this)">Ошибка</button><button type="button" class="option-btn" data-value="0" onclick="toggleMulti(this)">Нет ошибки</button></div></div>
+<div class="task-item spell-item" data-id="5_5"><div class="word-row"><span class="num">5)</span><span>равнина</span></div><div class="options"><button type="button" class="option-btn" data-value="1" onclick="toggleMulti(this)">Ошибка</button><button type="button" class="option-btn" data-value="0" onclick="toggleMulti(this)">Нет ошибки</button></div></div>
+<div class="task-item spell-item" data-id="5_6"><div class="word-row"><span class="num">6)</span><span>поплавок</span></div><div class="options"><button type="button" class="option-btn" data-value="1" onclick="toggleMulti(this)">Ошибка</button><button type="button" class="option-btn" data-value="0" onclick="toggleMulti(this)">Нет ошибки</button></div></div>
+</div>
+</div>
+
+<!-- ЗАДАЧА 6 -->
+<div class="task-card">
+<div class="task-title">Задача 6</div>
+<div class="instruction">ЕГЭ-формат. Укажите варианты ответов, в которых во всех словах одного ряда пропущена одна и та же буква. Запишите номера ответов без пробелов и запятых.</div>
+<div class="sentence-box">
+<div class="task-item" style="border-bottom:none; padding-bottom: 0;">
+  <div class="word-row" style="margin-bottom:6px"><span class="num">1)</span><span>накл...нение, сг...рание, з...рница</span></div>
+  <div class="word-row" style="margin-bottom:6px"><span class="num">2)</span><span>бл...стательный, зап...рать, распол...гать</span></div>
+  <div class="word-row" style="margin-bottom:6px"><span class="num">3)</span><span>прик...снуться, подр...стковый, водор...сли</span></div>
+  <div class="word-row" style="margin-bottom:6px"><span class="num">4)</span><span>отр...сль, ур...внение, ск...кать</span></div>
+  <div class="word-row" style="margin-bottom:16px"><span class="num">5)</span><span>зам...рать, подн...мать, излаг...ть</span></div>
+  
+  <div style="margin-top:16px; padding-top:12px; border-top:1px solid #E5E7EB;">
+    <label style="display:block; font-size:13px; font-weight:800; color:#929292; letter-spacing:0.5px; margin-bottom:8px; text-transform:uppercase;">ВАШ ОТВЕТ:</label>
+    <input type="text" id="egeTaskAnswer" class="text-input" placeholder="Введите номера ответов...">
+  </div>
+</div>
+</div>
+</div>
+
+<button type="button" id="submitBtn" class="submit-btn" onclick="processSending()">Отправить работу на проверку</button>
+</div>
+<div class="footer"><span>НМ | Никита Мельников</span><br><span>+7 927 422 35 59</span></div>
+</div>
+
+<script>
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+function toggleMulti(btn){
+    const group = btn.parentElement;
+    group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+}
+
+function selectOption(btn){
+    const group = btn.parentElement;
+    group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+}
+
+function processSending(){
+    const name = document.getElementById('studentName').value.trim();
+    if(!name){ alert('Пожалуйста, введите ваше Имя и Фамилию.'); return; }
+
+    const data = new URLSearchParams();
+    data.append('taskType', 'dz93');
+    data.append('Имя Ученика', name);
+
+    // Задача 1
+    const t1 = [...document.querySelectorAll('.pair-item')].map(x => ({
+        id: x.dataset.id,
+        letter: x.querySelector('.letter-input')?.value.trim() || ''
+    }));
+    data.append('Задача_1', JSON.stringify(t1));
+
+    // Задача 2
+    const t2 = [...document.querySelectorAll('.classify-item')].map(x => ({
+        id: x.dataset.id,
+        letter: x.querySelector('.letter-input')?.value.trim() || '',
+        type: x.querySelector('.option-btn.selected')?.dataset.value || ''
+    }));
+    data.append('Задача_2', JSON.stringify(t2));
+
+    // Задача 3
+    const t3 = [...document.querySelectorAll('.rule-item')].map(x => ({
+        id: x.dataset.id,
+        val: x.querySelector('.option-btn.selected')?.dataset.value || ''
+    }));
+    data.append('Задача_3', JSON.stringify(t3));
+
+    // Задача 4
+    const t4 = [...document.querySelectorAll('.error-item')].map(x => ({
+        id: x.dataset.id,
+        val: x.querySelector('.option-btn.selected')?.dataset.value || ''
+    }));
+    data.append('Задача_4', JSON.stringify(t4));
+
+    // Задача 5
+    const t5 = [...document.querySelectorAll('.spell-item')].map(x => ({
+        id: x.dataset.id,
+        val: x.querySelector('.option-btn.selected')?.dataset.value || ''
+    }));
+    data.append('Задача_5', JSON.stringify(t5));
+
+    // Задача 6 (ЕГЭ-формат)
+    const egeAnswer = document.getElementById('egeTaskAnswer').value.trim().replace(/\s+/g, '').replace(/,/g, '');
+    data.append('Задача_6', egeAnswer);
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Отправка данных...';
+
+    fetch(WEB_APP_URL, { method: 'POST', body: data, mode: 'no-cors' })
+    .then(() => {
+        document.getElementById('mainContainer').innerHTML = `<div style="text-align:center;padding:48px 24px;background:#fff;border:1px solid #AFAFAF;border-radius:6px;margin-top:20px">
+        <div style="width:56px;height:56px;background:#DCFCE7;color:#16A34A;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:24px;font-weight:bold">✓</div>
+        <h2 style="color:#000;margin-bottom:12px;font-weight:900;text-transform:uppercase;font-family:'Inter',sans-serif;font-size:20px">Работа успешно отправлена!</h2>
+        <p style="font-size:15px;color:#929292;line-height:1.6">Твои ответы по чередующимся корням успешно записаны и отправлены Никите.</p></div>`;
+    })
+    .catch(() => {
+        alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
+        btn.disabled = false;
+        btn.textContent = 'Отправить работу на проверку';
+    });
+}
+</script>
+</body>
+</html>
