@@ -211,11 +211,15 @@ function processSending(){
 
     fetch(WEB_APP_URL, { method: 'POST', body: data, mode: 'no-cors' })
     .then(() => {
-        document.getElementById('mainContainer').innerHTML = `<div style="text-align:center;padding:48px 24px;background:#fff;border:1px solid #AFAFAF;border-radius:6px;margin-top:20px">
-        <div style="width:56px;height:56px;background:#DCFCE7;color:#16A34A;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:24px;font-weight:bold">✓</div>
-        <h2 style="color:#000;margin-bottom:12px;font-weight:900;text-transform:uppercase;font-family:'Inter',sans-serif;font-size:20px">Работа успешно отправлена!</h2>
-        <p style="font-size:15px;color:#929292;line-height:1.6">Твои ответы по чередующимся корням успешно записаны и отправлены Никите.</p></div>`;
-    })
+    document.getElementById('mainContainer').innerHTML = `
+        <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+            <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+            <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+            <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+        </div>
+    `;
+})
     .catch(() => {
         alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
         btn.disabled = false;
