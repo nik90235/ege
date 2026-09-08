@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМАШНЯЯ РАБОТА: ЧЕРЕДУЮЩИЕСЯ ГЛАСНЫЕ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.5; 
+        }
+        .container { max-width: 600px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #2368EE;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .student-info { background: #fff; padding: 20px; border-radius: 6px; margin-bottom: 24px; border: 1px solid #AFAFAF; }
+        .student-info input { width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; outline: none; background: #F8FAFC; }
+        .student-info input:focus { border-color: #2368EE; background: #fff; }
+
+        .task-card { 
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            padding: 24px; 
+            margin-bottom: 20px; 
+        }
+        .task-title { 
+            display: inline-block;
+            background-color: #F4F7FE; 
+            padding: 6px 12px; 
+            border-radius: 6px;
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #2368EE; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            margin-bottom: 16px; 
+        }
+        .instruction { font-weight: 700; margin-bottom: 14px; font-size: 15px; color: #000000; }
+        
+        .sentence-box { 
+            font-size: 15px; 
+            font-weight: 500;
+            margin-bottom: 20px; 
+            line-height: 1.6; 
+            padding: 12px 16px; 
+            background: #F4F7FE;
+            border-left: 4px solid #EE6023; 
+            border-radius: 0 6px 6px 0;
+            color: #000000;
+        }
+        
+        .input-block { display: flex; flex-direction: column; gap: 8px; }
+        .input-label { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 0.5px; }
+        .answer-input { 
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none; 
+            transition: all 0.2s ease;
+        }
+        .answer-input:focus { border-color: #2368EE; }
+
+        .submit-btn {
+            background: #2368EE;
+            color: #fff;
+            border: none;
+            padding: 16px 30px;
+            font: 700 16px 'Inter', sans-serif;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 12px;
+            transition: all 0.2s ease;
+        }
+        .submit-btn:hover { background-color: #1d56c9; }
+        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        
+        <div class="brand-header">
+            <span class="brand-name">НМ | Никита Мельников</span>
+            <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+        </div>
+
+        <a href="../index.html" onclick="if(document.referrer){history.back();return false}" class="back-link">← Меню платформы</a>
+
+        <div class="header">
+            <h1>Домашняя работа: Задание 9</h1>
+            <p>Чередующиеся гласные в корне</p>
+        </div>
+
+        <div class="student-info">
+            <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
+        </div>
+
+        <!-- Задание 1 -->
+        <div class="task-card" data-task-num="1">
+            <div class="task-title">Задание 1</div>
+            <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена безударная чередующаяся гласная корня. Запишите номера ответов.</div>
+            <div class="sentence-box">
+                1) г..рение, зап..реть, подн..мать<br>
+                2) отв..рить (дверь), подк..ситься, з..рница<br>
+                3) прик..саться, водор..сли, вн..мательный<br>
+                4) г..ристый, п..ровать, ст..листический<br>
+                5) к..соглазый, зам..реть, м..ротворец
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов...">
+            </div>
+        </div>
+
+        <!-- Задание 2 -->
+        <div class="task-card" data-task-num="2">
+            <div class="task-title">Задание 2</div>
+            <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена безударная чередующаяся гласная корня. Запишите номера ответов.</div>
+            <div class="sentence-box">
+                1) отн..мать, подр..сти, ур..вень<br>
+                2) к..сая (сажень), ск..чок, притв..рить<br>
+                3) сн..мать, попл..вок, выч..ты<br>
+                4) зан..мают, раств..римый, т..ран<br>
+                5) м..ровой, пл..вуны, р..весник
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов...">
+            </div>
+        </div>
+
+        <!-- Задание 3 -->
+        <div class="task-card" data-task-num="3">
+            <div class="task-title">Задание 3</div>
+            <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена безударная чередующаяся гласная корня. Запишите номера ответов.</div>
+            <div class="sentence-box">
+                1) т..гровая, б..ланс, ..кулий<br>
+                2) пл..вец, пл..вуны, зан..мать<br>
+                3) выж..гший, разж..гать, безотл..гательный<br>
+                4) оп..раться, п..ровать, п..рила<br>
+                5) разд..лённый, отр..ботать, пок..сить
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов...">
+            </div>
+        </div>
+
+        <!-- Задание 4 -->
+        <div class="task-card" data-task-num="4">
+            <div class="task-title">Задание 4</div>
+            <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена безударная чередующаяся гласная корня. Запишите номера ответов.</div>
+            <div class="sentence-box">
+                1) т..ран, раст..рать, отп..рать<br>
+                2) п..роход, десп..т, забл..стать<br>
+                3) пл..вчиха, ум..рать, отб..рать<br>
+                4) обл..гать, р..стить, ун..мать<br>
+                5) ум..реть, м..ровой, пл..вчиха
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов...">
+            </div>
+        </div>
+
+        <!-- Задание 5 -->
+        <div class="task-card" data-task-num="5">
+            <div class="task-title">Задание 5</div>
+            <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена безударная чередующаяся гласная корня. Запишите номера ответов.</div>
+            <div class="sentence-box">
+                1) к..сой, вык..сить, пок..ситься<br>
+                2) выб..рать, выт..рать, отд..рать<br>
+                3) сомн..ваться, ун..верситет, д..ликатес<br>
+                4) соч..тать, выч..тать, р..сток<br>
+                5) пол..гать, прил..жить, вн..мать
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов...">
+            </div>
+        </div>
+
+        <!-- Задание 6 -->
+        <div class="task-card" data-task-num="6">
+            <div class="task-title">Задание 6</div>
+            <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена безударная чередующаяся гласная корня. Запишите номера ответов.</div>
+            <div class="sentence-box">
+                1) покл..няться, ог..рчить, вын..мать<br>
+                2) мот..вировать, ф..олетовый, р..птать<br>
+                3) прим..рить (врагов), прим..рять (одежду), вым..рли (некоторые животные)<br>
+                4) зам..р (от удивления), р..внина, вым..к (под дождём)<br>
+                5) обм..кнуть (в чернила), разр..внять (землю), подж..гать
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов...">
+            </div>
+        </div>
+
+        <!-- Задание 7 -->
+        <div class="task-card" data-task-num="7">
+            <div class="task-title">Задание 7</div>
+            <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена безударная чередующаяся гласная корня. Запишите номера ответов.</div>
+            <div class="sentence-box">
+                1) бракосоч..тание, сч..тать, пересч..тать<br>
+                2) бл..стеть, бл..стательный, подр..стать<br>
+                3) водор..сли, з..рница, г..рение<br>
+                4) г..лосовой, к..рмить, пл..гиат<br>
+                5) оз..рять, б..речь, т..рпеть
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов...">
+            </div>
+        </div>
+
+        <!-- Задание 8 -->
+        <div class="task-card" data-task-num="8">
+            <div class="task-title">Задание 8</div>
+            <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена безударная чередующаяся гласная корня. Запишите номера ответов.</div>
+            <div class="sentence-box">
+                1) тв..рчество, л..гичность, прил..гательное<br>
+                2) кр..ветки, п..норама, с..реневый<br>
+                3) сн..мать, подн..мать, отн..мать<br>
+                4) прил..гательное, тв..рец, пол..г<br>
+                5) р..внина, разр..внять, пок..рить
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов...">
+            </div>
+        </div>
+
+        <!-- Задание 9 -->
+        <div class="task-card" data-task-num="9">
+            <div class="task-title">Задание 9</div>
+            <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена безударная чередующаяся гласная корня. Запишите номера ответов.</div>
+            <div class="sentence-box">
+                1) в..рховье, орнам..нт, те..ретический<br>
+                2) к..снулся, пок..сился, к..соглазый<br>
+                3) заст..лить, выст..лать, зам..рать<br>
+                4) зам..реть, ум..реть, ум..рать<br>
+                5) раст..рать, раст..реть, сотв..рить
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов...">
+            </div>
+        </div>
+
+        <!-- Задание 10 -->
+        <div class="task-card" data-task-num="10">
+            <div class="task-title">Задание 10</div>
+            <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена безударная чередующаяся гласная корня. Запишите номера ответов.</div>
+            <div class="sentence-box">
+                1) отж..мать, взр..стить, р..сток<br>
+                2) изб..рать, заг..реться, зап..рать<br>
+                3) м..ценат, см..риться, д..ржать<br>
+                4) г..ристая (местность), воспом..нание, п..рила<br>
+                5) комп..нент, нав..ждение, те..ретический
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов...">
+            </div>
+        </div>
+
+        <!-- Задание 11 -->
+        <div class="task-card" data-task-num="11">
+            <div class="task-title">Задание 11</div>
+            <div class="instruction">Укажите варианты ответов, в которых во всех словах одного ряда пропущена безударная чередующаяся гласная корня. Запишите номера ответов.</div>
+            <div class="sentence-box">
+                1) проб..раться, подж..мать, соч..тание<br>
+                2) пан..рамный, тр..пещущий, г..рдиться<br>
+                3) велос..пед, нац..ональный, адр..совать<br>
+                4) изл..жить, несг..раемый, пон..мание<br>
+                5) п..рила, зам..реть, ст..листический
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов...">
+            </div>
+        </div>
+
+        <button type="button" id="submitBtn" class="submit-btn" onclick="processSending()">Отправить работу на проверку</button>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+
+    </div>
+
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+        function processSending() {
+            const name = document.getElementById('studentName').value.trim();
+            if (!name) {
+                alert('Пожалуйста, введите ваше Имя и Фамилию.');
+                return;
+            }
+
+            const data = new URLSearchParams();
+            data.append('taskType', 'dz94');
+            data.append('Имя Ученика', name);
+
+            const taskCards = document.querySelectorAll('.task-card');
+            taskCards.forEach(card => {
+                const num = card.getAttribute('data-task-num');
+                const input = card.querySelector('.answer-input');
+                const val = input ? input.value.trim() : '';
+                data.append(`Задание_${num}`, val);
+            });
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Отправка данных...';
+
+            fetch(WEB_APP_URL, { method: 'POST', body: data, mode: 'no-cors' })
+            .then(() => {
+                document.getElementById('mainContainer').innerHTML = `
+                <div style="text-align:center;padding:48px 24px;background:#fff;border:1px solid #AFAFAF;border-radius:6px;margin-top:20px">
+                    <div style="width:56px;height:56px;background:#DCFCE7;color:#16A34A;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:24px;font-weight:bold">✓</div>
+                    <h2 style="color:#000;margin-bottom:12px;font-weight:900;text-transform:uppercase;font-family:'Inter',sans-serif;font-size:20px">Работа успешно отправлена!</h2>
+                    <p style="font-size:15px;color:#929292;line-height:1.6">Твои ответы успешно записаны и отправлены Никите.</p>
+                </div>`;
+            })
+            .catch(() => {
+                alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
+                btn.disabled = false;
+                btn.textContent = 'Отправить работу на проверку';
+            });
+        }
+    </script>
+</body>
+</html>
