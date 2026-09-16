@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ДОМАШНЯЯ РАБОТА: НЕИЗМЕНЯЕМЫЕ ПРИСТАВКИ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#fff;color:#000;padding:20px;line-height:1.5}
+.container{max-width:600px;margin:40px auto}
+.brand-header{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:#929292;margin-bottom:25px;text-transform:uppercase}
+.brand-name{color:#2368EE}.brand-phone{color:#929292;text-decoration:none}
+.back-link{display:inline-flex;align-items:center;text-decoration:none;color:#2368EE;font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:20px;cursor:pointer}
+.back-link:hover{color:#EE6023}
+.header{border-bottom:4px solid #EE6023;padding-bottom:15px;margin-bottom:25px;text-align:center}
+.header h1{font-size:28px;font-weight:900;color:#2368EE;text-transform:uppercase;margin-bottom:4px}
+.header p{font-size:13px;font-weight:700;color:#929292;text-transform:uppercase;letter-spacing:1px}
+.student-info{background:#fff;padding:20px;border-radius:6px;margin-bottom:24px;border:1px solid #AFAFAF}
+.student-info input{width:100%;padding:14px 16px;border:1px solid #CBD5E1;border-radius:6px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;outline:none;background:#F8FAFC}
+.student-info input:focus{border-color:#2368EE;background:#fff}
+.task-card{background:#fff;border:1px solid #AFAFAF;border-radius:6px;padding:24px;margin-bottom:20px}
+.task-title{display:inline-block;background:#F4F7FE;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:700;color:#2368EE;text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px}
+.instruction{font-weight:700;margin-bottom:14px;font-size:15px}
+.sentence-box{font-size:15px;font-weight:500;margin-bottom:20px;line-height:1.6;padding:12px 16px;background:#F4F7FE;border-left:4px solid #EE6023;border-radius:0 6px 6px 0}
+.word-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid #E5E7EB;font-size:15px}
+.word-line:last-child{border-bottom:none}
+.word-line .num{min-width:26px;color:#929292;font-weight:700}
+.inline-gap{display:inline-flex;vertical-align:middle;margin:0 1px}
+.letter-input{width:30px;height:32px;border:1px solid #AFAFAF;border-radius:6px;background:#fff;text-align:center;font:600 15px 'Inter',sans-serif;outline:none;text-transform:lowercase}
+.letter-input:focus{border-color:#2368EE}
+.submit-btn{background:#2368EE;color:#fff;border:none;padding:16px 30px;font:700 16px 'Inter',sans-serif;border-radius:6px;cursor:pointer;text-transform:uppercase;width:100%;margin-top:12px}
+.submit-btn:hover{background:#1d56c9}
+.footer{text-align:center;margin-top:50px;font-size:13px;color:#929292;font-weight:700;line-height:1.6;border-top:1px solid #E0E0E0;padding-top:20px}
+@media(max-width:600px){.container{margin:20px auto}.task-card{padding:18px}.header h1{font-size:23px}.brand-header{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+<div id="homeworkForm">
+<div class="brand-header"><span class="brand-name">НМ | Никита Мельников</span><a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a></div>
+<a href="index.html" onclick="if(document.referrer){history.back();return false}" class="back-link">← Меню платформы</a>
+<div class="header"><h1>Домашняя работа: Задание 10</h1><p>Неизменяемые приставки</p></div>
+<div class="student-info"><input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию"></div>
+
+<!-- ВАРИАНТ 1 -->
+<div class="task-card">
+<div class="task-title">Вариант 1</div>
+<div class="instruction">Вставьте пропущенные буквы в приставки и корни слов.</div>
+<div class="sentence-box">
+<div class="word-line" data-id="4_1"><span class="num">1)</span><span>от<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>двинул</span></div>
+<div class="word-line" data-id="4_2"><span class="num">2)</span><span>о<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>душина</span></div>
+<div class="word-line" data-id="4_3"><span class="num">3)</span><span>поз<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>вчера</span></div>
+<div class="word-line" data-id="4_4"><span class="num">4)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дпустить (близко)</span></div>
+<div class="word-line" data-id="4_5"><span class="num">5)</span><span>пр<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>родина</span></div>
+<div class="word-line" data-id="4_6"><span class="num">6)</span><span>с<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>звучно</span></div>
+<div class="word-line" data-id="4_7"><span class="num">7)</span><span>с<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>бирать</span></div>
+<div class="word-line" data-id="4_8"><span class="num">8)</span><span>н<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дпись</span></div>
+<div class="word-line" data-id="4_9"><span class="num">9)</span><span>поз<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>бросил</span></div>
+<div class="word-line" data-id="4_10"><span class="num">10)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дсолнечник</span></div>
+<div class="word-line" data-id="4_11"><span class="num">11)</span><span>с<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>гласие</span></div>
+<div class="word-line" data-id="4_12"><span class="num">12)</span><span>н<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>верху</span></div>
+<div class="word-line" data-id="4_13"><span class="num">13)</span><span>не<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>тправленное</span></div>
+<div class="word-line" data-id="4_14"><span class="num">14)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дставка</span></div>
+<div class="word-line" data-id="4_15"><span class="num">15)</span><span>н<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дпилил</span></div>
+<div class="word-line" data-id="4_16"><span class="num">16)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дсказал</span></div>
+<div class="word-line" data-id="4_17"><span class="num">17)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дбодрить</span></div>
+<div class="word-line" data-id="4_18"><span class="num">18)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дорожник</span></div>
+<div class="word-line" data-id="4_19"><span class="num">19)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>добрал</span></div>
+<div class="word-line" data-id="4_20"><span class="num">20)</span><span>пр<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дполагать</span></div>
+<div class="word-line" data-id="4_21"><span class="num">21)</span><span>н<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дпочечник</span></div>
+<div class="word-line" data-id="4_22"><span class="num">22)</span><span>н<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дсечь</span></div>
+<div class="word-line" data-id="4_23"><span class="num">23)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>доспел</span></div>
+<div class="word-line" data-id="4_24"><span class="num">24)</span><span>с<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>путствовать</span></div>
+<div class="word-line" data-id="4_25"><span class="num">25)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дпрыгнуть</span></div>
+<div class="word-line" data-id="4_26"><span class="num">26)</span><span>з<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>цепил</span></div>
+<div class="word-line" data-id="4_27"><span class="num">27)</span><span>з<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>бросил</span></div>
+<div class="word-line" data-id="4_28"><span class="num">28)</span><span>н<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>рисовал</span></div>
+<div class="word-line" data-id="4_29"><span class="num">29)</span><span>пр<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>доставить</span></div>
+<div class="word-line" data-id="4_30"><span class="num">30)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дчеркнуть</span></div>
+<div class="word-line" data-id="4_31"><span class="num">31)</span><span>(всероссийские) <span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дравницы</span></div>
+<div class="word-line" data-id="4_32"><span class="num">32)</span><span>о<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>крывать</span></div>
+<div class="word-line" data-id="4_33"><span class="num">33)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>знавательный</span></div>
+<div class="word-line" data-id="4_34"><span class="num">34)</span><span>о<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>делил</span></div>
+<div class="word-line" data-id="4_35"><span class="num">35)</span><span>пр<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дписание</span></div>
+<div class="word-line" data-id="4_36"><span class="num">36)</span><span>пр<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дсказал</span></div>
+<div class="word-line" data-id="4_37"><span class="num">37)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дойти</span></div>
+<div class="word-line" data-id="4_38"><span class="num">38)</span><span>непр<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>будный</span></div>
+<div class="word-line" data-id="4_39"><span class="num">39)</span><span>поз<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>был</span></div>
+<div class="word-line" data-id="4_40"><span class="num">40)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дправить</span></div>
+</div>
+</div>
+
+<!-- ВАРИАНТ 2 -->
+<div class="task-card">
+<div class="task-title">Вариант 2</div>
+<div class="instruction">Вставьте пропущенные буквы в приставки и корни слов.</div>
+<div class="sentence-box">
+<div class="word-line" data-id="5_1"><span class="num">1)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дбодрить</span></div>
+<div class="word-line" data-id="5_2"><span class="num">2)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дойти</span></div>
+<div class="word-line" data-id="5_3"><span class="num">3)</span><span>н<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дпочечник</span></div>
+<div class="word-line" data-id="5_4"><span class="num">4)</span><span>о<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>душина</span></div>
+<div class="word-line" data-id="5_5"><span class="num">5)</span><span>о<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>крывать</span></div>
+<div class="word-line" data-id="5_6"><span class="num">6)</span><span>н<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>рисовал</span></div>
+<div class="word-line" data-id="5_7"><span class="num">7)</span><span>поз<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>бросил</span></div>
+<div class="word-line" data-id="5_8"><span class="num">8)</span><span>пр<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>доставить</span></div>
+<div class="word-line" data-id="5_9"><span class="num">9)</span><span>с<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>звучно</span></div>
+<div class="word-line" data-id="5_10"><span class="num">10)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дсказал</span></div>
+<div class="word-line" data-id="5_11"><span class="num">11)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дставка</span></div>
+<div class="word-line" data-id="5_12"><span class="num">12)</span><span>с<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>гласие</span></div>
+<div class="word-line" data-id="5_13"><span class="num">13)</span><span>пр<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дсказал</span></div>
+<div class="word-line" data-id="5_14"><span class="num">14)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>добрал</span></div>
+<div class="word-line" data-id="5_15"><span class="num">15)</span><span>о<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>делил</span></div>
+<div class="word-line" data-id="5_16"><span class="num">16)</span><span>з<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>бросил</span></div>
+<div class="word-line" data-id="5_17"><span class="num">17)</span><span>з<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>цепил</span></div>
+<div class="word-line" data-id="5_18"><span class="num">18)</span><span>н<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дсечь</span></div>
+<div class="word-line" data-id="5_19"><span class="num">19)</span><span>непр<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>будный</span></div>
+<div class="word-line" data-id="5_20"><span class="num">20)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дсолнечник</span></div>
+<div class="word-line" data-id="5_21"><span class="num">21)</span><span>н<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>верху</span></div>
+<div class="word-line" data-id="5_22"><span class="num">22)</span><span>не<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>тправленное</span></div>
+<div class="word-line" data-id="5_23"><span class="num">23)</span><span>пр<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дписание</span></div>
+<div class="word-line" data-id="5_24"><span class="num">24)</span><span>с<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>путствовать</span></div>
+<div class="word-line" data-id="5_25"><span class="num">25)</span><span>н<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дпилил</span></div>
+<div class="word-line" data-id="5_26"><span class="num">26)</span><span>поз<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>был</span></div>
+<div class="word-line" data-id="5_27"><span class="num">27)</span><span>пр<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дполагать</span></div>
+<div class="word-line" data-id="5_28"><span class="num">28)</span><span>пр<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>родина</span></div>
+<div class="word-line" data-id="5_29"><span class="num">29)</span><span>(всероссийские) <span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дравницы</span></div>
+<div class="word-line" data-id="5_30"><span class="num">30)</span><span>поз<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>вчера</span></div>
+<div class="word-line" data-id="5_31"><span class="num">31)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дправить</span></div>
+<div class="word-line" data-id="5_32"><span class="num">32)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>доспел</span></div>
+<div class="word-line" data-id="5_33"><span class="num">33)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дчеркнуть</span></div>
+<div class="word-line" data-id="5_34"><span class="num">34)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>знавательный</span></div>
+<div class="word-line" data-id="5_35"><span class="num">35)</span><span>с<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>бирать</span></div>
+<div class="word-line" data-id="5_36"><span class="num">36)</span><span>от<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>двинул</span></div>
+<div class="word-line" data-id="5_37"><span class="num">37)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дорожник</span></div>
+<div class="word-line" data-id="5_38"><span class="num">38)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дпустить (близко)</span></div>
+<div class="word-line" data-id="5_39"><span class="num">39)</span><span>н<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дпись</span></div>
+<div class="word-line" data-id="5_40"><span class="num">40)</span><span>п<span class="inline-gap"><input class="letter-input" maxlength="1" autocomplete="off"></span>дпрыгнуть</span></div>
+</div>
+</div>
+
+<button type="button" id="submitBtn" class="submit-btn" onclick="processSending()">Отправить работу на проверку</button>
+</div>
+<div class="footer"><span>НМ | Никита Мельников</span><br><span>+7 927 422 35 59</span></div>
+</div>
+
+<script>
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+function processSending(){
+    const name = document.getElementById('studentName').value.trim();
+    if(!name){ alert('Пожалуйста, введите ваше Имя и Фамилию.'); return; }
+
+    const data = new URLSearchParams();
+    data.append('taskType', 'dz10_1');
+    data.append('Имя Ученика', name);
+
+    const lines = [...document.querySelectorAll('.word-line')].map(x => ({
+        id: x.dataset.id,
+        letter: x.querySelector('.letter-input')?.value.trim().toLowerCase() || ''
+    }));
+
+    data.append('Ответы', JSON.stringify(lines));
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Отправка данных...';
+
+    fetch(WEB_APP_URL, { method: 'POST', body: data, mode: 'no-cors' })
+    .then(() => {
+        document.getElementById('mainContainer').innerHTML = `
+            <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+                <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+                <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+                <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+            </div>
+        `;
+    })
+    .catch(() => {
+        alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
+        btn.disabled = false;
+        btn.textContent = 'Отправить работу на проверку';
+    });
+}
+</script>
+</body>
+</html>
