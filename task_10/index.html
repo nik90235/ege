@@ -573,7 +573,7 @@
                  ОБЩЕЕ ДЗ 10
             ====================== -->
 
-            <a href="10/" data-folder="task_10" class="menu-card">
+            <a href="10/" data-folder="10" class="menu-card">
                 <span class="lock-badge"></span>
                 <div class="card-tag">ДЗ 10</div>
                 <div class="card-name">Общее ДЗ по заданию 10</div>
@@ -618,12 +618,16 @@
                 const folder = card.getAttribute('data-folder');
                 const badge = card.querySelector('.lock-badge');
 
-                if (permissions && (permissions[folder] === false || permissions[folder] === 'FALSE')) {
+                if (permissions && permissions[folder] === false) {
                     card.classList.add('locked');
-                    if (badge) { badge.innerText = '🔒'; }
+                    if (badge) {
+                        badge.innerText = '🔒';
+                    }
                 } else {
                     card.classList.remove('locked');
-                    if (badge) { badge.innerText = ''; }
+                    if (badge) {
+                        badge.innerText = '';
+                    }
                 }
             });
         }
@@ -748,7 +752,7 @@
                     if (session.login && session.password) {
                         refreshPermissions(session.login, session.password);
                     }
-                } else {
+                } catch (e) {
                     document.getElementById('authOverlay').style.display = 'flex';
                 }
             } else {
