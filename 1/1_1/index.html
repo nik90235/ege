@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМАШНЯЯ РАБОТА: ЗАДАНИЕ 1 (СРЕДСТВА СВЯЗИ ПРЕДЛОЖЕНИЙ В ТЕКСТЕ)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.5; 
+        }
+        .container { max-width: 600px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #2368EE;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .student-info { background: #fff; padding: 20px; border-radius: 6px; margin-bottom: 24px; border: 1px solid #AFAFAF; }
+        .student-info input { width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; outline: none; background: #F8FAFC; }
+        .student-info input:focus { border-color: #2368EE; background: #fff; }
+
+        .task-card { 
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            padding: 24px; 
+            margin-bottom: 20px; 
+        }
+        .task-title { 
+            display: inline-block;
+            background-color: #F4F7FE; 
+            padding: 6px 12px; 
+            border-radius: 6px;
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #2368EE; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            margin-bottom: 16px; 
+        }
+        .instruction { font-weight: 700; margin-bottom: 14px; font-size: 15px; color: #000000; }
+        
+        .sentence-box { 
+            font-size: 15px; 
+            font-weight: 500;
+            margin-bottom: 20px; 
+            line-height: 1.6; 
+            padding: 14px 16px; 
+            background: #F4F7FE;
+            border-left: 4px solid #EE6023; 
+            border-radius: 0 6px 6px 0;
+            color: #000000;
+            white-space: pre-line;
+        }
+        
+        .input-block { display: flex; flex-direction: column; gap: 8px; }
+        .input-label { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 0.5px; }
+        .answer-input { 
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none; 
+            transition: all 0.2s ease;
+        }
+        .answer-input:focus { border-color: #2368EE; }
+
+        .submit-btn {
+            background: #2368EE;
+            color: #fff;
+            border: none;
+            padding: 16px 30px;
+            font: 700 16px 'Inter', sans-serif;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 12px;
+            transition: all 0.2s ease;
+        }
+        .submit-btn:hover { background-color: #1d56c9; }
+        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        
+        <div class="brand-header">
+            <span class="brand-name">НМ | Никита Мельников</span>
+            <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+        </div>
+
+        <a href="../index.html" onclick="if(document.referrer){history.back();return false}" class="back-link">← Меню платформы</a>
+
+        <div class="header">
+            <h1>Домашняя работа: Задание 1</h1>
+            <p>Средства связи предложений в тексте</p>
+        </div>
+
+        <div class="student-info">
+            <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
+        </div>
+
+        <!-- Задание 1 -->
+        <div class="task-card" data-task-num="1">
+            <div class="task-title">Задание 1</div>
+            <div class="sentence-box">(1) Ротоскопирование – это анимационная техника, при которой мультипликационный фильм создаётся методом обрисовки кадра за кадром снятого заранее с реальными актёрами и декорациями фильма, что значительно упрощает работу художников и синхронизацию звука с артикуляцией персонажей. (2) Эта техника была изобретена в 1914 году Максом Флейшером, ________ использовал её в серии своих фильмов, а позже её стали применять и другие мультипликаторы, в том числе Уолт Дисней. (3) В СССР техника ротоскопирования активно использовалась «Союзмультфильмом», но была известна под названием «эклер», по марке проекционного аппарата.</div>
+            <div class="instruction">Самостоятельно подберите относительное местоимение (союзное слово), которое должно стоять на месте пропуска во втором (2) предложении текста. Запишите это относительное местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 2 -->
+        <div class="task-card" data-task-num="2">
+            <div class="task-title">Задание 2</div>
+            <div class="sentence-box">(1) Влажные салфетки для многих людей давно стали атрибутом повседневной жизни: сейчас производятся салфетки не только для гигиенического или косметического использования, но и для применения в быту – для протирания техники, мебели, окон. (2) Однако внешне безвредные влажные салфетки становятся серьёзной экологической проблемой, ________, помимо вредных химических веществ, которыми пропитано большинство производимых салфеток, такие салфетки содержат пластиковые волокна, не способные к биологическому разложению. (3) Когда салфетки попадают, например, в океан, их съедают морские животные.</div>
+            <div class="instruction">Самостоятельно подберите подчинительный союз, который должен стоять на месте пропуска во втором (2) предложении текста. Запишите этот подчинительный союз.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 3 -->
+        <div class="task-card" data-task-num="3">
+            <div class="task-title">Задание 3</div>
+            <div class="sentence-box">(1) Точное место зарождения парфюмерного искусства неизвестно, однако предполагается, что это Месопотамия: об этом свидетельствуют записи на месопотамских клинописных табличках, относящихся ко II тысячелетию до н. э. (2) В древнеегипетских летописях ________ есть упоминания о парфюмерных средствах (эти упоминания связаны, как правило, с богами и жертвоприношениями), поэтому в истории парфюмерии египтяне считаются одними из основателей этого искусства. (3) Значительный вклад в развитие парфюмерии внесли также арабские страны.</div>
+            <div class="instruction">Самостоятельно подберите сочинительный союз, который должен стоять на месте пропуска во втором (2) предложении текста. Запишите этот сочинительный союз.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 4 -->
+        <div class="task-card" data-task-num="4">
+            <div class="task-title">Задание 4</div>
+            <div class="sentence-box">(1) Тропический лес бассейна реки Амазонки ________ кажется первозданно диким: под пологом буйной растительности скрываются остатки сложного общества доколумбовой эпохи. (2) Производя раскопки в южной части обширных амазонских лесов, археологи обнаружили целую сеть городов, деревень и дорог, построенных когда-то предками здешних жителей.</div>
+            <div class="instruction">Самостоятельно подберите ограничительно-выделительную частицу, которая должна стоять на месте пропуска в первом (1) предложении текста. Запишите эту частицу.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 5 -->
+        <div class="task-card" data-task-num="5">
+            <div class="task-title">Задание 5</div>
+            <div class="sentence-box">(1) Написание «жи», «ши», известное каждому человеку со времён начальной школы, является отнюдь не случайным: даже сейчас в речи ещё можно слышать мягкий [ж'] – ________, в словах «дрожжи», «вожжи», «визжит», а в древнерусском языке шипящие [ж'], [ш'], [ч'], а также звук [ц'] были мягкими во всех случаях. (2) В письменных источниках с XIV века появляются написания «жы» и «шы».</div>
+            <div class="instruction">Самостоятельно подберите вводное слово, которое должно стоять на месте пропуска в первом (1) предложении текста. Запишите это вводное слово.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 6 -->
+        <div class="task-card" data-task-num="6">
+            <div class="task-title">Задание 6</div>
+            <div class="sentence-box">(1) В современном мире знак @ присутствует повсюду, ведь он стал неотъемлемой частью адреса электронной почты. (2) Существует несколько версий происхождения «собачки»... (3) ________ однозначного ответа, когда точно появился этот знак и каким было его исходное значение, нет, и сейчас в разных странах существуют самые непредсказуемые названия символа.</div>
+            <div class="instruction">Самостоятельно подберите сочинительный союз, который должен стоять на месте пропуска в третьем (3) предложении текста. Запишите этот сочинительный союз.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 7 -->
+        <div class="task-card" data-task-num="7">
+            <div class="task-title">Задание 7</div>
+            <div class="sentence-box">(1) Когда в конце XIX века в России идея женского равноправия призвала к литературной деятельности и журналистике образованных женщин, литературная критика мгновенно заметила это новшество. (2) Причём во многих критических работах, оценивающих положительно сам факт женского литературного творчества, высказывалась мысль, что «природа уделяет женщинам искру таланта, ________ никогда не даёт гения».</div>
+            <div class="instruction">Самостоятельно подберите сочинительный союз, который должен стоять на месте пропуска во втором (2) предложении текста. Запишите этот союз.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 8 -->
+        <div class="task-card" data-task-num="8">
+            <div class="task-title">Задание 8</div>
+            <div class="sentence-box">(1) Чтобы защитить окружающую среду и исключить поступление газовых выбросов производства в атмосферу, на пути газового потока устанавливают специальные фильтры. (2) В качестве фильтрующего материала хорошо зарекомендовали себя ткани из тонковолокнистых полимеров на марлевой основе: они устойчивы к воздействию кислот, щелочей, высокой температуры и органических растворителей. (3) Основной недостаток <…> фильтров – низкая пылеёмкость.</div>
+            <div class="instruction">Самостоятельно подберите указательное местоимение, которое должно стоять на месте пропуска в третьем (3) предложении текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 9 -->
+        <div class="task-card" data-task-num="9">
+            <div class="task-title">Задание 9</div>
+            <div class="sentence-box">(1) Гало́ – интересное оптическое явление земной атмосферы, которое выглядит как светящееся кольцо, образованное вокруг яркого источника света. (2) Наиболее часто гало возникает вокруг солнца, немного реже – вокруг луны, однако оно может появиться <…> вокруг уличного фонаря или машинных фар.</div>
+            <div class="instruction">Самостоятельно подберите частицу, которая должна стоять на месте пропуска во втором (2) предложении текста. Запишите эту частицу.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 10 -->
+        <div class="task-card" data-task-num="10">
+            <div class="task-title">Задание 10</div>
+            <div class="sentence-box">(1) Для антарктического плавания под командованием Беллинсгаузена Адмиралтейство снарядило два корабля: шлюпы «Мирный» и «Восток». (2) Если «Мирный»... блестяще проявил себя в ледовом походе, то «Восток»... качественно уступал «Мирному» и оказался <…> слаб в полярных льдах, что к концу экспедиции состояние шлюпа было неудовлетворительным.</div>
+            <div class="instruction">Самостоятельно подберите наречие, которое должно стоять на месте пропуска во втором (2) предложении текста. Запишите это наречие.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 11 -->
+        <div class="task-card" data-task-num="11">
+            <div class="task-title">Задание 11</div>
+            <div class="sentence-box">(1) В середине XVI века по приказу царя Ивана Грозного была основана первая типография в Москве. (2) В 1563 году известный изобретатель Иван Фёдоров и его верный друг и ученик Пётр Мстиславец приступили к напечатанию книги под названием «Апостол»; это первое издание, над <…> книгопечатники трудились целых двенадцать месяцев, в марте 1564 года было готово.</div>
+            <div class="instruction">Самостоятельно подберите союзное слово (относительное местоимение), которое должно стоять на месте пропуска во втором (2) предложении текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 12 -->
+        <div class="task-card" data-task-num="12">
+            <div class="task-title">Задание 12</div>
+            <div class="sentence-box">(1) В мире мы наблюдаем следующую картину: существуют целые группы языков, близко напоминающих друг друга по ряду признаков. (2) Встретившись с двумя такими языковыми группами, мы можем предположить, что сходство языков возникло случайно. (3) <…> когда одна и та же картина наблюдается учёными при рассмотрении десятка языковых групп, становится очевидным, что сходство является результатом родства.</div>
+            <div class="instruction">Самостоятельно подберите сочинительный противительный союз, который должен стоять на месте пропуска в третьем (3) предложении текста. Запишите этот союз.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 13 -->
+        <div class="task-card" data-task-num="13">
+            <div class="task-title">Задание 13</div>
+            <div class="sentence-box">(1) Американский психолог А. Маслоу предложил смотреть на структуру человеческих потребностей как на пирамиду, в основании <…> лежат биологические потребности, а на вершине находится потребность в самореализации. (2) Несмотря на логичность этой теории, сам Маслоу отмечал, что она не может использоваться в отношении конкретной личности.</div>
+            <div class="instruction">Самостоятельно подберите относительное местоимение, которое должно стоять на месте пропуска в первом (1) предложении текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 14 -->
+        <div class="task-card" data-task-num="14">
+            <div class="task-title">Задание 14</div>
+            <div class="sentence-box">(1) На Кавказе есть гора Эльбрус, которая является самой высокой горной вершиной России и Европы. (2) Эльбрус входит в список высочайших вершин «Семь вершин». (3) Хорошо развита транспортная и сопутствующая инфраструктура Эльбруса и прилегающих к нему районов, <…> они очень популярны в рекреационном и туристическом плане.</div>
+            <div class="instruction">Самостоятельно подберите наречие, которое должно стоять на месте пропуска в третьем (3) предложении текста. Запишите это наречие.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 15 -->
+        <div class="task-card" data-task-num="15">
+            <div class="task-title">Задание 15</div>
+            <div class="sentence-box">(1) Христофор Колумб – знаменитый европейский мореплаватель, благодаря которому для обитателей Старого Света стала известна Америка. (2) Экспедиция началась в 1492 году... (3) 12 октября экспедиция достигла острова Сан-Сальвадор в Багамском архипелаге, и <...> день стал считаться официальной датой открытия Америки.</div>
+            <div class="instruction">Самостоятельно подберите указательное местоимение, которое должно стоять на месте пропуска в третьем (3) предложении текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 16 -->
+        <div class="task-card" data-task-num="16">
+            <div class="task-title">Задание 16</div>
+            <div class="sentence-box">(1) В числе пяти внешних чувств человека имеется одно, до сих пор почти не осмысленное... (5) Мы обычно «осязаем» в смысле механического получения осязательных впечатлений, но отнюдь не осязаем на уровне осознанности <…> впечатлений. (6) Как бы «смотрим», но не «видим», «слушаем», но не «слышим».</div>
+            <div class="instruction">Самостоятельно подберите указательное местоимение, которое должно стоять на месте пропуска в пятом (5) предложении текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <button type="button" id="submitBtn" class="submit-btn" onclick="processSending()">Отправить работу на проверку</button>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+
+    </div>
+
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+        function processSending() {
+            const name = document.getElementById('studentName').value.trim();
+            if (!name) {
+                alert('Пожалуйста, введите ваше Имя и Фамилию.');
+                return;
+            }
+
+            const data = new URLSearchParams();
+            data.append('taskType', 'dz1_1');
+            data.append('Имя Ученика', name);
+
+            const taskCards = document.querySelectorAll('.task-card');
+            taskCards.forEach(card => {
+                const num = card.getAttribute('data-task-num');
+                const input = card.querySelector('.answer-input');
+                const val = input ? input.value.trim() : '';
+                data.append(`Задание_${num}`, val);
+            });
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Отправка данных...';
+
+            fetch(WEB_APP_URL, { method: 'POST', body: data, mode: 'no-cors' })
+            .then(() => {
+                document.getElementById('mainContainer').innerHTML = `
+                    <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+                        <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+                        <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+                        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+                    </div>
+                `;
+            })
+            .catch(() => {
+                alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
+                btn.disabled = false;
+                btn.textContent = 'Отправить работу на проверку';
+            });
+        }
+    </script>
+</body>
+</html>
