@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМАШНЯЯ РАБОТА: ЗАДАНИЕ 1 (СРЕДСТВА СВЯЗИ ПРЕДЛОЖЕНИЙ В ТЕКСТЕ)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.5; 
+        }
+        .container { max-width: 600px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #2368EE;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .student-info { background: #fff; padding: 20px; border-radius: 6px; margin-bottom: 24px; border: 1px solid #AFAFAF; }
+        .student-info input { width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; outline: none; background: #F8FAFC; }
+        .student-info input:focus { border-color: #2368EE; background: #fff; }
+
+        .task-card { 
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            padding: 24px; 
+            margin-bottom: 20px; 
+        }
+        .task-title { 
+            display: inline-block;
+            background-color: #F4F7FE; 
+            padding: 6px 12px; 
+            border-radius: 6px;
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #2368EE; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            margin-bottom: 16px; 
+        }
+        .instruction { font-weight: 700; margin-bottom: 14px; font-size: 15px; color: #000000; }
+        
+        .sentence-box { 
+            font-size: 15px; 
+            font-weight: 500;
+            margin-bottom: 20px; 
+            line-height: 1.6; 
+            padding: 14px 16px; 
+            background: #F4F7FE;
+            border-left: 4px solid #EE6023; 
+            border-radius: 0 6px 6px 0;
+            color: #000000;
+            white-space: pre-line;
+        }
+        
+        .input-block { display: flex; flex-direction: column; gap: 8px; }
+        .input-label { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 0.5px; }
+        .answer-input { 
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none; 
+            transition: all 0.2s ease;
+        }
+        .answer-input:focus { border-color: #2368EE; }
+
+        .submit-btn {
+            background: #2368EE;
+            color: #fff;
+            border: none;
+            padding: 16px 30px;
+            font: 700 16px 'Inter', sans-serif;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 12px;
+            transition: all 0.2s ease;
+        }
+        .submit-btn:hover { background-color: #1d56c9; }
+        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        
+        <div class="brand-header">
+            <span class="brand-name">НМ | Никита Мельников</span>
+            <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+        </div>
+
+        <a href="../index.html" onclick="if(document.referrer){history.back();return false}" class="back-link">← Меню платформы</a>
+
+        <div class="header">
+            <h1>Домашняя работа: Задание 1</h1>
+            <p>Средства связи предложений в тексте</p>
+        </div>
+
+        <div class="student-info">
+            <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
+        </div>
+
+        <!-- Задание 17 -->
+        <div class="task-card" data-task-num="17">
+            <div class="task-title">Задание 17</div>
+            <div class="sentence-box">Невесёлая судьба человека, который ни разу не испытал незабываемую теплоту земли на босых ногах... Таким людям неуютно в природе. Глубинная прелесть жизни не измерена и не понята ими. Большинство из них живут <…> чужого ума, таланта, чужих ошибок и успехов... (По К. Г. Паустовскому)</div>
+            <div class="instruction">Самостоятельно подберите производный предлог, который должен стоять на месте пропуска во втором (2) абзаце текста. Запишите этот предлог.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 18 -->
+        <div class="task-card" data-task-num="18">
+            <div class="task-title">Задание 18</div>
+            <div class="sentence-box">В 90-е годы XX столетия одним из наиболее активных языковых процессов оказался процесс заимствования иноязычных слов. Иноязычное слово – это одна из примет «языкового вкуса эпохи». Русский язык всегда был открыт для заимствований, в <…> лексике большой процент составляют иноязычные слова разного происхождения.</div>
+            <div class="instruction">Самостоятельно подберите притяжательное местоимение, которое должно стоять на месте пропуска в третьем (3) предложении текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 19 -->
+        <div class="task-card" data-task-num="19">
+            <div class="task-title">Задание 19</div>
+            <div class="sentence-box">Начало XX века обозначило собой наступление эры телевидения. <…> поэтому нужна была телебашня. Первая башня была построена в 1922 году. В 50-е годы, когда началось бурное развитие телевидения, эта башня уже не справлялась с передачей телесигнала.</div>
+            <div class="instruction">Самостоятельно подберите уточняющую частицу, которая должна стоять на месте пропуска во втором (2) предложении текста. Запишите эту частицу.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 20 -->
+        <div class="task-card" data-task-num="20">
+            <div class="task-title">Задание 20</div>
+            <div class="sentence-box">Само понятие синонимии получает у лингвистов разное истолкование. Лингвисты для выделения синонимов предлагают различные критерии. Одни считают обязательным критерием обозначение одного понятия. Другие берут за основу взаимозаменяемость. <…> точка зрения сводится к тому, что решающим условием признаётся близость лексических значений.</div>
+            <div class="instruction">Самостоятельно подберите порядковое числительное, которое должно стоять на месте пропуска в последнем предложении текста. Запишите это числительное.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 21 -->
+        <div class="task-card" data-task-num="21">
+            <div class="task-title">Задание 21</div>
+            <div class="sentence-box">Сопоставление языкового материала позволило рассмотреть проблему значения общих древних корней в немецком и русском языках, отражения в лексике исторической эпохи и народного сознания для выявления одинаковых и отличительных черт языковой картины мира <…> народов.</div>
+            <div class="instruction">Самостоятельно подберите собирательное имя числительное, которое должно стоять на месте пропуска во втором (2) абзаце текста. Запишите это имя числительное.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 22 -->
+        <div class="task-card" data-task-num="22">
+            <div class="task-title">Задание 22</div>
+            <div class="sentence-box">Стандартизация деловой речи — одна из наиболее приметных черт официально-делового стиля. Процесс развиваются в основном в двух направлениях: а) в широком использовании готовых словесных формул, трафаретов, штампов (<…>, стандартных синтаксических моделей с отымёнными предлогами: в целях, в связи с, в соответствии с и т. д.), б) в частой повторяемости одних и тех же слов.</div>
+            <div class="instruction">Самостоятельно подберите вводное слово (вводную конструкцию), которое должно стоять на месте пропуска в последнем абзаце текста. Запишите это вводное слово.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 23 -->
+        <div class="task-card" data-task-num="23">
+            <div class="task-title">Задание 23</div>
+            <div class="sentence-box">Иван Филиппов, основатель булочной, был честным человеком. Во-первых, он при заказе никогда не посылал за́вали арестантам, а всегда свежие калачи и сайки; <…>, у него вёлся особый счёт, по которому видно было, сколько барыша давали эти заказы, и этот барыш он целиком отвозил сам в тюрьму.</div>
+            <div class="instruction">Самостоятельно подберите вводное слово, которое должно стоять на месте пропуска в четвёртом (4) абзаце текста. Запишите это вводное слово.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 24 -->
+        <div class="task-card" data-task-num="24">
+            <div class="task-title">Задание 24</div>
+            <div class="sentence-box">Монография Ж. Пиаже состоит из пяти глав. Каждая глава имеет введение, <…> аргументируется необходимость проведения того или иного исследования, основную часть и заключение, содержащее основные выводы главы.</div>
+            <div class="instruction">Самостоятельно подберите союзное слово, которое должно стоять на месте пропуска в третьем (3) абзаце текста. Запишите это союзное слово.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 25 -->
+        <div class="task-card" data-task-num="25">
+            <div class="task-title">Задание 25</div>
+            <div class="sentence-box">Зарождение жанра путевой заметки в России было связано с необходимостью познакомить русскую общественность с зарубежной жизнью. Эту задачу удалось решить Н.М. Карамзину, <…> «Письма русского путешественника» можно считать истоками русского путевого очерка.</div>
+            <div class="instruction">Самостоятельно подберите притяжательное местоимение, которое должно стоять на месте пропуска во втором (2) абзаце текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 26 -->
+        <div class="task-card" data-task-num="26">
+            <div class="task-title">Задание 26</div>
+            <div class="sentence-box">Многие мысли и идеи Потебни, сформулированные позже другими исследователями, произведут переворот в некоторых областях знания. <…> произойдёт, например, с намечавшимися у А.А. Потебни идеями разграничения языка и речи, синхронии и диахронии.</div>
+            <div class="instruction">Самостоятельно подберите указательное наречие, которое должно стоять на месте пропуска во втором (2) абзаце текста. Запишите это наречие.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 27 -->
+        <div class="task-card" data-task-num="27">
+            <div class="task-title">Задание 27</div>
+            <div class="sentence-box">Есть в Питере ещё одно памятное место, о котором знают далеко не все. Двор дома номер 15 по улице Блохина — кочегарка, та самая, в которой некогда работал Виктор Цой. Двери кочегарки закрыты: <…> сейчас находится музей-клуб «Камчатка», в котором выступают питерские рок-группы.</div>
+            <div class="instruction">Самостоятельно подберите указательное наречие, которое должно стоять на месте пропуска в третьем (3) абзаце текста. Запишите это наречие.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 28 -->
+        <div class="task-card" data-task-num="28">
+            <div class="task-title">Задание 28</div>
+            <div class="sentence-box">В Древней Индии этикет существовал в рамках кастовой системы. Брахмачарин (ученик) должен был узнать не только правила общения с представителями высших <…> низших каст, но и со своей собственной кастой.</div>
+            <div class="instruction">Самостоятельно подберите разделительный союз, который должен стоять на месте пропуска во втором (2) предложении текста. Запишите этот союз.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 29 -->
+        <div class="task-card" data-task-num="29">
+            <div class="task-title">Задание 29</div>
+            <div class="sentence-box">Он подошёл к колодцу, загремел цепью, вытащил тяжёлую бадью с водой и жадно приник к ней. Тот послушно припал к бадье и стал тянуть воду мелкими глоточками, <…> от холода у него не заломило в затылке.</div>
+            <div class="instruction">Самостоятельно подберите подчинительный союз, который должен стоять на месте пропуска в шестом (6) предложении текста. Запишите этот союз.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 30 -->
+        <div class="task-card" data-task-num="30">
+            <div class="task-title">Задание 30</div>
+            <div class="sentence-box">Сам я в своей жизни чего только не коллекционировал. В основном же моя коллекция — книжная. Это книжки 30–50-х годов про шпионов... Есть книги, которые я пытаюсь отыскать уже <…> нескольких десятилетий.</div>
+            <div class="instruction">Самостоятельно подберите производный предлог, который должен стоять на месте пропуска в четвёртом (4) абзаце текста. Запишите этот предлог.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 31 -->
+        <div class="task-card" data-task-num="31">
+            <div class="task-title">Задание 31</div>
+            <div class="sentence-box">Гарантия не распространяется на следующий товар:
+5. Изделия с повреждениями, которые могут быть истолкованы как следы удара, <…> является прямым нарушением правил эксплуатации.</div>
+            <div class="instruction">Самостоятельно подберите относительное местоимение, которое должно стоять на месте пропуска в пятом (5) пункте перечня товаров. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <!-- Задание 32 -->
+        <div class="task-card" data-task-num="32">
+            <div class="task-title">Задание 32</div>
+            <div class="sentence-box">Групповая дискуссия отличается тем, что специально подготовленная группа обсуждает вопрос перед аудиторией... Участники дискуссии должны вести себя непринуждённо, говорить в оживлённой манере, точно формулировать вопросы и лаконично комментировать ответы <…> краткие замечания.</div>
+            <div class="instruction">Самостоятельно подберите разделительный союз, который должен стоять на месте пропуска в четвёртом (4) абзаце текста. Запишите этот союз.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите ответ...">
+            </div>
+        </div>
+
+        <button type="button" id="submitBtn" class="submit-btn" onclick="processSending()">Отправить работу на проверку</button>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+
+    </div>
+
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+        function processSending() {
+            const name = document.getElementById('studentName').value.trim();
+            if (!name) {
+                alert('Пожалуйста, введите ваше Имя и Фамилию.');
+                return;
+            }
+
+            const data = new URLSearchParams();
+            data.append('taskType', 'dz1_2');
+            data.append('Имя Ученика', name);
+
+            const taskCards = document.querySelectorAll('.task-card');
+            taskCards.forEach(card => {
+                const num = card.getAttribute('data-task-num');
+                const input = card.querySelector('.answer-input');
+                const val = input ? input.value.trim() : '';
+                data.append(`Задание_${num}`, val);
+            });
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Отправка данных...';
+
+            fetch(WEB_APP_URL, { method: 'POST', body: data, mode: 'no-cors' })
+            .then(() => {
+                document.getElementById('mainContainer').innerHTML = `
+                    <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+                        <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+                        <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+                        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+                    </div>
+                `;
+            })
+            .catch(() => {
+                alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
+                btn.disabled = false;
+                btn.textContent = 'Отправить работу на проверку';
+            });
+        }
+    </script>
+</body>
+</html>
