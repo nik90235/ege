@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМАШНЯЯ РАБОТА: ЗАДАНИЕ 12.2 (СУФФИКСЫ ПРИЧАСТИЙ)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.6; 
+        }
+        .container { max-width: 650px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #2368EE;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 26px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .student-info { background: #fff; padding: 20px; border-radius: 6px; margin-bottom: 24px; border: 1px solid #AFAFAF; }
+        .student-info input { width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; outline: none; background: #F8FAFC; }
+        .student-info input:focus { border-color: #2368EE; background: #fff; }
+
+        .section-header {
+            background: #2368EE;
+            color: #FFF;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 30px 0 15px;
+        }
+
+        .task-card { 
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            padding: 22px; 
+            margin-bottom: 20px; 
+        }
+        .task-title { 
+            display: inline-block;
+            background-color: #F4F7FE; 
+            padding: 6px 12px; 
+            border-radius: 6px;
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #2368EE; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            margin-bottom: 14px; 
+        }
+        .instruction { font-weight: 700; margin-bottom: 14px; font-size: 15px; color: #000000; }
+        
+        .sentence-box { 
+            font-size: 15px; 
+            font-weight: 500;
+            margin-bottom: 16px; 
+            line-height: 1.8; 
+            padding: 14px 18px; 
+            background: #F4F7FE;
+            border-left: 4px solid #EE6023; 
+            border-radius: 0 6px 6px 0;
+            color: #000000;
+        }
+
+        .options-list { 
+            font-size: 15px; 
+            font-weight: 500;
+            margin-bottom: 16px; 
+            padding: 14px 18px; 
+            background: #F4F7FE;
+            border-left: 4px solid #EE6023; 
+            border-radius: 0 6px 6px 0;
+            color: #000000;
+        }
+        .option-item { margin-bottom: 6px; line-height: 1.6; }
+        .option-item:last-child { margin-bottom: 0; }
+
+        .inline-gap { display: inline-flex; vertical-align: middle; margin: 0 2px; }
+        .letter-input-box { 
+            width: 30px; 
+            height: 28px; 
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            text-align: center; 
+            font: 700 14px 'Inter', sans-serif; 
+            outline: none; 
+            padding: 0; 
+            background: #FFF; 
+            color: #2368EE; 
+            text-transform: lowercase; 
+        }
+        .letter-input-box:focus { border-color: #2368EE; box-shadow: 0 0 0 2px rgba(35,104,238,0.2); }
+
+        .input-block { display: flex; flex-direction: column; gap: 8px; }
+        .input-label { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 0.5px; }
+        .answer-input { 
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 600;
+            outline: none; 
+            transition: all 0.2s ease;
+        }
+        .answer-input:focus { border-color: #2368EE; }
+
+        .submit-btn {
+            background: #2368EE;
+            color: #fff;
+            border: none;
+            padding: 16px 30px;
+            font: 700 16px 'Inter', sans-serif;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.2s ease;
+        }
+        .submit-btn:hover { background-color: #1d56c9; }
+        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        
+        <div class="brand-header">
+            <span class="brand-name">НМ | Никита Мельников</span>
+            <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+        </div>
+
+        <a href="index.html" onclick="if(document.referrer){history.back();return false}" class="back-link">← Меню платформы</a>
+
+        <div class="header">
+            <h1>Домашняя работа: Задание 12.2</h1>
+            <p>Правописание суффиксов причастий</p>
+        </div>
+
+        <div class="student-info">
+            <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
+        </div>
+
+        <!-- ЧАСТЬ 1: Текстовые упражнения -->
+        <div class="section-header">Часть 1. Отработка в тексте (Вставка букв)</div>
+
+        <div class="task-card" data-task-num="1">
+            <div class="task-title">Упражнение № 1</div>
+            <div class="instruction">Вставьте пропущенные буквы в суффиксы страдательных причастий:</div>
+            <div class="sentence-box">
+                1) Тесто хорошо замеш<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>но. Сосед оказался замеш<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>н в неприятную историю. 2) Окопы были обстрел<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>ны неприятелем. Подстрел<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нные браконьерами утки все же спрятались в тростнике. 3) Стены комнаты были обкле<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>ны веселыми обоями. 4) Потер<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нная книга случайно нашлась. 5) Замеч<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нные вовремя недостатки удалось легко исправить. 6) На засе<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нных ранней весной полях дружно появились первые всходы. 7) Работа была оконч<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>на своевременно.
+            </div>
+        </div>
+
+        <div class="task-card" data-task-num="2">
+            <div class="task-title">Упражнение № 2</div>
+            <div class="instruction">Вставьте пропущенные буквы в суффиксы причастий настоящего времени:</div>
+            <div class="sentence-box">
+                Кле<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>щие игрушки дети, гон<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>щий табун лошадей пастух, стел<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>щийся плющ, бор<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>щийся со стихией человек, брезж<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>щий рассвет, колебл<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>мые ветром травы, мел<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>щая кофе машинка, леч<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>щий врач, пыш<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>щий здоровьем человек, реж<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>щий предмет, приемл<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>мое решение.
+            </div>
+        </div>
+
+        <div class="task-card" data-task-num="3">
+            <div class="task-title">Упражнение № 3</div>
+            <div class="instruction">Вставьте пропущенные буквы перед суффиксами причастий прошедшего времени:</div>
+            <div class="sentence-box">
+                Купл<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нная книга, разгруж<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нная баржа, пристрел<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нное ружье, нетопл<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нная печь, посаж<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нное дерево, вял<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>ная рыба, развеш<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нные сети, завеш<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нная коврами квартира, замеш<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>ное тесто, застро<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нные домами окраины, выслуш<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нное замечание, намасл<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>ные блины, удосто<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нный награды фронтовик, высуш<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>ное белье.
+            </div>
+        </div>
+
+        <div class="task-card" data-task-num="4">
+            <div class="task-title">Упражнение № 4</div>
+            <div class="instruction">Вставьте пропущенные буквы в суффиксы причастий:</div>
+            <div class="sentence-box">
+                Слыш<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>мый шум, завис<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>мый от погоды, постро<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нный дом, разве<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нные ветром, та<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>вший снег, обиж<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нный ребёнок, закле<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нный конверт, дыш<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>щий свободно, управля<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>емый процесс, увид<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нный фильм, замеч<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нный след, взлеле<span class="inline-gap"><input class="letter-input-box" maxlength="1"></span>нный цветок.
+            </div>
+        </div>
+
+        <!-- ЧАСТЬ 2: Тестовые задания ЕГЭ -->
+        <div class="section-header">Часть 2. Тестовые задания формата ЕГЭ</div>
+
+        <!-- Задание 5 -->
+        <div class="task-card" data-task-num="5">
+            <div class="task-title">Задание № 5</div>
+            <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+            <div class="options-list">
+                <div class="option-item">1) выстав..вший (товар), постро..нный</div>
+                <div class="option-item">2) картав..щий, жар..щий</div>
+                <div class="option-item">3) подравн..нный, обстрел..нный (боец)</div>
+                <div class="option-item">4) услыш..нный, смеш..нный (лес)</div>
+                <div class="option-item">5) леле..щий, хол..щий</div>
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов без пробелов">
+            </div>
+        </div>
+
+        <!-- Задание 6 -->
+        <div class="task-card" data-task-num="6">
+            <div class="task-title">Задание № 6</div>
+            <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+            <div class="options-list">
+                <div class="option-item">1) приравн..нный, поколебл..нный</div>
+                <div class="option-item">2) вымен..нный (рубль), размеш..нный (в чае сахар)</div>
+                <div class="option-item">3) разве..нные (облака), насто..нный (отвар)</div>
+                <div class="option-item">4) приемл..мый (вариант), занавеш..нное (окно)</div>
+                <div class="option-item">5) кле..щий (карандаш), бор..щиеся (спортсмены)</div>
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов без пробелов">
+            </div>
+        </div>
+
+        <!-- Задание 7 -->
+        <div class="task-card" data-task-num="7">
+            <div class="task-title">Задание № 7</div>
+            <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+            <div class="options-list">
+                <div class="option-item">1) увид..нный, налаж..нная (жизнь)</div>
+                <div class="option-item">2) вымен..нный, запа..нный</div>
+                <div class="option-item">3) дыш..щий, увенч..нный</div>
+                <div class="option-item">4) вывал..вшийся (из сумки), ненавид..вший</div>
+                <div class="option-item">5) встревож..нный, закруч..нный</div>
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов без пробелов">
+            </div>
+        </div>
+
+        <!-- Задание 8 -->
+        <div class="task-card" data-task-num="8">
+            <div class="task-title">Задание № 8</div>
+            <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+            <div class="options-list">
+                <div class="option-item">1) огранич..вший (расходы), слыш..мый</div>
+                <div class="option-item">2) курлыч..щие (журавли), тащ..щаяся (повозка)</div>
+                <div class="option-item">3) уполномоч..нный, выгул..нный (пёс)</div>
+                <div class="option-item">4) скоропорт..щиеся (продукты), ове..нный (прохладой)</div>
+                <div class="option-item">5) закле..вший, муч..мый (жаждой)</div>
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов без пробелов">
+            </div>
+        </div>
+
+        <!-- Задание 9 -->
+        <div class="task-card" data-task-num="9">
+            <div class="task-title">Задание № 9</div>
+            <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+            <div class="options-list">
+                <div class="option-item">1) маяч..щий (вдали лес), гранич..щий</div>
+                <div class="option-item">2) повал..нные (деревья), использу..мый</div>
+                <div class="option-item">3) ненави́д..вший, закле..вший</div>
+                <div class="option-item">4) слыш..щий, паш..щий (землю)</div>
+                <div class="option-item">5) приемл..мый, промасл..нный (блин)</div>
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов без пробелов">
+            </div>
+        </div>
+
+        <!-- Задание 10 -->
+        <div class="task-card" data-task-num="10">
+            <div class="task-title">Задание № 10</div>
+            <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+            <div class="options-list">
+                <div class="option-item">1) брезж..щий (рассвет), рокоч..щий</div>
+                <div class="option-item">2) разме́н..нный (рубль), уви́д..вший</div>
+                <div class="option-item">3) неприемл..мый, дви́ж..мый (идеей)</div>
+                <div class="option-item">4) насто..нный (чай), зала..вшая (собака)</div>
+                <div class="option-item">5) вы́сто..вший (в бою), невид..мый</div>
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов без пробелов">
+            </div>
+        </div>
+
+        <!-- Задание 11 -->
+        <div class="task-card" data-task-num="11">
+            <div class="task-title">Задание № 11</div>
+            <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+            <div class="options-list">
+                <div class="option-item">1) увенч..нный, неотъемл..мое (право)</div>
+                <div class="option-item">2) бре..щийся, пол..щий (огород)</div>
+                <div class="option-item">3) повыш..нный, засуш..нный</div>
+                <div class="option-item">4) щекоч..щий, противореч..щий</div>
+                <div class="option-item">5) колебл..щийся, бор..щийся (с врагом)</div>
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов без пробелов">
+            </div>
+        </div>
+
+        <!-- Задание 12 -->
+        <div class="task-card" data-task-num="12">
+            <div class="task-title">Задание № 12</div>
+            <div class="instruction">Укажите варианты ответов, в которых в обоих словах одного ряда пропущена одна и та же буква. Запишите номера ответов.</div>
+            <div class="options-list">
+                <div class="option-item">1) выглаж..нный, скро..нный (костюм)</div>
+                <div class="option-item">2) вылин..вшая (ткань), прав..вший (лошадьми)</div>
+                <div class="option-item">3) колебл..мый (волной), контролиру..мая (ситуация)</div>
+                <div class="option-item">4) задерж..нный, улучш..нный</div>
+                <div class="option-item">5) клевещ..щий, грохоч..щий</div>
+            </div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите номера ответов без пробелов">
+            </div>
+        </div>
+
+        <button type="button" id="submitBtn" class="submit-btn" onclick="processSending()">Отправить работу на проверку</button>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+    </div>
+
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+        // Авто-переход между полями ввода букв
+        document.addEventListener('DOMContentLoaded', () => {
+            const letterInputs = document.querySelectorAll('.letter-input-box');
+            letterInputs.forEach((input, index) => {
+                input.addEventListener('input', () => {
+                    if (input.value.length >= input.maxLength) {
+                        const nextInput = letterInputs[index + 1];
+                        if (nextInput) nextInput.focus();
+                    }
+                });
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Backspace' && input.value === '') {
+                        const prevInput = letterInputs[index - 1];
+                        if (prevInput) prevInput.focus();
+                    }
+                });
+            });
+        });
+
+        function processSending() {
+            const name = document.getElementById('studentName').value.trim();
+            if (!name) {
+                alert('Пожалуйста, введите ваше Имя и Фамилию.');
+                return;
+            }
+
+            const data = new URLSearchParams();
+            data.append('taskType', 'dz12_2');
+            data.append('Имя Ученика', name);
+
+            const taskCards = document.querySelectorAll('.task-card');
+            taskCards.forEach(card => {
+                const num = card.getAttribute('data-task-num');
+                const letterInputs = card.querySelectorAll('.letter-input-box');
+                
+                if (letterInputs.length > 0) {
+                    // Часть 1: собираем введенные буквы и генерируем полный текст
+                    const letters = Array.from(letterInputs).map(inp => inp.value.trim() || '_');
+                    
+                    const sentenceBox = card.querySelector('.sentence-box').cloneNode(true);
+                    const clonedInputs = sentenceBox.querySelectorAll('.letter-input-box');
+                    clonedInputs.forEach((inp, idx) => {
+                        const val = letterInputs[idx].value.trim() || '_';
+                        const span = document.createElement('span');
+                        span.textContent = val;
+                        span.style.fontWeight = 'bold';
+                        span.style.color = '#2368EE';
+                        inp.parentNode.replaceChild(span, inp);
+                    });
+                    const fullText = sentenceBox.innerText.trim();
+
+                    data.append(`Задание_${num}_letters`, letters.join(', '));
+                    data.append(`Задание_${num}_text`, fullText);
+                } else {
+                    // Часть 2: тестовые задания ЕГЭ
+                    const input = card.querySelector('.answer-input');
+                    const val = input ? input.value.trim() : '';
+                    data.append(`Задание_${num}`, val);
+                }
+            });
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Отправка данных...';
+
+            fetch(WEB_APP_URL, { method: 'POST', body: data, mode: 'no-cors' })
+            .then(() => {
+                document.getElementById('mainContainer').innerHTML = `
+                    <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+                        <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+                        <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+                        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+                    </div>
+                `;
+            })
+            .catch(() => {
+                alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
+                btn.disabled = false;
+                btn.textContent = 'Отправить работу на проверку';
+            });
+        }
+    </script>
+</body>
+</html>
