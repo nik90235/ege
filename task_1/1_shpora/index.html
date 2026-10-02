@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>1 задание ЕГЭ: Полная шпаргалка по частям речи</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 12px; 
+            line-height: 1.5; 
+        }
+
+        .container { 
+            max-width: 920px; 
+            margin: 0 auto; 
+        }
+        
+        /* Шапка бренда */
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link { 
+            display: inline-flex; 
+            align-items: center; 
+            text-decoration: none; 
+            color: #2368EE; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-bottom: 12px; 
+            cursor: pointer;
+        }
+
+        .header { 
+            border-bottom: 3px solid #EE6023; 
+            padding-bottom: 10px; 
+            margin-bottom: 16px; 
+            text-align: center; 
+        }
+        .header h1 { 
+            font-size: 22px; 
+            font-weight: 900; 
+            color: #2368EE; 
+            text-transform: uppercase; 
+            margin-bottom: 4px; 
+            line-height: 1.2;
+        }
+        .header p { 
+            font-size: 11px; 
+            font-weight: 700; 
+            color: #929292; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+        }
+
+        /* Фиксированные табы навигации для мобильных устройств */
+        .nav-wrapper {
+            background-color: #FFFFFF;
+            padding: 4px 0 10px 0;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #E0E0E0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .category-nav {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 4px;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-x;
+            scrollbar-width: none;
+        }
+        .category-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-btn {
+            background-color: #F4F7FE;
+            border: 1px solid #AFAFAF;
+            color: #2368EE;
+            padding: 10px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            flex-shrink: 0;
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-user-select: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            outline: none;
+            transition: background-color 0.15s ease, color 0.15s ease;
+        }
+
+        .nav-btn.active {
+            background-color: #2368EE;
+            color: #FFFFFF;
+            border-color: #2368EE;
+        }
+
+        /* Секции контента */
+        .category-section {
+            display: none;
+        }
+        .category-section.active {
+            display: block;
+        }
+
+        .section-header-title {
+            font-size: 17px;
+            font-weight: 900;
+            color: #2368EE;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #2368EE;
+            padding-bottom: 4px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            font-weight: 700;
+            color: #EE6023;
+            text-transform: uppercase;
+            margin: 16px 0 8px 0;
+        }
+
+        /* Таблицы и их адаптивность под карточки на телефонах */
+        .table-responsive {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        .theory-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #FFFFFF;
+        }
+
+        .theory-table th, .theory-table td {
+            border: 1px solid #AFAFAF;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 13px;
+        }
+
+        .theory-table th {
+            background-color: #F4F7FE;
+            color: #2368EE;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .col-category {
+            width: 32%;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .col-examples {
+            width: 68%;
+            font-weight: 500;
+            color: #2368EE;
+            background-color: #F8FAFC;
+            line-height: 1.5;
+        }
+
+        /* Адаптация под узкие мобильные экраны (Карточный вид без обрезания) */
+        @media (max-width: 640px) {
+            body { padding: 8px; }
+            
+            .header h1 { font-size: 18px; }
+
+            .theory-table, 
+            .theory-table tbody, 
+            .theory-table tr, 
+            .theory-table td {
+                display: block;
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+
+            .theory-table thead {
+                display: none;
+            }
+
+            .theory-table tr {
+                margin-bottom: 10px;
+                border: 1px solid #AFAFAF;
+                border-radius: 8px;
+                overflow: hidden;
+                background-color: #FFFFFF;
+            }
+
+            .theory-table td.col-category {
+                background-color: #F4F7FE;
+                color: #2368EE;
+                font-weight: 700;
+                padding: 10px 12px;
+                border: none;
+                border-bottom: 1px solid #E0E0E0;
+                font-size: 13px;
+            }
+
+            .theory-table td.col-examples {
+                padding: 10px 12px;
+                background-color: #FFFFFF;
+                border: none;
+                color: #000000;
+                font-size: 13px;
+                line-height: 1.5;
+            }
+        }
+
+        .info-box {
+            background-color: #FFF5F0;
+            border-left: 4px solid #EE6023;
+            border-radius: 0 8px 8px 0;
+            padding: 12px 14px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            color: #EE6023;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            font-size: 12px;
+        }
+
+        .footer { 
+            text-align: center; 
+            margin-top: 30px; 
+            font-size: 12px; 
+            color: #929292; 
+            font-weight: 700; 
+            border-top: 1px solid #E0E0E0; 
+            padding-top: 16px; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Шапка бренда -->
+        <div class="brand-header">
+            <span class="brand-name">НМ | Никита Мельников</span>
+            <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+        </div>
+
+        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link">← Меню платформы</a>
+
+        <!-- Заголовок -->
+        <div class="header">
+            <h1>1 Задание ЕГЭ: Теория и Средства Связи</h1>
+            <p>Наглядный справочник по всем частям речи</p>
+        </div>
+
+        <!-- Переключатели категорий -->
+        <div class="nav-wrapper">
+            <div class="category-nav">
+                <button type="button" class="nav-btn active" data-target="prepositions">Предлоги</button>
+                <button type="button" class="nav-btn" data-target="conjunctions">Союзы</button>
+                <button type="button" class="nav-btn" data-target="particles">Частицы</button>
+                <button type="button" class="nav-btn" data-target="pronouns">Местоимения</button>
+                <button type="button" class="nav-btn" data-target="adverbs">Наречия</button>
+                <button type="button" class="nav-btn" data-target="parenthesis">Вводные слова</button>
+                <button type="button" class="nav-btn" data-target="numerals">Числительные</button>
+            </div>
+        </div>
+
+        <!-- ==================== 1. ПРЕДЛОГИ ==================== -->
+        <div id="prepositions" class="category-section active">
+            <div class="section-header-title">Предлоги</div>
+
+            <div class="section-subtitle">1. По составу</div>
+            <div class="table-responsive">
+                <table class="theory-table">
+                    <thead>
+                        <tr>
+                            <th>Разряд по составу</th>
+                            <th>Примеры предлогов</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Простые</td>
+                            <td class="col-examples">без, в, до, для, за, из, к, на, над, о, от, по, перед, при, про, с, у, через</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Сложные</td>
+                            <td class="col-examples">из-за, из-под</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Составные</td>
+                            <td class="col-examples">в течение, в продолжение, несмотря на, в соответствии с и др.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section-subtitle">2. По происхождению</div>
+            <div class="table-responsive">
+                <table class="theory-table">
+                    <thead>
+                        <tr>
+                            <th>Разряд по происхождению</th>
+                            <th>Примеры предлогов</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Непроизводные</td>
+                            <td class="col-examples">без, в, под, от, до, для, за, из, к, на, над, о, по, перед, при, про, с, у, через</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">От существительных</td>
+                            <td class="col-examples">в течение, в продолжение, по мере, ввиду, вследствие, насчёт, по поводу, в соответствии с, посредством, за счёт, наподобие, вроде, в виде</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">От наречий</td>
+                            <td class="col-examples">возле, вокруг, мимо, после, позади</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">От деепричастий</td>
+                            <td class="col-examples">спустя, благодаря, включая, несмотря на</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section-subtitle">3. По значению</div>
+            <div class="table-responsive">
+                <table class="theory-table">
+                    <thead>
+                        <tr>
+                            <th>Разряд по значению</th>
+                            <th>Примеры предлогов</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Объектные</td>
+                            <td class="col-examples">о, про, насчёт, по поводу</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Источник информации</td>
+                            <td class="col-examples">по, согласно, в соответствии с, на основе, на основании</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Образа действия</td>
+                            <td class="col-examples">посредством, за счёт, с помощью, при помощи</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Временные</td>
+                            <td class="col-examples">в, в течение, в продолжение, по мере, около, спустя</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Пространственные</td>
+                            <td class="col-examples">до, из, к, на, над, от, по, под, перед, у, через, около</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Причинные</td>
+                            <td class="col-examples">из-за, ввиду, вследствие, по причине, благодаря</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Целевые</td>
+                            <td class="col-examples">для, за, в целях</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Уступительные</td>
+                            <td class="col-examples">несмотря на, вопреки</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Условные</td>
+                            <td class="col-examples">при, при условии</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Сравнительные</td>
+                            <td class="col-examples">наподобие, вроде, в виде</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ==================== 2. СОЮЗЫ ==================== -->
+        <div id="conjunctions" class="category-section">
+            <div class="section-header-title">Союзы</div>
+
+            <div class="info-box">
+                <div class="info-box-title">Структура союзов:</div>
+                • <strong>Простые:</strong> <em>но, а, однако</em>:<br>
+                • <strong>Составные:</strong> <em>как... так и, не только... но и</em>:<br>
+                • <strong>Повторяющиеся:</strong> <em>то ли... то ли, и... и, ни... ни</em>:<br>
+                • <strong>Двойные:</strong> <em>не только... но и, если не... то</em>:
+            </div>
+
+            <div class="section-subtitle">Сочинительные союзы</div>
+            <div class="table-responsive">
+                <table class="theory-table">
+                    <thead>
+                        <tr>
+                            <th>Разряд</th>
+                            <th>Примеры союзов</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Соединительные</td>
+                            <td class="col-examples">и, да (=и), не только... но и, также, тоже, и... и, ни... ни, как... так и, сколько... столько и:</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Разделительные</td>
+                            <td class="col-examples">или, или... или, либо, либо... либо, то... то, то ли... то ли, не то... не то:</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Противительные</td>
+                            <td class="col-examples">а, но, да (=но), зато, же, однако, однако же, все же:</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Градационные</td>
+                            <td class="col-examples">не только... но и; не то чтобы... а; не столько... сколько:</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Присоединительные</td>
+                            <td class="col-examples">тоже, также, да и, притом, причем:</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Пояснительные</td>
+                            <td class="col-examples">а именно, то есть, или (=то есть):</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section-subtitle">Подчинительные союзы</div>
+            <div class="table-responsive">
+                <table class="theory-table">
+                    <thead>
+                        <tr>
+                            <th>Разряд</th>
+                            <th>Примеры союзов</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Временные</td>
+                            <td class="col-examples">когда, пока, едва, лишь, лишь только, как только и др.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Причинные</td>
+                            <td class="col-examples">потому что, оттого что, из-за того что, в силу того что, вследствие того что, так как, поскольку и др.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Целевые</td>
+                            <td class="col-examples">чтобы, для того чтобы, с тем чтобы и др.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Условные</td>
+                            <td class="col-examples">если, раз, ежели, коли и др.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Уступительные</td>
+                            <td class="col-examples">пускай, хотя, несмотря на то что и др.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Сравнительные</td>
+                            <td class="col-examples">как будто, словно, точно, как, будто, что (в значении как, будто) и др.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Следственные</td>
+                            <td class="col-examples">так что</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Изъяснительные</td>
+                            <td class="col-examples">что, чтобы, как и др.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">Важно: Подчинительный союз VS Союзное слово</div>
+                • <strong>Союз:</strong> Можно исключить без ущерба смыслу; НЕ является членом предложения.<br>
+                • <strong>Союзное слово:</strong> Нельзя исключить; отвечает на вопрос и ЯВЛЯЕТСЯ членом предложения (наречия <em>где, когда, как, почему, отчего</em> и др.).
+            </div>
+        </div>
+
+        <!-- ==================== 3. ЧАСТИЦЫ ==================== -->
+        <div id="particles" class="category-section">
+            <div class="section-header-title">Частицы</div>
+
+            <div class="section-subtitle">1. Смысловые частицы</div>
+            <div class="table-responsive">
+                <table class="theory-table">
+                    <thead>
+                        <tr>
+                            <th>Разряд</th>
+                            <th>Примеры частиц</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Указательные</td>
+                            <td class="col-examples">вот, вон, это, вот и</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Уточняющие</td>
+                            <td class="col-examples">именно, как раз, почти</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Усилительные</td>
+                            <td class="col-examples">даже, ведь, же, уж, уже, и, то, -таки, всё-таки</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Выделительно-ограничительные</td>
+                            <td class="col-examples">только, лишь, лишь только, всего, всего лишь, просто, исключительно, единственно</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Вопросительные</td>
+                            <td class="col-examples">разве, неужели, ли, ль</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Восклицательные</td>
+                            <td class="col-examples">что за, как, какой, просто, ну и, прямо</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Уступительные</td>
+                            <td class="col-examples">хоть, хоть бы</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Сравнительные</td>
+                            <td class="col-examples">как, будто, как будто, точно, словно</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Выражающие сомнение</td>
+                            <td class="col-examples">вряд ли, едва ли</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Ссылка на чужие слова</td>
+                            <td class="col-examples">мол, дескать, -де</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Смягчение ситуации</td>
+                            <td class="col-examples">-ка, -тка, -тко, -с</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Утвердительные</td>
+                            <td class="col-examples">да, точно, так</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Отрицательные</td>
+                            <td class="col-examples">не, ни, далеко не, ничуть не, вовсе не</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section-subtitle">2. Формообразующие частицы</div>
+            <div class="table-responsive">
+                <table class="theory-table">
+                    <thead>
+                        <tr>
+                            <th>Функция</th>
+                            <th>Примеры частиц</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Условное наклонение</td>
+                            <td class="col-examples">бы, б</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Повелительное наклонение</td>
+                            <td class="col-examples">да, давай, давайте, пусть, пускай</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Степени сравнения</td>
+                            <td class="col-examples">более, менее, самый, всех, всего</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ==================== 4. МЕСТОИМЕНИЯ ==================== -->
+        <div id="pronouns" class="category-section">
+            <div class="section-header-title">Местоимения</div>
+
+            <div class="info-box">
+                <div class="info-box-title">Ловушка: Притяжательные VS Личные</div>
+                Формы <strong>ЕЁ, ЕГО, ИХ</strong> совпадают:<br>
+                • <strong>Притяжательное (вопрос ЧЕЙ?):</strong> <em>Его сумка (чья?). Её дом (чей?).</em><br>
+                • <strong>Личное (вопрос КОГО?):</strong> <em>Слушал его (кого?). Напугали её (кого?).</em>
+            </div>
+
+            <div class="table-responsive">
+                <table class="theory-table">
+                    <thead>
+                        <tr>
+                            <th>Разряд</th>
+                            <th>Примеры местоимений</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Личные</td>
+                            <td class="col-examples">я, мы, ты, вы, он, она, оно, они</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Возвратное</td>
+                            <td class="col-examples">себя</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Притяжательные (чей?)</td>
+                            <td class="col-examples">мой, твой, наш, ваш, его, её, их</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Вопросительные</td>
+                            <td class="col-examples">кто? что? какой? чей? который? сколько? где? когда? куда? откуда? почему? зачем? и др.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Относительные</td>
+                            <td class="col-examples">кто, что, какой, чей, который, сколько, где, когда, куда, откуда и др.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Неопределенные</td>
+                            <td class="col-examples">некто, нечто, некоторый, несколько, некогда, кто-то, что-то, кто-нибудь, какой-то, когда-то, где-то, кое-кто, кое-где и др.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Отрицательные</td>
+                            <td class="col-examples">никто, ничто, некого, нечего, никакой, ничей, нигде, никогда, никуда и др.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Указательные</td>
+                            <td class="col-examples">этот, тот, таков, столько, там, тут, туда, тогда, поэтому, оттуда, так, отсюда, сюда, здесь</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Определительные</td>
+                            <td class="col-examples">весь, всякий, сам, самый, каждый, иной, любой, другой</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ==================== 5. НАРЕЧИЯ ==================== -->
+        <div id="adverbs" class="category-section">
+            <div class="section-header-title">Наречия</div>
+
+            <div class="section-subtitle">1. По функциям</div>
+            <div class="table-responsive">
+                <table class="theory-table">
+                    <thead>
+                        <tr>
+                            <th>Группа по функциям</th>
+                            <th>Примеры и разряды наречий</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Знаменательные</td>
+                            <td class="col-examples">идти (как?) <em>быстро</em>; стеснительный (в какой степени?) <em>чрезмерно</em>; улыбка (какая?) <em>невзначай</em>:.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Вопросительные</td>
+                            <td class="col-examples">Где? Куда? Когда? Как? Зачем? Отчего? Почему?:</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Относительные</td>
+                            <td class="col-examples">где, куда, когда, зачем, как, почему, отчего:</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Отрицательные</td>
+                            <td class="col-examples">нигде, никуда, никогда, негде, некуда, некогда, ниоткуда, никак, незачем, нипочём:</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Неопределённые</td>
+                            <td class="col-examples">где-то, где-либо, где-нибудь, куда-нибудь, куда-либо, куда-то, кое-куда, когда-то, когда-нибудь, когда-либо, как-то, кое-как, как-нибудь, зачем-то, отчего-то, отчего-нибудь, отчего-либо, почему-то, почему-либо, почему-нибудь:.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Указательные</td>
+                            <td class="col-examples">здесь, там, тут, туда, так, оттуда, тогда, затем, оттого, потому, поэтому:</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Определительные</td>
+                            <td class="col-examples">везде, всюду, отовсюду, всегда, всячески, по-всякому, по-иному, по-другому:</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section-subtitle">2. По значению</div>
+            <div class="table-responsive">
+                <table class="theory-table">
+                    <thead>
+                        <tr>
+                            <th>Разряд по значению</th>
+                            <th>Примеры наречий</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Места (где? куда? откуда?)</td>
+                            <td class="col-examples">где, там, тут, здесь:</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Времени (когда? как долго?)</td>
+                            <td class="col-examples">когда, тогда, всегда:</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Образа действия (как?)</td>
+                            <td class="col-examples">как, так:</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Порядок мыслей</td>
+                            <td class="col-examples">прежде всего, потом, затем, незачем</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Причинно-следственные</td>
+                            <td class="col-examples">почему, поэтому, потому, оттого, отчего</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">Примечание: Наречия в роли союзных слов</div>
+                Наречия <strong>где, когда, как, почему, отчего</strong> могут выступать в роли союзных слов в СПП.
+            </div>
+        </div>
+
+        <!-- ==================== 6. ВВОДНЫЕ СЛОВА ==================== -->
+        <div id="parenthesis" class="category-section">
+            <div class="section-header-title">Вводные слова и конструкции</div>
+
+            <div class="table-responsive">
+                <table class="theory-table">
+                    <thead>
+                        <tr>
+                            <th>Группа по значению</th>
+                            <th>Примеры вводных слов</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Чувства говорящего</td>
+                            <td class="col-examples">К счастью, к несчастью, к ужасу, к стыду, на беду, на радость и т.д.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Степень уверенности</td>
+                            <td class="col-examples">Может, может быть, по-видимому, по сути, кажется, казалось бы, бесспорно, правда, надо полагать, безусловно и т.д.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Связь мыслей, порядок</td>
+                            <td class="col-examples">Итак, следовательно, к слову сказать, во-первых, во-вторых, с другой стороны, к примеру, главное, таким образом, кстати, значит, наоборот и т.д.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Источник сообщения</td>
+                            <td class="col-examples">По слухам, говорят, по мнению кого-либо, на мой взгляд, по-моему, по преданию, помнится, сообщают, передают и т.д.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Оформление мыслей</td>
+                            <td class="col-examples">Другими словами, иными словами, попросту сказать, мягко выражаясь, одним словом и т.д.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Призыв к собеседнику</td>
+                            <td class="col-examples">Знаешь (ли), знаете (ли), пойми, извините, простите, послушайте, поверьте, согласитесь, вообразите, пожалуйста и т.д.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Оценка меры</td>
+                            <td class="col-examples">По крайней мере, самое большее, самое меньшее и т.д.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Степень обычности</td>
+                            <td class="col-examples">По обыкновению, бывает, бывало, случается и т.д.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Экспрессивность</td>
+                            <td class="col-examples">Сказать по чести, честно говоря, по правде, по совести, смешно сказать и т.д.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ==================== 7. ЧИСЛИТЕЛЬНЫЕ ==================== -->
+        <div id="numerals" class="category-section">
+            <div class="section-header-title">Числительные</div>
+
+            <div class="table-responsive">
+                <table class="theory-table">
+                    <thead>
+                        <tr>
+                            <th>Разряд</th>
+                            <th>Определение и примеры</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Собирательные</td>
+                            <td class="col-examples">
+                                Обозначают количество как совокупность.<br>
+                                <strong>Примеры:</strong> двое, трое, оба, обе, четверо, пятеро, шестеро, семеро.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Порядковые</td>
+                            <td class="col-examples">
+                                Называют порядковый номер при счете.<br>
+                                <strong>Примеры:</strong> первый, второй, пятый, десятый и т.д.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Подвал -->
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+    </div>
+
+    <!-- Полностью рабочая логика переключения для мобильных систем (iOS / Android) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const sections = document.querySelectorAll('.category-section');
+
+            function setActiveTab(targetId) {
+                // Смена активности кнопок
+                navButtons.forEach(btn => {
+                    if (btn.getAttribute('data-target') === targetId) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                // Переключение видимости блоков
+                sections.forEach(sec => {
+                    if (sec.id === targetId) {
+                        sec.classList.add('active');
+                    } else {
+                        sec.classList.remove('active');
+                    }
+                });
+            }
+
+            // Вешаем обработчик события клика на стандартные HTML <button>
+            navButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('data-target');
+                    if (targetId) {
+                        setActiveTab(targetId);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
