@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМАШНЯЯ РАБОТА: МЕСТОИМЕНИЯ (ЗАДАНИЕ 1)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.5; 
+        }
+        .container { max-width: 650px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #2368EE;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .student-info { background: #fff; padding: 20px; border-radius: 6px; margin-bottom: 24px; border: 1px solid #AFAFAF; }
+        .student-info input { width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; outline: none; background: #F8FAFC; }
+        .student-info input:focus { border-color: #2368EE; background: #fff; }
+
+        .task-card { 
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            padding: 24px; 
+            margin-bottom: 20px; 
+        }
+        .task-title { 
+            display: inline-block;
+            background-color: #F4F7FE; 
+            padding: 6px 12px; 
+            border-radius: 6px;
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #2368EE; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            margin-bottom: 16px; 
+        }
+        
+        .sentence-box { 
+            font-size: 15px; 
+            font-weight: 500;
+            margin-bottom: 16px; 
+            line-height: 1.6; 
+            padding: 16px 20px; 
+            background: #F4F7FE;
+            border-left: 4px solid #EE6023; 
+            border-radius: 0 6px 6px 0;
+            color: #000000;
+        }
+        .sentence-box p { margin-bottom: 12px; }
+        .sentence-box p:last-child { margin-bottom: 0; }
+        .author { margin-top: 8px; font-style: italic; color: #555; }
+
+        .instruction { font-weight: 700; margin-bottom: 14px; font-size: 15px; color: #000000; }
+        
+        .input-block { display: flex; flex-direction: column; gap: 8px; }
+        .input-label { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 0.5px; }
+        .answer-input { 
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 15px; 
+            font-weight: 500;
+            outline: none; 
+            transition: all 0.2s ease;
+        }
+        .answer-input:focus { border-color: #2368EE; }
+
+        .submit-btn {
+            background: #2368EE;
+            color: #fff;
+            border: none;
+            padding: 16px 30px;
+            font: 700 16px 'Inter', sans-serif;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 12px;
+            transition: all 0.2s ease;
+        }
+        .submit-btn:hover { background-color: #1d56c9; }
+        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        
+        <div class="brand-header">
+            <span class="brand-name">НМ | Никита Мельников</span>
+            <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+        </div>
+
+        <a href="../index.html" onclick="if(document.referrer){history.back();return false}" class="back-link">← Меню платформы</a>
+
+        <div class="header">
+            <h1>Домашняя работа: Задание 1</h1>
+            <p>Средства связи предложений в тексте (Местоимения)</p>
+        </div>
+
+        <div class="student-info">
+            <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
+        </div>
+
+        <!-- Задание 1 -->
+        <div class="task-card" data-task-num="1">
+            <div class="task-title">Задание 1</div>
+            <div class="sentence-box">
+                <p>Летний вечер. Как-то отдалённо, но верно чувствуется, что осень не за горами. Однако пока ещё тепло, тепло…</p>
+                <p>Поскольку дело происходит на даче, все сидят на скамеечке перед домом. Разговор идёт вперевалочку, говорить не хочется, а хочется просто вдыхать ночной, пока ещё летний воздух. Вдруг на небе — чирк! — звезда падает, за ней вторая. Все оживляются, торопятся загадать желание. Кто-то говорит:</p>
+                <p>— А рано в этом году звёзды падать начали…</p>
+                <p>— Да как же, — отвечают ему, — первые дни августа. Небо вон уже августо́вское. Или а́вгустовское?</p>
+                <p>Да что там небо! Зарплата-то какая, «августо́вская» или «а́вгустовская»?</p>
+                <p>О деньгах ли идёт речь или о небосклоне — слово-то одно! И произносит это слово <b>&lt;...&gt;</b> раз по-разному. А хотелось бы одинаковости.</p>
+                <p>Порадовать вас особенно нечем: увы, в словарях есть варианты, а для любителей определённости ничего не может быть хуже вариантов...</p>
+                <p class="author">(По М. А. Королёвой)</p>
+            </div>
+            <div class="instruction">Самостоятельно подберите определительное местоимение, которое должно стоять на месте пропуска в пятом (5) абзаце текста. Запишите это определительное местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите местоимение...">
+            </div>
+        </div>
+
+        <!-- Задание 2 -->
+        <div class="task-card" data-task-num="2">
+            <div class="task-title">Задание 2</div>
+            <div class="sentence-box">
+                <p>Основная задача пожарных — эффективно действовать в чрезвычайной ситуации при возгорании в различных местах с целью спасения человеческой жизни и ликвидации пожара.</p>
+                <p>В России работа пожарного издавна пользовалась уважением в народе. Не случайно многие лица высшего света считали своим долгом оказывать помощь пожарной охране. Широко известно высказывание писателя В. А. Гиляровского: «Каждый пожарный — герой, каждую минуту — на войне, каждую минуту рискует головой».</p>
+                <p>Когда-то пожары тушили всем миром: для этого жители обязаны были сбегаться немедленно к месту пожара с топорами, вёдрами, крючьями и «всяческими запасами, которые от пожара пристойны». Однако стихийная борьба с огнём по мере оформления государственности требовала упорядоченности, и уже в царствование Петра I был издан указ о привлечении к тушению пожаров войск, а затем появились воинские пожарные команды под руководством офицеров.</p>
+                <p>В России первая профессиональная пожарная охрана была организована в Петербурге 24 июля 1803 г. Она состояла «из солдат, неспособных к фронтовой службе». В последующие годы такие солдатские команды появились и в <b>&lt;...&gt;</b> городах. Пожарные части должны были иметь здания с нужными постройками для размещения инструментов, обоза, людей и лошадей...</p>
+            </div>
+            <div class="instruction">Самостоятельно подберите определительное местоимение, которое должно стоять на месте пропуска в четвёртом (4) абзаце текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите местоимение...">
+            </div>
+        </div>
+
+        <!-- Задание 3 -->
+        <div class="task-card" data-task-num="3">
+            <div class="task-title">Задание 3</div>
+            <div class="sentence-box">
+                <p>Основными погодными факторами, влияющими на распространение пожара, являются ветер, влажность, осадки, а также температура воздуха.</p>
+                <p>Ветер способствует дополнительному притоку кислорода, переносу горящих предметов на расположенные по направлению ветра горючие материалы, что вызывает возникновение новых очагов пожара. Одновременно лесной пожар способствует возникновению конвективных воздушных потоков, усиливающих распространение пламени. Нагретый над очагом пожара воздух поднимается вверх. На <b>&lt;...&gt;</b> место устремляется менее нагретый воздух, богатый кислородом, который поддерживает процесс горения...</p>
+                <p class="author">(По В. Н. Козлову)</p>
+            </div>
+            <div class="instruction">Самостоятельно подберите притяжательное местоимение, которое должно стоять на месте пропуска во втором (2) абзаце текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите местоимение...">
+            </div>
+        </div>
+
+        <!-- Задание 4 -->
+        <div class="task-card" data-task-num="4">
+            <div class="task-title">Задание 4</div>
+            <div class="sentence-box">
+                <p>Норильск. 12.Х.75</p>
+                <p>Здравствуй, Андрюша! Пишу тебе из Норильска. Знаешь, что такое тридцать пять градусов мороза? Это удивительно! Плотно, сплошь, глубоко лежащий снег — белая земля и дома — розовые, светло-зелёные, жёлтые акварели...</p>
+                <p>Познакомился с артистами Норильского драматического театра. Живётся <b>&lt;...&gt;</b>, думаю, нелегко, но ни слова о трудностях житейского порядка не услышал. Проблемы творческие: пьесы, новые постановки, молодые режиссёры, где, кто, что? Репертуар московских театров, художественные задачи те же, что и у нас. Про них говорят: «Рука большой земли»! Вот молодцы!</p>
+                <p class="author">(По Е. П. Леонову)</p>
+            </div>
+            <div class="instruction">Самостоятельно подберите личное местоимение, которое должно стоять на месте пропуска в предпоследнем абзаце текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите местоимение...">
+            </div>
+        </div>
+
+        <!-- Задание 5 -->
+        <div class="task-card" data-task-num="5">
+            <div class="task-title">Задание 5</div>
+            <div class="sentence-box">
+                <p>С высокого веркольского берега видно далеко-далеко: внизу зелёные травы поймы, жёлтый песок Пинеги, за каменистыми осыпями противоположного берега встают белые стены древнего Веркольского монастыря...</p>
+                <p>Но не только своей неповторимой природой замечателен архангельский Север.</p>
+                <p>Эта земля издавна была передним краем русской национальной активности; в течение нескольких веков шло освоение этих трудных, суровых краёв... Ерофей Хабаров, Семён Дежнёв и многие другие отважные исследователи и первооткрыватели, <b>&lt;...&gt;</b> имена можно увидеть на карте нашей Родины, — сыны Архангелогородчины.</p>
+                <p class="author">(По В. М. Акимову)</p>
+            </div>
+            <div class="instruction">Самостоятельно подберите относительное местоимение (союзное слово), которое должно стоять на месте пропуска в третьем (3) абзаце текста. Запишите это местоимение (союзное слово).</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите местоимение...">
+            </div>
+        </div>
+
+        <!-- Задание 6 -->
+        <div class="task-card" data-task-num="6">
+            <div class="task-title">Задание 6</div>
+            <div class="sentence-box">
+                <p>В юности я приехал впервые в Москву и нечаянно набрел на церковь Успения на Покровке (1696–1699). Встреча с ней меня ошеломила. Передо мной вздымалось застывшее облако бело-красных кружев. Ее легкость была такова, что вся она казалась воплощением неведомой идеи, мечтой о <b>&lt;...&gt;</b> неслыханно прекрасном. Но вот пришли люди и снесли церковь. Теперь на этом месте пустырь...</p>
+                <p class="author">(По Д. С. Лихачёву)</p>
+            </div>
+            <div class="instruction">Самостоятельно подберите неопределённое местоимение, которое должно стоять на месте пропуска в четвёртом предложении текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите местоимение...">
+            </div>
+        </div>
+
+        <!-- Задание 7 -->
+        <div class="task-card" data-task-num="7">
+            <div class="task-title">Задание 7</div>
+            <div class="sentence-box">
+                <p>Жил-был когда-то среди арабов халат. И был <b>&lt;...&gt;</b> не простой, а, можно сказать, парадный халат. Назывался он Джубба, точнее, Аль Джубба, потому что арабы любят начинать свои слова с «аль». Парадный Аль Джубба не догадывался, какие скитания уготованы ему в истории.</p>
+                <p>Всему виной оказались кафиры-европейцы. Они ещё в Средние века присвоили себе арабское название...</p>
+                <p class="author">(По А. Янковскому)</p>
+            </div>
+            <div class="instruction">Самостоятельно подберите указательное местоимение, которое должно стоять на месте пропуска в первом (1) абзаце текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите местоимение...">
+            </div>
+        </div>
+
+        <!-- Задание 8 -->
+        <div class="task-card" data-task-num="8">
+            <div class="task-title">Задание 8</div>
+            <div class="sentence-box">
+                <p><b>Скоморох-потешник</b></p>
+                <p>Верьте аль не верьте, а жил на белом свете Федот-стрелец, удалой молодец. Был Федот ни красавец, ни урод, ни румян, ни бледен, ни богат, ни беден, ни в парше, ни в парче, а так, вообче. Служба у Федота — рыбалка да охота. Царю — дичь да рыба, Федоту — спасибо. Гостей во дворце — как семян в огурце. Один из Швеции, другой из Греции, третий с Гавай — и всем жрать подавай! <b>&lt;...&gt;</b> — омаров, второму — кальмаров, третьему — сардин, а добытчик один!...</p>
+                <p class="author">(По Л. А. Филатову)</p>
+            </div>
+            <div class="instruction">Самостоятельно подберите указательное местоимение, которое должно стоять на месте пропуска в реплике скомороха-потешника. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите местоимение...">
+            </div>
+        </div>
+
+        <!-- Задание 9 -->
+        <div class="task-card" data-task-num="9">
+            <div class="task-title">Задание 9</div>
+            <div class="sentence-box">
+                <p>День в парке встречает горожан шумом строительных машин. Сегодня здесь происходит настоящее чудо — старейший парк города переживает второе рождение.</p>
+                <p>Фундаментальная реконструкция началась всего месяц назад, но уже сейчас видны первые результаты...</p>
+                <p>Завершение работ запланировано на конец осени, и уже сейчас можно представить, <b>&lt;...&gt;</b> жители увидят этот объект после реконструкции. Горожан ждёт обновлённый парк с современной инфраструктурой, где каждый найдёт занятие по душе.</p>
+            </div>
+            <div class="instruction">Самостоятельно подберите относительное местоимение, которое должно стоять на месте пропуска в последнем абзаце текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите местоимение...">
+            </div>
+        </div>
+
+        <!-- Задание 10 -->
+        <div class="task-card" data-task-num="10">
+            <div class="task-title">Задание 10</div>
+            <div class="sentence-box">
+                <p>Россия не только государство… Она — сверхгосударство, океан, стихия, которая ещё не оформилась, не влегла в свои, предназначенные ей берега...</p>
+                <p>Россия — не только страна мгновенного настоящего. Она — страна великого прошлого, с которым держит неразрывную связь. В <b>&lt;...&gt;</b> берёзовых солнечных рощах по сей день правятся богослужения древним богам. В её окраинных лесах до сей поры шумят священные дубы, кедры...</p>
+                <p class="author">(По Н. Рериху)</p>
+            </div>
+            <div class="instruction">Самостоятельно подберите притяжательное местоимение, которое должно стоять на месте пропуска в предпоследнем абзаце текста. Запишите это местоимение.</div>
+            <div class="input-block">
+                <span class="input-label">Ваш ответ:</span>
+                <input type="text" class="answer-input" placeholder="Введите местоимение...">
+            </div>
+        </div>
+
+        <button type="button" id="submitBtn" class="submit-btn" onclick="processSending()">Отправить работу на проверку</button>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+
+    </div>
+
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+        function processSending() {
+            const name = document.getElementById('studentName').value.trim();
+            if (!name) {
+                alert('Пожалуйста, введите ваше Имя и Фамилию.');
+                return;
+            }
+
+            const data = new URLSearchParams();
+            data.append('taskType', 'dz_1_2');
+            data.append('Имя Ученика', name);
+
+            const taskCards = document.querySelectorAll('.task-card');
+            taskCards.forEach(card => {
+                const num = card.getAttribute('data-task-num');
+                const input = card.querySelector('.answer-input');
+                const val = input ? input.value.trim() : '';
+                data.append(`Задание_${num}`, val);
+            });
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Отправка данных...';
+
+            fetch(WEB_APP_URL, { method: 'POST', body: data, mode: 'no-cors' })
+            .then(() => {
+                document.getElementById('mainContainer').innerHTML = `
+                    <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+                        <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+                        <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+                        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+                    </div>
+                `;
+            })
+            .catch(() => {
+                alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
+                btn.disabled = false;
+                btn.textContent = 'Отправить работу на проверку';
+            });
+        }
+    </script>
+</body>
+</html>
