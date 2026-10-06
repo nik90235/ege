@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМАШНЯЯ РАБОТА 5.1: СЛОВАРЬ ПАРОНИМОВ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.5; 
+        }
+        .container { max-width: 900px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { color: #2368EE; }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link { 
+            display: inline-flex; 
+            align-items: center; 
+            text-decoration: none; 
+            color: #2368EE; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            transition: color 0.2s; 
+            cursor: pointer;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 26px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .student-info { background: #fff; padding: 20px; border-radius: 6px; margin-bottom: 24px; border: 1px solid #AFAFAF; }
+        .student-info input { width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; outline: none; background: #F8FAFC; }
+        .student-info input:focus { border-color: #2368EE; background: #fff; }
+
+        .task-card { 
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            padding: 24px; 
+            margin-bottom: 20px; 
+        }
+        .instruction-box {
+            border: 1px dashed #2368EE;
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            background-color: #F4F7FE;
+        }
+        .instruction-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: #2368EE;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .instruction-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 6px;
+        }
+        .instruction-text a {
+            color: #EE6023;
+            text-decoration: underline;
+        }
+        .instruction-goal {
+            font-size: 13px;
+            font-style: italic;
+            color: #555555;
+        }
+
+        .tables-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .tables-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .paronym-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .paronym-table th {
+            background-color: #2368EE;
+            color: #FFFFFF;
+            font-weight: 800;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #1d56c9;
+            width: 50%;
+        }
+
+        .paronym-table td {
+            border: 1px solid #CBD5E1;
+            padding: 6px 8px;
+            vertical-align: middle;
+        }
+
+        .paronym-table td.word-cell {
+            font-weight: 700;
+            color: #000000;
+            background-color: #F8FAFC;
+            text-transform: uppercase;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+
+        .table-input {
+            width: 100%;
+            padding: 6px 8px;
+            border: 1px solid #AFAFAF;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            outline: none;
+            background: #FFFFFF;
+            color: #000000;
+            transition: all 0.2s ease;
+        }
+
+        .table-input:focus {
+            border-color: #EE6023;
+            box-shadow: 0 0 0 2px rgba(238, 96, 35, 0.15);
+        }
+
+        .submit-btn {
+            background: #2368EE;
+            color: #fff;
+            border: none;
+            padding: 16px 30px;
+            font: 700 16px 'Inter', sans-serif;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 12px;
+            transition: all 0.2s ease;
+        }
+        .submit-btn:hover { background-color: #1d56c9; }
+        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        
+        <div class="brand-header">
+            <span class="brand-name">НМ | Никита Мельников</span>
+            <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+        </div>
+
+        <a href="../index.html" onclick="if(document.referrer){history.back();return false}" class="back-link">← Меню платформы</a>
+
+        <div class="header">
+            <h1>Домашняя работа 5.1</h1>
+            <p>Заполнение пар и групп из словника ФИПИ (150 групп)</p>
+        </div>
+
+        <div class="student-info">
+            <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
+        </div>
+
+        <div class="task-card">
+            <div class="instruction-box">
+                <div class="instruction-title">Задание «Заполните таблицу»</div>
+                <div class="instruction-text">
+                    Используя <a href="./paronyms-dict" target="_blank">словарь паронимов ЕГЭ</a>, заполните таблицу. Подберите к каждому слову его пароним или несколько паронимов (через запятую).
+                </div>
+                <div class="instruction-goal">Цель: полная проверка знания всех 150 паронимических групп словника ФИПИ.</div>
+            </div>
+
+            <div class="tables-wrapper">
+                <table class="paronym-table">
+                    <thead>
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                        </tr>
+                    </thead>
+                    <tbody id="left-table-body"></tbody>
+                </table>
+
+                <table class="paronym-table">
+                    <thead>
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                        </tr>
+                    </thead>
+                    <tbody id="right-table-body"></tbody>
+                </table>
+            </div>
+
+            <button type="button" id="submitBtn" class="submit-btn" onclick="processSending()">Отправить работу на проверку</button>
+        </div>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+
+    </div>
+
+<script>
+const allParonymsData = [
+    { main: "АБОНЕМЕНТ", valid: ["абонент"] },
+    { main: "АВТОРИТАРНЫЙ", valid: ["авторитетный"] },
+    { main: "АДРЕСАТ", valid: ["адресант"] },
+    { main: "АРТИСТИЧЕСКИЙ", valid: ["артистичный"] },
+    { main: "БЕДНЫЙ", valid: ["бедственный"] },
+    { main: "БЕЗЛИКИЙ", valid: ["безличный"] },
+    { main: "БЕЗОТВЕТНЫЙ", valid: ["безответственный"] },
+    { main: "БЛАГОДАРНЫЙ", valid: ["благодарственный"] },
+    { main: "БЛАГОТВОРИТЕЛЬНЫЙ", valid: ["благотворный"] },
+    { main: "БОЛОТИСТЫЙ", valid: ["болотный"] },
+    { main: "БУДНИЙ", valid: ["будничный"] },
+    { main: "БЫВАЛЫЙ", valid: ["бывший", "былой"] },
+    { main: "ВАННА", valid: ["ванная"] },
+    { main: "ВДОХ", valid: ["вздох"] },
+    { main: "ВЕКОВОЙ", valid: ["вечный"] },
+    { main: "ВЕЛИКИЙ", valid: ["величавый", "величественный"] },
+    { main: "ВЕЛИЧИЕ", valid: ["величина"] },
+    { main: "ВОЗБУЖДАТЬ", valid: ["побуждать"] },
+    { main: "ВОСПОЛНИТЬ", valid: ["дополнить", "заполнить", "наполнить", "переполнить", "пополнить"] },
+    { main: "ВРАЖДЕБНЫЙ", valid: ["вражеский"] },
+    { main: "ВЫБИРАТЬ", valid: ["избирать"] },
+    { main: "ВЫБОРНЫЙ", valid: ["выборочный"] },
+    { main: "ВЫГОДА", valid: ["выгодность"] },
+    { main: "ВЫДАЧА", valid: ["отдача", "передача", "раздача"] },
+    { main: "ВЫПЛАТА", valid: ["оплата", "плата", "уплата"] },
+    { main: "ВЫПЛАТИТЬ", valid: ["заплатить", "оплатить", "отплатить", "уплатить"] },
+    { main: "ВЫРАСТИТЬ", valid: ["нарастить", "отрастить"] },
+    { main: "ВЫРАЩИВАНИЕ", valid: ["наращивание", "отращивание"] },
+    { main: "ВЫСОКИЙ", valid: ["высотный"] },
+    { main: "ГАРАНТИЙНЫЙ", valid: ["гарантированный"] },
+    { main: "ГАРМОНИЧЕСКИЙ", valid: ["гармоничный"] },
+    { main: "ГЛИНИСТЫЙ", valid: ["глиняный"] },
+    { main: "ГОДИЧНЫЙ", valid: ["годовалый", "годовой"] },
+    { main: "ГОРДОСТЬ", valid: ["гордыня"] },
+    { main: "ГУМАНИЗМ", valid: ["гуманность"] },
+    { main: "ГУМАНИСТИЧЕСКИЙ", valid: ["гуманитарный", "гуманный"] },
+    { main: "ДВОИЧНЫЙ", valid: ["двойной", "двойственный", "двоякий", "сдвоенный", "удвоенный"] },
+    { main: "ДЕЙСТВЕННЫЙ", valid: ["действительный", "действующий"] },
+    { main: "ДЕЛОВИТЫЙ", valid: ["деловой", "дельный", "деляческий"] },
+    { main: "ДЕМОКРАТИЧНЫЙ", valid: ["демократический"] },
+    { main: "ДИКТАНТ", valid: ["диктат"] },
+    { main: "ДИПЛОМАНТ", valid: ["дипломат"] },
+    { main: "ДИПЛОМАТИЧЕСКИЙ", valid: ["дипломатичный"] },
+    { main: "ДЛИННЫЙ", valid: ["длительный"] },
+    { main: "ДОБРОТНЫЙ", valid: ["добрый"] },
+    { main: "ДОВЕРИТЕЛЬНЫЙ", valid: ["доверчивый"] },
+    { main: "ДОЖДЕВОЙ", valid: ["дождливый"] },
+    { main: "ДРАМАТИЧЕСКИЙ", valid: ["драматичный"] },
+    { main: "ДРУЖЕСКИЙ", valid: ["дружественный", "дружный"] },
+    { main: "ЕДИНИЧНЫЙ", valid: ["единственный", "единый", "одиночный"] },
+    { main: "ЖЕЛАННЫЙ", valid: ["желательный"] },
+    { main: "ЖЕСТОКИЙ", valid: ["жесткий"] },
+    { main: "ЖИЗНЕННЫЙ", valid: ["житейский"] },
+    { main: "ЖИЛИЩНЫЙ", valid: ["жилой"] },
+    { main: "ЗАГОРОДИТЬ", valid: ["огородить", "оградить", "отгородить", "перегородить"] },
+    { main: "ЗАНИЗИТЬ", valid: ["понизить", "снизить"] },
+    { main: "ЗАЧИНАТЕЛЬ", valid: ["зачинщик"] },
+    { main: "ЗВЕРИНЫЙ", valid: ["зверский"] },
+    { main: "ЗВУКОВОЙ", valid: ["звучный"] },
+    { main: "ЗЕМЛИСТЫЙ", valid: ["земляной", "земной"] },
+    { main: "ЗРИТЕЛЬНЫЙ", valid: ["зрительский"] },
+    { main: "ИЗОБРЕТАТЕЛЬНЫЙ", valid: ["изобретательский"] },
+    { main: "ИНФОРМАТИВНЫЙ", valid: ["информационный"] },
+    { main: "ИНФОРМАЦИЯ", valid: ["информированность", "информативность", "информационность"] },
+    { main: "ИРОНИЧЕСКИЙ", valid: ["ироничный"] },
+    { main: "ИСКУСНЫЙ", valid: ["искусственный"] },
+    { main: "ИСПОЛНИТЕЛЬНЫЙ", valid: ["исполнительский"] },
+    { main: "ИСХОДНЫЙ", valid: ["исходящий"] },
+    { main: "КАМЕНИСТЫЙ", valid: ["каменный"] },
+    { main: "КОМФОРТАБЕЛЬНЫЙ", valid: ["комфортный"] },
+    { main: "КОННЫЙ", valid: ["конский"] },
+    { main: "КОРЕНАСТЫЙ", valid: ["коренной", "корневой"] },
+    { main: "КОСТНЫЙ", valid: ["костяной"] },
+    { main: "КРАСОЧНЫЙ", valid: ["красящий", "крашеный"] },
+    { main: "ЛАКИРОВАННЫЙ", valid: ["лакировочный", "лаковый"] },
+    { main: "ЛЕГЕНДАРНЫЙ", valid: ["легендоподобный"] },
+    { main: "ЛЕДОВЫЙ", valid: ["ледяной"] },
+    { main: "ЛЕСИСТЫЙ", valid: ["лесной"] },
+    { main: "ЛИЧНОСТНЫЙ", valid: ["личный"] },
+    { main: "МИКРОСКОПИЧЕСКИЙ", valid: ["микроскопичный"] },
+    { main: "МОРОЖЕНЫЙ", valid: ["морозильный", "морозный"] },
+    { main: "НАБЛЮДАТЕЛЬНЫЙ", valid: ["наблюдательский"] },
+    { main: "НАДЕТЬ", valid: ["одеть"] },
+    { main: "НАЛИЧИЕ", valid: ["наличность"] },
+    { main: "НАПОМИНАНИЕ", valid: ["упоминание"] },
+    { main: "НАПРАВЛЕНИЕ", valid: ["направленность"] },
+    { main: "НЕВЕЖА", valid: ["невежда"] },
+    { main: "НЕСТЕРПИМЫЙ", valid: ["нетерпеливый", "нетерпимый"] },
+    { main: "НЕУДАЧНЫЙ", valid: ["неудачливый"] },
+    { main: "ОБВИНЕННЫЙ", valid: ["обвинительный"] },
+    { main: "ОБРЫВОК", valid: ["отрывок"] },
+    { main: "ОБСУДИТЬ", valid: ["осудить"] },
+    { main: "ОБХВАТИТЬ", valid: ["охватить"] },
+    { main: "ОГРАНИЧИТЬ", valid: ["отграничить", "разграничить"] },
+    { main: "ОКЛИК", valid: ["отклик"] },
+    { main: "ОПАСЛИВЫЙ", valid: ["опасный"] },
+    { main: "ОПЕЧАТАТЬ", valid: ["отпечатать"] },
+    { main: "ОПИСКА", valid: ["отписка"] },
+    { main: "ОРГАНИЧЕСКИЙ", valid: ["органичный"] },
+    { main: "ОТБОРНЫЙ", valid: ["отборочный"] },
+    { main: "ОТКЛОНЕНИЕ", valid: ["уклонение"] },
+    { main: "ОТКЛОНИТЬСЯ", valid: ["уклониться"] },
+    { main: "ОТЛИЧАТЬ(-СЯ)", valid: ["различать", "различаться"] },
+    { main: "ОТЛИЧИЕ", valid: ["различие"] },
+    { main: "ПАМЯТЛИВЫЙ", valid: ["памятный"] },
+    { main: "ПЕРЕТЕРПЕТЬ", valid: ["претерпеть"] },
+    { main: "ПОДДЕЛКА", valid: ["поделка", "проделка"] },
+    { main: "ПОКУПАТЕЛЬНЫЙ", valid: ["покупательский", "покупной"] },
+    { main: "ПОНЯТЛИВЫЙ", valid: ["понятный"] },
+    { main: "ПОПУЛИСТСКИЙ", valid: ["популярный"] },
+    { main: "ПОСТУПОК", valid: ["проступок"] },
+    { main: "ПОЧТЕННЫЙ", valid: ["почтительный", "почетный", "почётный"] },
+    { main: "ПРАЗДНИЧНЫЙ", valid: ["праздный"] },
+    { main: "ПРАКТИЧЕСКИЙ", valid: ["практичный"] },
+    { main: "ПРЕДОСТАВИТЬ", valid: ["представить"] },
+    { main: "ПРЕДСТАВИТЕЛЬНЫЙ", valid: ["представительский"] },
+    { main: "ПРИЗНАННЫЙ", valid: ["признательный"] },
+    { main: "ПРОДУКТИВНЫЙ", valid: ["продуктовый"] },
+    { main: "ПРОИЗВОДИТЕЛЬНОСТЬ", valid: ["производство"] },
+    { main: "ПРОИЗВОДИТЕЛЬНЫЙ", valid: ["производный", "производственный"] },
+    { main: "ПРОСВЕТИТЕЛЬСКИЙ", valid: ["просвещенный", "просвещённый"] },
+    { main: "ПУБЛИЦИСТИЧЕСКИЙ", valid: ["публицистичный"] },
+    { main: "ПУГЛИВЫЙ", valid: ["пуганый"] },
+    { main: "РАЗДРАЖЕНИЕ", valid: ["раздражительность"] },
+    { main: "РАСЧЕТЛИВЫЙ", valid: ["расчетный", "рассчетный"] },
+    { main: "РИТМИЧЕСКИЙ", valid: ["ритмичный"] },
+    { main: "РОМАНТИЧЕСКИЙ", valid: ["романтичный"] },
+    { main: "СКЛАДНОЙ", valid: ["складской"] },
+    { main: "СКРЫТНЫЙ", valid: ["скрытый"] },
+    { main: "СЛОВАРНЫЙ", valid: ["словесный"] },
+    { main: "СОПРОТИВЛЕНИЕ", valid: ["сопротивляемость"] },
+    { main: "СОСЕДНИЙ", valid: ["соседский"] },
+    { main: "СРАВНИМЫЙ", valid: ["сравнительный"] },
+    { main: "СТЕКЛЯННЫЙ", valid: ["стекольный"] },
+    { main: "СЦЕНИЧЕСКИЙ", valid: ["сценичный"] },
+    { main: "СЫТНЫЙ", valid: ["сытый"] },
+    { main: "ТЕХНИЧЕСКИЙ", valid: ["техничный"] },
+    { main: "УДАЧЛИВЫЙ", valid: ["удачный"] },
+    { main: "УНИЖЕННЫЙ", valid: ["унизительный"] },
+    { main: "ХИЩНИЧЕСКИЙ", valid: ["хищный"] },
+    { main: "ЦАРСКИЙ", valid: ["царственный", "царствующий"] },
+    { main: "ЦЕЛЫЙ", valid: ["цельный", "целостный"] },
+    { main: "ЧЕЛОВЕЧНЫЙ", valid: ["человеческий"] },
+    { main: "ЭКОНОМИКА", valid: ["экономия"] },
+    { main: "ЭКОНОМИЧЕСКИЙ", valid: ["экономичный", "экономный"] },
+    { main: "ЭСТЕТИЧЕСКИЙ", valid: ["эстетичный"] },
+    { main: "ЭТИЧЕСКИЙ", valid: ["этичный"] },
+    { main: "ЭФФЕКТИВНОСТЬ", valid: ["эффектность"] },
+    { main: "ЭФФЕКТИВНЫЙ", valid: ["эффектный"] },
+    { main: "ЯБЛОЧНЫЙ", valid: ["яблоневый"] }
+];
+
+function renderPracticeTables() {
+    const leftBody = document.getElementById('left-table-body');
+    const rightBody = document.getElementById('right-table-body');
+
+    leftBody.innerHTML = '';
+    rightBody.innerHTML = '';
+
+    const mid = Math.ceil(allParonymsData.length / 2);
+
+    allParonymsData.forEach((item, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td class="word-cell">${item.main}</td>
+            <td><input class="table-input" id="paronym-input-${index}" data-task-num="${index + 1}" autocomplete="off" placeholder="Введите пароним(ы)..."></td>
+        `;
+
+        if (index < mid) {
+            leftBody.appendChild(row);
+        } else {
+            rightBody.appendChild(row);
+        }
+    });
+}
+
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+function processSending() {
+    const name = document.getElementById('studentName').value.trim();
+    if (!name) {
+        alert('Пожалуйста, введите ваши Имя и Фамилию.');
+        return;
+    }
+
+    const data = new URLSearchParams();
+    data.append('taskType', 'dz5_1');
+    data.append('Имя Ученика', name);
+
+    const inputs = document.querySelectorAll('.table-input');
+    inputs.forEach(input => {
+        const num = input.getAttribute('data-task-num');
+        const val = input.value.trim();
+        data.append(`Задание_${num}`, val);
+    });
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Отправка данных...';
+
+    fetch(WEB_APP_URL, { method: 'POST', body: data, mode: 'no-cors' })
+    .then(() => {
+        document.getElementById('mainContainer').innerHTML = `
+            <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+                <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+                <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+                <a href="../index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+            </div>
+        `;
+    })
+    .catch(() => {
+        alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
+        btn.disabled = false;
+        btn.textContent = 'Отправить работу на проверку';
+    });
+}
+
+document.addEventListener('DOMContentLoaded', renderPracticeTables);
+</script>
+</body>
+</html>
