@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМАШНЯЯ РАБОТА: ОБОСОБЛЕНИЕ ОПРЕДЕЛЕНИЙ (17.1)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            background-color: #FFFFFF; 
+            color: #000000; 
+            padding: 20px; 
+            line-height: 1.6; 
+        }
+        .container { max-width: 650px; margin: 40px auto; }
+        
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #929292;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .brand-name { 
+            color: #2368EE; 
+            cursor: pointer; 
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .brand-phone { color: #929292; text-decoration: none; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #2368EE;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: #EE6023; }
+
+        .header { border-bottom: 4px solid #EE6023; padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        .header h1 { font-size: 26px; font-weight: 900; color: #2368EE; text-transform: uppercase; margin-bottom: 4px; }
+        .header p { font-size: 13px; font-weight: 700; color: #929292; text-transform: uppercase; letter-spacing: 1px; }
+
+        .student-info { background: #fff; padding: 20px; border-radius: 6px; margin-bottom: 24px; border: 1px solid #AFAFAF; }
+        .student-info input { width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; outline: none; background: #F8FAFC; }
+        .student-info input:focus { border-color: #2368EE; background: #fff; }
+
+        .instruction-box {
+            background-color: #F4F7FE;
+            border-left: 4px solid #2368EE;
+            padding: 14px 18px;
+            border-radius: 0 6px 6px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 25px;
+        }
+
+        .task-card { 
+            background: #FFFFFF;
+            border: 1px solid #AFAFAF; 
+            border-radius: 6px; 
+            padding: 22px; 
+            margin-bottom: 20px; 
+        }
+        .task-title { 
+            display: inline-block;
+            background-color: #F4F7FE; 
+            padding: 6px 12px; 
+            border-radius: 6px;
+            font-size: 12px; 
+            font-weight: 700; 
+            color: #2368EE; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            margin-bottom: 14px; 
+        }
+
+        .sentence-text {
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.8;
+            color: #000000;
+            background: #F4F7FE;
+            padding: 14px 18px;
+            border-left: 4px solid #EE6023;
+            border-radius: 0 6px 6px 0;
+            outline: none;
+            border-top: 1px solid transparent;
+            border-right: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+            word-wrap: break-word;
+            cursor: text;
+        }
+
+        .sentence-text:focus {
+            background: #FFFFFF;
+            border-color: #2368EE;
+            box-shadow: 0 0 0 3px rgba(35, 104, 238, 0.15);
+        }
+
+        .submit-btn {
+            background: #2368EE;
+            color: #fff;
+            border: none;
+            padding: 16px 30px;
+            font: 700 16px 'Inter', sans-serif;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.2s ease;
+        }
+        .submit-btn:hover { background-color: #1d56c9; }
+        .submit-btn:disabled { background-color: #F4F7FE; color: #D1D1D1; border: 1px solid #D1D1D1; cursor: not-allowed; }
+
+        .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #929292; font-weight: 700; line-height: 1.6; border-top: 1px solid #E0E0E0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        
+        <div class="brand-header">
+            <span class="brand-name" onclick="handleTeacherTap()">НМ | Никита Мельников</span>
+            <a href="tel:+79274223559" class="brand-phone">+7 927 422 35 59</a>
+        </div>
+
+        <a href="index.html" onclick="if(document.referrer){history.back();return false}" class="back-link">← Меню платформы</a>
+
+        <div class="header">
+            <h1>Домашняя работа: Задание 17.1</h1>
+            <p>Обособленные определения и причастные обороты</p>
+        </div>
+
+        <div class="student-info">
+            <input type="text" id="studentName" placeholder="Введите ваши Имя и Фамилию">
+        </div>
+
+        <div class="instruction-box">
+            Кликните мышкой или тапните в нужное место предложения и напечатайте необходимые знаки препинания с клавиатуры.
+        </div>
+
+        <div id="tasks-container">
+            <div class="task-card" data-task-num="1"><div class="task-title">Предложение № 1</div><div class="sentence-text" contenteditable="true" spellcheck="false">Они пили кофей в беседке на берегу широкого озера усеянного островами.</div></div>
+            <div class="task-card" data-task-num="2"><div class="task-title">Предложение № 2</div><div class="sentence-text" contenteditable="true" spellcheck="false">Глубоко оскорбленная она села под окошком и до глубокой ночи сидела не раздеваясь.</div></div>
+            <div class="task-card" data-task-num="3"><div class="task-title">Предложение № 3</div><div class="sentence-text" contenteditable="true" spellcheck="false">Старушка поглядывающая на него из-за перегородки не могла знать, заснул он или только задумался.</div></div>
+            <div class="task-card" data-task-num="4"><div class="task-title">Предложение № 4</div><div class="sentence-text" contenteditable="true" spellcheck="false">Неокрепшие в самоуправлении глуповцы начали приписывать это явление посредничеству какой-то неведомой силы.</div></div>
+            <div class="task-card" data-task-num="5"><div class="task-title">Предложение № 5</div><div class="sentence-text" contenteditable="true" spellcheck="false">Закованные в гранит волны моря подавленные громадными тяжестями скользящими по их хребтам бьются о борта судов, о берега, бьются и ропщут вспенённые загрязнённые разным хламом.</div></div>
+            <div class="task-card" data-task-num="6"><div class="task-title">Предложение № 6</div><div class="sentence-text" contenteditable="true" spellcheck="false">В длинном клюве изогнутом на конце чайка держала маленькую рыбку.</div></div>
+            <div class="task-card" data-task-num="7"><div class="task-title">Предложение № 7</div><div class="sentence-text" contenteditable="true" spellcheck="false">И то ли он состроил гримасу ослепленный заходящим солнцем то ли его лицу вообще была свойственна некая странность, только губы его казались слишком короткими…</div></div>
+            <div class="task-card" data-task-num="8"><div class="task-title">Предложение № 8</div><div class="sentence-text" contenteditable="true" spellcheck="false">Дети любопытные и любознательные сразу заметили, что в городе творится что-то непонятное.</div></div>
+            <div class="task-card" data-task-num="9"><div class="task-title">Предложение № 9</div><div class="sentence-text" contenteditable="true" spellcheck="false">В трубке зазвучал его голос хрипловатый и мужественный.</div></div>
+            <div class="task-card" data-task-num="10"><div class="task-title">Предложение № 10</div><div class="sentence-text" contenteditable="true" spellcheck="false">Мрачным и удивленным взглядом встретил его отец.</div></div>
+            <div class="task-card" data-task-num="11"><div class="task-title">Предложение № 11</div><div class="sentence-text" contenteditable="true" spellcheck="false">Он открыл тетрадь и начертил два отрезка параллельных друг другу.</div></div>
+            <div class="task-card" data-task-num="12"><div class="task-title">Предложение № 12</div><div class="sentence-text" contenteditable="true" spellcheck="false">Начертите равносторонний треугольник со стороной равной пяти сантиметрам.</div></div>
+            <div class="task-card" data-task-num="13"><div class="task-title">Предложение № 13</div><div class="sentence-text" contenteditable="true" spellcheck="false">Но теперь недолго они говорили, — тот мудрый не мешавший им судить заговорил сам: «Стойте! Наказание есть. Это страшное наказание; вы не выдумаете такого в тысячу лет!»</div></div>
+            <div class="task-card" data-task-num="14"><div class="task-title">Предложение № 14</div><div class="sentence-text" contenteditable="true" spellcheck="false">Небольшая ночная птица неслышно и низко мчавшаяся на своих мягких крыльях почти наткнулась на меня и пугливо нырнула в сторону.</div></div>
+            <div class="task-card" data-task-num="15"><div class="task-title">Предложение № 15</div><div class="sentence-text" contenteditable="true" spellcheck="false">Может, это была колючка или кончик гвоздя вылезшего из войлочной подбивки хомута.</div></div>
+            <div class="task-card" data-task-num="16"><div class="task-title">Предложение № 16</div><div class="sentence-text" contenteditable="true" spellcheck="false">Лежа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый, разделенный дугообразными чешуйками живот, на верхушке которого еле держалось готовое вот-вот окончательно сползти одеяло.</div></div>
+            <div class="task-card" data-task-num="17"><div class="task-title">Предложение № 17</div><div class="sentence-text" contenteditable="true" spellcheck="false">По светлой заре вычерчивались чёрные верхушки берез тонкие, как письмена.</div></div>
+            <div class="task-card" data-task-num="18"><div class="task-title">Предложение № 18</div><div class="sentence-text" contenteditable="true" spellcheck="false">Княжна меня решительно ненавидит, мне уже пересказывали две-три эпиграммы на мой счет довольно колкие, но вместе очень лестные.</div></div>
+            <div class="task-card" data-task-num="19"><div class="task-title">Предложение № 19</div><div class="sentence-text" contenteditable="true" spellcheck="false">Я до сих пор стараюсь объяснить себе, какого рода чувство кипело тогда в груди моей: то было и досада оскорблённого самолюбия, и презрение, и злоба рождавшаяся при мысли, что этот человек теперь с такою уверенностью, с такой спокойной дерзостью на меня глядящий две минуты тому назад, не подвергая себя никакой опасности, хотел меня убить, как собаку, ибо раненый в ногу немного сильнее я бы непременно свалился с утёса.</div></div>
+            <div class="task-card" data-task-num="20"><div class="task-title">Предложение № 20</div><div class="sentence-text" contenteditable="true" spellcheck="false">Смажьте форму жиром, чтобы не заржавела, и уберите кухонный стол, сделайте соус из гидрата оксилития разведенного в стакане свежего молока.</div></div>
+            <div class="task-card" data-task-num="21"><div class="task-title">Предложение № 21</div><div class="sentence-text" contenteditable="true" spellcheck="false">Шатаясь и задыхаясь, он наконец вышел на берег, увидел лежавший на земле халат, поднял его и машинально растирался им, пока не согрелось окоченевшее тело.</div></div>
+            <div class="task-card" data-task-num="22"><div class="task-title">Предложение № 22</div><div class="sentence-text" contenteditable="true" spellcheck="false">Старший брат моего отца умерший в 1813 году имея в виду устроить деревенскую больницу, отдал его мальчиком какому-то знакомому врачу для обучения фельдшерскому искусству.</div></div>
+            <div class="task-card" data-task-num="23"><div class="task-title">Предложение № 23</div><div class="sentence-text" contenteditable="true" spellcheck="false">Кто сказал тебе, что нет на свете настоящей, верной, вечной любви?</div></div>
+            <div class="task-card" data-task-num="24"><div class="task-title">Предложение № 24</div><div class="sentence-text" contenteditable="true" spellcheck="false">Но это еще не все: третьим в этой компании оказался неизвестно откуда взявшийся кот громадный, как боров, черный, как сажа или грач…</div></div>
+            <div class="task-card" data-task-num="25"><div class="task-title">Предложение № 25</div><div class="sentence-text" contenteditable="true" spellcheck="false">Зимний вечер 14 декабря густой темный морозный.</div></div>
+            <div class="task-card" data-task-num="26"><div class="task-title">Предложение № 26</div><div class="sentence-text" contenteditable="true" spellcheck="false">Поля, все поля тянулись вплоть до самого небосклона, то слегка вздымаясь, то опускаясь снова; кое-где виднелись небольшие леса, и усеянные редким и низким кустарником вились овраги…</div></div>
+            <div class="task-card" data-task-num="27"><div class="task-title">Предложение № 27</div><div class="sentence-text" contenteditable="true" spellcheck="false">Одна черная крупная и облезлая была очень похожа на тех крыс, которых он видел на кораблях во время путешествий.</div></div>
+            <div class="task-card" data-task-num="28"><div class="task-title">Предложение № 28</div><div class="sentence-text" contenteditable="true" spellcheck="false">Страннее всего происшествия случающиеся на Невском проспекте!</div></div>
+            <div class="task-card" data-task-num="29"><div class="task-title">Предложение № 29</div><div class="sentence-text" contenteditable="true" spellcheck="false">Доктор Будах отмывшийся переодетый во все чистое тщательно побритый выглядел очень внушительно.</div></div>
+        </div>
+
+        <button type="button" id="submitBtn" class="submit-btn" onclick="processSending()">Отправить работу на проверку</button>
+
+        <div class="footer">
+            <span>НМ | Никита Мельников</span><br>
+            <span>+7 927 422 35 59</span>
+        </div>
+    </div>
+
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPsb3knfU17cfeA1Zw2X56s7Up3Um9kZ_B8VarEP59FfNaAKAWBFTsK8TFSMEyCkyH/exec';
+
+        // Логика секретного переключателя режима учителя (3 тапа)
+        let tapCount = 0;
+        let tapTimer;
+        function handleTeacherTap() {
+            tapCount++;
+            clearTimeout(tapTimer);
+            if (tapCount === 3) {
+                alert('Режим учителя активирован');
+                tapCount = 0;
+            } else {
+                tapTimer = setTimeout(() => { tapCount = 0; }, 500);
+            }
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('t')) {
+            console.log("Режим учителя включен через URL");
+        }
+
+        function processSending() {
+            const name = document.getElementById('studentName').value.trim();
+            if (!name) {
+                alert('Пожалуйста, введите ваши Имя и Фамилию.');
+                return;
+            }
+
+            const data = new URLSearchParams();
+            data.append('taskType', 'dz17_1');
+            data.append('Имя Ученика', name);
+
+            const taskCards = document.querySelectorAll('.task-card');
+            taskCards.forEach(card => {
+                const num = card.getAttribute('data-task-num');
+                const sentenceBox = card.querySelector('.sentence-text');
+                const userText = sentenceBox ? sentenceBox.textContent.trim() : '';
+                data.append(`Задание_${num}`, userText);
+            });
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Отправка данных...';
+
+            fetch(WEB_APP_URL, { method: 'POST', body: data, mode: 'no-cors' })
+            .then(() => {
+                document.getElementById('mainContainer').innerHTML = `
+                    <div style="text-align: center; padding: 48px 24px; background-color: #FFFFFF; border: 1px solid #AFAFAF; border-radius: 6px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <div style="width: 56px; height: 56px; background: #DCFCE7; color: #16A34A; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: bold;">✓</div>
+                        <h2 style="color: #000000; margin-bottom: 12px; font-weight: 900; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 20px; letter-spacing: -0.5px;">Работа успешно отправлена!</h2>
+                        <p style="font-size: 15px; color: #929292; font-family: 'Inter', sans-serif; line-height: 1.6; max-width: 400px; margin: 0 auto;">Твои ответы успешно записаны и отправлены Никите в Telegram.</p>
+                        <a href="index.html" onclick="if(document.referrer) { history.back(); return false; }" class="back-link" style="margin-top: 20px;">← В меню</a>
+                    </div>
+                `;
+            })
+            .catch(() => {
+                alert('Произошла ошибка при отправке. Попробуйте ещё раз.');
+                btn.disabled = false;
+                btn.textContent = 'Отправить работу на проверку';
+            });
+        }
+    </script>
+</body>
+</html>
